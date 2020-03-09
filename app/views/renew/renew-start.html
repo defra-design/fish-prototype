@@ -31,8 +31,6 @@
 
     <form action="verify" method="post" class="form" id="recipient">
 
-      {% from "radios/macro.njk" import govukRadios %}
-
         {{ govukRadios({
           idPrefix: "recipient",
           name: "licence-recipient",

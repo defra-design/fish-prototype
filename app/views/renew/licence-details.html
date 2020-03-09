@@ -128,8 +128,6 @@
 
     <form action="renew-from" method="post" class="form" id="recipient">
 
-      {% from "radios/macro.njk" import govukRadios %}
-
         {{ govukRadios({
           idPrefix: "select-licence",
           name: "select-licence",
