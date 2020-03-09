@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+ {{ govukHeader({
+   homepageUrl: "/",
+   serviceName: "Manage your water abstraction or impoundment licence",
+   serviceUrl: "#",
+   containerClasses: "govuk-width-container"
+ }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row govuk-!-margin-bottom-6">
+    <!-- hacky hack -->
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">
+        Are you sure you wish to clear the session data?
+      </h1>
+
+      <form method="post" action="/index">
+        <div class="govuk-warning-text">
+        <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+        <strong class="govuk-warning-text__text">
+          <span class="govuk-warning-text__assistive">Warning</span>
+          This will clear all of the data entered in this session
+        </strong>
+      </div>
+
+      <button type="submit" class="govuk-button">
+        Clear the data
+      </button>
+
+    </div>
+  </div>
+
+{% endblock %}
+
+<!-- Javascript -->
+<script src="/public/javascripts/jquery-1.11.3.js"></script>
+<script src="/node_modules/govuk-frontend/all.js"></script>
+<script src="/public/javascripts/application.js"></script>
+<script src="/public/javascripts/auto-store-data.js"></script>

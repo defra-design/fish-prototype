@@ -1,0 +1,18 @@
+{% from "header/macro.njk" import govukHeader %}
+
+{{ govukHeader({
+  homepageUrl: "#",
+  serviceName: "Manage your water abstraction or impoundment licence",
+  serviceUrl: "#",
+  containerClasses: "govuk-width-container",
+  navigation: [
+    {
+      href: "#1",
+      text: "Change password"
+    },
+    {
+      href: "/",
+      text: "Sign out"
+    }
+  ]
+}) }}

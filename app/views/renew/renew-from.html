@@ -1,0 +1,85 @@
+{% extends "layout.html" %}
+
+{% set title = "When would you like the new licence to start?" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block header %}
+ {{ govukHeader({
+   homepageUrl: "/",
+   serviceName: "Buy a fishing licence",
+   serviceUrl: "#",
+   containerClasses: "govuk-width-container"
+ }) }}
+{% endblock %}
+
+{% block beforeContent %}
+<!--
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+  -->
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="licence-conditions" method="post" class="form" id="recipient">
+
+      {% from "radios/macro.njk" import govukRadios %}
+
+        {{ govukRadios({
+          idPrefix: "renew",
+          name: "renew-from",
+          fieldset: {
+            legend: {
+              text: title,
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "from-expiry",
+              text: "From previous licence expiry date: 3 March 2020, 11:59"
+            },
+            {
+              value: "another-time",
+              text: "Another time or date – you can buy up to 60 days in advance"
+            }
+          ]
+        })
+      }}
+
+      <button type="submit" class="govuk-button">
+        Continue
+      </button>
+
+    </form>
+
+  </div>
+</div>
+
+<script src="/public/javascripts/jquery-1.11.3.js"></script>
+
+<script>
+  $(function() {
+    $('form[data-routing]').on('submit', function(ev) {
+      // FInd selected radio button
+      const url = $(this).find('input:checked').val();
+
+      if(url) {
+        ev.preventDefault();
+        window.location.href = url;
+        return false;
+      }
+    });
+  })
+</script>
+
+{% endblock %}

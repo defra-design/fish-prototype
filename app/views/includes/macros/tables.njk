@@ -1,0 +1,25 @@
+{% macro tableCell(text, context, link, row) %}
+<div class="table__cell">
+
+  {% if row %}
+    <h2 class="screen-reader-only">
+      {{ row }}
+    </h2>
+  {% endif %}
+
+  {% if context %}
+    <h3 class="table__context">
+      {{ context }}
+    </h3>
+  {% endif %}
+
+  {% if link %}
+    <a href="{{ link }}">
+      {{ text }}
+    </a>
+  {% else %}
+    {{ text }}
+  {% endif %}
+
+</div>
+{% endmacro %}

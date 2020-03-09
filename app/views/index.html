@@ -1,0 +1,87 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+ {{ govukHeader({
+   homepageUrl: "/",
+   serviceName: "Buy a fishing licence",
+   serviceUrl: "#",
+   containerClasses: "govuk-width-container"
+ }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row govuk-!-margin-bottom-6">
+  <!-- hacky hack -->
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">
+      Buy a fishing licence prototype
+    </h1>
+    <p>
+      This is a new version of the prototype and contains a limited set of views.
+    </p>
+
+    <p class="govuk-!-margin-bottom-0">
+      <a href="https://github.com/DEFRA/fish-prototype">
+        GitHub: DEFRA / fish-prototype
+      </a>
+    </p>
+    <p>
+      <br>UX and research: Cecile Pujol
+      <br>Admin: Alan Cruikshanks
+    </p>
+
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <div class="govuk-!-margin-bottom-8">
+
+      <h2 class="govuk-heading-m">
+        Recent changes
+      </h2>
+
+      <h3 class="govuk-heading-s">
+        Email renew happy path
+      </h3>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <section class="govuk-!-margin-bottom-6">
+          <li><a href="/renew/renew-email">An email</a></li>
+          <li><a href="/renew/renew-start">Review licence information</a></li>
+          <li><a href="/renew/verify">Verify using details from last year’s licence</a></li>
+          <li><a href="/renew/owner-details">Check the owner details</a></li>
+          <li><a href="/renew/licence-details">Check the licence details</a></li>
+          <li><a href="/renew/renew-from">Choose when the licence will renew from</a></li>
+          <li><a href="/renew/licence-conditions">Agree to licence conditions</a></li>
+          <li><a href="/renew/payment">Make a payment</a></li>
+          <li><a href="/renew/payment-confirmed">Payment confirmed</a></li>
+        </section>
+      </ul>
+
+      <h3 class="govuk-heading-s">
+        Email renew difficult path (not yet here, just by example)
+      </h3>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <section class="govuk-!-margin-bottom-6">
+          <li><a href="#">An email</a></li>
+          <li><a href="#">Review licence information</a></li>
+          <li><a href="#">Renew</a></li>
+        </section>
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+{% endblock %}

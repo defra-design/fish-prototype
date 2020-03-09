@@ -1,0 +1,12 @@
+{% macro postRelayFields(data) %}
+  {% for key, value in data %}
+  <input type="hidden" name="{{ key }}" value="{{ value }}">
+  {% endfor %}
+{% endmacro %}
+
+{% macro postRelayButton(path, data, label) %}
+<form method="POST" action="{{ path }}">
+  {{ postRelayFields(data) }}
+  <button type="submit" class="govuk-button">{{ label | default('Continue') }}</button>
+</form>
+{% endmacro %}

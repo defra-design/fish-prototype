@@ -1,0 +1,176 @@
+{% extends "layout.html" %}
+
+{% set title = "Are these details correct?" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block header %}
+ {{ govukHeader({
+   homepageUrl: "/",
+   serviceName: "Buy a fishing licence",
+   serviceUrl: "#",
+   containerClasses: "govuk-width-container"
+ }) }}
+{% endblock %}
+
+{% block beforeContent %}
+<!--
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+  -->
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">
+      {{ title }}
+    </h1>
+
+    <p class="govuk-body">
+      Check the licence holder’s details and let us know if they moved home or change email address so that they can receive their licence confirmation message, licence card and  expiry remiders.
+    </p>
+
+    <h2 class="govuk-heading-m">
+      Licence details
+    </h2>
+
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Licence number
+        </dt>
+        <dd class="govuk-summary-list__value">
+          2WC3FGH BF283C
+        </dd>
+        <dd class="govuk-summary-list__actions">
+
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Licence type
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Trout and course
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">
+            Change<span class="govuk-visually-hidden"> licence type</span>
+          </a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Licence length
+        </dt>
+        <dd class="govuk-summary-list__value">
+          <p class="govuk-body">
+            12 months
+          </p>
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">
+            Change<span class="govuk-visually-hidden"> licence length</span>
+          </a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Expires
+        </dt>
+        <dd class="govuk-summary-list__value">
+          <p class="govuk-body">
+            Midday on 2 March 2020
+          </p>
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">
+            Change<span class="govuk-visually-hidden"> mobile number</span>
+          </a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Address
+        </dt>
+        <dd class="govuk-summary-list__value">
+          72 Willow Road
+          <br>Fishponds
+          <br>Bristol
+          <br>SE23 6FH
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">
+            Change<span class="govuk-visually-hidden"> address</span>
+          </a>
+        </dd>
+      </div>
+    </dl>
+
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="renew-from" method="post" class="form" id="recipient">
+
+      {% from "radios/macro.njk" import govukRadios %}
+
+        {{ govukRadios({
+          idPrefix: "select-licence",
+          name: "select-licence",
+
+          items: [
+            {
+              value: "buy-this",
+              text: "Buy this licence again for £30"
+            },
+            {
+              value: "another",
+              text: "Buy another licence (you will need to enter your personal details again)"
+            }
+          ]
+        })
+      }}
+
+      <button type="submit" class="govuk-button">
+        Continue
+      </button>
+
+    </form>
+
+  </div>
+</div>
+
+<script src="/public/javascripts/jquery-1.11.3.js"></script>
+
+<script>
+  $(function() {
+    $('form[data-routing]').on('submit', function(ev) {
+      // FInd selected radio button
+      const url = $(this).find('input:checked').val();
+
+      if(url) {
+        ev.preventDefault();
+        window.location.href = url;
+        return false;
+      }
+    });
+  })
+</script>
+
+{% endblock %}
