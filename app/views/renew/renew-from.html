@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "When would you like the new licence to start?" %}
+{% set title = "When would you like the next licence to start?" %}
 
 {% block pageTitle %}
   {{title}} - GOV.UK
@@ -29,30 +29,36 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <form action="licence-conditions" method="post" class="form" id="recipient">
+    <form data-routing="1" method="post" class="form" id="choose-renew-time">
 
-        {{ govukRadios({
-          idPrefix: "renew",
-          name: "renew-from",
-          fieldset: {
-            legend: {
-              text: title,
-              isPageHeading: true,
-              classes: "govuk-fieldset__legend--l"
-            }
-          },
-          items: [
-            {
-              value: "from-expiry",
-              text: "From previous licence expiry date: 3 March 2020, 11:59"
-            },
-            {
-              value: "another-time",
-              text: "Another time or date – you can buy up to 60 days in advance"
-            }
-          ]
-        })
-      }}
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="another-time-conditional-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              When would you like the next licence to start?
+            </h1>
+          </legend>
+          <span id="another-time-conditional-hint" class="govuk-hint">
+            Current licence expiry date: 2 March 2020, midnight.
+          </span>
+          <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="licence-renew" name="licence-renew" type="radio"  value="notification-details">
+              <label class="govuk-label govuk-radios__label" for="licence-renew">
+                From previous licence expiry date: <span class="govuk-!-font-weight-bold">3 March 2020, 11:59</span>
+              </label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="another-time" name="another-time" type="radio" value="phone">
+              <label class="govuk-label govuk-radios__label" for="another-time">
+                Another time or date
+              </label>
+            </div>
+
+          </div>
+        </fieldset>
+      </div>
 
       <button type="submit" class="govuk-button">
         Continue

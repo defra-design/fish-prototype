@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "Are these details correct?" %}
+{% set title = "Do you want to renew this licence?" %}
 
 {% block pageTitle %}
   {{title}} - GOV.UK
@@ -33,22 +33,47 @@
       {{ title }}
     </h1>
 
-    <p class="govuk-body">
-      Check the licence holder’s details and let us know if they moved home or change email address so that they can receive their licence confirmation message, licence card and  expiry remiders.
+    <p class="govuk-!-margin-bottom-6 govuk-body">
+      These are the details of the current licence. Choose whether you wish to renew it of buy a different licence.
     </p>
 
-    <h2 class="govuk-heading-m">
-      Licence details
-    </h2>
+    <section class="govuk-!-margin-bottom-9 govuk-body">
 
-  </div>
-</div>
+      <section class="meta-data__row">
+        <div class="meta-data__container">
+          <div class="meta-data__label">
+            Licence Holder
+          </div>
+          <div class="meta-data__value">
+            Harriet Baitman
+          </div>
+        <div>
+      </section>
+      <section class="meta-data__row">
+        <div class="meta-data__container">
+          <div class="meta-data__label">
+            Licence number
+          </div>
+          <div class="meta-data__value">
+            00020321-2WC3FCP-EBFE76
+          </div>
+        <div>
+      </section>
+      <section class="meta-data__row">
+        <div class="meta-data__container">
+          <div class="meta-data__label">
+            Expiry date
+          </div>
+          <div class="meta-data__value">
+            2 March 2020, midnight
+          </div>
+        <div>
+      </section>
 
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-full">
+    </section>
 
-    <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-      <div class="govuk-summary-list__row">
+  <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+      <!-- <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
           Licence number
         </dt>
@@ -58,7 +83,9 @@
         <dd class="govuk-summary-list__actions">
 
         </dd>
-      </div>
+      </div> -->
+
+    <span class="govuk-body">
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
           Licence type
@@ -87,7 +114,8 @@
           </a>
         </dd>
       </div>
-      <div class="govuk-summary-list__row">
+
+      <!-- <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
           Expires
         </dt>
@@ -101,20 +129,17 @@
             Change<span class="govuk-visually-hidden"> mobile number</span>
           </a>
         </dd>
-      </div>
+      </div> -->
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
-          Address
+          Number of rods
         </dt>
         <dd class="govuk-summary-list__value">
-          72 Willow Road
-          <br>Fishponds
-          <br>Bristol
-          <br>SE23 6FH
+          Up to 2 rods
         </dd>
         <dd class="govuk-summary-list__actions">
           <a class="govuk-link" href="#">
-            Change<span class="govuk-visually-hidden"> address</span>
+            Change<span class="govuk-visually-hidden"> number of rods</span>
           </a>
         </dd>
       </div>
@@ -134,7 +159,7 @@
 
           items: [
             {
-              value: "buy-this",
+              value: "renew-from",
               text: "Buy this licence again for £30"
             },
             {

@@ -1,0 +1,207 @@
+// flexible tables, present well on mobiles
+// also improved accessibly
+
+.table {
+  // larger screens
+  @media (min-width: 768px) {
+    display: table;
+    width: 100%;
+  }
+}
+
+.table__row, .table__row--selectable {
+  display: block;
+  // display: flex;
+  // larger screens
+  @media (min-width: 768px) {
+    display: table-row;
+    padding-bottom: 0;
+  }
+  text-decoration: none;
+  //
+  // &:focus {
+  //   outline: none;
+  // }
+}
+
+.table__row--head {
+  display: none;
+  // larger screens
+  @media (min-width: 768px) {
+    font-weight: 800;
+    display: table-row;
+  }
+}
+
+.table__row--text {
+  margin-bottom: 0;
+}
+
+.screen-reader-only {
+  display: none;
+}
+
+.table__row--selectable:hover {
+  background-color: govuk-colour("light-grey");
+  cursor: pointer;
+}
+
+.table__row:hover {
+  cursor: cursor;
+}
+
+.table__row:focus {
+  border-bottom: 1px solid #005ea5;
+  background-color: none;
+}
+
+.table__row--last .table__cell {
+  @media (min-width: 768px) {
+    border-bottom: none;
+  }
+}
+
+.govuk-summary-list__row--last dt,
+.govuk-summary-list__row--last dd {
+  border-bottom: none;
+}
+
+.table__row--total,
+.table__row--bold-text {
+  font-weight: 800;
+}
+
+.table__cell {
+  padding: 15px;
+  padding-left: 0;
+  font-size: inherit;
+  border-bottom: 1px solid #bfc1c3;
+  min-height: 30px;
+  vertical-align: top;
+  // larger screens
+  @media (min-width: 768px) {
+    display: table-cell;
+    min-height: auto;
+  }
+  color: $govuk-text-colour;
+}
+
+.table__cell--v-middle {
+  vertical-align: middle;
+}
+
+.table__cell--follower {
+  border-bottom: none;
+}
+
+@media (min-width: 768px) {
+  .table__row--end dt,
+  .table__row--end dd,
+  .table__row--end div {
+    border-bottom: 2px solid $govuk-text-colour;
+  }
+  .table__row--divider dt,
+  .table__row--divider dd,
+  .table__row--divider div, {
+    border-bottom: 1px solid $govuk-text-colour;
+  }
+}
+
+.table__cell p {
+  margin-bottom: 0;
+}
+
+.table__cell:visited {
+  color: green;
+}
+
+.table__cell:visited p {
+  color: green;
+}
+
+.table__cell--no-wrap {
+  white-space: nowrap;
+}
+
+.table__cell--empty {
+  display: none;
+  @media (min-width: 768px) {
+    display: table-cell;
+  }
+}
+
+.table__cell .govuk-details {
+  margin-bottom: 0;
+}
+
+.table__heading {
+  font-size: 19px;
+  text-decoration: none;
+  padding-left: 15px;
+}
+
+.table__heading:first {
+  font-size: inherit;
+  border-bottom: none;
+  padding: 15px;
+  padding-left: 0;
+  vertical-align: middle;
+  white-space: nowrap;
+  // larger screens
+  @media (min-width: 768px) {
+    display: table-cell;
+  }
+}
+
+.table__link {
+  color: $govuk-link-colour;
+  text-decoration: underline;
+}
+
+// only visible on small screens
+.table__context {
+  margin: 0;
+  font-size: 16px;
+  padding-bottom: 5px;
+  -moz-osx-font-smoothing: grayscale;
+  display: block;
+  // larger screens
+  @media (min-width: 768px) {
+    position: absolute;
+    height: 1px;
+    width: 1px;
+    clip: rect(1px 1px 1px 1px);
+    clip: rect(1px, 1px, 1px, 1px);
+    clip-path: polygon(0px 0px, 0px 0px, 0px 0px);
+    -webkit-clip-path: polygon(0px 0px, 0px 0px, 0px 0px);
+    overflow: hidden !important;
+  }
+}
+
+.numbers {
+  // font-size: 19px;
+  // larger screens
+  @media (min-width: 768px) {
+    text-align: right;
+  }
+}
+
+.monospace {
+  font-family: monospace;
+}
+
+// ========== ========== ========== ========== ==========
+// table column widths
+// ========== ========== ========== ========== ==========
+// applied to the head table row
+// control the relative width of table columns
+// evenly spaced by default
+
+.column--15 { width: 15% }
+.column--20 { width: 20% }
+.column--25 { width: 25% }
+.column--30 { width: 30% }
+.column--33 { width: 33% }
+.column--40 { width: 40% }
+.column--50 { width: 50% }
+.column--60 { width: 60% }

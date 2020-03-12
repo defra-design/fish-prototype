@@ -1,0 +1,40 @@
+.meta-data__row {
+  display: block;
+  width: 100%;
+}
+
+/* single column */
+.meta-data__container {
+  display:flex;
+  flex-wrap:wrap;
+}
+
+.meta-data__label {
+  width: 100%;
+  order:1;
+  // color: $govuk-secondary-text-colour;
+}
+
+.meta-data__value {
+  order:2;
+  margin-bottom: 10px;
+}
+
+@media screen and (min-width:600px) {
+  .flex_container {
+    display: flex;
+    width: 100%;
+    flex-wrap:nowrap;
+  }
+}
+
+/* 2 columns */
+@media screen and (min-width:600px) {
+  .meta-data__label {
+    width: 200px;
+  }
+  .meta-data__value {
+    flex: 1;
+    margin-bottom: 0;
+  }
+}
