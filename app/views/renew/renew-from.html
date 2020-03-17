@@ -38,9 +38,12 @@
               When would you like the next licence to start?
             </h1>
           </legend>
-          <span id="another-time-conditional-hint" class="govuk-hint">
-            Current licence expiry date: 2 March 2020, midnight.
-          </span>
+          {% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+
+          {{ govukInsetText({
+            text: "Current licence expiry date: 2 March 2020, midnight."
+          }) }}
+
           <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="licence-renew" name="licence-renew" type="radio"  value="notification-preference">
