@@ -1,0 +1,175 @@
+{% extends "layout.html" %}
+
+{% set title = "You’re about to renew the following licence" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block header %}
+ {{ govukHeader({
+   homepageUrl: "/",
+   serviceName: "Buy a fishing licence",
+   serviceUrl: "#",
+   containerClasses: "govuk-width-container"
+ }) }}
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-xl">{{ title }}</h1>
+
+      <p class="govuk-body-l">
+        Check that all details are correct and make any edit or continue to payment.
+      </p>
+
+      {{ govukSummaryList({
+        classes: 'govuk-!-margin-bottom-9',
+        rows: [
+          {
+            key: {
+              text: "Licence holder"
+            },
+            value: {
+              text: "Sam baiter"
+            },
+            actions: {
+              items: [
+
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Licence type"
+            },
+            value: {
+              text: "Trout and course"
+            },
+            actions: {
+              items: [
+
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Licence length"
+            },
+            value: {
+              text: "12 months"
+            },
+            actions: {
+              items: [
+
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Number of rods"
+            },
+            value: {
+              html: "Up to 2 rods"
+            },
+            actions: {
+              items: [
+
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Start date"
+            },
+            value: {
+              text: "3 March 2020, 00:01"
+            },
+            actions: {
+              items: [
+
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Cost"
+            },
+            value: {
+              text: "£30"
+            },
+            actions: {
+              items: [
+
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Contact preference"
+            },
+            value: {
+              html: '<p class="govuk-body">Email</p>'
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "contact details"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+      {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+
+      {{ govukWarningText({
+        text: "If you haven’t provided email or mobile number and wish to go fishing before receiving the licence card you will need to make a note of the licence number on the last page after payment.",
+        iconFallbackText: "Warning"
+      }) }}
+
+      <form action="licence-conditions" method="post" novalidate>
+
+        <input type="hidden" name="answers-checked" value="true">
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+  <script src="/public/javascripts/jquery-1.11.3.js"></script>
+
+  <script>
+    $(function() {
+      $('form[data-routing]').on('submit', function(ev) {
+        // FInd selected radio button
+        const url = $(this).find('input:checked').val();
+
+        if(url) {
+          ev.preventDefault();
+          window.location.href = url;
+          return false;
+        }
+      });
+    })
+  </script>
+
+{% endblock %}

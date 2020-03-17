@@ -1,0 +1,92 @@
+{% extends "layout.html" %}
+
+{% set title = "How would you like to receive licence details and future expiry reminders?" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block header %}
+ {{ govukHeader({
+   homepageUrl: "/",
+   serviceName: "Buy a fishing licence",
+   serviceUrl: "#",
+   containerClasses: "govuk-width-container"
+ }) }}
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <!-- contact options with progressive enhancement -->
+    <div class="govuk-form-group">
+      <form action="check-answers" method="get">
+
+        <fieldset class="govuk-fieldset govuk-!-margin-bottom-6" aria-describedby="how-contacted-conditional-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading govuk-!-margin-bottom-3">
+              {{ title }}
+            </h1>
+          </legend>
+
+          <div class="govuk-radios govuk-radios--conditional" data-module="radios">
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="how-contacted-1" name="how-contacted" type="radio" value="email" data-aria-controls="conditional-how-contacted-1" checked>
+              <label class="govuk-label govuk-radios__label" for="how-contacted-1">
+                Email - Expiry reminder 24 hours before your licence expires
+              </label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="how-contacted-2" name="how-contacted" type="radio" value="post" data-aria-controls="conditional-how-contacted-2">
+              <label class="govuk-label govuk-radios__label" for="how-contacted-2">
+                Post - Expiry reminder 3 weeks before your licence expires
+              </label>
+            </div>
+
+          </div>
+
+        </fieldset>
+
+        <p class="govuk-body margin">
+          You should receive your licence card in the post in 4 to 10 days.
+        </p>
+
+        <button type="submit" class="govuk-button">
+          Continue
+        </button>
+
+      </form>
+
+    </div>
+  </div>
+
+  <script src="/public/javascripts/jquery-1.11.3.js"></script>
+
+  <script>
+    $(function() {
+      $('form[data-routing]').on('submit', function(ev) {
+        // FInd selected radio button
+        const url = $(this).find('input:checked').val();
+
+        if(url) {
+          ev.preventDefault();
+          window.location.href = url;
+          return false;
+        }
+      });
+    })
+  </script>
+
+{% endblock %}
