@@ -29,37 +29,42 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <form data-routing="1" method="post" class="form" id="choose-renew-time">
+    <form data-routing="1">
 
       <div class="govuk-form-group">
-        <fieldset class="govuk-fieldset" aria-describedby="another-time-conditional-hint">
+        <fieldset class="govuk-fieldset" aria-describedby="sign-in-hint">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
             <h1 class="govuk-fieldset__heading">
               When would you like the next licence to start?
             </h1>
           </legend>
+
           {% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
 
           {{ govukInsetText({
             text: "Current licence expiry date: 2 March 2020, midnight."
           }) }}
 
-          <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+          <div class="govuk-radios">
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="licence-renew" name="licence-renew" type="radio"  value="notification-preference">
-              <label class="govuk-label govuk-radios__label" for="licence-renew">
-                From previous licence expiry date: <span class="govuk-!-font-weight-bold">3 March 2020, 11:59</span>
+              <input class="govuk-radios__input" id="sign-in" name="renew-when" type="radio" value="notification-preference" aria-describedby="renew-when-item-hint">
+              <label class="govuk-label govuk-radios__label govuk-label--s" for="renew-when">
+                <span class="govuk-body">
+                  From previous licence expiry date:</span> 3 March 2020, 00:00
               </label>
             </div>
 
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="another-time" name="another-time" type="radio" value="phone">
-              <label class="govuk-label govuk-radios__label" for="another-time">
-                Another time or date
+              <input class="govuk-radios__input" id="renew-when-2" name="renew-when" type="radio" value="https://www.gov.uk/fishing-licences/buy-a-fishing-licence" aria-describedby="renew-when-2-item-hint">
+              <label class="govuk-label govuk-radios__label govuk-label--s" for="renew-when-2">
+                <span class="govuk-body">
+                  Another time or date
+                </span>
               </label>
-            </div>
 
+            </div>
           </div>
+
         </fieldset>
       </div>
 
