@@ -16,12 +16,12 @@
 {% endblock %}
 
 {% block beforeContent %}
-<!--
+
   {{ govukBackLink({
     text: "Back",
     href: "javascript:history.back()"
   }) }}
-  -->
+
 {% endblock %}
 
 {% block content %}
@@ -33,17 +33,26 @@
       {{ title }}
     </h1>
 
-    <div class="govuk-inset-text">
-      <span class="govuk-body-l">
-        Licence ending <span class="govuk-!-font-weight-bold">EBFE76</span>
-      </span>
-    </div>
+    <h2 class="govuk-heading-m">
+      The licence you wish to renew
+    </h2>
 
-    <p class="govuk-!-margin-bottom-7">
-      <a href="authenticate-other-licence">
-        I want to renew a different licence
-      </a>
-    </p>
+    {{ govukInput({
+      label: {
+        text: "Enter the last 6 digits of the licence number"
+      },
+      classes: "govuk-input--width-10",
+      hint: {
+        text: "Your licence number is printed on any correspondence from us. It also appears on the back of your licence card. For example, B7A720"
+      },
+      id: "licence-number",
+      name: "licence-number",
+      inputmode: "text",
+      pattern: "[A-9]*",
+      attributes: {
+        spellcheck: "false"
+      }
+    }) }}
 
     <h2 class="govuk-heading-m">
       Licence holder details
