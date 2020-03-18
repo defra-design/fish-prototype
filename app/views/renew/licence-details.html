@@ -127,19 +127,25 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <form action="renew-from" method="post" class="form" id="recipient">
+    <form data-routing="1">
 
         {{ govukRadios({
-          idPrefix: "select-licence",
-          name: "select-licence",
-
+          idPrefix: "selectLicence",
+          name: "selectLicence",
+          fieldset: {
+            legend: {
+              text: "Have you abstracted water in this return period?",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
           items: [
             {
               value: "renew-from",
               text: "Buy this licence again for £30"
             },
             {
-              value: "#",
+              value: "https://get-fishing-licence.service.gov.uk/buy/licence-length",
               text: "Buy another licence (you will need to enter your personal details again)"
             }
           ]
@@ -152,24 +158,21 @@
 
     </form>
 
-  </div>
-</div>
+    <script src="/public/javascripts/jquery-1.11.3.js"></script>
 
-<script src="/public/javascripts/jquery-1.11.3.js"></script>
+    <script>
+      $(function() {
+        $('form[data-routing]').on('submit', function(ev) {
+          // FInd selected radio button
+          const url = $(this).find('input:checked').val();
 
-<script>
-  $(function() {
-    $('form[data-routing]').on('submit', function(ev) {
-      // FInd selected radio button
-      const url = $(this).find('input:checked').val();
-
-      if(url) {
-        ev.preventDefault();
-        window.location.href = url;
-        return false;
-      }
-    });
-  })
-</script>
+          if(url) {
+            ev.preventDefault();
+            window.location.href = url;
+            return false;
+          }
+        });
+      })
+    </script>
 
 {% endblock %}
