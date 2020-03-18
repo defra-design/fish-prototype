@@ -39,79 +39,79 @@
 
     <h2 class="govuk-heading-m">Personal details</h2>
 
-        {{ govukSummaryList({
-          classes: 'govuk-!-margin-bottom-9',
-          rows: [
-            {
-              key: {
-                text: "Name"
-              },
-              value: {
-                text: "Sam Baiter"
-              },
-              actions: {
-                items: [
-                  {
-                    href: "#",
-                    text: "Change",
-                    visuallyHiddenText: "name"
-                  }
-                ]
-              }
+      {{ govukSummaryList({
+        classes: 'govuk-!-margin-bottom-9',
+        rows: [
+          {
+            key: {
+              text: "Name"
             },
-            {
-              key: {
-                text: "Email address"
-              },
-              value: {
-                text: "sam.baiter59@gmail.com"
-              },
-              actions: {
-                items: [
-                  {
-                    href: "#",
-                    text: "Change",
-                    visuallyHiddenText: "email address"
-                  }
-                ]
-              }
+            value: {
+              text: "Sam Baiter"
             },
-            {
-              key: {
-                text: "Mobile"
-              },
-              value: {
-                html: ""
-              },
-              actions: {
-                items: [
-                  {
-                    href: "#",
-                    text: "Change",
-                    visuallyHiddenText: "mobile number"
-                  }
-                ]
-              }
-            },
-            {
-              key: {
-                text: "Address"
-              },
-              value: {
-                html: "72 Guild Street<br>London<br>SE23 6FH"
-              },
-              actions: {
-                items: [
-                  {
-                    href: "#",
-                    text: "Change",
-                    visuallyHiddenText: "address"
-                  }
-                ]
-              }
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "name"
+                }
+              ]
             }
-          ]
-        }) }}
+          },
+          {
+            key: {
+              text: "Email address"
+            },
+            value: {
+              text: "sam.baiter59@gmail.com"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "email address"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Mobile"
+            },
+            value: {
+              html: ""
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "mobile number"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Address"
+            },
+            value: {
+              html: "72 Guild Street<br>London<br>SE23 6FH"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "address"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
 
         <form action="licence-details" method="post" novalidate>
 

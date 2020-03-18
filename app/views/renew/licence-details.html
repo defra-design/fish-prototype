@@ -16,12 +16,12 @@
 {% endblock %}
 
 {% block beforeContent %}
-<!--
+
   {{ govukBackLink({
     text: "Back",
     href: "javascript:history.back()"
   }) }}
-  -->
+
 {% endblock %}
 
 {% block content %}
@@ -43,104 +43,57 @@
       </span>
     </div>
 
-  <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-
-    <span class="govuk-body">
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          Licence holder
-        </dt>
-        <dd class="govuk-summary-list__value">
-          Sam Baiter
-        </dd>
-        <dd class="govuk-summary-list__actions">
-          <!-- <a class="govuk-link" href="#">
-            Change<span class="govuk-visually-hidden"> licence type</span>
-          </a> -->
-        </dd>
-      </div>
-
-      <span class="govuk-body">
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Licence type
-          </dt>
-          <dd class="govuk-summary-list__value">
-            Trout and course
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <!-- <a class="govuk-link" href="#">
-              Change<span class="govuk-visually-hidden"> licence type</span>
-            </a> -->
-          </dd>
-        </div>
-
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Licence length
-          </dt>
-          <dd class="govuk-summary-list__value">
-            <p class="govuk-body">
-              12 months
-            </p>
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <!-- <a class="govuk-link" href="#">
-              Change<span class="govuk-visually-hidden"> licence length</span>
-            </a> -->
-          </dd>
-        </div>
-
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Number of rods
-          </dt>
-          <dd class="govuk-summary-list__value">
-            Up to 2 rods
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <!-- <a class="govuk-link" href="#">
-              Change<span class="govuk-visually-hidden"> number of rods</span>
-            </a> -->
-          </dd>
-        </div>
-
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Expiry date
-          </dt>
-          <dd class="govuk-summary-list__value">
-            2 March 2020, Midnight
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <!-- <a class="govuk-link" href="#">
-              Change<span class="govuk-visually-hidden"> number of rods</span>
-            </a> -->
-          </dd>
-        </div>
-
-      </span>
-
-    </dl>
-
-  </div>
-</div>
-
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
+    {{ govukSummaryList({
+      classes: 'govuk-!-margin-bottom-6',
+      rows: [
+        {
+          key: {
+            text: "Licence holder"
+          },
+          value: {
+            text: "Sam Baiter"
+          }
+        },
+        {
+          key: {
+            text: "Licence type"
+          },
+          value: {
+            text: "Trout and course"
+          }
+        },
+        {
+          key: {
+            text: "Licence length"
+          },
+          value: {
+            text: "12 months"
+          }
+        },
+        {
+          key: {
+            text: "Number of rods"
+          },
+          value: {
+            text: "Up to 2 rods"
+          }
+        },
+        {
+          key: {
+            text: "Expiry date"
+          },
+          value: {
+            text: "2 March 2020, Midnight"
+          }
+        }
+      ]
+    }) }}
 
     <form data-routing="1">
 
         {{ govukRadios({
           idPrefix: "selectLicence",
           name: "selectLicence",
-          fieldset: {
-            legend: {
-              text: "Have you abstracted water in this return period?",
-              isPageHeading: false,
-              classes: "govuk-fieldset__legend--m"
-            }
-          },
           items: [
             {
               value: "renew-from",
