@@ -1,0 +1,146 @@
+{% extends "layout.html" %}
+
+{% set title = "Check your personal details" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block header %}
+ {{ govukHeader({
+   homepageUrl: "/",
+   serviceName: "Buy a fishing licence",
+   serviceUrl: "#",
+   containerClasses: "govuk-width-container"
+ }) }}
+{% endblock %}
+
+{% block beforeContent %}
+<!--
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+  -->
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">
+      {{ title }}
+    </h1>
+
+    <p class="govuk-!-margin-bottom-6 govuk-body">
+
+    </p>
+
+    <h2 class="govuk-heading-m">Personal details</h2>
+
+        {{ govukSummaryList({
+          classes: 'govuk-!-margin-bottom-9',
+          rows: [
+            {
+              key: {
+                text: "Name"
+              },
+              value: {
+                text: "Sam Baiter"
+              },
+              actions: {
+                items: [
+                  {
+                    href: "#",
+                    text: "Change",
+                    visuallyHiddenText: "name"
+                  }
+                ]
+              }
+            },
+            {
+              key: {
+                text: "Email address"
+              },
+              value: {
+                text: "sam.baiter59@gmail.com"
+              },
+              actions: {
+                items: [
+                  {
+                    href: "#",
+                    text: "Change",
+                    visuallyHiddenText: "email address"
+                  }
+                ]
+              }
+            },
+            {
+              key: {
+                text: "Mobile"
+              },
+              value: {
+                html: ""
+              },
+              actions: {
+                items: [
+                  {
+                    href: "#",
+                    text: "Change",
+                    visuallyHiddenText: "mobile number"
+                  }
+                ]
+              }
+            },
+            {
+              key: {
+                text: "Address"
+              },
+              value: {
+                html: "72 Guild Street<br>London<br>SE23 6FH"
+              },
+              actions: {
+                items: [
+                  {
+                    href: "#",
+                    text: "Change",
+                    visuallyHiddenText: "address"
+                  }
+                ]
+              }
+            }
+          ]
+        }) }}
+
+        <form action="licence-details" method="post" novalidate>
+
+          <input type="hidden" name="answers-checked" value="true">
+
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+
+        </form>
+
+      </div>
+    </div>
+
+    <script src="/public/javascripts/jquery-1.11.3.js"></script>
+
+    <script>
+      $(function() {
+        $('form[data-routing]').on('submit', function(ev) {
+          // FInd selected radio button
+          const url = $(this).find('input:checked').val();
+
+          if(url) {
+            ev.preventDefault();
+            window.location.href = url;
+            return false;
+          }
+        });
+      })
+    </script>
+
+{% endblock %}
