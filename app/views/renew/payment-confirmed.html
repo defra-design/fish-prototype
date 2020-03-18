@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "Who is the licence holder?" %}
+{% set title = "Confirm your payment" %}
 
 {% block pageTitle %}
   {{title}} - GOV.UK
@@ -16,33 +16,156 @@
 {% endblock %}
 
 {% block beforeContent %}
-<!--
+
   {{ govukBackLink({
     text: "Back",
     href: "javascript:history.back()"
   }) }}
-  -->
+
 {% endblock %}
 
 {% block content %}
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-      {{ govukPanel({
-        titleText: "Payment complete",
-        html: "Your reference number<br><strong>HDJ2123F</strong>"
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-xl">{{ title }}</h1>
+
+      {{ govukSummaryList({
+        classes: 'govuk-!-margin-bottom-9',
+        rows: [
+          {
+            key: {
+              text: "Card number"
+            },
+            value: {
+              text: "•••• •••• •••• 7418"
+            },
+            actions: {
+              items: [
+
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Expiry date"
+            },
+            value: {
+              text: "08/21"
+            },
+            actions: {
+              items: [
+
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Name on card"
+            },
+            value: {
+              text: "Sam Baiter"
+            },
+            actions: {
+              items: [
+
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Number of rods"
+            },
+            value: {
+              html: "Up to 2 rods"
+            },
+            actions: {
+              items: [
+
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Start date"
+            },
+            value: {
+              text: "3 March 2020, 00:01"
+            },
+            actions: {
+              items: [
+
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Cost"
+            },
+            value: {
+              text: "£30"
+            },
+            actions: {
+              items: [
+
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Expiry reminder"
+            },
+            value: {
+              html: '<p class="govuk-body">Email 24 hours before expiry</p>'
+            },
+            actions: {
+              items: [
+                {
+                  href: "notification-preference",
+                  text: "Change",
+                  visuallyHiddenText: "contact details"
+                }
+              ]
+            }
+          }
+        ]
       }) }}
 
-      <p class="govuk-body">We have sent you a confirmation email.</p>
+      {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
 
-      <h2 class="govuk-heading-m">What happens next</h2>
+      {{ govukWarningText({
+        text: "If you haven’t provided email or mobile number and wish to go fishing before receiving the licence card you will need to make a note of the licence number on the last page after payment.",
+        iconFallbackText: "Warning"
+      }) }}
 
-      <p class="govuk-body">
-        Your licence will automatically renew at midday on the date your current licence is due to expire.
-      </p>
+      <form action="licence-conditions" method="post" novalidate>
 
-      <p class="govuk-body">
-        <a href="#" class="govuk-link">What did you think of this service?</a> (takes 30 seconds)
-      </p>
+        <input type="hidden" name="answers-checked" value="true">
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
     </div>
   </div>
+
+  <script src="/public/javascripts/jquery-1.11.3.js"></script>
+
+  <script>
+    $(function() {
+      $('form[data-routing]').on('submit', function(ev) {
+        // FInd selected radio button
+        const url = $(this).find('input:checked').val();
+
+        if(url) {
+          ev.preventDefault();
+          window.location.href = url;
+          return false;
+        }
+      });
+    })
+  </script>
+
 {% endblock %}
