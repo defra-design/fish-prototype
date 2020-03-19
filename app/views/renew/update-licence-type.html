@@ -1,0 +1,114 @@
+{% extends "layout.html" %}
+
+{% set title = "What type of fishing licence do you want?" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block header %}
+ {{ govukHeader({
+   homepageUrl: "/",
+   serviceName: "Buy a fishing licence",
+   serviceUrl: "#",
+   containerClasses: "govuk-width-container"
+ }) }}
+{% endblock %}
+
+{% block beforeContent %}
+<!--
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+  -->
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="licence-details" method="post" class="form" id="pick-notification-preference">
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="licence-type-conditional-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              {{ title }}
+            </h1>
+          </legend>
+
+          {% from "govuk/components/details/macro.njk" import govukDetails %}
+
+            {{ govukDetails({
+              summaryText: "Which fishing licence do I need?",
+              html: "A trout and coarse licence allows you to fish for all freshwater fish, but not for salmon or sea trout.<br>
+              <br>
+              A salmon and sea trout licence allows you to fish for salmon and sea trout as well as all freshwater fish included in the trout and coarse licence.
+              "
+            }) }}
+
+
+          <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="licence-type-conditional" name="licence-type" type="radio" value="email" data-aria-controls="conditional-licence-type-conditional" checked>
+              <label class="govuk-label govuk-radios__label" for="licence-type-conditional">
+                <span class="govuk-!-font-weight-bold">
+                  Trout and course
+                </span>
+              </label>
+
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="licence-type-conditional-2" name="licence-type" type="radio" value="phone" data-aria-controls="conditional-licence-type-conditional-2">
+              <label class="govuk-label govuk-radios__label" for="licence-type-conditional-2">
+                <span class="govuk-!-font-weight-bold">Salmon and sea trout</span><br>
+                <span class="govuk-body">
+                  includes trout and coarse fish
+                </span>
+              </label>
+            </div>
+
+            <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-licence-type-conditional-2">
+              <div class="govuk-form-group">
+                <label class="govuk-label" for="contact-by-phone">
+                  You must by law <a href="https://www.gov.uk/catch-return" target="_blank">report a catch return (opens in a new window or tab)</a> of your yearly salmon and sea trout fishing activity in England and Wales, even if you do not catch anything or do not fish.
+                </label>
+              </div>
+
+            </div>
+
+          </div>
+        </fieldset>
+      </div>
+
+      <input type="hidden" name="answers-checked" value="true">
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+
+  </div>
+</div>
+
+  <script src="/public/javascripts/jquery-1.11.3.js"></script>
+
+  <script>
+    $(function() {
+      $('form[data-routing]').on('submit', function(ev) {
+        // FInd selected radio button
+        const url = $(this).find('input:checked').val();
+
+        if(url) {
+          ev.preventDefault();
+          window.location.href = url;
+          return false;
+        }
+      });
+    })
+  </script>
+
+{% endblock %}
