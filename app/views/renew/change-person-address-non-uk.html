@@ -1,0 +1,89 @@
+{% extends "layout.html" %}
+
+{% set title = "Enter the address" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block header %}
+ {{ govukHeader({
+   homepageUrl: "/",
+   serviceName: "Buy a fishing licence",
+   serviceUrl: "#",
+   containerClasses: "govuk-width-container"
+ }) }}
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">{{ title }}</h1>
+
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="personal-details" method="post" class="form" id="manual-address">
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="building-name">
+            Building name or number
+          </label>
+          <span class="govuk-hint">
+            For example, a business premises name or house number
+          </span>
+          <input class="govuk-input govuk-!-width-three-quarters govuk-!-margin-bottom-3" id="building-name" name="building-name" type="text">
+          <input class="govuk-input govuk-!-width-three-quarters" id="building-name-2" name="building-name-2" type="text">
+        </div>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="address-line-1">
+            Address line 1
+          </label>
+          <input class="govuk-input govuk-!-width-three-quarters" id="address-line-1" name="address-line-1" type="text">
+        </div>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="address-line-2">
+            Address line 2 (optional)
+          </label>
+          <input class="govuk-input govuk-!-width-three-quarters" id="address-line-2" name="address-line-2" type="text">
+        </div>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="town-or-city">
+            Town or City
+          </label>
+          <input class="govuk-input govuk-!-width-three-quarters" id="town-or-city" name="town-or-city" type="text">
+        </div>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="postcode">
+            Postcode
+          </label>
+          <input class="govuk-input govuk-!-width-one-quarter" id="postcode" name="postcode" type="text">
+        </div>
+
+        <button type="submit" class="govuk-button">
+          Continue
+        </button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -30,7 +30,7 @@
 
     <!-- contact options with progressive enhancement -->
     <div class="govuk-form-group">
-      <form action="check-answers" method="get">
+      <form action="personal-details" method="get">
 
         <fieldset class="govuk-fieldset govuk-!-margin-bottom-6" aria-describedby="how-contacted-conditional-hint">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
@@ -47,7 +47,17 @@
                 Email
               </label>
               <span id="notification-prefs-2-item-hint" class="govuk-hint govuk-radios__hint">
-                Expiry reminder 24 hours before your licence expires
+                Expiry reminders 3 weeks and 24 hours before your licence expires
+              </span>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="how-contacted-1" name="how-contacted" type="radio" value="email" data-aria-controls="conditional-how-contacted-1">
+              <label class="govuk-label govuk-radios__label" for="how-contacted-1">
+                SMS
+              </label>
+              <span id="notification-prefs-2-item-hint" class="govuk-hint govuk-radios__hint">
+                Expiry reminders 3 weeks and 24 hours before your licence expires
               </span>
             </div>
 
@@ -65,7 +75,7 @@
 
         </fieldset>
 
-        <p class="govuk-body margin">
+        <p class="govuk-body">
           You should receive your licence card in the post in 4 to 10 days.
         </p>
 

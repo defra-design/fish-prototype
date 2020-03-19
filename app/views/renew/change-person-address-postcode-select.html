@@ -1,0 +1,103 @@
+{% extends "layout.html" %}
+
+{% set title = "Select your address" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block header %}
+ {{ govukHeader({
+   homepageUrl: "/",
+   serviceName: "Buy a fishing licence",
+   serviceUrl: "#",
+   containerClasses: "govuk-width-container"
+ }) }}
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">{{ title }}</h1>
+
+      <section class="govuk-!-margin-bottom-6">
+        <!-- <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Postcode</h2> -->
+        <p>Postcode<br>
+          <span class="govuk-body govuk-!-font-weight-bold">SN16 9EW</span> <a href="change-person-address-postcode" class="margin-left__15">Change postcode</a>
+        </p>
+      </section>
+    </div>
+  </div>
+
+  <form data-routing="1" method="post" class="form" id="contact-change-type">
+
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset">
+
+        {{ govukSelect({
+          id: "address",
+          name: "address",
+          label: {
+            text: "Select and address"
+          },
+          items: [
+            {
+              value: "#",
+              text: "2 addresses found",
+              selected: "true"
+            },
+            {
+              value: "personal-details?address1=Forbes%20Lane&city=West%20Crudwell&postcode=SN16%209EW",
+              text: "Forbes Lane, West Crudwell, SN16 9EW"
+            },
+            {
+              value: "personal-details?address1=1%20Doogal%20Road&city=West%20Crudwell&postcode=SN16%209EW",
+              text: "1 Doogal Road, West Crudwell, SN16 9EW"
+            }
+          ]
+        }) }}
+
+      </fieldset>
+    </div>
+
+    <p class="govuk-!-margin-bottom-6">
+      <a href="change-person-address-manual-address">
+        I cannot find the address in the list
+      </a>
+    </p>
+
+    <button type="submit" class="govuk-button">
+      Continue
+    </button>
+
+  </form>
+
+  <script src="/public/javascripts/jquery-1.11.3.js"></script>
+
+  <script>
+    $(function() {
+      $('form[data-routing]').on('submit', function(ev) {
+        // FInd selected radio button
+        const url = $(this).find('option:selected').val();
+
+        if(url) {
+          ev.preventDefault();
+          window.location.href = url;
+          return false;
+        }
+      });
+    })
+  </script>
+
+{% endblock %}

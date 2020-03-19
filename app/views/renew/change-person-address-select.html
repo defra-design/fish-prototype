@@ -1,0 +1,152 @@
+{% extends "layout.html" %}
+
+{% set title = "Select the address" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block header %}
+ {{ govukHeader({
+   homepageUrl: "/",
+   serviceName: "Manage your water abstraction or impoundment licence",
+   serviceUrl: "#",
+   containerClasses: "govuk-width-container",
+   navigation: [
+     {
+       href: "#1",
+       text: "Change password"
+     },
+     {
+       href: "/",
+       text: "Sign out"
+     }
+   ]
+ }) }}
+{% endblock %}
+
+{% block beforeContent %}
+
+  <div class="govuk-!-margin-bottom-3">
+    <!-- navigation block -->
+    {% include "includes/nav/nav-bd-view.html" %}
+  </div>
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <!-- page heading -->
+      <span class="govuk-caption-l">Billing account {{data['invoiceAccount']}}</span>
+      <h1 class="govuk-heading-l">{{ title }}</h1>
+
+      <section class="govuk-!-margin-bottom-6">
+        <!-- <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Postcode</h2> -->
+        <p>Postcode<br>
+          <span class="govuk-body govuk-!-font-weight-bold">SN16 9EW</span> <a href="new-contact-postcode" class="margin-left__15">Change postcode</a>
+        </p>
+      </section>
+    </div>
+  </div>
+
+  <form data-routing="1" method="post" class="form" id="contact-change-type">
+
+
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset">
+    {{ govukSelect({
+      id: "address",
+      name: "address",
+      label: {
+        text: "Select an address"
+      },
+      items: [
+        {
+          value: "2 addresses found",
+          text: "2 addresses found",
+          selected: "true"
+        },
+        {
+          value: "address-check?address1=Forbes%20Lane&city=West%20Crudwell&postcode=SN16%209EW",
+          text: "Forbes Lane, West Crudwell, SN16 9EW"
+        },
+        {
+          value: "address-check?address1=1%20Doogal%20Road&city=West%20Crudwell&postcode=SN16%209EW",
+          text: "1 Doogal Road, West Crudwell, SN16 9EW"
+        }
+      ]
+    }) }}
+
+
+
+        <!-- <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+          <h1 class="govuk-fieldset__heading">
+            Where do you live?
+          </h1>
+        </legend>
+        <p>
+          2 addresses found
+        </p>
+
+        <div class="govuk-radios">
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="select-contact-address" name="select-contact-address" type="radio" value="contact-updated">
+            <label class="govuk-label govuk-radios__label" for="select-contact-address">
+              Forbes Lane
+              <br>West Crudwell
+              <br>Wiltsire
+              <br>SN16 9EW
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="select-contact-address-2" name="select-contact-address" type="radio" value="contact-updated">
+            <label class="govuk-label govuk-radios__label" for="select-contact-address-2">
+              1 Doogal Road
+              <br>West Crudwell
+              <br>Wiltsire
+              <br>SN16 9EW
+            </label>
+          </div>
+        </div>-->
+
+      </fieldset>
+    </div>
+
+    <p class="govuk-!-margin-bottom-6">
+      <a href="manual-address-non-uk">
+        I cannot find the address in the list
+      </a>
+    </p>
+
+    <button type="submit" class="govuk-button">
+      Continue
+    </button>
+
+  </form>
+
+  <script src="/public/javascripts/jquery-1.11.3.js"></script>
+
+  <script>
+    $(function() {
+      $('form[data-routing]').on('submit', function(ev) {
+        // FInd selected radio button
+        const url = $(this).find("option:selected").val();
+        console.log(url);
+        if(url) {
+          ev.preventDefault();
+          window.location.href = url;
+          return false;
+        }
+      });
+    })
+  </script>
+
+{% endblock %}
