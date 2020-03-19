@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "Do you want to renew this licence?" %}
+{% set title = "Check the details for the new fishing rod licence licence" %}
 
 {% block pageTitle %}
   {{title}} - GOV.UK
@@ -33,9 +33,32 @@
       {{ title }}
     </h1>
 
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+
     {{ govukSummaryList({
       classes: 'govuk-!-margin-bottom-6',
       rows: [
+        {
+          key: {
+            text: "Licence holder"
+          },
+          value: {
+            text: "Sam Baiter"
+          },
+          actions: {
+            items: [
+              {
+                href: "change-person-name",
+                text: "Change",
+                visuallyHiddenText: "licence type"
+              }
+            ]
+          }
+        },
         {
           key: {
             text: "Licence type"
@@ -58,7 +81,7 @@
             text: "Number of rods"
           },
           value: {
-            text: "2"
+            text: "Up to 2 rods"
           },
           actions: {
             items: [
@@ -80,7 +103,7 @@
           actions: {
             items: [
               {
-                href: "#",
+                href: "update-licence-length",
                 text: "Change",
                 visuallyHiddenText: "licence length"
               }
@@ -89,15 +112,15 @@
         },
         {
           key: {
-            text: "Valid from"
+            text: "Start date"
           },
           value: {
-            text: "11 April 2020, midnight"
+            text: "11 April 2020"
           },
           actions: {
             items: [
               {
-                href: "#",
+                href: "licence-start-date",
                 text: "Change",
                 visuallyHiddenText: "valid from"
               }
@@ -106,15 +129,15 @@
         },
         {
           key: {
-            text: "Concessions"
+            text: "Concessions eligibility"
           },
           value: {
-            text: "Disabled concession"
+            text: "Entitled to disabled concession"
           },
           actions: {
             items: [
               {
-                href: "#",
+                href: "update-check-benefits",
                 text: "Change",
                 visuallyHiddenText: "concessions"
               }
@@ -127,6 +150,23 @@
           },
           value: {
             text: "£30"
+          }
+        },
+        {
+          key: {
+            text: "Expiry reminder"
+          },
+          value: {
+            text: "By email"
+          },
+          actions: {
+            items: [
+              {
+                href: "update-contact-prefs",
+                text: "Change",
+                visuallyHiddenText: "concessions"
+              }
+            ]
           }
         }
       ]

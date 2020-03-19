@@ -18,22 +18,7 @@ Example usage:
 */
 
 module.exports = {
-  "customerName": "Sam Baiter",
-  "licenceType": "Trout and course",
-  "numberOfRods": "2",
-  "licenceLength": "12 month",
-  "address1": "15 Ward Road",
-  "address2": "",
-  "city": "Bath",
-  "postcode": "BA1 5EH",
-  "notificationPreference": "Email",
-  "emailAddress": "sam.baiter59@gmail.com",
-  "endDay": "10",
-  "endMonth": "April",
-  "endYear": "2020",
-  "startDay": "11",
-  "startMonth": "April",
-  "startYear": "2020",
-  "concession": "true"
+
   // Insert values here
+
 }

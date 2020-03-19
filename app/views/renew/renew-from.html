@@ -29,48 +29,83 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <form data-routing="1">
-
+    <form action="licence-details" method="post" class="form" id="pick-notification-preference">
       <div class="govuk-form-group">
-        <fieldset class="govuk-fieldset" aria-describedby="sign-in-hint">
+        <fieldset class="govuk-fieldset" aria-describedby="start-date-conditional-hint">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-            <h1 class="govuk-fieldset__heading">
+            <h1 class="govuk-fieldset__heading govuk-!-margin-bottom-3">
               When would you like the next licence to start?
             </h1>
           </legend>
 
-          {% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+          <p class="govuk-body-l">
+            Your current licence expires 10 April 2020.
+          </p>
 
-          {{ govukInsetText({
-            text: "Current licence expiry date: 2 March 2020, midnight."
-          }) }}
-
-          <div class="govuk-radios">
+          <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="sign-in" name="renew-when" type="radio" value="notification-preference" aria-describedby="renew-when-item-hint">
-              <label class="govuk-label govuk-radios__label govuk-label--s" for="renew-when">
-                <span class="govuk-body">
-                  From previous licence expiry date:</span> 3 March 2020, 00:00
+              <input class="govuk-radios__input" id="start-date-conditional" name="start-date" type="radio" value="email" data-aria-controls="conditional-start-date-conditional" checked>
+              <label class="govuk-label govuk-radios__label" for="start-date-conditional">
+                11 April 2020 (the day after the current licence expires)
               </label>
             </div>
 
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="renew-when-2" name="renew-when" type="radio" value="https://www.gov.uk/fishing-licences/buy-a-fishing-licence" aria-describedby="renew-when-2-item-hint">
-              <label class="govuk-label govuk-radios__label govuk-label--s" for="renew-when-2">
-                <span class="govuk-body">
-                  Another time or date
-                </span>
+              <input class="govuk-radios__input" id="start-date-conditional-3" name="start-date" type="radio" value="text" data-aria-controls="conditional-start-date-conditional-3">
+              <label class="govuk-label govuk-radios__label" for="start-date-conditional-3">
+                Another date or time
+                <span class="govuk-hint">Set a new start date.</span>
               </label>
+            </div>
+            <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-start-date-conditional-3">
+              <div class="govuk-form-group">
+                <label class="govuk-label" for="licence-start-date">
 
+                  <span id="licence-start-hint" class="govuk-hint">
+                    For example, 27 2 2022
+                  </span>
+                  <div class="govuk-date-input" id="licence-start">
+                    <div class="govuk-date-input__item">
+                      <div class="govuk-form-group">
+                        <label class="govuk-label govuk-date-input__label" for="licence-start-day">
+                          Day
+                        </label>
+                        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="licence-start-day" name="licence-start-day" type="text" pattern="[0-9]*" inputmode="numeric">
+                      </div>
+                    </div>
+                    <div class="govuk-date-input__item">
+                      <div class="govuk-form-group">
+                        <label class="govuk-label govuk-date-input__label" for="licence-start-month">
+                          Month
+                        </label>
+                        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="licence-start-month" name="licence-start-month" type="text" pattern="[0-9]*" inputmode="numeric">
+                      </div>
+                    </div>
+                    <div class="govuk-date-input__item">
+                      <div class="govuk-form-group">
+                        <label class="govuk-label govuk-date-input__label" for="licence-start-year">
+                          Year
+                        </label>
+                        <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="licence-start-year" name="licence-start-year" type="text" pattern="[0-9]*" inputmode="numeric">
+                      </div>
+                    </div>
+                    <a href="">
+                      <img src="/public/images/calendar.png" alt="Open calendar" title="Open calendar" width="60px" style="position:relative;top:16px">
+                    </a>
+                  </div>
+
+                </label>
+              </div>
             </div>
           </div>
-
         </fieldset>
       </div>
 
-      <button type="submit" class="govuk-button">
-        Continue
-      </button>
+      <input type="hidden" name="answers-checked" value="true">
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
 
     </form>
 

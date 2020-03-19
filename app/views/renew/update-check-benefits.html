@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "Change the mobile number" %}
+{% set title = "Do you receive any of the following benefits?" %}
 
 {% block pageTitle %}
   {{title}} - GOV.UK
@@ -33,25 +33,34 @@
       {{ title }}
     </h1>
 
-    <p class="govuk-body-l">
-      We will send SMS notifications to this number.
+    <ul class="govuk-list govuk-list--bullet">
+      <li>Personal Independence Payments (PIP)</li>
+      <li>Disability Living Allowance (DLA)</li>
+    </ul>
+
+    <p>
+      We use this information to find out if you are eligible for a disabled concesssion.
     </p>
 
-    {{ govukInput({
-      label: {
-        text: "Mobile number"
-      },
-      hint: {
-        text: "For example 07711 123456"
-      },
-      classes: "govuk-input--width-10",
-      id: "width-20",
-      name: "width-20"
-    }) }}
+    <form data-routing="1">
 
-    <form action="contact-prefs" method="post" class="form" id="authenticate">
+        {{ govukRadios({
+          idPrefix: "selectLicence",
+          name: "selectLicence",
+          items: [
+            {
+              value: "update-national-insurance-number",
+              text: "Yes"
+            },
+            {
+              value: "licence-details",
+              text: "No"
+            }
+          ]
+        })
+      }}
 
-      <button type="submit" class="govuk-button govuk-!-margin-bottom-1">
+      <button type="submit" class="govuk-button">
         Continue
       </button>
 
