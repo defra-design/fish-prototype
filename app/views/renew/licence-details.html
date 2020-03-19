@@ -33,33 +33,23 @@
       {{ title }}
     </h1>
 
-    <!-- <p class="govuk-!-margin-bottom-6 govuk-body">
-      These are the details of the current licence. Choose whether you wish to renew it of buy a different licence.
-    </p> -->
-
-    <div class="govuk-inset-text">
-      <span class="govuk-body-l">
-        Licence ending <span class="govuk-!-font-weight-bold">EBFE76</span>
-      </span>
-    </div>
-
     {{ govukSummaryList({
       classes: 'govuk-!-margin-bottom-6',
       rows: [
-        {
-          key: {
-            text: "Licence holder"
-          },
-          value: {
-            text: "Sam Baiter"
-          }
-        },
         {
           key: {
             text: "Licence type"
           },
           value: {
             text: "Trout and course"
+          }
+        },
+        {
+          key: {
+            text: "Number of rods"
+          },
+          value: {
+            text: "2"
           }
         },
         {
@@ -72,42 +62,34 @@
         },
         {
           key: {
-            text: "Number of rods"
+            text: "Valid from"
           },
           value: {
-            text: "Up to 2 rods"
+            text: "11 April 2020, midnight"
           }
         },
         {
           key: {
-            text: "Expiry date"
+            text: "Concessions"
           },
           value: {
-            text: "2 March 2020, Midnight"
+            text: "Disabled concession"
+          }
+        },
+        {
+          key: {
+            text: "Cost"
+          },
+          value: {
+            text: "£30"
           }
         }
       ]
     }) }}
 
-    <form data-routing="1">
+    <form action="licence-conditions" method="post" class="form" id="authenticate">
 
-        {{ govukRadios({
-          idPrefix: "selectLicence",
-          name: "selectLicence",
-          items: [
-            {
-              value: "renew-from",
-              text: "Buy this licence again for £30"
-            },
-            {
-              value: "https://get-fishing-licence.service.gov.uk/buy/licence-length",
-              text: "Buy another licence (you will need to enter your personal details again)"
-            }
-          ]
-        })
-      }}
-
-      <button type="submit" class="govuk-button">
+      <button type="submit" class="govuk-button govuk-!-margin-bottom-1">
         Continue
       </button>
 

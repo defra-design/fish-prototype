@@ -1,0 +1,63 @@
+{% extends "layout.html" %}
+
+{% set title = "What is your National Insurance Number?" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block header %}
+ {{ govukHeader({
+   homepageUrl: "/",
+   serviceName: "Buy a fishing licence",
+   serviceUrl: "#",
+   containerClasses: "govuk-width-container"
+ }) }}
+{% endblock %}
+
+{% block beforeContent %}
+<!--
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+  -->
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">
+      {{ title }}
+    </h1>
+
+    <p class="govuk-!-margin-bottom-7">
+      We use your National Insurance Number to find your benefit details, so that you can get a disabled concession.
+    </p>
+
+    {{ govukInput({
+      label: {
+        text: "National Insurance Number"
+      },
+      classes: "govuk-!-width-one-half",
+      hint: {
+        html: "You can find this on your payslip, P60 or tax return.<br>For example, ‘QQ 12 34 56 C’."
+      },
+      id: "event-name",
+      name: "event-name"
+    }) }}
+
+    <form action="licence-details" method="post" class="form" id="authenticate">
+
+      <button type="submit" class="govuk-button govuk-!-margin-bottom-1">
+        Continue
+      </button>
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}
