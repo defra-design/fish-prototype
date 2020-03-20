@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "Do you receive any of the following benefits?" %}
+{% set title = "Do you have a Blue Badge?" %}
 
 {% block pageTitle %}
   {{title}} - GOV.UK
@@ -33,11 +33,6 @@
       {{ title }}
     </h1>
 
-    <ul class="govuk-list govuk-list--bullet">
-      <li>Personal Independence Payments (PIP)</li>
-      <li>Disability Living Allowance (DLA)</li>
-    </ul>
-
     <p>
       We use this information to find out if you are eligible for a disabled concesssion.
     </p>
@@ -49,11 +44,11 @@
           name: "selectLicence",
           items: [
             {
-              value: "national-insurance-number",
+              value: "blue-badge-number",
               text: "Yes"
             },
             {
-              value: "check-blue-badge",
+              value: "renew-from",
               text: "No"
             }
           ]
