@@ -34,6 +34,7 @@ module.exports = {
   "startDay": "11",
   "startMonth": "April",
   "startYear": "2020",
+  "startDate": "11 April 2020",
   "concession": "true"
   // Insert values here
 }
