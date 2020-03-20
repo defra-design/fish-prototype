@@ -30,6 +30,8 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
+    {% if [data.notificationPreference] == "By email" %}
+
     <form action="licence-details" method="post" class="form" id="pick-notification-preference">
       <div class="govuk-form-group">
         <fieldset class="govuk-fieldset" aria-describedby="how-contacted-conditional-hint">
@@ -43,7 +45,7 @@
           </span>
           <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="how-contacted-conditional" name="how-contacted" type="radio" value="email" data-aria-controls="conditional-how-contacted-conditional" checked>
+              <input class="govuk-radios__input" id="how-contacted-conditional" name="notificationPreference" type="radio" value="By email" data-aria-controls="conditional-how-contacted-conditional" checked>
               <label class="govuk-label govuk-radios__label" for="how-contacted-conditional">
                 <span class="govuk-body govuk-!-font-weight-bold">By email</span><br>
                 <ol class="govuk-list govuk-list--bullet">
@@ -67,7 +69,7 @@
 
             </div>
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="how-contacted-conditional-2" name="how-contacted" type="radio" value="phone" data-aria-controls="conditional-how-contacted-conditional-2">
+              <input class="govuk-radios__input" id="how-contacted-conditional-2" name="notificationPreference" type="radio" value="By text message" data-aria-controls="conditional-how-contacted-conditional-2">
               <label class="govuk-label govuk-radios__label" for="how-contacted-conditional-2">
                 <span class="govuk-body govuk-!-font-weight-bold">By text message</span><br>
                 <ol class="govuk-list govuk-list--bullet">
@@ -87,7 +89,7 @@
 
             </div>
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="how-contacted-conditional-3" name="how-contacted" type="radio" value="text" data-aria-controls="conditional-how-contacted-conditional-3">
+              <input class="govuk-radios__input" id="how-contacted-conditional-3" name="notificationPreference" type="radio" value="By post" data-aria-controls="conditional-how-contacted-conditional-3">
               <label class="govuk-label govuk-radios__label" for="how-contacted-conditional-3">
                 <span class="govuk-body govuk-!-font-weight-bold">By post</span><br>
                 <p class="govuk-body">
@@ -117,6 +119,188 @@
       }) }}
 
     </form>
+
+    {% elseif [data.notificationPreference] == "By text message" %}
+
+    <form action="licence-details" method="post" class="form" id="pick-notification-preference">
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="how-contacted-conditional-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              {{ title }}
+            </h1>
+          </legend>
+          <span id="how-contacted-conditional-hint" class="govuk-hint">
+            Select one option.
+          </span>
+          <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="how-contacted-conditional" name="notificationPreference" type="radio" value="By email" data-aria-controls="conditional-how-contacted-conditional">
+              <label class="govuk-label govuk-radios__label" for="how-contacted-conditional">
+                <span class="govuk-body govuk-!-font-weight-bold">By email</span><br>
+                <ol class="govuk-list govuk-list--bullet">
+                  <li>Licence number (immediately after payment)</li>
+                  <li>Expiry reminders (3 weeks and 24 hours before expiry)</li>
+                </ol>
+              </label>
+
+            </div>
+            <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-how-contacted-conditional">
+              <div class="govuk-form-group">
+                <label class="govuk-label" for="contact-by-email">
+                  Email address
+                </label>
+                <p>
+                  <span class="govuk-!-font-weight-bold">
+                    sam.baiter59@gmail.com
+                  </span><span class="govuk-!-margin-left-2"><a href="change-person-email">Change</a></span>
+                </p>
+              </div>
+
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="how-contacted-conditional-2" name="notificationPreference" type="radio" value="By text message" data-aria-controls="conditional-how-contacted-conditional-2" checked>
+              <label class="govuk-label govuk-radios__label" for="how-contacted-conditional-2">
+                <span class="govuk-body govuk-!-font-weight-bold">By text message</span><br>
+                <ol class="govuk-list govuk-list--bullet">
+                  <li>Licence number (immediately after payment)</li>
+                  <li>Expiry reminders (3 weeks and 24 hours before expiry)</li>
+                </ol>
+              </label>
+            </div>
+            <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-how-contacted-conditional-2">
+              <div class="govuk-form-group">
+                <label class="govuk-label" for="contact-by-phone">
+                  Mobile number
+                  <span class="govuk-hint">For example 07722 334455</span>
+                </label>
+                <input class="govuk-input govuk-!-width-one-third" id="contact-by-phone" name="contact-by-phone" type="tel">
+              </div>
+
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="how-contacted-conditional-3" name="notificationPreference" type="radio" value="By post" data-aria-controls="conditional-how-contacted-conditional-3">
+              <label class="govuk-label govuk-radios__label" for="how-contacted-conditional-3">
+                <span class="govuk-body govuk-!-font-weight-bold">By post</span><br>
+                <p class="govuk-body">
+                  <ol class="govuk-list govuk-list--bullet">
+                    <li>Expiry reminder (3 weeks before expiry)</li>
+                  </ol>
+                  We’ll show you your licence number on your confirmation after payment and you can write it down.
+              </label>
+            </div>
+            <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-how-contacted-conditional-3">
+              <div class="govuk-form-group">
+                <label class="govuk-label" for="contact-by-post">
+                  72 Guild Street<br>
+                  London<br>
+                  SE23 6FH
+                </label><a href="change-person-address-postcode">Change</a>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+      <input type="hidden" name="answers-checked" value="true">
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+
+    {% else %}
+
+    <form action="licence-details" method="post" class="form" id="pick-notification-preference">
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="how-contacted-conditional-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              {{ title }}
+            </h1>
+          </legend>
+          <span id="how-contacted-conditional-hint" class="govuk-hint">
+            Select one option.
+          </span>
+          <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="how-contacted-conditional" name="notificationPreference" type="radio" value="By email" data-aria-controls="conditional-how-contacted-conditional">
+              <label class="govuk-label govuk-radios__label" for="how-contacted-conditional">
+                <span class="govuk-body govuk-!-font-weight-bold">By email</span><br>
+                <ol class="govuk-list govuk-list--bullet">
+                  <li>Licence number (immediately after payment)</li>
+                  <li>Expiry reminders (3 weeks and 24 hours before expiry)</li>
+                </ol>
+              </label>
+
+            </div>
+            <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-how-contacted-conditional">
+              <div class="govuk-form-group">
+                <label class="govuk-label" for="contact-by-email">
+                  Email address
+                </label>
+                <p>
+                  <span class="govuk-!-font-weight-bold">
+                    sam.baiter59@gmail.com
+                  </span><span class="govuk-!-margin-left-2"><a href="change-person-email">Change</a></span>
+                </p>
+              </div>
+
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="how-contacted-conditional-2" name="notificationPreference" type="radio" value="By text message" data-aria-controls="conditional-how-contacted-conditional-2">
+              <label class="govuk-label govuk-radios__label" for="how-contacted-conditional-2">
+                <span class="govuk-body govuk-!-font-weight-bold">By text message</span><br>
+                <ol class="govuk-list govuk-list--bullet">
+                  <li>Licence number (immediately after payment)</li>
+                  <li>Expiry reminders (3 weeks and 24 hours before expiry)</li>
+                </ol>
+              </label>
+            </div>
+            <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-how-contacted-conditional-2">
+              <div class="govuk-form-group">
+                <label class="govuk-label" for="contact-by-phone">
+                  Mobile number
+                  <span class="govuk-hint">For example 07722 334455</span>
+                </label>
+                <input class="govuk-input govuk-!-width-one-third" id="contact-by-phone" name="contact-by-phone" type="tel">
+              </div>
+
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="how-contacted-conditional-3" name="notificationPreference" type="radio" value="By post" data-aria-controls="conditional-how-contacted-conditional-3" checked>
+              <label class="govuk-label govuk-radios__label" for="how-contacted-conditional-3">
+                <span class="govuk-body govuk-!-font-weight-bold">By post</span><br>
+                <p class="govuk-body">
+                  <ol class="govuk-list govuk-list--bullet">
+                    <li>Expiry reminder (3 weeks before expiry)</li>
+                  </ol>
+                  We’ll show you your licence number on your confirmation after payment and you can write it down.
+              </label>
+            </div>
+            <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-how-contacted-conditional-3">
+              <div class="govuk-form-group">
+                <label class="govuk-label" for="contact-by-post">
+                  72 Guild Street<br>
+                  London<br>
+                  SE23 6FH
+                </label><a href="change-person-address-postcode">Change</a>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+      <input type="hidden" name="answers-checked" value="true">
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+
+    {% endif %}
 
   </div>
 </div>

@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "What is your National Insurance Number?" %}
+{% set title = "What is your Blue Badge number?" %}
 
 {% block pageTitle %}
   {{title}} - GOV.UK
@@ -16,12 +16,12 @@
 {% endblock %}
 
 {% block beforeContent %}
-<!--
+
   {{ govukBackLink({
     text: "Back",
     href: "javascript:history.back()"
   }) }}
-  -->
+
 {% endblock %}
 
 {% block content %}
@@ -34,22 +34,22 @@
     </h1>
 
     <p class="govuk-!-margin-bottom-7">
-      We use your National Insurance Number to find your benefit details, so that you can get a disabled concession.
+      We use your this infomration to find your Blue Badge details, so that you can get a disabled concession.
     </p>
 
     {{ govukInput({
       label: {
-        text: "National Insurance Number"
+        text: "Blue Badge Number"
       },
       classes: "govuk-!-width-one-half",
       hint: {
-        html: "You can find this on your payslip, P60 or tax return.<br>For example, ‘QQ 12 34 56 C’."
+        html: "This will be on your badge"
       },
       id: "event-name",
       name: "event-name"
     }) }}
 
-    <form action="update-blue-badge?concession=true" method="post" class="form" id="authenticate">
+    <form action="licence-details?concession=true" method="post" class="form" id="authenticate">
 
       <button type="submit" class="govuk-button govuk-!-margin-bottom-1">
         Continue

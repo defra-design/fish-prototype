@@ -26,159 +26,315 @@
 
 {% block content %}
 
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
 
-    <h1 class="govuk-heading-l">
-      {{ title }}
-    </h1>
+      <h1 class="govuk-heading-l">
+        {{ title }}
+      </h1>
 
+    </div>
   </div>
-</div>
 
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-three-quarters">
+{% if [data.concession] == "true" %}
 
-    {{ govukSummaryList({
-      classes: 'govuk-!-margin-bottom-6',
-      rows: [
-        {
-          key: {
-            text: "Licence holder"
-          },
-          value: {
-            text: data['fullName']
-          },
-          actions: {
-            items: [
-              {
-                href: "change-person-name",
-                text: "Change",
-                visuallyHiddenText: "licence holder"
-              }
-            ]
-          }
-        },
-        {
-          key: {
-            text: "Licence type"
-          },
-          value: {
-            text: "Trout and course"
-          },
-          actions: {
-            items: [
-              {
-                href: "update-licence-type",
-                text: "Change",
-                visuallyHiddenText: "licence type"
-              }
-            ]
-          }
-        },
-        {
-          key: {
-            text: "Number of rods"
-          },
-          value: {
-            text: data['rods']
-          },
-          actions: {
-            items: [
-              {
-                href: "update-rods",
-                text: "Change",
-                visuallyHiddenText: "number of rods"
-              }
-            ]
-          }
-        },
-        {
-          key: {
-            text: "Licence length"
-          },
-          value: {
-            text: data['licenceLength']
-          },
-          actions: {
-            items: [
-              {
-                href: "update-licence-length",
-                text: "Change",
-                visuallyHiddenText: "licence length"
-              }
-            ]
-          }
-        },
-        {
-          key: {
-            text: "Start date"
-          },
-          value: {
-            text: "11 April 2020"
-          },
-          actions: {
-            items: [
-              {
-                href: "licence-start-date",
-                text: "Change",
-                visuallyHiddenText: "valid from"
-              }
-            ]
-          }
-        },
-        {
-          key: {
-            text: "Concessions eligibility"
-          },
-          value: {
-            text: "Entitled to disabled concession"
-          },
-          actions: {
-            items: [
-              {
-                href: "update-check-benefits",
-                text: "Change",
-                visuallyHiddenText: "concessions"
-              }
-            ]
-          }
-        },
-        {
-          key: {
-            text: "Cost"
-          },
-          value: {
-            text: "£30"
-          }
-        },
-        {
-          key: {
-            text: "Expiry reminder"
-          },
-          value: {
-            text: "By email"
-          },
-          actions: {
-            items: [
-              {
-                href: "update-contact-prefs",
-                text: "Change",
-                visuallyHiddenText: "concessions"
-              }
-            ]
-          }
-        }
-      ]
-    }) }}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
 
-    <form action="licence-conditions" method="post" class="form" id="authenticate">
+      {{ govukSummaryList({
+        classes: 'govuk-!-margin-bottom-6',
+        rows: [
+          {
+            key: {
+              text: "Licence holder"
+            },
+            value: {
+              text: data['fullName']
+            },
+            actions: {
+              items: [
+                {
+                  href: "change-person-name",
+                  text: "Change",
+                  visuallyHiddenText: "licence holder"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Licence type"
+            },
+            value: {
+              text: "Trout and course"
+            },
+            actions: {
+              items: [
+                {
+                  href: "update-licence-type",
+                  text: "Change",
+                  visuallyHiddenText: "licence type"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Number of rods"
+            },
+            value: {
+              text: data['rods']
+            },
+            actions: {
+              items: [
+                {
+                  href: "update-rods",
+                  text: "Change",
+                  visuallyHiddenText: "number of rods"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Licence length"
+            },
+            value: {
+              text: data['licenceLength']
+            },
+            actions: {
+              items: [
+                {
+                  href: "update-licence-length",
+                  text: "Change",
+                  visuallyHiddenText: "licence length"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Start date"
+            },
+            value: {
+              text: "11 April 2020"
+            },
+            actions: {
+              items: [
+                {
+                  href: "licence-start-date",
+                  text: "Change",
+                  visuallyHiddenText: "valid from"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Concessions eligibility"
+            },
+            value: {
+              text: "Entitled to disabled concession"
+            },
+            actions: {
+              items: [
+                {
+                  href: "update-check-benefits",
+                  text: "Change",
+                  visuallyHiddenText: "concessions"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Cost"
+            },
+            value: {
+              text: "£30"
+            }
+          },
+          {
+            key: {
+              text: "Expiry reminder"
+            },
+            value: {
+              text: data['notificationPreference']
+            },
+            actions: {
+              items: [
+                {
+                  href: "update-contact-prefs",
+                  text: "Change",
+                  visuallyHiddenText: "concessions"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
 
-      <button type="submit" class="govuk-button govuk-!-margin-bottom-1">
-        Continue
-      </button>
+      <form action="licence-conditions" method="post" class="form" id="authenticate">
 
-    </form>
+        <button type="submit" class="govuk-button govuk-!-margin-bottom-1">
+          Continue
+        </button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% else %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+
+      {{ govukSummaryList({
+        classes: 'govuk-!-margin-bottom-6',
+        rows: [
+          {
+            key: {
+              text: "Licence holder"
+            },
+            value: {
+              text: data['fullName']
+            },
+            actions: {
+              items: [
+                {
+                  href: "change-person-name",
+                  text: "Change",
+                  visuallyHiddenText: "licence holder"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Licence type"
+            },
+            value: {
+              text: "Trout and course"
+            },
+            actions: {
+              items: [
+                {
+                  href: "update-licence-type",
+                  text: "Change",
+                  visuallyHiddenText: "licence type"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Number of rods"
+            },
+            value: {
+              text: data['rods']
+            },
+            actions: {
+              items: [
+                {
+                  href: "update-rods",
+                  text: "Change",
+                  visuallyHiddenText: "number of rods"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Licence length"
+            },
+            value: {
+              text: data['licenceLength']
+            },
+            actions: {
+              items: [
+                {
+                  href: "update-licence-length",
+                  text: "Change",
+                  visuallyHiddenText: "licence length"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Start date"
+            },
+            value: {
+              text: "11 April 2020"
+            },
+            actions: {
+              items: [
+                {
+                  href: "licence-start-date",
+                  text: "Change",
+                  visuallyHiddenText: "valid from"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Concessions eligibility"
+            },
+            value: {
+              text: "Not entitled to disabled concession"
+            },
+            actions: {
+              items: [
+                {
+                  href: "update-check-benefits",
+                  text: "Change",
+                  visuallyHiddenText: "concessions"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Cost"
+            },
+            value: {
+              text: "£30"
+            }
+          },
+          {
+            key: {
+              text: "Expiry reminder"
+            },
+            value: {
+              text: data['notificationPreference']
+            },
+            actions: {
+              items: [
+                {
+                  href: "update-contact-prefs",
+                  text: "Change",
+                  visuallyHiddenText: "concessions"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+      <form action="licence-conditions" method="post" class="form" id="authenticate">
+
+        <button type="submit" class="govuk-button govuk-!-margin-bottom-1">
+          Continue
+        </button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endif %}
 
     <script src="/public/javascripts/jquery-1.11.3.js"></script>
 
