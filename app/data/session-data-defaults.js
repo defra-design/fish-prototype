@@ -20,7 +20,7 @@ Example usage:
 module.exports = {
   "customerName": "Sam Baiter",
   "licenceType": "Trout and course",
-  "numberOfRods": "2",
+  "rods": "2",
   "licenceLength": "12 month",
   "address1": "15 Ward Road",
   "address2": "",

@@ -81,9 +81,17 @@
             text: "Number of rods"
           },
           value: {
-            text: "Up to 2 rods"
+            text: data['rods']
+          },
+          actions: {
+            items: [
+              {
+                href: "update-rods",
+                text: "Change",
+                visuallyHiddenText: "number of rods"
+              }
+            ]
           }
-
         },
         {
           key: {

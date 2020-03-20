@@ -1,0 +1,77 @@
+{% extends "layout.html" %}
+
+{% set title = "How many rods would you like to licence?" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block header %}
+ {{ govukHeader({
+   homepageUrl: "/",
+   serviceName: "Buy a fishing licence",
+   serviceUrl: "#",
+   containerClasses: "govuk-width-container"
+ }) }}
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      {{ title }}
+    </h1>
+
+    <form data-routing="1">
+
+        {{ govukRadios({
+          idPrefix: "selectLicence",
+          name: "selectLicence",
+          items: [
+            {
+              value: "licence-details?rods=2",
+              text: "Up to 2 rods"
+            },
+            {
+              value: "licence-details?rods=3",
+              text: "Up to 3 rods"
+            }
+          ]
+        })
+      }}
+
+      <button type="submit" class="govuk-button">
+        Continue
+      </button>
+
+    </form>
+
+    <script src="/public/javascripts/jquery-1.11.3.js"></script>
+
+    <script>
+      $(function() {
+        $('form[data-routing]').on('submit', function(ev) {
+          // FInd selected radio button
+          const url = $(this).find('input:checked').val();
+
+          if(url) {
+            ev.preventDefault();
+            window.location.href = url;
+            return false;
+          }
+        });
+      })
+    </script>
+
+{% endblock %}
