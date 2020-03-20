@@ -18,7 +18,7 @@ Example usage:
 */
 
 module.exports = {
-  "customerName": "Sam Baiter",
+  "fullName": "Sam Baiter",
   "licenceType": "Trout and course",
   "rods": "2",
   "licenceLength": "12 month",

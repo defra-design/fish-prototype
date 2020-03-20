@@ -33,16 +33,14 @@
       {{ title }}
     </h1>
 
-    {{ govukInput({
-      label: {
-        text: "Full name"
-      },
-      classes: "govuk-input--width-20",
-      id: "width-20",
-      name: "width-20"
-    }) }}
+    <form action="licence-details" method="post" autocomplete="off" novalidate >
 
-    <form action="licence-details" method="post" class="form" id="authenticate">
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="fullName">
+          Full name
+        </label>
+        <input class="govuk-input govuk-input--width-20" id="fullName" name="fullName" type="text">
+      </div>
 
       <button type="submit" class="govuk-button govuk-!-margin-bottom-1">
         Continue
