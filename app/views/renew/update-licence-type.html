@@ -29,7 +29,7 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <form action="licence-details" method="post" class="form" id="select-licence-type">
+    <form action="/renew/licence-details" method="post" class="form" id="select-licence-type">
       <div class="govuk-form-group">
         <fieldset class="govuk-fieldset" aria-describedby="trout-and-course-hint">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
@@ -46,27 +46,53 @@
             "
           }) }}
 
+          {% if [data.licenceType] == "Trout and course" %}
 
-          <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="trout-and-course" name="licenceType" type="radio" value="trout-and-course" data-aria-controls="conditional-trout-and-course" checked>
-              <label class="govuk-label govuk-radios__label" for="trout-and-course">
-                <span class="govuk-!-font-weight-bold">
-                  Trout and course
-                </span>
-              </label>
+            <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="trout-and-course" name="licenceType" type="radio" value="Trout and course" data-aria-controls="conditional-trout-and-course" checked>
+                <label class="govuk-label govuk-radios__label" for="trout-and-course">
+                  <span class="govuk-!-font-weight-bold">
+                    Trout and course
+                  </span>
+                </label>
 
-            </div>
+              </div>
 
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="salmon-and-trout" name="licenceType" type="radio" value="salmon-and-trout" data-aria-controls="conditional-salmon-and-trout">
-              <label class="govuk-label govuk-radios__label" for="salmon-and-trout">
-                <span class="govuk-!-font-weight-bold">Salmon and sea trout</span><br>
-                <span class="govuk-body">
-                  includes trout and coarse fish
-                </span>
-              </label>
-            </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="salmon-and-trout" name="licenceType" type="radio" value="Salmon and trout" data-aria-controls="conditional-salmon-and-trout">
+                <label class="govuk-label govuk-radios__label" for="salmon-and-trout">
+                  <span class="govuk-!-font-weight-bold">Salmon and sea trout</span><br>
+                  <span class="govuk-body">
+                    includes trout and coarse fish
+                  </span>
+                </label>
+              </div>
+
+            {% else %}
+
+            <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="trout-and-course" name="licenceType" type="radio" value="Trout and course" data-aria-controls="conditional-trout-and-course">
+                <label class="govuk-label govuk-radios__label" for="trout-and-course">
+                  <span class="govuk-!-font-weight-bold">
+                    Trout and course
+                  </span>
+                </label>
+
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="salmon-and-trout" name="licenceType" type="radio" value="Salmon and trout" data-aria-controls="conditional-salmon-and-trout" checked>
+                <label class="govuk-label govuk-radios__label" for="salmon-and-trout">
+                  <span class="govuk-!-font-weight-bold">Salmon and sea trout</span><br>
+                  <span class="govuk-body">
+                    includes trout and coarse fish
+                  </span>
+                </label>
+              </div>
+
+            {% endif %}
 
             <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-salmon-and-trout">
               <div class="govuk-form-group">
