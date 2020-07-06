@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "Calculate your licence" %}
+{% set title = "Calculate your adult licence" %}
 
 {% block pageTitle %}
   {{title}} - GOV.UK
@@ -33,26 +33,28 @@
       {{ title }}
     </h1>
 
-    <div class="govuk-form-group">
+    <details class="govuk-details" data-module="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      Which fishing licence do I need?
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+    A trout and coarse licence allows you to fish for all freshwater fish, but not for salmon or sea trout.
+<br /> <br />
+    A salmon and sea trout licence allows you to fish for salmon and sea trout as well as all freshwater fish included in the trout and coarse licence.
+<br /> <br />
+Only the licence holder is licenced to use the rods.
+  </div>
+</details>
 
-      <label class="govuk-label" for="sort">
-        Age
-      </label>
-      <select class="govuk-select" id="age" name="sort">
-        <option value="Adult" selected >Adult (17 - 64 years)</option>
-        <option value="Senior" >Senior (65+ years)</option>
-        <option value="Junior">Junior (13 - 16 years)</option>
-        <option value="Child">Child (under 16)</option>
-      </select>
-      <br />
-      <br />
-      <br />
+    <div class="govuk-form-group">
       <label class="govuk-label" for="type" >
         Type
       </label>
       <select class="govuk-select" id="type" name="sort">
-        <option value="tc2" selected>Trout and coarse, 2rod</option>
-        <option value="tc3">Trout and coarse, 3rod</option>
+        <option value="tc2" selected>Trout and coarse, up to 2 rods</option>
+        <option value="tc3">Trout and coarse, up to 3 rods</option>
         <option value="sst">Salmon and sea trout (All species)</option>
       </select>
       <br />
@@ -75,115 +77,17 @@
       <button id="buy" type="submit" class="govuk-button">
         Buy this licence
       </button>
-```````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````5
+
       <script type="text/javascript">
-        var age = document.getElementById('age');
+        var age = "Adult";
         var length = document.getElementById('length');
         var type = document.getElementById('type');
         var input = document.getElementById('price');
-        //IF AGE IS CHANGED...
-        age.onchange = function() {
-          var x = document.getElementById("buy");
-          x.style.display = "block";
-
-          //If child..
-          if (document.getElementById('age').value == "Child"){
-            input.innerHTML = "You do not need to own a licence until the age of 13."
-            x.style.display = "none";
-          //If junior..
-          } else if (document.getElementById('age').value == "Junior"){
-            input.innerHTML = "FREE"
-          //If senior..
-          } else if (document.getElementById('age').value == "Senior"){
-            input.innerHTML = "Senior"
-            //If If trout & course, 2 rods..
-            if (document.getElementById('type').value == "tc2"){
-              //If 12 months...
-              if (document.getElementById('length').value == "12"){
-                //..the price is £20
-                input.innerHTML = "£20"
-              } else if (document.getElementById('length').value == "8"){
-                //..the price is £12
-                input.innerHTML = "£12"
-              //If 1 day..
-              } else if (document.getElementById('length').value == "1"){
-                //..the price is £6
-                input.innerHTML = "£6"
-              }
-            //If If trout & course, 3 rods..
-            } else if (document.getElementById('type').value == "tc3"){
-              //If 12 months...
-              if (document.getElementById('length').value == "12"){
-                //..the price is £20
-                input.innerHTML = "£30"
-              } else if (document.getElementById('length').value == "8"){
-                //..the price is £12
-                input.innerHTML = "£12"
-              //If 1 day..
-              } else if (document.getElementById('length').value == "1"){
-                //..the price is £6
-                input.innerHTML = "£6"
-              }
-            //If salmon and sea..
-          } else if (document.getElementById('type').value == "sst"){
-              //If 12 months...
-              if (document.getElementById('length').value == "12"){
-                //..the price is £20
-                input.innerHTML = "£54"
-              } else if (document.getElementById('length').value == "8"){
-                //..the price is £12
-                input.innerHTML = "£27"
-              //If 1 day..
-              } else if (document.getElementById('length').value == "1"){
-                //..the price is £6
-                input.innerHTML = "£12"
-              }
-            }
-          //If adult..
-          } else if (document.getElementById('age').value == "Adult"){
-          input.innerHTML = "Adult"
-          //If trout & course, 2 rods..
-          if (document.getElementById('type').value == "tc2"){
-            //If 12 months..
-            if (document.getElementById('length').value == "12"){
-              //..the price is £30
-              input.innerHTML = "£30"
-            //If 8 days..
-            } else if (document.getElementById('length').value == "8"){
-              //..the price is £12
-              input.innerHTML = "£12"
-            //If 1 day..
-            } else if (document.getElementById('length').value == "1"){
-              //..the price is £6
-              input.innerHTML = "£6"
-            }
-
-          //If trout & course, 3 rods..
-          } else if (document.getElementById('type').value == "tc3"){
-                //If 12 months..
-                if (document.getElementById('length').value == "12"){
-                  //..the price is £45
-                  input.innerHTML = "£45"
-                //If 8 days..
-                } else if (document.getElementById('length').value == "8"){
-                  //..the price is £12
-                  input.innerHTML = "Not available"
-                //If 1 day..
-                } else if (document.getElementById('length').value == "1"){
-                  //..the price is £6
-                  input.innerHTML = "Not available"
-                }
-            //If salmon and sea trout
-            } else if (document.getElementById('type').value == "sst"){
-                input.innerHTML = "£82"
-              }
-          }
-        }
 
         //IF TYPE IS CHANGED...
         type.onchange = function() {
           //If child..
-          if (document.getElementById('age').value == "Child"){
+          /*if (age == "Child"){
             input.innerHTML = "You do not need to own a licence until the age of 13."
           //If junior..
           } else if (document.getElementById('age').value == "Junior"){
@@ -235,7 +139,9 @@
               }
             }
           //If adult..
-          } else if (document.getElementById('age').value == "Adult"){
+        } else */
+
+        if (age == "Adult"){
           input.innerHTML = "Adult"
           //If trout & course, 2 rods..
           if (document.getElementById('type').value == "tc2"){
@@ -270,7 +176,19 @@
                 }
             //If salmon and sea trout
             } else if (document.getElementById('type').value == "sst"){
-                input.innerHTML = "£82"
+                //If 12 months..
+                if (document.getElementById('length').value == "12"){
+                  //..the price is £82
+                  input.innerHTML = "£82"
+                //If 8 days..
+                } else if (document.getElementById('length').value == "8"){
+                  //..the price is £12
+                  input.innerHTML = "£27"
+                //If 1 day..
+                } else if (document.getElementById('length').value == "1"){
+                  //..the price is £6
+                  input.innerHTML = "£12"
+                }
               }
           }
         }
@@ -278,7 +196,7 @@
         //IF LENGTH IS CHANGED...
         length.onchange = function() {
           //If child..
-          if (document.getElementById('age').value == "Child"){
+        /*  if (document.getElementById('age').value == "Child"){
             input.innerHTML = "You do not need to own a licence until the age of 13."
           //If junior..
           } else if (document.getElementById('age').value == "Junior"){
@@ -330,7 +248,9 @@
               }
             }
           //If adult..
-          } else if (document.getElementById('age').value == "Adult"){
+        } else */
+
+          if (age == "Adult"){
           input.innerHTML = "Adult"
           //If trout & course, 2 rods..
           if (document.getElementById('type').value == "tc2"){
@@ -365,8 +285,20 @@
                 }
             //If salmon and sea trout
             } else if (document.getElementById('type').value == "sst"){
+              //If 12 months..
+              if (document.getElementById('length').value == "12"){
+                //..the price is £82
                 input.innerHTML = "£82"
+              //If 8 days..
+              } else if (document.getElementById('length').value == "8"){
+                //..the price is £12
+                input.innerHTML = "£27"
+              //If 1 day..
+              } else if (document.getElementById('length').value == "1"){
+                //..the price is £6
+                input.innerHTML = "£12"
               }
+            }
           }
         }
       </script>
