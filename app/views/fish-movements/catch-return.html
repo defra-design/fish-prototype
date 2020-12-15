@@ -1,0 +1,89 @@
+{% extends "layout.html" %}
+
+{% set serviceName = "Report your salmon or sea trout catch" %}
+{% set title = "Catch returns for Bob Jones" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block header %}
+{% from "govuk/components/header/macro.njk" import govukHeader %}
+
+{{ govukHeader({
+ homepageUrl: "/index",
+ serviceName: "Report your salmon or sea trout catch",
+ serviceUrl: "#",
+ navigation: [
+   {
+     href: "#1",
+     text: "Catch returns",
+     active: true
+   },
+   {
+     href: "#2",
+     text: "Reports"
+   },
+   {
+     href: "#3",
+     text: "Age weight key"
+   },
+   {
+     href: "#4",
+     text: "Sign out"
+   }
+ ]
+}) }}
+{% endblock %}
+
+{% block beforeContent %}
+  <a href="javascript:history.back()" class="govuk-back-link">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">{{ title }}</h1>
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <table class="govuk-table">
+        <caption class="govuk-table__caption govuk-table__caption govuk-heading-m">Rivers fished</caption>
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header govuk-!-width-one-third">River</th>
+            <th scope="col" class="govuk-table__header govuk-!-width-one-quarter govuk-table__header--numeric">Days fished (1 Jan to 16 Jun)</th>
+            <th scope="col" class="govuk-table__header govuk-!-width-one-quarter govuk-table__header--numeric">Days fished (17 Jun to 31 Dec)</th>
+            <th scope="col" class="govuk-table__header govuk-table__header--numeric">Fish caught</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Ely</th>
+            <td class="govuk-table__cell govuk-table__cell--numeric">9</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric">9</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric">0</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Rhymney</th>
+            <td class="govuk-table__cell govuk-table__cell--numeric">0</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric">2</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric">3</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Severn</th>
+            <td class="govuk-table__cell govuk-table__cell--numeric">10</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric">3</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric">6</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,70 @@
+{% extends "layout.html" %}
+
+{% set title = "Enter a licence number" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block header %}
+
+{% from "govuk/components/header/macro.njk" import govukHeader %}
+  {{ govukHeader({
+   homepageUrl: "/index",
+   serviceName: "Report your salmon or sea trout catch",
+   serviceUrl: "#",
+   navigation: [
+     {
+       href: "#1",
+       text: "Catch returns",
+       active: true
+     },
+     {
+       href: "#2",
+       text: "Reports"
+     },
+     {
+       href: "#3",
+       text: "Age weight key"
+     },
+     {
+       href: "#4",
+       text: "Sign out"
+     }
+   ]
+  }) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="results">
+
+        <div class="govuk-form-group">
+          <h1 class="govuk-label-wrapper">
+            <label class="govuk-label govuk-label--l" for="licence-number">
+              {{ title }}
+            </label>
+          </h1>
+          <input class="govuk-input govuk-input--width-20" id="licence-number" name="licence-number" type="text">
+        </div>
+
+        <button class="govuk-button" data-module="govuk-button">
+          Continue
+        </button>
+
+      </div>
+
+    </div>
+  </div>
+
+{% endblock %}

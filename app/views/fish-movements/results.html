@@ -1,0 +1,86 @@
+{% extends "layout.html" %}
+
+{% set serviceName = "Report your salmon or sea trout catch" %}
+{% set title = "Catch returns for Bob Jones" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block header %}
+
+  {% from "govuk/components/header/macro.njk" import govukHeader %}
+
+  {{ govukHeader({
+   homepageUrl: "/index",
+   serviceName: "Report your salmon or sea trout catch",
+   serviceUrl: "#",
+   navigation: [
+     {
+       href: "#1",
+       text: "Catch returns",
+       active: true
+     },
+     {
+       href: "#2",
+       text: "Reports"
+     },
+     {
+       href: "#3",
+       text: "Age weight key"
+     },
+     {
+       href: "#4",
+       text: "Sign out"
+     }
+   ]
+  }) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+  <a href="javascript:history.back()" class="govuk-back-link">Back</a>
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="results">
+
+        <h1 class="govuk-heading-l">{{ title }}</h1>
+
+        <ul class="govuk-list govuk-list--bullet">
+          <li>
+            <a href="catch-return?year=2020">
+              2020
+            </a>
+          </li>
+
+          <li>
+            <a href="catch-return?year=2019">
+              2019
+            </a>
+          </li>
+
+          <li>
+            <a href="catch-return?year=2018">
+              2018
+            </a>
+          </li>
+        </ul>
+
+        <button class="govuk-button" data-module="govuk-button">
+          Continue
+        </button>
+
+      </form>
+
+    </div>
+  </div>
+
+
+{% endblock %}
