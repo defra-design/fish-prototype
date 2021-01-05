@@ -1,0 +1,74 @@
+{% extends "layout.html" %}
+
+{% set title = "Going digital" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block header %}
+
+{% from "govuk/components/header/macro.njk" import govukHeader %}
+  {{ govukHeader({
+   homepageUrl: "/index",
+   serviceName: "Get a rod fishing licence",
+   serviceUrl: "#"
+  }) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">
+      beta
+    </strong>
+    <span class="govuk-phase-banner__text">
+      Your <a class="govuk-link" href="#">feedback</a> will help us to improve the service.
+    </span>
+  </p>
+</div>
+
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">{{ title }}</h1>
+
+      <p class="govuk-body-l">
+        Get your licence information by email or text message.
+      </p>
+
+      <p class="govuk-body">
+        Having a digital licence means:
+      </p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>get licence confirmation after you pay</li>
+        <li>a positive impact on the environment by reducing paper</li>
+        <li>save more money to help fisheries</li>
+      </ul>
+
+      <p class="govuk-body">
+        Your licence information can be used to verify your licence to enforcement officers.
+      </p>
+
+      <div class="govuk-!-margin-bottom-6">
+        <a href="paper-licence" class="govuk-link">I prefer a paper licence</a>
+      </div>
+
+      <form action="contact-preference">
+        <button class="govuk-button" data-module="govuk-button">
+          Continue
+        </button>
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
