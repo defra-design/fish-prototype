@@ -63,7 +63,7 @@
                   <p class="govuk-hint">
                     For example name@example.com.
                   </p>
-                  <input class="govuk-input govuk-!-width-two-thirds" id="licence-by-email" name="licence-by-email" type="email" spellcheck="false"></div>
+                  <input class="govuk-input govuk-!-width-two-thirds" id="licence-by-email" value="{{ data['licence-by-email'] }}" name="licence-by-email" type="email" spellcheck="false"></div>
 
               </div>
               <div class="govuk-radios__item">
@@ -80,7 +80,7 @@
                   <p class="govuk-hint">
                     For example 07700 900 900.
                   </p>
-                  <input class="govuk-input govuk-!-width-one-third" id="licence-by-text" name="licence-by-text" type="tel">
+                  <input class="govuk-input govuk-!-width-one-third" id="licence-by-text" value="{{ data['licence-by-text'] }}" name="licence-by-text" type="tel">
                 </div>
               </div>
 
