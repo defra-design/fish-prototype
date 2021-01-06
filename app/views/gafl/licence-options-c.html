@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "Going digital" %}
+{% set title = "Would you like to go paperless?" %}
 
 {% block pageTitle %}
   {{title}} - GOV.UK
@@ -45,11 +45,10 @@
       </p>
 
       <p class="govuk-body">
-        Having a digital licence means:
+        Having a paperless licence means:
       </p>
 
       <ul class="govuk-list govuk-list--bullet">
-        <li>get licence confirmation after you pay</li>
         <li>a positive impact on the environment by reducing paper</li>
         <li>save more money to help fisheries</li>
       </ul>
@@ -62,7 +61,7 @@
         <a href="paper-licence" class="govuk-link">I prefer a paper licence</a>
       </div>
 
-      <form action="contact-preference">
+      <form action="contact-preference-paperless"">
         <button class="govuk-button" data-module="govuk-button">
           Continue
         </button>
