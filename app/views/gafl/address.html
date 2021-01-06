@@ -1,0 +1,117 @@
+{% extends "layout.html" %}
+
+{% set title = "Enter your address" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block header %}
+
+{% from "govuk/components/header/macro.njk" import govukHeader %}
+  {{ govukHeader({
+   homepageUrl: "/index",
+   serviceName: "Get a rod fishing licence",
+   serviceUrl: "#"
+  }) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">
+      beta
+    </strong>
+    <span class="govuk-phase-banner__text">
+      Your <a class="govuk-link" href="#">feedback</a> will help us to improve the service.
+    </span>
+  </p>
+</div>
+
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">{{ title }}</h1>
+
+      <p class="govuk-body">
+        This is where we will send the licence card. If you are buying on behalf of someone else then put their address not yours. A bankside enforcement officer may ask for this information if the licence is checked.
+      </p>
+
+
+      <form action="select-address">
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="width-20">
+            Building number or name
+            <span class="govuk-hint">
+              For example, Flat 20A
+             </span>
+          </label>
+          <input class="govuk-input govuk-input--width-20" id="building-number" name="building-number" type="text">
+        </div>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="width-20">
+            Address line 1 (optional)
+          </label>
+          <input class="govuk-input govuk-input--width-20" id="address-1" name="address-1" type="text">
+        </div>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="width-20">
+            Address line 2 (optional)
+          </label>
+          <input class="govuk-input govuk-input--width-20" id="address-2" name="address-2" type="text">
+        </div>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="width-20">
+            Town or city
+          </label>
+          <input class="govuk-input govuk-input--width-20" id="town" name="town" type="text">
+        </div>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="width-20">
+            Post code
+            <span class="govuk-hint">
+              For example, WA4 1AB
+             </span>
+          </label>
+          <input class="govuk-input govuk-input--width-20" id="postcode" name="postcode" type="text">
+        </div>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="sort">
+            Sort by
+          </label>
+          <select class="govuk-select" id="sort" name="sort">
+            <option value="published">Recently published</option>
+            <option value="updated" selected>Recently updated</option>
+            <option value="views">Most views</option>
+            <option value="comments">Most comments</option>
+          </select>
+        </div>
+
+        <button class="govuk-button" data-module="govuk-button">
+          Continue
+        </button>
+
+      </form>
+
+      <p class="govuk-body-m">
+        <a href="find-address" class="govuk-link">Find your address</a>
+      </p>
+
+    </div>
+  </div>
+
+{% endblock %}
