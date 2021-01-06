@@ -9,30 +9,35 @@
 {% block header %}
 
 {% from "govuk/components/header/macro.njk" import govukHeader %}
-  {{ govukHeader({
-   homepageUrl: "/index",
-   serviceName: "Report your salmon or sea trout catch",
-   serviceUrl: "#",
-   navigation: [
-     {
-       href: "#1",
-       text: "Catch returns",
-       active: true
-     },
-     {
-       href: "#2",
-       text: "Reports"
-     },
-     {
-       href: "#3",
-       text: "Age weight key"
-     },
-     {
-       href: "#4",
-       text: "Sign out"
-     }
-   ]
-  }) }}
+
+{{ govukHeader({
+ homepageUrl: "/index",
+ serviceName: "Report your salmon or sea trout catch",
+ serviceUrl: "#",
+ navigation: [
+   {
+     href: "#1",
+     text: "Catch returns"
+   },
+   {
+     href: "#2",
+     text: "Records",
+     active: true
+   },
+   {
+     href: "#3",
+     text: "Reports"
+   },
+   {
+     href: "#4",
+     text: "Age weight key"
+   },
+   {
+     href: "#5",
+     text: "Sign out"
+   }
+ ]
+}) }}
 
 {% endblock %}
 
