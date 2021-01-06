@@ -53,29 +53,17 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <form action="results">
+      <form action="javascript:history.back()">
 
         <h1 class="govuk-heading-l">{{ title }}</h1>
 
-        <ul class="govuk-list govuk-list--bullet">
-          <li>
-            <a href="catch-return?year=2020">
-              2020
-            </a>
-          </li>
+        <p class="govuk-body">
+          There are no catch returns for this angler.
+        </p>
 
-          <li>
-            <a href="catch-return?year=2019">
-              2019
-            </a>
-          </li>
-
-          <li>
-            <a href="catch-return?year=2018">
-              2018
-            </a>
-          </li>
-        </ul>
+        <button class="govuk-button" data-module="govuk-button">
+          Continue
+        </button>
 
       </form>
 
