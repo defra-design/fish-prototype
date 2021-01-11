@@ -58,7 +58,7 @@
               {{ data['first-name'] + " " + data['last-name'] }}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="#">
+              <a class="govuk-link" href="change-name">
                 Change<span class="govuk-visually-hidden"> name</span>
               </a>
             </dd>
@@ -71,26 +71,26 @@
               {{ data['found-address'] }}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="#">
+              <a class="govuk-link" href="change-find-address">
                 Change<span class="govuk-visually-hidden"> licence length</span>
               </a>
             </dd>
           </div>
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Licence sent
+              Licence
             </dt>
             <dd class="govuk-summary-list__value">
               {% if data['licence-by'] == "email" %}
-                {{ data['licence-by-email'] }}
+                Email to {{ data['licence-by-email'] }}
               {% elseif data['licence-by'] == "phone" %}
-                {{ data['licence-by-text'] }}
+                Text message to {{ data['licence-by-text'] }}
               {% else %}
                 By post
               {% endif %}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="#">
+              <a class="govuk-link" href="change-licence-option-a">
                 Change<span class="govuk-visually-hidden"> licence details</span>
               </a>
             </dd>
@@ -115,7 +115,7 @@
               {% endif %}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="#">
+              <a class="govuk-link" href="change-contact-preference">
                 Change<span class="govuk-visually-hidden"> contact preference</span>
               </a>
             </dd>
@@ -125,11 +125,11 @@
               Newsletter
             </dt>
             <dd class="govuk-summary-list__value">
-              <p class="govuk-body">No</p>
+              {{ data['newsletter'] }}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="#">
-                Change<span class="govuk-visually-hidden"> concession</span>
+              <a class="govuk-link" href="change-newsletter">
+                Change<span class="govuk-visually-hidden"> newsletter</span>
               </a>
             </dd>
           </div>

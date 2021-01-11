@@ -58,7 +58,7 @@
               {{ data['licence-type'] }}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="#">
+              <a class="govuk-link" href="change-licence-type">
                 Change<span class="govuk-visually-hidden"> licence type</span>
               </a>
             </dd>
@@ -68,12 +68,27 @@
               Length
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['licence-length'] }}
+
+              {% if data['licence-type'] === 'Trout and coarse, up to 3 rods' %}
+               12 months
+              {% else %}
+                {% if data['licence-length'] %}
+                  {{ data['licence-length'] }}
+                {% else %}
+                  12 months
+                {% endif %}
+              {% endif %}
+
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="#">
-                Change<span class="govuk-visually-hidden"> licence length</span>
-              </a>
+              {% if data['licence-type'] === 'Trout and coarse, up to 3 rods' %}
+                <!-- in the live service you can change this, but doing so alters the licence type -->
+              {% else %}
+                <a class="govuk-link" href="change-licence-length">
+                  Change<span class="govuk-visually-hidden"> licence length</span>
+                </a>
+              {% endif %}
+
             </dd>
           </div>
           <div class="govuk-summary-list__row">
@@ -81,11 +96,20 @@
               Date of birth
             </dt>
             <dd class="govuk-summary-list__value">
-              <!-- {{ data['dob-day'] + "-" + data['dob-month'] + "-" + data['dob-year'] }} -->
+              <!-- {% if data['dob-month'] === "1" %}
+                data['licence-length'] = "January"
+              {% elseif data['dob-month'] === "2" %}
+                data['licence-length'] = "February"
+              {% endif %}
+
+
+
+
+              {{ data['dob-day'] + "-" + data['dob-month'] + "-" + data['dob-year'] }} -->
               22 January 1963
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="#">
+              <a class="govuk-link" href="change-dob">
                 Change<span class="govuk-visually-hidden"> date of birth</span>
               </a>
             </dd>
@@ -98,7 +122,7 @@
               30 minutes after payment
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="#">
+              <a class="govuk-link" href="change-start-kind">
                 Change<span class="govuk-visually-hidden"> start date</span>
               </a>
             </dd>
@@ -111,7 +135,7 @@
               <p class="govuk-body">None</p>
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="#">
+              <a class="govuk-link" href="change-disability-concession">
                 Change<span class="govuk-visually-hidden"> concession</span>
               </a>
             </dd>
@@ -121,7 +145,25 @@
               Cost
             </dt>
             <dd class="govuk-summary-list__value">
-              <p class="govuk-body">£30</p>
+
+
+              <!-- 2 rods -->
+              {% if data['licence-type'] == "Trout and coarse, up to 2 rods" %}
+
+                {% if data['licence-length'] == "12 months" %}
+                  <p class="govuk-body">£30</p>
+                {% elseif data['licence-length'] == "8 days" %}
+                  <p class="govuk-body">£12</p>
+                {% else %}
+                  <p class="govuk-body">£6</p>
+                {% endif %}
+
+              {% elseif data['licence-type'] == "Trout and coarse, up to 3 rods" %}
+                <p class="govuk-body">£30</p>
+              {% endif %}
+
+
+
             </dd>
             <dd class="govuk-summary-list__actions">
               <!-- <a class="govuk-link" href="#">
