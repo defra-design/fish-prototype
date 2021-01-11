@@ -53,13 +53,26 @@
 
             <div class="govuk-radios">
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="newsletter" name="newsletter" type="radio" value="Yes">
+                <!-- check the 2nd radio if it is selected -->
+                {% if data['newsletter'] == "Yes" %}
+                  <input class="govuk-radios__input" id="newsletter" name="newsletter" type="radio" value="Yes" checked>
+                {% else %}
+                  <input class="govuk-radios__input" id="newsletter" name="newsletter" type="radio" value="Yes">
+                {% endif %}
+
                 <label class="govuk-label govuk-radios__label" for="newsletter">
                   Yes
                 </label>
               </div>
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="newsletter-2" name="newsletter" type="radio" value="No" checked>
+
+                <!-- check the 2nd radio if it is selected -->
+                {% if data['newsletter'] == "No" %}
+                  <input class="govuk-radios__input" id="newsletter-2" name="newsletter" type="radio" value="No" checked>
+                {% else %}
+                  <input class="govuk-radios__input" id="newsletter-2" name="newsletter" type="radio" value="No">
+                {% endif %}
+
                 <label class="govuk-label govuk-radios__label" for="newsletter-2">
                   No
                 </label>

@@ -97,22 +97,63 @@
           </div>
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
+
+
+              <!-- was working simple
               {% if data['contact'] == "email" %}
                 Contact by email
               {% elseif data['contact'] == "phone" %}
                 Contact by text message
               {% else %}
                 Contact by post
+              {% endif %} -->
+
+
+              <!-- if the licence by is a digital option, sniff which kind -->
+              {% if data['licence-by'] == "email" or data['licence-by'] == "phone" %}
+
+                {% if data['contact'] == "email" %}
+                  Contact by email
+                {% else %}
+                  Contact by text message
+                {% endif %}
+
+              {% else %}
+                Contact by post
               {% endif %}
+
             </dt>
             <dd class="govuk-summary-list__value">
+              <!-- was working simple
               {% if data['contact'] == "email" %}
                 {{ data['licence-by-email'] }}
               {% elseif data['contact'] == "phone" %}
                 {{ data['licence-by-text'] }}
               {% else %}
                 By post
+              {% endif %} -->
+
+              <!-- if the licence by is a digital option, sniff which kind -->
+              {% if data['licence-by'] == "email" or data['licence-by'] == "phone" %}
+
+                {% if data['contact'] == "email" %}
+                  {{ data['licence-by-email'] }}
+                {% else %}
+                  {{ data['licence-by-text'] }}
+                {% endif %}
+
+              {% else %}
+
+                {% if data['contact'] == "email" %}
+                  {{ data['licence-by-email'] }}
+                {% elseif data['contact'] == "phone" %}
+                  {{ data['licence-by-text'] }}
+                {% else %}
+                  By post
+                {% endif %}
+
               {% endif %}
+
             </dd>
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="change-contact-preference">
