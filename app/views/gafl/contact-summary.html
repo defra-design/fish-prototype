@@ -81,23 +81,26 @@
               Licence
             </dt>
             <dd class="govuk-summary-list__value">
-              {% if data['licence-by'] == "email" %}
-                Email to {{ data['licence-by-email'] }}
-              {% elseif data['licence-by'] == "phone" %}
-                Text message to {{ data['licence-by-text'] }}
+              {% if data['licence-option'] == "digital" %}
+                Digital
+              {% elseif data['licence-option'] == "paper-licence" %}
+                Paper licence
               {% else %}
                 By post
               {% endif %}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="change-licence-option-a">
-                Change<span class="govuk-visually-hidden"> licence details</span>
+              {% if data['path'] == "a" %}
+                <a class="govuk-link" href="change-licence-option-a">
+              {% else %}
+                <a class="govuk-link" href="change-licence-option-b">
+              {% endif %}
+                Change<span class="govuk-visually-hidden"> licence option</span>
               </a>
             </dd>
           </div>
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-
 
               <!-- was working simple
               {% if data['contact'] == "email" %}
@@ -108,69 +111,24 @@
                 Contact by post
               {% endif %} -->
 
-
-              <!-- if the licence by is a digital option, hide post -->
-              {% if data['licence-by'] == "email" or data['licence-by'] == "phone" %}
-                <!-- show the digital preference -->
-                {% if data['contact'] == "email" %}
-                  Contact by email
-                {% else %}
-                  Contact by text message
-                {% endif %}
-              {% else %}
-                <!-- show the preference -->
-                {% if data['contact'] == "email" %}
-                  Contact by email
-                {% elseif data['contact'] == "phone" %}
-                  Contact by text message
-                {% else %}
-                  Contact by post
-                {% endif %}
-              {% endif %}
+              Contact
 
             </dt>
             <dd class="govuk-summary-list__value">
-              <!-- simple model
-              {% if data['contact'] == "email" %}
-                {{ data['licence-by-email'] }}
-              {% elseif data['contact'] == "phone" %}
-                {{ data['licence-by-text'] }}
-              {% else %}
-                By post
-              {% endif %} -->
 
-
-              <!-- <span class="govuk-hint">
-                Licence set to {{ data['licence-by'] }}<br>
-                Email address is {{ data['licence-by-email'] }}<br>
-
-                Contact set to {{ data['contact'] }}<br>
-                Phone number is {{ data['licence-by-phone'] }}<br>
-
-                {{ data['contact-by-phone'] }}
-                Licence by text is {{ data['licence-by-text'] }}
+              <!-- debugger
+              <span class="govuk-hint">
+                Contact preference is {{ data['contact'] }}<br>
+                Phone number is {{ data['phone-number'] }}
               </span> -->
 
-              <!-- if the licence by is a digital option, sniff which kind -->
-              {% if data['licence-by'] == "email" or data['licence-by'] == "phone" %}
-
-                {% if data['contact'] == "email" %}
-                  {{ data['licence-by-email'] }}
-                {% else %}
-                  {{ data['licence-by-text'] }}
-                {% endif %}
-
-              <!-- if the licence by is by post, the contact can be by any method -->
+              <!-- simple model -->
+              {% if data['contact'] == "email" %}
+                Email to {{ data['email'] }}
+              {% elseif data['contact'] == "phone" %}
+                Text messages to {{ data['phone-number'] }}
               {% else %}
-
-                {% if data['contact'] == "email" %}
-                  {{ data['contact-by-email'] }}
-                {% elseif data['contact'] == "phone" %}
-                  {{ data['contact-by-phone'] }}
-                {% else %}
-                  By post
-                {% endif %}
-
+                By post
               {% endif %}
 
             </dd>

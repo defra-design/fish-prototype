@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "Would you like to go paperless?" %}
+{% set title = "What is your email address?" %}
 
 {% block pageTitle %}
   {{title}} - GOV.UK
@@ -38,34 +38,35 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
+
       <h1 class="govuk-heading-l">{{ title }}</h1>
 
-      <p class="govuk-body-l">
-        Get your licence information by email or text message.
-      </p>
+      <form action="contact-summary">
 
-      <p class="govuk-body">
-        Having a paperless licence means:
-      </p>
+        <div class="govuk-form-group">
 
-      <ul class="govuk-list govuk-list--bullet">
-        <li>a positive impact on the environment by reducing paper</li>
-        <li>save more money to help fisheries</li>
-        <li>licence in the cloud / instant licence</li>
-      </ul>
 
-      <p class="govuk-body">
-        Your licence information can be used to verify your licence to enforcement officers.
-      </p>
+          {% if data['email'] %}
+            <p class="govuk-body">
+              Emails will be sent to {{ data['email'] }} <a href="#">Change</a>
+            </p>
+          {% else %}
+            <label class="govuk-label" for="email">
+              Email address
+            </label>
+            <div id="email-hint" class="govuk-hint">
+              For example name@example.com
+            </div>
+            <input class="govuk-input govuk-input--width-20" id="email" name="email" type="email" spellcheck="false" aria-describedby="email-hint" autocomplete="email">
+          {% endif %}
 
-      <div class="govuk-!-margin-bottom-6">
-        <a href="paper-licence" class="govuk-link">I prefer a paper licence</a>
-      </div>
 
-      <form action="contact-preference-paperless"">
+        </div>
+
         <button class="govuk-button" data-module="govuk-button">
           Continue
         </button>
+
       </form>
 
     </div>

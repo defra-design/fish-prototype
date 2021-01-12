@@ -72,10 +72,10 @@
                 </label>
               </div>
               <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact">
-                {% if data['licence-by-email'] %}
+                {% if data['email'] %}
                   <div class="govuk-form-group">
                     <p class="govuk-body" for="contact-by-email">
-                      We will email you at <span class="govuk-!-font-weight-bold">{{ data['licence-by-email'] }}</span>
+                      We will email you at <span class="govuk-!-font-weight-bold">{{ data['email'] }}</span>
                     </p>
                   </div>
                 {% else %}
@@ -107,20 +107,20 @@
                 <div class="govuk-form-group">
 
                   <!-- detect if we have a phone number -->
-                  {% if data['contact-by-phone'] %}
+                  {% if data['phone-number'] %}
                   <div class="govuk-form-group">
                     <p class="govuk-body" for="contact-by-email">
-                      We will send text messages to <span class="govuk-!-font-weight-bold">{{ data['licence-by-text'] }}</span>
+                      We will send text messages to <span class="govuk-!-font-weight-bold">{{ data['phone-number'] }}</span>
                     </p>
                   </div>
                   {% else %}
-                    <label class="govuk-label" for="contact-by-phone">
+                    <label class="govuk-label" for="phone-number">
                       UK mobile phone number
                     </label>
                     <p class="govuk-hint">
                       For example 07700 900 900.
                     </p>
-                    <input class="govuk-input govuk-!-width-one-third" id="contact-by-phone" name="contact-by-phone" type="tel">
+                    <input class="govuk-input govuk-!-width-one-third" id="phone-number" name="phone-number" type="tel">
                   {% endif %}
                 </div>
               </div>

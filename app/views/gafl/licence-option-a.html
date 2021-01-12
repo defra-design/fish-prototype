@@ -39,66 +39,41 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <form action="contact-preference">
+      <form action="/check-licence-type" method="post" class="form">
+      <!-- <form action="contact-preference"> -->
+
         <div class="govuk-form-group">
-          <fieldset class="govuk-fieldset">
+          <fieldset class="govuk-fieldset" aria-describedby="licence-option-hint">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
               <h1 class="govuk-fieldset__heading">
                 {{ title }}
               </h1>
             </legend>
-            <p class="govuk-body">
-              We will send you a confirmation message with your licence details.
-            </p>
-            <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="licence-by" name="licence-by" type="radio" value="email" data-aria-controls="conditional-licence-by">
-                <label class="govuk-label govuk-radios__label" for="licence-by">
-                  Email
-                </label>
-              </div>
-              <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-licence-by">
-                <div class="govuk-form-group">
-                  <label class="govuk-label" for="licence-by-email">
-                    Email address
-                  </label>
-                  <p class="govuk-hint">
-                    For example name@example.com.
-                  </p>
-                  <input class="govuk-input govuk-!-width-two-thirds" id="licence-by-email" value="{{ data['licence-by-email'] }}" name="licence-by-email" type="email" spellcheck="false"></div>
 
-              </div>
+            <div class="govuk-radios">
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="licence-by-2" name="licence-by" type="radio" value="phone" data-aria-controls="conditional-licence-by-2">
-                <label class="govuk-label govuk-radios__label" for="licence-by-2">
-                  Text message
+                <input class="govuk-radios__input" id="licence-option" name="licence-option" type="radio" value="digital" aria-describedby="licence-option-item-hint">
+                <label class="govuk-label govuk-radios__label" for="licence-option">
+                  Digital
                 </label>
-              </div>
-              <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-licence-by-2">
-                <div class="govuk-form-group">
-                  <label class="govuk-label" for="licence-by-text">
-                    UK mobile phone number
-                  </label>
-                  <p class="govuk-hint">
-                    For example 07700 900 900.
-                  </p>
-                  <input class="govuk-input govuk-!-width-one-third" id="licence-by-text" value="{{ data['licence-by-text'] }}" name="licence-by-text" type="tel">
+                <div id="licence-option-item-hint" class="govuk-hint govuk-radios__hint">
+                  <ul class="govuk-list govuk-list--bullet">
+                    <li>licence information sent to you as a text or email</li>
+                    <li>a positive impact on the environment by reducing paper</li>
+                    <li>save more money to help fisheries</li>
+                  </ul>
                 </div>
               </div>
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="licence-by-3" name="licence-by" type="radio" value="post" data-aria-controls="conditional-licence-by-3">
-                <label class="govuk-label govuk-radios__label" for="licence-by-3">
-                  Post
+                <input class="govuk-radios__input" id="licence-option-2" name="licence-option" type="radio" value="paper-licence" aria-describedby="licence-option-2-item-hint">
+                <label class="govuk-label govuk-radios__label" for="licence-option-2">
+                  Paper licence
                 </label>
-              </div>
-              <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-licence-by-3">
-                <div class="govuk-form-group">
-                  <p class="govuk-body">
-                    You will receive the licence card in the post within 10 working days.
-                  </p>
-                  <p class="govuk-body">
-                    If you want to fish before you receive the card you should make a note of the licence number after payment.
-                  </p>
+                <div id="licence-option-2-item-hint" class="govuk-hint govuk-radios__hint">
+                  <ul class="govuk-list govuk-list--bullet">
+                    <li>You will receive the licence card in the post within 10 working days</li>
+                    <li>information about your licence on your card</li>
+                  </ul>
                 </div>
               </div>
             </div>

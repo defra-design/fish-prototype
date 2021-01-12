@@ -39,8 +39,11 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-
-      <form action="licence-option-a">
+      {% if data['path'] == "a" %}
+        <form action="licence-option-a">
+      {% else %}
+        <form action="licence-option-b">
+      {% endif %}
 
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset">

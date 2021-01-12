@@ -3,28 +3,26 @@ const router = express.Router()
 
 // Add your routes here - above the module.exports line
 
-// GAFL routing for what the licence type is (3 rods means only 12 months is valid)
-router.post('/views/gafl/route-licence-type', function (req, res) {
-
-  let licenceType = req.session.data['licence-type']
-
-  if (licenceType === 'Trout and coarse, up to 3 rods') {
-    res.redirect('views/gafl/licence-summary')
+// the bit between '' is the reference for this code, linked to from the form action
+router.post('/check-licence-type', function (req, res) {
+  // Make a variable from session data
+  let licenceOption = req.session.data['licence-option']
+  // route depending on value
+  if (licenceOption === 'digital') {
+    res.redirect('gafl/add-email')
   } else {
-    res.redirect('views/gafl/licence-length')
+    res.redirect('gafl/contact-preference')
   }
 })
 
-
-// GAFL routing for the question about where you want your licence to be sent
-router.post('/views/gafl/licence-by-question', function (req, res) {
-
-  let licenceBy = req.session.data['licence-by']
-
-  if (licenceBy === 'email') {
-    res.redirect('/gafl/contact-preference')
+router.post('/check-change-licence-type', function (req, res) {
+  // Make a variable from session data
+  let licenceOption = req.session.data['licence-option']
+  // route depending on value
+  if (licenceOption === 'digital') {
+    res.redirect('gafl/check-email')
   } else {
-    res.redirect('/gafl/contact-preference')
+    res.redirect('gafl/contact-summary')
   }
 })
 
