@@ -38,49 +38,46 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <h1 class="govuk-heading-l">{{ title }}</h1>
 
-      <p class="govuk-body-l">
-        Get your licence information by email or text message.
-      </p>
+      <form action="/check-licence-type" method="post" class="form">
 
-      <p class="govuk-body">
-        Having a paperless licence means:
-      </p>
+        <h1 class="govuk-heading-l">{{ title }}</h1>
 
-      <ul class="govuk-list govuk-list--bullet">
-        <li>a positive impact on the environment by reducing paper</li>
-        <li>save more money to help fisheries</li>
-        <li>licence in the cloud / instant licence</li>
-      </ul>
+        <p class="govuk-body">
+          Getting your licence information by email or text message means:
+        </p>
 
-      <p class="govuk-body">
-        Your licence information can be used to verify your licence to enforcement officers.
-      </p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>your licence information will be sent to you instantly</li>
+          <li>a positive impact on the environment by reducing paper</li>
+          <li>save more money to help fisheries</li>
+        </ul>
 
-      <div class="govuk-radios">
-        <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="licence-option" name="licence-option" type="radio" value="digital" aria-describedby="licence-option-item-hint">
-          <label class="govuk-label govuk-radios__label" for="licence-option">
-            Yes, go digital
-          </label>
+        <div class="govuk-inset-text">
+          Your licence information can be used to verify your licence to enforcement officers.
         </div>
-        <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="licence-option-2" name="licence-option" type="radio" value="paper-licence" aria-describedby="licence-option-2-item-hint">
-          <label class="govuk-label govuk-radios__label" for="licence-option-2">
-            No, I prefer a paper licence
-          </label>
-          <div id="licence-option-2-item-hint" class="govuk-hint govuk-radios__hint">
-            <ul class="govuk-list govuk-list--bullet">
-              <li>You will receive the licence card in the post within 10 working days</li>
-              <li>information about your licence on your card</li>
-            </ul>
+
+        <div class="govuk-radios">
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="licence-option" name="licence-option" type="radio" value="digital" aria-describedby="licence-option-item-hint">
+            <label class="govuk-label govuk-radios__label" for="licence-option">
+              Yes, go paperless
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="licence-option-2" name="licence-option" type="radio" value="paper-licence" aria-describedby="licence-option-2-item-hint">
+            <label class="govuk-label govuk-radios__label" for="licence-option-2">
+              No, I prefer a paper licence
+            </label>
+            <div id="licence-option-2-item-hint" class="govuk-hint govuk-radios__hint">
+              <ul class="govuk-list govuk-list--bullet">
+                <li>You will receive the licence card in the post within 10 working days</li>
+                <li>information about your licence is on your card</li>
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
 
-
-      <form action="contact-preference-paperless"">
         <button class="govuk-button" data-module="govuk-button">
           Continue
         </button>
