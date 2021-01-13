@@ -53,12 +53,12 @@
   <!-- <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
     <div class="govuk-notification-banner__header">
       <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
-        Important
+        Licence by email or text
       </h2>
     </div>
     <div class="govuk-notification-banner__content">
       <p class="govuk-notification-banner__heading">
-        You have 7 days left to send your application.
+        Because you have chosen to have a paperless licence, notifications will also be sent by email or text.
         <a class="govuk-notification-banner__link" href="#">View application</a>.
       </p>
     </div>
@@ -126,32 +126,21 @@
           </div>
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-
-              <!-- was working simple
-              {% if data['contact'] == "email" %}
-                Contact by email
-              {% elseif data['contact'] == "phone" %}
-                Contact by text message
-              {% else %}
-                Contact by post
-              {% endif %} -->
-
               Contact
-
             </dt>
             <dd class="govuk-summary-list__value">
 
               <!-- simple model -->
-              <!-- {% if data['contact'] == "email" %}
+              {% if data['contact'] == "email" %}
                 Email to {{ data['email'] }}
               {% elseif data['contact'] == "phone" %}
                 Text messages to {{ data['phone-number'] }}
               {% else %}
                 By post
-              {% endif %} -->
+              {% endif %}
 
               <!-- automatically switch -->
-              {% if data['licence-option'] == "digital" %}
+              <!-- {% if data['licence-option'] == "digital" %}
 
                 {% if data['licence-by'] == "email" %}
                   Email to {{ data['email'] }}
@@ -169,7 +158,7 @@
                   By post
                 {% endif %}
 
-              {% endif %}
+              {% endif %} -->
 
             </dd>
             <dd class="govuk-summary-list__actions">

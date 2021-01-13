@@ -51,6 +51,12 @@
               This is where we will send important updates and renewal reminders when your licence is expiring.
             </p>
 
+            {% if data['contact'] != "phone" %}
+              <div class="govuk-inset-text">
+                Because you have chosen to have a paperless licence, notifications will also be sent by email or text.
+              </div>
+            {% endif %}
+
             <!-- <p class="govuk-body">We will send you:</p>
             <ul class="govuk-list govuk-list--bullet">
               <li>a confirmation message with your licence details</li>
