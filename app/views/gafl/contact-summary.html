@@ -82,7 +82,12 @@
             </dt>
             <dd class="govuk-summary-list__value">
               {% if data['licence-option'] == "digital" %}
-                Digital
+                {% if data['licence-by'] == "email" %}
+                  Email to {{ data['email'] }}
+                {% else %}
+                  Text message to {{ data['phone-number'] }}
+                {% endif %}
+
               {% elseif data['licence-option'] == "paper-licence" %}
                 Paper licence
               {% else %}

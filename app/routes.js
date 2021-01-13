@@ -9,7 +9,8 @@ router.post('/check-licence-type', function (req, res) {
   let licenceOption = req.session.data['licence-option']
   // route depending on value
   if (licenceOption === 'digital') {
-    res.redirect('gafl/add-email')
+    // res.redirect('gafl/add-email')
+    res.redirect('gafl/licence-by')
   } else {
     res.redirect('gafl/contact-preference')
   }
@@ -20,10 +21,21 @@ router.post('/check-change-licence-type', function (req, res) {
   let licenceOption = req.session.data['licence-option']
   // route depending on value
   if (licenceOption === 'digital') {
-    res.redirect('gafl/check-email')
+    res.redirect('gafl/licence-by')
   } else {
     res.redirect('gafl/contact-summary')
   }
 })
+
+// router.post('/check-change-licence-type', function (req, res) {
+//   // Make a variable from session data
+//   let licenceOption = req.session.data['licence-option']
+//   // route depending on value
+//   if (licenceOption === 'digital') {
+//     res.redirect('gafl/check-email')
+//   } else {
+//     res.redirect('gafl/contact-summary')
+//   }
+// })
 
 module.exports = router
