@@ -40,7 +40,6 @@
     <div class="govuk-grid-column-two-thirds">
 
       <form action="/check-licence-type" method="post" class="form">
-      <!-- <form action="contact-preference"> -->
 
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset" aria-describedby="licence-option-hint">
@@ -50,11 +49,17 @@
               </h1>
             </legend>
 
+            <!-- <span class="govuk-hint">
+              Contact preference is {{ data['contact'] }}<br>
+              Phone number is {{ data['phone-number'] }}<br>
+              Email is {{ data['email'] }}
+            </span> -->
+
             <div class="govuk-radios">
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="licence-option" name="licence-option" type="radio" value="digital" aria-describedby="licence-option-item-hint">
                 <label class="govuk-label govuk-radios__label" for="licence-option">
-                  Digital
+                  Licence by email or text
                 </label>
                 <div id="licence-option-item-hint" class="govuk-hint govuk-radios__hint">
                   <ul class="govuk-list govuk-list--bullet">
@@ -67,7 +72,7 @@
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="licence-option-2" name="licence-option" type="radio" value="paper-licence" aria-describedby="licence-option-2-item-hint">
                 <label class="govuk-label govuk-radios__label" for="licence-option-2">
-                  Paper licence
+                  Licence by post
                 </label>
                 <div id="licence-option-2-item-hint" class="govuk-hint govuk-radios__hint">
                   <ul class="govuk-list govuk-list--bullet">

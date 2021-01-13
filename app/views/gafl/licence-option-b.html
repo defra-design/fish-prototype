@@ -58,9 +58,27 @@
         Your licence information can be used to verify your licence to enforcement officers.
       </p>
 
-      <div class="govuk-!-margin-bottom-6">
-        <a href="paper-licence" class="govuk-link">I prefer a paper licence</a>
+      <div class="govuk-radios">
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="licence-option" name="licence-option" type="radio" value="digital" aria-describedby="licence-option-item-hint">
+          <label class="govuk-label govuk-radios__label" for="licence-option">
+            Yes, go digital
+          </label>
+        </div>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="licence-option-2" name="licence-option" type="radio" value="paper-licence" aria-describedby="licence-option-2-item-hint">
+          <label class="govuk-label govuk-radios__label" for="licence-option-2">
+            No, I prefer a paper licence
+          </label>
+          <div id="licence-option-2-item-hint" class="govuk-hint govuk-radios__hint">
+            <ul class="govuk-list govuk-list--bullet">
+              <li>You will receive the licence card in the post within 10 working days</li>
+              <li>information about your licence on your card</li>
+            </ul>
+          </div>
+        </div>
       </div>
+
 
       <form action="contact-preference-paperless"">
         <button class="govuk-button" data-module="govuk-button">

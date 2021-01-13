@@ -51,6 +51,12 @@
               </h1>
             </legend>
 
+            <!-- <span class="govuk-hint">
+              Contact preference is {{ data['contact'] }}<br>
+              Phone number is {{ data['phone-number'] }}<br>
+              Email is {{ data['email'] }}
+            </span> -->
+
             <div class="govuk-radios">
               <div class="govuk-radios__item">
                 {% if data['licence-option'] == "digital" %}
@@ -60,7 +66,7 @@
                 {% endif %}
 
                 <label class="govuk-label govuk-radios__label" for="licence-option">
-                  Digital
+                  Licence by email or text
                 </label>
                 <div id="licence-option-item-hint" class="govuk-hint govuk-radios__hint">
                   <ul class="govuk-list govuk-list--bullet">
@@ -77,7 +83,7 @@
                 <input class="govuk-radios__input" id="licence-option-2" name="licence-option" type="radio" value="paper-licence" aria-describedby="licence-option-2-item-hint">
                 {% endif %}
                 <label class="govuk-label govuk-radios__label" for="licence-option-2">
-                  Paper licence
+                  Licence by post
                 </label>
                 <div id="licence-option-2-item-hint" class="govuk-hint govuk-radios__hint">
                   <ul class="govuk-list govuk-list--bullet">

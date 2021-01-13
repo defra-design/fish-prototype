@@ -58,10 +58,11 @@
             </ul> -->
 
             <!-- debugger -->
-            <span class="govuk-hint">
+            <!-- <span class="govuk-hint">
               Contact preference is {{ data['contact'] }}<br>
               Phone number is {{ data['phone-number'] }}
-            </span>
+              Email is {{ data['email'] }}
+            </span> -->
 
 
             <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
@@ -128,7 +129,7 @@
 
               {% if data['licence-option'] == "paper-licence" %}
                 <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="contact-3" name="contact" type="radio" value="contact-by-post" data-aria-controls="conditional-contact-3">
+                  <input class="govuk-radios__input" id="contact-3" name="contact" type="radio" value="post" data-aria-controls="conditional-contact-3">
                   <label class="govuk-label govuk-radios__label" for="contact-3">
                     Post
                   </label>

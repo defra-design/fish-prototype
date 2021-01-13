@@ -44,6 +44,12 @@
     </div>
   </div>
 
+  <!-- <span class="govuk-hint">
+    Contact preference is {{ data['contact'] }}<br>
+    Phone number is {{ data['phone-number'] }}<br>
+    Email is {{ data['email'] }}
+  </span> -->
+
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
 
@@ -89,7 +95,7 @@
                 {% endif %}
 
               {% elseif data['licence-option'] == "paper-licence" %}
-                Paper licence
+                By post
               {% else %}
                 By post
               {% endif %}
@@ -121,11 +127,6 @@
             </dt>
             <dd class="govuk-summary-list__value">
 
-              <!-- debugger
-              <span class="govuk-hint">
-                Contact preference is {{ data['contact'] }}<br>
-                Phone number is {{ data['phone-number'] }}
-              </span> -->
 
               <!-- simple model -->
               {% if data['contact'] == "email" %}

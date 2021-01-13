@@ -74,19 +74,19 @@
               <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact">
                 {% if data['email'] %}
                   <div class="govuk-form-group">
-                    <p class="govuk-body" for="contact-by-email">
+                    <p class="govuk-body" for="email">
                       We will email you at <span class="govuk-!-font-weight-bold">{{ data['email'] }}</span>
                     </p>
                   </div>
                 {% else %}
                   <div class="govuk-form-group">
-                    <label class="govuk-label" for="contact-by-email">
+                    <label class="govuk-label" for="email">
                       Email address
                     </label>
                     <p class="govuk-hint">
                       For example name@example.com.
                     </p>
-                    <input class="govuk-input govuk-!-width-two-thirds" id="contact-by-email" name="contact-by-email" type="email" spellcheck="false">
+                    <input class="govuk-input govuk-!-width-two-thirds" id="email" name="email" type="email" spellcheck="false">
                   </div>
                 {% endif %}
               </div>
@@ -109,7 +109,7 @@
                   <!-- detect if we have a phone number -->
                   {% if data['phone-number'] %}
                   <div class="govuk-form-group">
-                    <p class="govuk-body" for="contact-by-email">
+                    <p class="govuk-body" for="email">
                       We will send text messages to <span class="govuk-!-font-weight-bold">{{ data['phone-number'] }}</span>
                     </p>
                   </div>
