@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "Application complete" %}
+{% set title = "Your rod fishing licence number is 16130122-2WC3JDD-AJ2H17" %}
 
 {% block pageTitle %}
   {{title}} - GOV.UK
@@ -39,53 +39,16 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <div class="govuk-panel govuk-panel--confirmation">
-        <h1 class="govuk-panel__title">
-          {{ title }}
-        </h1>
-        <div class="govuk-panel__body">
-          Your licence number<br><strong>16130122-2WC3JDD-AJ2H17</strong>
-        </div>
-      </div>
+      <h1 class="govuk-heading-l">{{ title }}</h1>
 
-      <!-- <p class="govuk-body">We have sent you a confirmation email.</p> -->
-
-      <h2 class="govuk-heading-m">Before you go fishing</h2>
-
-      <div class="govuk-!-margin-bottom-9">
-
-        <p class="govuk-body">
-          You can go fishing before you get your licence card, but you must be able to confirm your licence details if asked by an enforcement officer.
-        </p>
-
-        <div class="govuk-warning-text">
-          <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
-          <strong class="govuk-warning-text__text">
-            <span class="govuk-warning-text__assistive">Warning</span>
-            Make a record of your licence number.
-          </strong>
-        </div>
-
-        <!-- <p class="govuk-body">
-          Get a <a href="#">PDF copy of your licence details</a>. If you gave us your email address, you’ll get a confirmation message that includes your licence number.
-        </p> -->
-
-        <p class="govuk-body">
-          <a href="licence-information">Take a screenshot or print your licence details</a>. If you gave us your email address, you’ll get a confirmation message that includes your licence number.
-        </p>
-
-        <p class="govuk-body">
-          You must follow the <a href="https://www.gov.uk/freshwater-rod-fishing-rules" class="govuk_link" target="_blank">rod fishing rules</a> and <a href="https://www.gov.uk/government/collections/local-fishing-byelaws" class="govuk_link" target="_blank">local fishing byelaws</a>.
-        </p>
-
-      </div>
+      <p class="govuk-body-l">
+        You can use this as proof of licence.
+      </p>
 
       <!-- licence details here -->
 
-      <h2 class="govuk-heading-m">Your licence information</h2>
-
       <!-- table for licence information -->
-      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+      <dl class="govuk-summary-list govuk-!-margin-bottom-6">
 
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
@@ -169,20 +132,28 @@
               <p class="govuk-body">£30</p>
             {% endif %}
           </dd>
-
         </div>
       </dl>
 
-      <!-- <h2 class="govuk-heading-m">What happens next</h2>
-
-      <p class="govuk-body">
-        Make a note of your licence number and you take it with you when you go fishing.
+      <!-- <p class="govuk-body">
+        You must follow the <a href="https://www.gov.uk/freshwater-rod-fishing-rules" class="govuk_link" target="_blank">rod fishing rules</a> and <a href="https://www.gov.uk/government/collections/local-fishing-byelaws" class="govuk_link" target="_blank">local fishing byelaws</a>.
       </p> -->
 
+      <div class="govuk-inset-text">
+        You must follow the rod fishing rules and local fishing byelaws.:</p>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>https://www.gov.uk/freshwater-rod-fishing-rules</li>
+            <li>https://www.gov.uk/government/collections/local-fishing-byelaws</li>
+          </ul>
+      </div>
 
-      <p class="govuk-body">
-        <a href="https://www.smartsurvey.co.uk/s/0L205/" class="govuk-link">Tell us what you think of the service</a> (takes 30 seconds)
-      </p>
+      <div class="govuk-warning-text">
+        <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+        <strong class="govuk-warning-text__text">
+          <span class="govuk-warning-text__assistive">Warning</span>
+          Report incidents on 0800 807060<br>(24-hour service).
+        </strong>
+      </div>
 
     </div>
   </div>
