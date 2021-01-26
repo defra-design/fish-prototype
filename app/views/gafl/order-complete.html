@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "Application complete" %}
+{% set title = "Payment complete" %}
 
 {% block pageTitle %}
   {{title}} - GOV.UK
@@ -39,7 +39,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <div class="govuk-panel govuk-panel--confirmation">
+      <div class="govuk-panel govuk-panel--confirmation govuk-!-margin-bottom-6">
         <h1 class="govuk-panel__title">
           {{ title }}
         </h1>
@@ -50,39 +50,9 @@
 
       <!-- <p class="govuk-body">We have sent you a confirmation email.</p> -->
 
-      <h2 class="govuk-heading-m">Before you go fishing</h2>
-
-      <div class="govuk-!-margin-bottom-9">
-
-        <p class="govuk-body">
-          You can go fishing before you get your licence card, but you must be able to confirm your licence details if asked by an enforcement officer.
-        </p>
-
-        <div class="govuk-warning-text">
-          <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
-          <strong class="govuk-warning-text__text">
-            <span class="govuk-warning-text__assistive">Warning</span>
-            Make a record of your licence number.
-          </strong>
-        </div>
-
-        <!-- <p class="govuk-body">
-          Get a <a href="#">PDF copy of your licence details</a>. If you gave us your email address, you’ll get a confirmation message that includes your licence number.
-        </p> -->
-
-        <p class="govuk-body">
-          <a href="licence-information">Take a screenshot or print your licence details</a>. If you gave us your email address, you’ll get a confirmation message that includes your licence number.
-        </p>
-
-        <p class="govuk-body">
-          You must follow the <a href="https://www.gov.uk/freshwater-rod-fishing-rules" class="govuk_link" target="_blank">rod fishing rules</a> and <a href="https://www.gov.uk/government/collections/local-fishing-byelaws" class="govuk_link" target="_blank">local fishing byelaws</a>.
-        </p>
-
-      </div>
-
       <!-- licence details here -->
 
-      <h2 class="govuk-heading-m">Your licence information</h2>
+      <h2 class="govuk-heading-l">Your licence information</h2>
 
       <!-- table for licence information -->
       <dl class="govuk-summary-list govuk-!-margin-bottom-9">
@@ -92,7 +62,11 @@
             Name
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ data['first-name']+" "+data['last-name'] }}
+            {% if data['first-name'] %}
+              {{ data['first-name']+" "+data['last-name'] }}
+            {% else %}
+              Sam Fisher
+            {% endif %}
           </dd>
         </div>
 
@@ -101,7 +75,11 @@
             Type
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ data['licence-type'] }}
+            {% if data['licence-type'] %}
+              {{ data['licence-type'] }}
+            {% else %}
+              Trout and coarse, up to 2 rods
+            {% endif %}
           </dd>
         </div>
 
@@ -167,11 +145,48 @@
 
             {% elseif data['licence-type'] == "Trout and coarse, up to 3 rods" %}
               <p class="govuk-body">£30</p>
+
+            {% else %}
+              <p class="govuk-body">£30</p>
             {% endif %}
           </dd>
 
         </div>
       </dl>
+
+      <h2 class="govuk-heading-l">Before you go fishing</h2>
+
+      <div class="govuk-!-margin-bottom-9">
+
+        <p class="govuk-body">
+          You can go fishing before you get your licence card, but you must be able to confirm your licence details if asked by an enforcement officer.
+        </p>
+
+        <!-- <div class="govuk-warning-text">
+          <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+          <strong class="govuk-warning-text__text">
+            <span class="govuk-warning-text__assistive">Warning</span>
+            Make a record of your licence number.
+          </strong>
+        </div> -->
+
+        <div class="govuk-inset-text">
+          Make a record of your licence number.
+        </div>
+
+        <!-- <p class="govuk-body">
+          Get a <a href="#">PDF copy of your licence details</a>. If you gave us your email address, you’ll get a confirmation message that includes your licence number.
+        </p> -->
+
+        <p class="govuk-body">
+          See <a href="licence-information">your licence information</a>. If you gave us your email address, you’ll get a confirmation message that includes your licence number.
+        </p>
+
+        <p class="govuk-body">
+          You must follow the <a href="https://www.gov.uk/freshwater-rod-fishing-rules" class="govuk_link" target="_blank">rod fishing rules (opens in a new tab)</a> and <a href="https://www.gov.uk/government/collections/local-fishing-byelaws" class="govuk_link" target="_blank">local fishing byelaws (opens in a new tab)</a>.
+        </p>
+
+      </div>
 
       <!-- <h2 class="govuk-heading-m">What happens next</h2>
 
