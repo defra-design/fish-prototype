@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
-<!-- {% set title = "Licence number 16130122-2WC3JDD-AJ2H17" %} -->
-{% set title = "16130122-2WC3JDD-AJ2H17" %}
+{% set title = "Licence number 16130122-2WC3JDD-AJ2H17" %}
+{% set licenceNumber = "16130122-2WC3JDD-AJ2H17" %}
 
 {% block pageTitle %}
   {{title}} - GOV.UK
@@ -43,7 +43,7 @@
       <!-- <h1 class="govuk-heading-l">{{ title }}</h1> -->
 
       <span class="govuk-caption-xl">Licence number</span>
-      <h1 class="govuk-heading-xl">{{ title }}</h1>
+      <h1 class="govuk-heading-xl">{{ licenceNumber }}</h1>
 
       <p class="govuk-body-l">
         You can use this as proof of licence.
@@ -59,7 +59,11 @@
             Name
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ data['first-name']+" "+data['last-name'] }}
+            {% if data['first-name'] %}
+              {{ data['first-name']+" "+data['last-name'] }}
+            {% else %}
+              Sam Fisher
+            {% endif %}
           </dd>
         </div>
 
@@ -68,7 +72,11 @@
             Type
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ data['licence-type'] }}
+            {% if data['licence-type'] %}
+              {{ data['licence-type'] }}
+            {% else %}
+              Trout and coarse, up to 2 rods
+            {% endif %}
           </dd>
         </div>
 
@@ -77,14 +85,10 @@
             Length
           </dt>
           <dd class="govuk-summary-list__value">
-            {% if data['licence-type'] === 'Trout and coarse, up to 3 rods' %}
-             12 months
+            {% if data['licence-length'] %}
+              {{ data['licence-length'] }}
             {% else %}
-              {% if data['licence-length'] %}
-                {{ data['licence-length'] }}
-              {% else %}
-                12 months
-              {% endif %}
+              12 months
             {% endif %}
           </dd>
         </div>
@@ -121,20 +125,7 @@
             Cost
           </dt>
           <dd class="govuk-summary-list__value">
-            <!-- 2 rods -->
-            {% if data['licence-type'] == "Trout and coarse, up to 2 rods" %}
-
-              {% if data['licence-length'] == "12 months" %}
-                <p class="govuk-body">£30</p>
-              {% elseif data['licence-length'] == "8 days" %}
-                <p class="govuk-body">£12</p>
-              {% else %}
-                <p class="govuk-body">£6</p>
-              {% endif %}
-
-            {% elseif data['licence-type'] == "Trout and coarse, up to 3 rods" %}
-              <p class="govuk-body">£30</p>
-            {% endif %}
+            12 months
           </dd>
         </div>
       </dl>
