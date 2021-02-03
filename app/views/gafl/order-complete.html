@@ -160,9 +160,15 @@
 
       <div class="govuk-!-margin-bottom-9">
 
-        <p class="govuk-body">
-          You can go fishing before you get your licence card. You must be able to give your licence details if asked by an enforcement officer.
-        </p>
+        {% if data['licence-option'] == "Digital" %}
+          <p class="govuk-body">
+            You can go fishing as soon as your licence starts. You must be able to give your licence details if asked by an enforcement officer.
+          </p>
+        {% else %}
+          <p class="govuk-body">
+            You can go fishing before you get your licence card. You must be able to give your licence details if asked by an enforcement officer.
+          </p>
+        {% endif %}
 
         <p class="govuk-body">
           You can use your number and <a href="licence-information">licence information</a> as proof of a rod fishing licence.
