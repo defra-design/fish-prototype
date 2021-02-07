@@ -48,113 +48,16 @@
         </div>
       </div>
 
-      <!-- <p class="govuk-body">We have sent you a confirmation email.</p> -->
 
-      <!-- licence details here -->
-
-      <!-- <h2 class="govuk-heading-l">Your licence information</h2>
-      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Name
-          </dt>
-          <dd class="govuk-summary-list__value">
-            {% if data['first-name'] %}
-              {{ data['first-name']+" "+data['last-name'] }}
-            {% else %}
-              Sam Fisher
-            {% endif %}
-          </dd>
-        </div>
-
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Type
-          </dt>
-          <dd class="govuk-summary-list__value">
-            {% if data['licence-type'] %}
-              {{ data['licence-type'] }}
-            {% else %}
-              Trout and coarse, up to 2 rods
-            {% endif %}
-          </dd>
-        </div>
-
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Length
-          </dt>
-          <dd class="govuk-summary-list__value">
-            {% if data['licence-type'] === 'Trout and coarse, up to 3 rods' %}
-             12 months
-            {% else %}
-              {% if data['licence-length'] %}
-                {{ data['licence-length'] }}
-              {% else %}
-                12 months
-              {% endif %}
-            {% endif %}
-          </dd>
-        </div>
-
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Start date
-          </dt>
-          <dd class="govuk-summary-list__value">
-            January 20 2020, 7.30pm
-          </dd>
-        </div>
-
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            End date
-          </dt>
-          <dd class="govuk-summary-list__value">
-            January 20 2021, 7.30pm
-          </dd>
-        </div>
-
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Disability concession
-          </dt>
-          <dd class="govuk-summary-list__value">
-            <p class="govuk-body">None</p>
-          </dd>
-        </div>
-
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Cost
-          </dt>
-          <dd class="govuk-summary-list__value">
-
-            {% if data['licence-type'] == "Trout and coarse, up to 2 rods" %}
-
-              {% if data['licence-length'] == "12 months" %}
-                <p class="govuk-body">£30</p>
-              {% elseif data['licence-length'] == "8 days" %}
-                <p class="govuk-body">£12</p>
-              {% else %}
-                <p class="govuk-body">£6</p>
-              {% endif %}
-
-            {% elseif data['licence-type'] == "Trout and coarse, up to 3 rods" %}
-              <p class="govuk-body">£30</p>
-
-            {% else %}
-              <p class="govuk-body">£30</p>
-            {% endif %}
-          </dd>
-
-        </div>
-      </dl> -->
-
-      <!-- <p class="govuk-body">
-        Here is a copy of <a href="licence-information">your licence information</a>. If you gave us your email address, you’ll get a confirmation message that includes your licence number.
-      </p> -->
+      {% if data['licence-option'] == "Digital" %}
+        <p class="govuk-body">
+          You can go fishing as soon as your licence starts. You must be able to give your licence details if asked by an enforcement officer.
+        </p>
+      {% else %}
+        <p class="govuk-body">
+          You can go fishing before you get your licence card. You must be able to give your licence details if asked by an enforcement officer.
+        </p>
+      {% endif %}
 
       <h2 class="govuk-heading-l">Before you go fishing</h2>
 
