@@ -19,7 +19,7 @@
 
 {% block beforeContent %}
 
-<!-- <a href="javascript:history.back()" class="govuk-back-link">Back</a> -->
+  <!-- <a href="javascript:history.back()" class="govuk-back-link">Back</a> -->
 
 {% endblock %}
 
@@ -36,7 +36,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
 
-      <form action="name">
+      <form action="check-contact-details">
 
         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
           <div class="govuk-summary-list__row">
@@ -44,7 +44,7 @@
               Type
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['licence-type'] }}
+              Trout and coarse, up to 2 rods
             </dd>
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="change-licence-type">
@@ -80,29 +80,7 @@
 
             </dd>
           </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Date of birth
-            </dt>
-            <dd class="govuk-summary-list__value">
-              <!-- {% if data['dob-month'] === "1" %}
-                data['licence-length'] = "January"
-              {% elseif data['dob-month'] === "2" %}
-                data['licence-length'] = "February"
-              {% endif %}
 
-
-
-
-              {{ data['dob-day'] + "-" + data['dob-month'] + "-" + data['dob-year'] }} -->
-              22 January 1963
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="change-dob">
-                Change<span class="govuk-visually-hidden"> date of birth</span>
-              </a>
-            </dd>
-          </div>
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Start date
@@ -134,25 +112,7 @@
               Cost
             </dt>
             <dd class="govuk-summary-list__value">
-
-
-              <!-- 2 rods -->
-              {% if data['licence-type'] == "Trout and coarse, up to 2 rods" %}
-
-                {% if data['licence-length'] == "12 months" %}
-                  <p class="govuk-body">£30</p>
-                {% elseif data['licence-length'] == "8 days" %}
-                  <p class="govuk-body">£12</p>
-                {% else %}
-                  <p class="govuk-body">£6</p>
-                {% endif %}
-
-              {% elseif data['licence-type'] == "Trout and coarse, up to 3 rods" %}
-                <p class="govuk-body">£30</p>
-              {% endif %}
-
-
-
+              £30
             </dd>
             <dd class="govuk-summary-list__actions">
               <!-- <a class="govuk-link" href="#">

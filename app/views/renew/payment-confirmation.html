@@ -1,0 +1,140 @@
+{% extends "layout.html" %}
+
+{% set title = "Confirm your payment" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block header %}
+ {{ govukHeader({
+   homepageUrl: "/",
+   serviceName: "Buy a fishing licence",
+   serviceUrl: "#",
+   containerClasses: "govuk-width-container"
+ }) }}
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-l">{{ title }}</h1>
+
+      {{ govukSummaryList({
+        classes: 'govuk-!-margin-bottom-9',
+        rows: [
+          {
+            key: {
+              text: "Card number"
+            },
+            value: {
+              text: "•••• •••• •••• 7418"
+            },
+            actions: {
+              items: [
+
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Expiry date"
+            },
+            value: {
+              text: "08/21"
+            },
+            actions: {
+              items: [
+
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Name on card"
+            },
+            value: {
+              text: "Sam Baiter"
+            },
+            actions: {
+              items: [
+
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Billing address"
+            },
+            value: {
+              html: "72 Guild Street<br>London<br>SE23 6FH"
+            },
+            actions: {
+              items: [
+
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Confirmation email"
+            },
+            value: {
+              text: "sam.baiter59@gmail.com"
+            },
+            actions: {
+              items: [
+
+              ]
+            }
+          }
+        ]
+      }) }}
+
+      <form action="payment-complete" method="post" novalidate>
+
+        <input type="hidden" name="answers-checked" value="true">
+
+        {{ govukButton({
+          text: "Confirm payment"
+        }) }}
+
+        <br>
+
+        <a href="#">
+          Cancel payment
+        </a>
+
+      </form>
+
+    </div>
+  </div>
+
+  <script src="/public/javascripts/jquery-1.11.3.js"></script>
+
+  <script>
+    $(function() {
+      $('form[data-routing]').on('submit', function(ev) {
+        // FInd selected radio button
+        const url = $(this).find('input:checked').val();
+
+        if(url) {
+          ev.preventDefault();
+          window.location.href = url;
+          return false;
+        }
+      });
+    })
+  </script>
+
+{% endblock %}
