@@ -1,0 +1,144 @@
+{% extends "layout.html" %}
+
+{% set title = "Licence number 16130122-2WC3JDD-AJ2H17" %}
+{% set licenceNumber = "16130122-2WC3JDD-AJ2H17" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block header %}
+
+{% from "govuk/components/header/macro.njk" import govukHeader %}
+  {{ govukHeader({
+   homepageUrl: "/index",
+   serviceName: "Get a rod fishing licence",
+   serviceUrl: "#"
+  }) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+<!-- <a href="javascript:history.back()" class="govuk-back-link">Back</a> -->
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <!-- <h1 class="govuk-heading-l">{{ title }}</h1> -->
+
+      <span class="govuk-caption-xl">Licence number</span>
+      <h1 class="govuk-heading-xl">{{ licenceNumber }}</h1>
+
+      <p class="govuk-body-l">
+        You can use this as proof of a rod fishing licence.
+      </p>
+
+      <!-- licence details here -->
+
+      <!-- table for licence information -->
+      <dl class="govuk-summary-list govuk-!-margin-bottom-6">
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key govuk-summary-list__key-wide">
+            Name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {% if data['first-name'] %}
+              {{ data['first-name']+" "+data['last-name'] }}
+            {% else %}
+              Sam Fisher
+            {% endif %}
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Type
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {% if data['licence-type'] %}
+              {{ data['licence-type'] }}
+            {% else %}
+              Trout and coarse, up to 2 rods
+            {% endif %}
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Length
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {% if data['licence-length'] %}
+              {{ data['licence-length'] }}
+            {% else %}
+              12 months
+            {% endif %}
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Start date
+          </dt>
+          <dd class="govuk-summary-list__value">
+            20 January 2020, 7:30pm
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            End date
+          </dt>
+          <dd class="govuk-summary-list__value">
+            20 January 2021, 7:30pm
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Disability concession
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <p class="govuk-body">None</p>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Cost
+          </dt>
+          <dd class="govuk-summary-list__value">
+            £30
+          </dd>
+        </div>
+      </dl>
+
+      <!-- <p class="govuk-body">
+        You must follow the <a href="https://www.gov.uk/freshwater-rod-fishing-rules" class="govuk_link" target="_blank">rod fishing rules</a> and <a href="https://www.gov.uk/government/collections/local-fishing-byelaws" class="govuk_link" target="_blank">local fishing byelaws</a>.
+      </p> -->
+
+      <div class="govuk-inset-text">
+
+        You must follow the rod fishing byelaws.<br>
+        Search for <a href="https://www.gov.uk/guidance/national-rod-fishing-byelaws-for-england-freshwater-fishing-with-a-rod-and-line" class="govuk_link">rod fishing byelaws</a> on GOV.UK.
+
+      </div>
+
+      <div class="govuk-warning-text">
+        <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+        <strong class="govuk-warning-text__text">
+          <span class="govuk-warning-text__assistive">Warning</span>
+          Report an environmental incident on 0800 80 70 60.<br>This is a 24-hour service.
+        </strong>
+      </div>
+
+    </div>
+  </div>
+
+{% endblock %}

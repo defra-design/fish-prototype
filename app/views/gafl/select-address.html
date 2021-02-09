@@ -30,9 +30,12 @@
 
       {% if data['path'] == "a" %}
         <form action="licence-option-a">
-      {% else %}
+      {% elseif data['path'] == "b" %}
         <form action="licence-option-b">
+      {% else %}
+        <form action="licence-option">
       {% endif %}
+
 
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset">
