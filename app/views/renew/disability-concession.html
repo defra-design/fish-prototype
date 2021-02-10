@@ -1,0 +1,95 @@
+{% extends "layout.html" %}
+
+{% set title = "Do you receive any of the following?" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block header %}
+
+{% from "govuk/components/header/macro.njk" import govukHeader %}
+  {{ govukHeader({
+   homepageUrl: "/index",
+   serviceName: "Get a rod fishing licence",
+   serviceUrl: "#"
+  }) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="check-licence-details">
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <h1 class="govuk-fieldset__heading">
+                {{ title }}
+              </h1>
+            </legend>
+            <p class="govuk-body">
+              You may be eligible for a concession on a 12 month licence.
+            </p>
+            <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="concession" name="concession" type="radio" value="number" data-aria-controls="conditional-concession">
+                <label class="govuk-label govuk-radios__label" for="concession">
+                  Personal Independence Payment (PIP)<br>
+                  or Disability Living Allowance (DLA)
+                </label>
+              </div>
+              <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-concession">
+                <div class="govuk-form-group">
+                  <label class="govuk-label" for="niNumber">
+                    National Insurance number
+                  </label>
+                  <p class="govuk-hint">
+                    This is on your National Insurance card, benefit letter, payslip or P60. For example 'QQ 12 34 56 C'
+                  </p>
+                  <input class="govuk-input govuk-!-width-two-thirds" id="niNumber" value="{{ data['niNumber'] }}" name="niNumber" type="email" spellcheck="false"></div>
+
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="concession-2" name="concession" type="radio" value="number" data-aria-controls="conditional-concession-2">
+                <label class="govuk-label govuk-radios__label" for="concession-2">
+                  Blue Badge
+                </label>
+              </div>
+              <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-concession-2">
+                <div class="govuk-form-group">
+                  <label class="govuk-label" for="bbNumber">
+                    Blue Badge number
+                  </label>
+                  <input class="govuk-input govuk-!-width-one-third" id="bbNumber" value="{{ data['bbNumber'] }}" name="bbNumber" type="tel">
+                </div>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="concession-3" name="concession" type="radio" value="text" data-aria-controls="conditional-concession-3">
+                <label class="govuk-label govuk-radios__label" for="concession-3">
+                  No
+                </label>
+              </div>
+
+            </div>
+
+          </fieldset>
+        </div>
+
+        <button class="govuk-button" data-module="govuk-button">
+          Continue
+        </button>
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
