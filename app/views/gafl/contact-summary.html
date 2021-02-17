@@ -113,6 +113,34 @@
               </a>
             </dd>
           </div>
+
+          <!-- is there a licence confirmation for users opting for a paper licence -->
+          {% if data['licence-option'] == "paper-licence" %}
+            <!-- only show this row if the user has asked for a licence confirmation to be sent by email or post -->
+            {% if data['confirmation'] != "note" %}
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Licence confirmation
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  <!-- simple model -->
+                  {% if data['confirmation'] == "email" %}
+                    Email to {{ data['email'] }}
+                  {% elseif data['confirmation'] == "phone" %}
+                    Text messages to {{ data['phone-number'] }}
+                  {% else %}
+                    Note of licence
+                  {% endif %}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="change-licence-confirmation">
+                    Change<span class="govuk-visually-hidden"> licence confirmation option</span>
+                  </a>
+                </dd>
+              </div>
+            {% endif %}
+          {% endif %}
+
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Contact
@@ -156,6 +184,7 @@
               </a>
             </dd>
           </div>
+
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Newsletter
