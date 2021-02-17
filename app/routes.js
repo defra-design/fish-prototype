@@ -24,7 +24,7 @@ router.post('/check-licence-type', function (req, res) {
     // res.redirect('gafl/add-email')
     res.redirect('gafl/licence-by')
   } else {
-    res.redirect('gafl/contact-preference')
+    res.redirect('gafl/licence-confirmation')
   }
 })
 
