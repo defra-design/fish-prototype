@@ -9,6 +9,7 @@ const express = require('express')
 const nunjucks = require('nunjucks')
 const sessionInCookie = require('client-sessions')
 const sessionInMemory = require('express-session')
+const cookieParser = require('cookie-parser')
 
 // Run before other code to make sure variables from .env are available
 dotenv.config()
@@ -44,10 +45,15 @@ if (useV6) {
   v6App = express()
 }
 
+// Set cookies for use in cookie banner.
+app.use(cookieParser())
+documentationApp.use(cookieParser())
+app.use(utils.handleCookies(app))
+documentationApp.use(utils.handleCookies(documentationApp))
+
 // Set up configuration variables
 var releaseVersion = packageJson.version
-var glitchEnv = (process.env.PROJECT_REMIX_CHAIN) ? 'production' : false // glitch.com
-var env = (process.env.NODE_ENV || glitchEnv || 'development').toLowerCase()
+var env = (process.env.NODE_ENV || 'development').toLowerCase()
 var useAutoStoreData = process.env.USE_AUTO_STORE_DATA || config.useAutoStoreData
 var useCookieSessionStore = process.env.USE_COOKIE_SESSION_STORE || config.useCookieSessionStore
 var useHttps = process.env.USE_HTTPS || config.useHttps
@@ -155,6 +161,7 @@ if (useV6) {
 app.locals.asset_path = '/public/'
 app.locals.useAutoStoreData = (useAutoStoreData === 'true')
 app.locals.useCookieSessionStore = (useCookieSessionStore === 'true')
+app.locals.cookieText = config.cookieText
 app.locals.promoMode = promoMode
 app.locals.releaseVersion = 'v' + releaseVersion
 app.locals.serviceName = config.serviceName
@@ -163,7 +170,7 @@ app.locals.extensionConfig = extensions.getAppConfig()
 
 // Session uses service name to avoid clashes with other prototypes
 const sessionName = 'govuk-prototype-kit-' + (Buffer.from(config.serviceName, 'utf8')).toString('hex')
-const sessionOptions = {
+let sessionOptions = {
   secret: sessionName,
   cookie: {
     maxAge: 1000 * 60 * 60 * 4, // 4 hours
@@ -207,6 +214,8 @@ app.post('/prototype-admin/clear-data', function (req, res) {
 // Redirect root to /docs when in promo mode.
 if (promoMode === 'true') {
   console.log('Prototype Kit running in promo mode')
+
+  app.locals.cookieText = 'GOV.UK uses cookies to make the site simpler. <a href="/docs/cookies">Find out more about cookies</a>'
 
   app.get('/', function (req, res) {
     res.redirect('/docs')
