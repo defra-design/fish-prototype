@@ -28,6 +28,20 @@ router.post('/check-licence-type', function (req, res) {
   }
 })
 
+// additional routing for renew
+router.post('/renew-check-licence-type', function (req, res) {
+  // Make a variable from session data
+  let licenceOption = req.session.data['licence-option']
+  // route depending on value
+  if (licenceOption === 'digital') {
+    // res.redirect('gafl/add-email')
+    res.redirect('renew/licence-by')
+  } else {
+    res.redirect('renew/licence-confirmation')
+  }
+})
+
+
 // routing for changed digital/paper licence
 router.post('/check-change-licence-type', function (req, res) {
   // Make a variable from session data

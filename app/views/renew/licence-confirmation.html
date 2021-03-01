@@ -1,0 +1,148 @@
+{% extends "layout.html" %}
+
+{% set title = "How do you want your rod licence confirmation?" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block header %}
+
+{% from "govuk/components/header/macro.njk" import govukHeader %}
+  {{ govukHeader({
+   homepageUrl: "/index",
+   serviceName: "Get a rod fishing licence",
+   serviceUrl: "#"
+  }) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="contact-preference">
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <h1 class="govuk-fieldset__heading">
+                {{ title }}
+              </h1>
+            </legend>
+
+            <p class="govuk-body">
+              This is where we will send confirmation of your rod licence
+            </p>
+
+            <!-- <p class="govuk-body">We will send you:</p>
+            <ul class="govuk-list govuk-list--bullet">
+              <li>a confirmation message with your licence details</li>
+              <li>renewal reminders when your licence is expiring</li>
+            </ul> -->
+
+            <!-- <span class="govuk-hint">
+              Contact preference is {{ data['contact'] }}<br>
+              Phone number is {{ data['phone-number'] }}
+              Email is {{ data['email'] }}
+            </span> -->
+
+            <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                {% if data['contact'] == "email" %}
+                  <input class="govuk-radios__input" id="confirmation" name="confirmation" type="radio" value="email" data-aria-controls="conditional-confirmation" checked>
+                {% else %}
+                  <input class="govuk-radios__input" id="confirmation" name="confirmation" type="radio" value="email" data-aria-controls="conditional-confirmation">
+                {% endif %}
+                <label class="govuk-label govuk-radios__label" for="confirmation">
+                  Email
+                </label>
+              </div>
+              <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-confirmation">
+                {% if data['email'] %}
+                  <div class="govuk-form-group">
+                    <p class="govuk-body" for="confirmation-by-email">
+                      We will email you at <span class="govuk-!-font-weight-bold">{{ data['email'] }}</span>
+                    </p>
+                  </div>
+                {% else %}
+                  <div class="govuk-form-group">
+                    <label class="govuk-label" for="confirmation-by-email">
+                      Email address
+                    </label>
+                    <p class="govuk-hint">
+                      For example name@example.com.
+                    </p>
+                    <input class="govuk-input govuk-!-width-two-thirds" id="confirmation-by-email" name="email" type="email" spellcheck="false">
+                  </div>
+                {% endif %}
+              </div>
+              <div class="govuk-radios__item">
+                {% if data['confirmation'] == "phone" %}
+                  <input class="govuk-radios__input" id="confirmation-2" name="confirmation" type="radio" value="phone" data-aria-controls="conditional-confirmation-2" checked>
+                {% else %}
+                  <input class="govuk-radios__input" id="confirmation-2" name="confirmation" type="radio" value="phone" data-aria-controls="conditional-confirmation-2">
+                {% endif %}
+
+                <label class="govuk-label govuk-radios__label" for="confirmation-2">
+                  Text message
+                </label>
+              </div>
+              <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-confirmation-2">
+                <div class="govuk-form-group">
+
+                  {% if data['phone-number'] %}
+                  <div class="govuk-form-group">
+                    <p class="govuk-body" for="confirmation-by-email">
+                      We will send text messages to <span class="govuk-!-font-weight-bold">{{ data['phone-number'] }}</span>
+                    </p>
+                  </div>
+                  {% else %}
+                    <label class="govuk-label" for="phone-number">
+                      UK mobile phone number
+                    </label>
+                    <p class="govuk-hint">
+                      For example 07700 900 900.
+                    </p>
+                    <input class="govuk-input govuk-!-width-one-third" id="phone-number" name="phone-number" type="tel">
+                  {% endif %}
+                </div>
+              </div>
+
+              {% if data['licence-option'] == "paper-licence" %}
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="confirmation-3" name="confirmation" type="radio" value="note" data-aria-controls="conditional-confirmation-3">
+                  <label class="govuk-label govuk-radios__label" for="confirmation-3">
+                    I will make a note of my licence number
+                  </label>
+                </div>
+                <!-- <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-confirmation-3">
+                  <div class="govuk-form-group">
+                    <p class="govuk-body">
+
+                    </p>
+                  </div>
+                </div> -->
+                {% endif %}
+
+            </div>
+
+          </fieldset>
+        </div>
+
+        <button class="govuk-button" data-module="govuk-button">
+          Continue
+        </button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
