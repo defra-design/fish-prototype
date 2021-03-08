@@ -88,7 +88,11 @@
         ]
       }) }}
 
-      <form action="payment-complete" method="post" novalidate>
+      {% if data['licence-option'] == "paper-licence" %}
+        <form action="payment-complete?licence-option=Digital" method="post" novalidate>
+      {% else %}
+        <form action="payment-complete?licence-option=Paper" method="post" novalidate>
+      {% endif %}
 
         <input type="hidden" name="answers-checked" value="true">
 
