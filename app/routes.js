@@ -8,6 +8,7 @@ router.post('/check-licence-length', function (req, res) {
   // Make a variable from session data
   let licenceType = req.session.data['licence-type']
   // route depending on value
+  // i am not sure why we have this…
   if (licenceType === 'Trout and coarse, up to 3 rods') {
     res.redirect('gafl/contact-summary')
   } else {
