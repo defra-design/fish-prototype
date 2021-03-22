@@ -46,7 +46,7 @@
           You can fish from the time and date your licence starts.
         </p>
         <p class="govuk-body">
-          We've sent your licence by email or text message.
+          We’ve sent your licence by email or text message.
         </p>
       {% else %}
         <p class="govuk-body">
@@ -62,8 +62,14 @@
       <div class="govuk-!-margin-bottom-9">
 
         <p class="govuk-body">
-          It’s important you know your licence number. You can take a screenshot or print out your <a href="licence-information">licence information</a>.
+          It’s important you know your licence number. You can take a screenshot or print out your licence information.
         </p>
+
+        <form action="licence-information">
+          <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+            View your licence information
+          </button>
+        </form>
 
         {% if data['licence-option'] == "paper-licence" %}
 
