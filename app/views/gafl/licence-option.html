@@ -30,51 +30,61 @@
 
       <form action="/check-licence-type" method="post" class="form">
 
-        <h1 class="govuk-heading-l">{{ title }}</h1>
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
 
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <h1 class="govuk-fieldset__heading">
+                {{ title }}
+              </h1>
+            </legend>
 
-        <p class="govuk-body">
-          If you get your licence by email or text message you'll:
-        </p>
+            <p class="govuk-body">
+              If you get your licence by email or text message you'll:
+            </p>
 
-        <ul class="govuk-list govuk-list--bullet">
-          <li>help the environment by reducing paper use</li>
-          <li>help us to save money, which we can invest in fishing</li>
-        </ul>
+            <ul class="govuk-list govuk-list--bullet">
+              <li>help the environment by reducing paper use</li>
+              <li>help us to save money, which we can invest in fishing</li>
+            </ul>
 
-        <!-- radios -->
-        <div class="govuk-radios">
-          <!-- radio 1 -->
-          <div class="govuk-radios__item">
-            <input class="govuk-radios__input" id="licence-option-digital" name="licence-option" type="radio" value="digital" aria-describedby="licence-option-digital-hint">
-            <label class="govuk-label govuk-radios__label" for="licence-option-digital">
-              Yes, go paperless
-            </label>
-            <div id="licence-option-digital-hint" class="govuk-hint govuk-radios__hint">
-              <ul class="govuk-list govuk-list--bullet">
-                <li>we'll send your fishing licence by email or text message</li>
-                <li>the email or text message is proof of your fishing licence</li>
-              </ul>
+            <!-- radios -->
+            <div class="govuk-radios">
+              <!-- radio 1 -->
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="licence-option-digital" name="licence-option" type="radio" value="digital" aria-describedby="licence-option-digital-hint">
+                <label class="govuk-label govuk-radios__label" for="licence-option-digital">
+                  Yes, go paperless
+                </label>
+                <div id="licence-option-digital-hint" class="govuk-hint govuk-radios__hint">
+                  <ul class="govuk-list govuk-list--bullet">
+                    <li>we'll send your fishing licence by email or text message</li>
+                    <li>the email or text message is proof of your fishing licence</li>
+                  </ul>
+                </div>
+              </div>
+              <!-- radio 2 -->
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="licence-option-paper" name="licence-option" type="radio" value="paper-licence" aria-describedby="licence-option-paper-hint">
+                <label class="govuk-label govuk-radios__label" for="licence-option-paper">
+                  No, I prefer a card
+                </label>
+                <div id="licence-option-paper-hint" class="govuk-hint govuk-radios__hint">
+                  <ul class="govuk-list govuk-list--bullet">
+                    <li>you’ll get your fishing licence card within 15 working days</li>
+                    <li>if you give us your email address or phone number, we’ll send you a copy of your licence details</li>
+                  </ul>
+                </div>
+              </div>
             </div>
-          </div>
-          <!-- radio 2 -->
-          <div class="govuk-radios__item">
-            <input class="govuk-radios__input" id="licence-option-paper" name="licence-option" type="radio" value="paper-licence" aria-describedby="licence-option-paper-hint">
-            <label class="govuk-label govuk-radios__label" for="licence-option-paper">
-              No, I prefer a card
-            </label>
-            <div id="licence-option-paper-hint" class="govuk-hint govuk-radios__hint">
-              <ul class="govuk-list govuk-list--bullet">
-                <li>you’ll get your fishing licence card within 15 working days</li>
-                <li>if you give us your email address or phone number, we’ll send you a copy of your licence details</li>
-              </ul>
-            </div>
-          </div>
+
+            <button class="govuk-button" data-module="govuk-button">
+              Continue
+            </button>
+
+          </fieldset>
         </div>
 
-        <button class="govuk-button" data-module="govuk-button">
-          Continue
-        </button>
       </form>
 
       <p class="govuk-body">
