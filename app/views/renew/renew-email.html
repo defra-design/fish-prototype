@@ -1,4 +1,92 @@
-<a href="authenticate">
-  <!-- <img src="../images/renew-email.png" alt="A licence renew email via web email" width="100%"> -->
-  <img src="/public/images/renew-email.png" alt="A licence renew email via web email" width="100%">
-</a>
+{% extends "layout.html" %}
+
+{% set serviceName = "Get a rod fishing licence" %}
+
+{% block header %}
+  {# Set serviceName in config.js. #}
+  {{ govukHeader({
+    homepageUrl: "/",
+    serviceName: "",
+    serviceUrl: "/",
+    containerClasses: "govuk-width-container"
+  }) }}
+{% endblock %}
+
+{% block beforeContent %}
+
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <p class="govuk-body">
+      Dear Sam Fisher,
+    </p>
+
+    <h1 class="govuk-heading-l">
+      Get your new fishing licence on GOV.UK
+    </h1>
+
+    <p class="govuk-body">
+      Your fishing licence ending ((licencenumber)) expires on ((expirydate)). To keep fishing after this date, you must get a new licence.
+    </p>
+
+    <p class="govuk-body">
+      It’s quick, easy and secure to get your fishing licence on the GOV.​UK website. You can choose:
+    </p>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <li>the day you want your new licence to start</li>
+      <li>to have your licence as an email or text message</li>
+    </ul>
+
+    <p class="govuk-body">
+      Go to this personal link which makes it quicker for you to buy a new licence.
+    </p>
+
+    <p class="govuk-body">
+      <a href="renewEBFE76">
+        https://get-fishing-licence.service.gov.uk/renew/renewEBFE76
+      </a>
+    </p>
+
+    <p class="govuk-body">
+      Fishing licence prices are the same as last year. If you buy from other websites, you may pay more than you need to for your licence.
+    </p>
+
+    <p class="govuk-body">
+      You can also get your fishing licence by:
+    </p>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <li>visiting a Post Office</li>
+      <li>phoning 0344 800 5386 (standard landline rate) from Monday to Friday, 8am to 6pm</li>
+    </ul>
+
+    <h2 class="govuk-heading-m">
+      For more information on fishing licences:
+    </h2>
+
+    <p class="govuk-body">
+      Visit https://www.gov.uk/fishing-licences
+    </p>
+
+    <p class="govuk-body">
+      Phone 0370 850 6506 from Monday to Friday, 8am to 6pm.
+    </p>
+
+    <p class="govuk-body">
+      You can ignore this email if you have already got your new licence.
+    </p>
+
+    <p class="govuk-body">
+      Environment Agency fisheries team
+    </p>
+
+  </div>
+</div>
+
+{% endblock %}
