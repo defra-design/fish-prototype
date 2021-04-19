@@ -1,0 +1,100 @@
+{% extends "layout.html" %}
+
+{% set title = "Enter your licence details and postcode" %}
+{% set serviceName = "Report your salmon or sea trout catch" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block header %}
+ {{ govukHeader({
+   homepageUrl: "/",
+   serviceName: "Report your salmon or sea trout catch",
+   serviceUrl: "enter-your-details",
+   containerClasses: "govuk-width-container"
+ }) }}
+{% endblock %}
+
+{% block beforeContent %}
+<!--
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+  -->
+
+  <div class="govuk-phase-banner">
+    <p class="govuk-phase-banner__content">
+      <strong class="govuk-tag govuk-phase-banner__content__tag">
+        beta
+      </strong>
+      <span class="govuk-phase-banner__text">
+        This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.
+      </span>
+    </p>
+  </div>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      {{ title }}
+    </h1>
+
+    {{ govukInput({
+      label: {
+        text: "Last 6 characters of your licence number"
+      },
+      classes: "govuk-input--width-5",
+      hint: {
+        text: "Your licence number is printed on any correspondence from us. It also appears on the back of your licence card. For example, B7A718."
+      },
+      id: "licence-number",
+      name: "licence-number",
+      inputmode: "text",
+      maxlength: "6",
+      pattern: "[0-9]*",
+      attributes: {
+        spellcheck: "false"
+      }
+    }) }}
+
+    {{ govukInput({
+      label: {
+        text: "Postcode"
+      },
+      classes: "govuk-input--width-5",
+      hint: {
+        text: " For example, WA4 8HT."
+      },
+      id: "licence-number",
+      name: "licence-number",
+      inputmode: "text",
+      maxlength: "6",
+      pattern: "[0-9]*",
+      attributes: {
+        spellcheck: "false"
+      }
+    }) }}
+
+    <p class="govuk-body">
+      When you use this service, we will collect personal information such as your fishing activity. <a href="https://catchreturn.service.gov.uk/privacy">Read about how we use your personal information</a>.
+    </p>
+
+    <form action="contact-prefs" method="post" class="form" id="authenticate">
+
+      <button type="submit" class="govuk-button govuk-!-margin-bottom-1">
+        Continue
+      </button>
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}
