@@ -17,7 +17,7 @@
 {% endblock %}
 
 {% block bodyStart %}
-  <div class="govuk-cookie-banner " role="region" aria-label="Cookies on {{ serviceName }}">
+  <div id="cookie-banner" class="govuk-cookie-banner " role="region" aria-label="Cookies on {{ serviceName }}">
     <div class="govuk-cookie-banner__message govuk-width-container">
 
       <div class="govuk-grid-row">
@@ -32,16 +32,24 @@
       </div>
 
       <div class="govuk-button-group">
-        <button value="accept" type="button" name="cookies" class="govuk-button" data-module="govuk-button">
+        <button onclick="removeCookieBanner()" value="accept" type="button" name="cookies" class="govuk-button" data-module="govuk-button">
           Accept analytics cookies
         </button>
-        <button value="reject" type="button" name="cookies" class="govuk-button" data-module="govuk-button">
+        <button onclick="removeCookieBanner()" value="reject" type="button" name="cookies" class="govuk-button" data-module="govuk-button">
           Reject analytics cookies
         </button>
         <a class="govuk-link" href="cookies">View cookies</a>
       </div>
     </div>
   </div>
+
+  <script>
+    function removeCookieBanner() {
+      var myobj = document.getElementById("cookie-banner");
+      myobj.remove();
+    }
+  </script>
+
 {% endblock %}
 
 {% block beforeContent %}
