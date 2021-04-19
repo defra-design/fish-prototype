@@ -1,0 +1,208 @@
+{% extends "layout.html" %}
+
+{% set title = "Cookies" %}
+{% set serviceName = "Report your salmon or sea trout catch" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block header %}
+ {{ govukHeader({
+   homepageUrl: "/",
+   serviceName: "Report your salmon or sea trout catch",
+   serviceUrl: "enter-your-details",
+   containerClasses: "govuk-width-container"
+ }) }}
+{% endblock %}
+
+{% block beforeContent %}
+
+  <div class="govuk-phase-banner">
+    <p class="govuk-phase-banner__content">
+      <strong class="govuk-tag govuk-phase-banner__content__tag">
+        beta
+      </strong>
+      <span class="govuk-phase-banner__text">
+        This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.
+      </span>
+    </p>
+  </div>
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">
+      {{ title }}
+    </h1>
+
+    <p>
+      When you use the Catch Returns service, we put small files known as ‘cookies’ onto your computer.
+    </p>
+
+    <p>
+      These cookies are used to:
+    </p>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <li>help us understand how you use the service, so we can make improvements</li>
+      <li>remember what notifications you’ve seen so that you’re not shown them more than once</li>
+    </ul>
+
+    <p>
+      <a href="https://ico.org.uk/your-data-matters/online/cookies/">Find out more about how to manage cookies</a>.
+    </p>
+
+    <h2 class="govuk-heading-l">
+      Session cookies
+    </h2>
+
+    <p class="govuk-body">
+      We store session cookies on your computer to help keep your information secure while you use the service.
+    </p>
+
+    <table class="govuk-table">
+      <!-- <caption class="govuk-table__caption govuk-table__caption--m">Months and rates</caption> -->
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Name</th>
+          <th scope="col" class="govuk-table__header">Purpose</th>
+          <th scope="col" class="govuk-table__header">Expires</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">sid</td>
+          <td class="govuk-table__cell">Session management</td>
+          <td class="govuk-table__cell">1 hour</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">rcr2018</td>
+          <td class="govuk-table__cell">Cross-Site Request Forgery prevention</td>
+          <td class="govuk-table__cell">1 hour</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2 class="govuk-heading-l">
+      Our introductory message
+    </h2>
+
+    <p class="govuk-body">
+      You may see a pop-up welcome message when you first visit the service. We’ll store a cookie so that your computer knows you’ve seen it and knows not to show it again.
+    </p>
+
+    <table class="govuk-table">
+      <!-- <caption class="govuk-table__caption govuk-table__caption--m">Months and rates</caption> -->
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Name</th>
+          <th scope="col" class="govuk-table__header">Purpose</th>
+          <th scope="col" class="govuk-table__header">Expires</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">gds_seen_cookie_message</td>
+          <td class="govuk-table__cell">Cookie popup message</td>
+          <td class="govuk-table__cell">90 days</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2 class="govuk-heading-l">
+      Our performance survey
+    </h2>
+
+    <p class="govuk-body">
+      We use SmartSurvey to collect responses to the survey. If you take part, SmartSurvey will save extra cookies to your computer to track your progress through it. <a href="https://www.smartsurvey.co.uk/how-we-use-cookies">Read the SmartSurvey cookie policy</a>.
+    </p>
+
+    <h2 class="govuk-heading-l">
+      Performance cookies
+    </h2>
+
+    <p class="govuk-body">
+      We use Google Analytics, which creates a number of first-party cookies.
+    </p>
+
+    <table class="govuk-table">
+      <!-- <caption class="govuk-table__caption govuk-table__caption--m">Months and rates</caption> -->
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Name</th>
+          <th scope="col" class="govuk-table__header">Purpose</th>
+          <th scope="col" class="govuk-table__header">Expires</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">_ga</td>
+          <td class="govuk-table__cell">Used to distinguish users.</td>
+          <td class="govuk-table__cell">2 years</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">_gid</td>
+          <td class="govuk-table__cell">Used to distinguish users.</td>
+          <td class="govuk-table__cell">24 hours</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">_ga</td>
+          <td class="govuk-table__cell">Used to throttle request rate.</td>
+          <td class="govuk-table__cell">1 minute</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="govuk-body">
+      Full details of the cookies which Google Analytics uses can be found in Cookies & Google Analytics in documentation for Google’s Analytics tracking code. You can also read Google’s Privacy Policy for Google Analytics.
+    </p>
+
+    <p class="govuk-body">
+      We don’t share the data that Google Analytics collects.
+    </p>
+
+    <h2 class="govuk-heading-l">Change your cookie settings</h2>
+    <form action="/form-handler" method="post" novalidate>
+      {{ govukRadios({
+          idPrefix: "functional-cookies",
+          name: "functional-cookies",
+          fieldset: {
+            legend: {
+              text: "Do you want to accept performance cookies?",
+              classes: "govuk-fieldset__legend--s"
+            }
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes"
+            },
+            {
+              value: "no",
+              text: "No",
+              checked: true
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Save cookie settings"
+        })
+
+      }}
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}
