@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+ {{ govukHeader({
+   homepageUrl: "/",
+   serviceName: "Get a rod fishing licence",
+   serviceUrl: "#",
+   containerClasses: "govuk-width-container"
+ }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <div class="govuk-!-margin-bottom-8">
+
+      <h1 class="govuk-heading-l">
+        Useful fish folders
+      </h1>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <section class="govuk-!-margin-bottom-6">
+          <li><a href="https://drive.google.com/drive/folders/1G5GWkVXLfRxLA8AaUAFRD1XFuKlIq2jq">Project folder<span class="s2"></span></a></li>
+          <li><a href="https://docs.google.com/spreadsheets/d/1TJKvAG70obqkq-YJClSs5eTFh5BDsWhM/">Lean canvas - overview of project scope etc.<span class="s2"></span></a></li>
+          <li><a href="https://docs.google.com/spreadsheets/d/1_sjoKLTL3_FxlmvcOTR0PU231t9vYGYq40-ZGMGXh-o/">Internal approvals and assessments required for Check fishing licences app<span class="s2"></span></a></li>
+          <li><a href="https://docs.google.com/spreadsheets/d/18TFCqKevcdvbbCR2dfRGXxAEcvxrXk2FGUMeb8v7bTU/">Production rollout plan, by area<span class="s2"></span></a></li>
+          <li><a href="https://docs.google.com/spreadsheets/d/14fdhsHoJHZPR5L_TpYH6oYyZXrsmg4v6YbWSldaSfoY/">Comms snippets<span class="s2"></span></a></li>
+          <li><a href="https://docs.google.com/document/d/1WhlOG12KA3ahCvz-C-Zzqy70Ppbq3uC4/">Starter guide for users of the app<span class="s2"></span></a></li>
+          <li><a href="https://docs.google.com/document/d/1h9QUsFkKDiYZt41qOqMtfoTZfa6dBPYB/">User config guide (how to set up new users to access the app)<span class="s2"></span></a></li>
+          <li><a href="https://docs.google.com/spreadsheets/d/18TFCqKevcdvbbCR2dfRGXxAEcvxrXk2FGUMeb8v7bTU/">Key comms messages and value delivered<span class="s2"></span></a></li>
+          <li><a href="https://drive.google.com/drive/folders/1_2qlj7r2HYF9iZVwQsgDP-XC_SPXWDIA">Presentation decks<span class="s2"></span></a></li>
+          <li><a href="https://drive.google.com/drive/folders/1l2WNvKSiKdhMoPTtt90e0yHzmnmTkPyg">FEO interview notes<span class="s2"></span></a></li>
+          <li><a href="https://drive.google.com/drive/folders/12Osif3nsIG5Mc5RfkebHItgX_GGvVbC9">FEO personas and photos<span class="s2"></span></a></li>
+          <li><a href="https://drive.google.com/drive/folders/1xP2YEi9DNTut3pTHHTme0uPVIzK3cuSb">Location data for updates<span class="s2"></span></a></li>
+          <li><a href="https://docs.google.com/document/d/1ZW8raq1TDGv4-DBCP73ygqW4a94XENxI/">Licence check data reporting requirements from Adrian Saunders<span class="s2"></span></a></li>
+        </section>
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+{% endblock %}
