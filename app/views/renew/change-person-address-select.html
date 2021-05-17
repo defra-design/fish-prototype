@@ -58,32 +58,31 @@
   </div>
 
   <form data-routing="1" method="post" class="form" id="contact-change-type">
-
-
+    
     <div class="govuk-form-group">
       <fieldset class="govuk-fieldset">
-    {{ govukSelect({
-      id: "address",
-      name: "address",
-      label: {
-        text: "Select an address"
-      },
-      items: [
-        {
-          value: "2 addresses found",
-          text: "2 addresses found",
-          selected: "true"
-        },
-        {
-          value: "address-check?address1=Forbes%20Lane&city=West%20Crudwell&postcode=SN16%209EW",
-          text: "Forbes Lane, West Crudwell, SN16 9EW"
-        },
-        {
-          value: "address-check?address1=1%20Doogal%20Road&city=West%20Crudwell&postcode=SN16%209EW",
-          text: "1 Doogal Road, West Crudwell, SN16 9EW"
-        }
-      ]
-    }) }}
+        {{ govukSelect({
+          id: "address",
+          name: "address",
+          label: {
+            text: "Select an address"
+          },
+          items: [
+            {
+              value: "2 addresses found",
+              text: "2 addresses found",
+              selected: "true"
+            },
+            {
+              value: "address-check?address1=Forbes%20Lane&city=West%20Crudwell&postcode=SN16%209EW",
+              text: "Forbes Lane, West Crudwell, SN16 9EW"
+            },
+            {
+              value: "address-check?address1=1%20Doogal%20Road&city=West%20Crudwell&postcode=SN16%209EW",
+              text: "1 Doogal Road, West Crudwell, SN16 9EW"
+            }
+          ]
+        }) }}
 
 
 

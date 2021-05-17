@@ -1,0 +1,118 @@
+{% extends "layout.html" %}
+
+{% set title = "Standard licence format" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block header %}
+
+{% from "govuk/components/header/macro.njk" import govukHeader %}
+  {{ govukHeader({
+   homepageUrl: "/index",
+   serviceName: "Get a rod fishing licence",
+   serviceUrl: "#"
+  }) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">{{ title }}</h1>
+
+      <table class="govuk-table">
+        <caption class="govuk-table__caption govuk-!-margin-bottom-3">Standard format with example data</caption>
+        <!-- <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Month you apply</th>
+            <th scope="col" class="govuk-table__header">Rate for vehicles</th>
+          </tr>
+        </thead> -->
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__header govuk-!-font-weight-regular">Licence</td>
+            <td class="govuk-table__cell">21151221-2WC3F-SM-AHR573</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__header govuk-!-font-weight-regular">Name</td>
+            <td class="govuk-table__cell">Sam Fisher</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__header govuk-!-font-weight-regular">Identification</td>
+            <td class="govuk-table__cell">53197401277330</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__header govuk-!-font-weight-regular">
+              Type
+            </td>
+            <td class="govuk-table__cell">
+              Trout and coarse, up to 2 rods
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__header govuk-!-font-weight-regular">
+              Length
+            </td>
+            <td class="govuk-table__cell">
+              12 month
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__header govuk-!-font-weight-regular">
+              Starts
+            </td>
+            <td class="govuk-table__cell">
+              8.12am on 12 May 2021
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__header govuk-!-font-weight-regular">
+              Ends
+            </td>
+            <td class="govuk-table__cell">
+              8.11am on 12 May 2022
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__header govuk-!-font-weight-regular">
+              Age concession
+            </td>
+            <td class="govuk-table__cell">
+              Over 65
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__header govuk-!-font-weight-regular">
+              Disability concession
+            </td>
+            <td class="govuk-table__cell">
+              Disability Living Allowance
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__header govuk-!-font-weight-regular tableCell__noBottom">
+              Cost
+            </td>
+            <td class="govuk-table__cell tableCell__noBottom">
+              £12
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+
+
+    </div>
+  </div>
+
+{% endblock %}

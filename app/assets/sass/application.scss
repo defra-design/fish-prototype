@@ -1,3 +1,6 @@
+// updated link styles
+$govuk-new-link-styles: true;
+
 // global styles for <a> and <p> tags
 $govuk-global-styles: true;
 
@@ -21,7 +24,4 @@ $govuk-assets-path: '/govuk/assets/';
 @import "components/cookie-banner";
 @import "components/sidebar";
 
-// Add extra styles here, or re-organise the Sass files in whichever way makes most sense to you
-.govuk-summary-list__key-wide {
-  width: 50%;
-}
+@import "components/table-extras"
