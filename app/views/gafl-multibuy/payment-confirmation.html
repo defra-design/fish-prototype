@@ -26,81 +26,159 @@
 
 {% block content %}
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds-from-desktop">
+    <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">{{ title }}</h1>
 
-      {{ govukSummaryList({
-        classes: 'govuk-!-margin-bottom-9',
-        rows: [
+      {% if data['licence'] == "1" %}
 
-          {
-            key: {
-              text: "Cost"
-            },
-            value: {
-              html: "£60"
-            },
-            actions: {
-              items: [
+        {{ govukSummaryList({
+          classes: 'govuk-!-margin-bottom-9',
+          rows: [
 
-              ]
+            {
+              key: {
+                text: "Cost"
+              },
+              value: {
+                html: "£60"
+              },
+              actions: {
+                items: [
+
+                ]
+              }
+            },
+            {
+              key: {
+                text: "Card number"
+              },
+              value: {
+                text: "•••• •••• •••• 7418"
+              },
+              actions: {
+                items: [
+
+                ]
+              }
+            },
+            {
+              key: {
+                text: "Expiry date"
+              },
+              value: {
+                text: "May 2022"
+              },
+              actions: {
+                items: [
+
+                ]
+              }
+            },
+            {
+              key: {
+                text: "Name on card"
+              },
+              value: {
+                text: data['first-name'] + " " + data['last-name']
+              },
+              actions: {
+                items: [
+
+                ]
+              }
+            },
+            {
+              key: {
+                text: "Billing address"
+              },
+              value: {
+                html: "72 Guild Street<br>London<br>SE23 6FH"
+              },
+              actions: {
+                items: [
+
+                ]
+              }
             }
-          },
-          {
-            key: {
-              text: "Card number"
-            },
-            value: {
-              text: "•••• •••• •••• 7418"
-            },
-            actions: {
-              items: [
+          ]
+        }) }}
 
-              ]
-            }
-          },
-          {
-            key: {
-              text: "Expiry date"
-            },
-            value: {
-              text: "May 2022"
-            },
-            actions: {
-              items: [
+      {% else %}
 
-              ]
-            }
-          },
-          {
-            key: {
-              text: "Name on card"
-            },
-            value: {
-              text: data['first-name'] + " " + data['last-name']
-            },
-            actions: {
-              items: [
+        {{ govukSummaryList({
+          classes: 'govuk-!-margin-bottom-9',
+          rows: [
 
-              ]
-            }
-          },
-          {
-            key: {
-              text: "Billing address"
-            },
-            value: {
-              html: "72 Guild Street<br>London<br>SE23 6FH"
-            },
-            actions: {
-              items: [
+            {
+              key: {
+                text: "Cost"
+              },
+              value: {
+                html: "£30"
+              },
+              actions: {
+                items: [
 
-              ]
+                ]
+              }
+            },
+            {
+              key: {
+                text: "Card number"
+              },
+              value: {
+                text: "•••• •••• •••• 7418"
+              },
+              actions: {
+                items: [
+
+                ]
+              }
+            },
+            {
+              key: {
+                text: "Expiry date"
+              },
+              value: {
+                text: "May 2022"
+              },
+              actions: {
+                items: [
+
+                ]
+              }
+            },
+            {
+              key: {
+                text: "Name on card"
+              },
+              value: {
+                text: data['first-name'] + " " + data['last-name']
+              },
+              actions: {
+                items: [
+
+                ]
+              }
+            },
+            {
+              key: {
+                text: "Billing address"
+              },
+              value: {
+                html: "72 Guild Street<br>London<br>SE23 6FH"
+              },
+              actions: {
+                items: [
+
+                ]
+              }
             }
-          }
-        ]
-      }) }}
+          ]
+        }) }}
+
+      {% endif %}
 
       <form action="payment-complete" method="post" novalidate>
 
