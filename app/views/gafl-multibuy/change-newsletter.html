@@ -1,0 +1,84 @@
+{% extends "layout.html" %}
+
+{% set title = "Would you like to receive our email newsletter?" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block header %}
+
+{% from "govuk/components/header/macro.njk" import govukHeader %}
+  {{ govukHeader({
+   homepageUrl: "/index",
+   serviceName: "Get a rod fishing licence",
+   serviceUrl: "#"
+  }) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="contact-summary">
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <h1 class="govuk-fieldset__heading">
+                {{ title }}
+              </h1>
+            </legend>
+
+            <p class="govuk-body">
+              Stay up to date with the latest news on angling, fisheries and how we spend your licence money. You can unsubscribe at any time.
+            </p>
+
+            <div class="govuk-radios">
+              <div class="govuk-radios__item">
+                <!-- check the 2nd radio if it is selected -->
+                {% if data['newsletter'] == "Yes" %}
+                  <input class="govuk-radios__input" id="newsletter" name="newsletter" type="radio" value="Yes" checked>
+                {% else %}
+                  <input class="govuk-radios__input" id="newsletter" name="newsletter" type="radio" value="Yes">
+                {% endif %}
+
+                <label class="govuk-label govuk-radios__label" for="newsletter">
+                  Yes
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+
+                <!-- check the 2nd radio if it is selected -->
+                {% if data['newsletter'] == "No" %}
+                  <input class="govuk-radios__input" id="newsletter-2" name="newsletter" type="radio" value="No" checked>
+                {% else %}
+                  <input class="govuk-radios__input" id="newsletter-2" name="newsletter" type="radio" value="No">
+                {% endif %}
+
+                <label class="govuk-label govuk-radios__label" for="newsletter-2">
+                  No
+                </label>
+              </div>
+            </div>
+
+          </fieldset>
+        </div>
+
+        <button class="govuk-button" data-module="govuk-button">
+          Continue
+        </button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

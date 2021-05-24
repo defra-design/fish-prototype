@@ -29,6 +29,37 @@ router.post('/check-licence-type', function (req, res) {
   }
 })
 
+router.post('/multibuy-check-licence-type', function (req, res) {
+  // Make a variable from session data
+  let licenceOption = req.session.data['licence-option']
+  // route depending on value
+  if (licenceOption === 'digital') {
+    // res.redirect('gafl/add-email')
+    res.redirect('gafl-multibuy/licence-by')
+  } else {
+    res.redirect('gafl-multibuy/licence-confirmation')
+  }
+})
+
+router.post('/multibuy-add-licences', function (req, res) {
+  // Make a variable from session data
+  let anotherLicence = req.session.data['add-licence']
+  // route depending on value
+  if (anotherLicence === 'yes') {
+    // res.redirect('gafl/add-email')
+    // if (licence === "0") {
+    //   res.redirect('gafl-multibuy/dob?licence=1')
+    // elseif (licence === "1")
+    //   res.redirect('gafl-multibuy/dob?licence=2')
+    // else (licence === "2")
+    //   res.redirect('gafl-multibuy/dob?licence=3')
+    // }
+    res.redirect('gafl-multibuy/dob?licence=1')
+  } else {
+    res.redirect('gafl-multibuy/terms-conditions')
+  }
+})
+
 // additional routing for renew
 router.post('/renew-check-licence-type', function (req, res) {
   // Make a variable from session data

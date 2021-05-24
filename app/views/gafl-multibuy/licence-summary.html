@@ -1,0 +1,171 @@
+{% extends "layout.html" %}
+
+{% set title = "Check the licence details" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block header %}
+
+{% from "govuk/components/header/macro.njk" import govukHeader %}
+  {{ govukHeader({
+   homepageUrl: "/index",
+   serviceName: "Get a rod fishing licence",
+   serviceUrl: "#"
+  }) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+<!-- <a href="javascript:history.back()" class="govuk-back-link">Back</a> -->
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">{{ title }}</h1>
+
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <form action="name">
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Type
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['licence-type'] or "Trout and coarse, up to 2 rods"}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="change-licence-type">
+                Change<span class="govuk-visually-hidden"> licence type</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Valid for
+            </dt>
+            <dd class="govuk-summary-list__value">
+
+              {% if data['licence-type'] === 'Trout and coarse, up to 3 rods' %}
+               12 months
+              {% else %}
+                {% if data['licence-length'] %}
+                  {{ data['licence-length'] }}
+                {% else %}
+                  12 months
+                {% endif %}
+              {% endif %}
+
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              {% if data['licence-type'] === 'Trout and coarse, up to 3 rods' %}
+                <!-- in the live service you can change this, but doing so alters the licence type -->
+              {% else %}
+                <a class="govuk-link" href="change-licence-length">
+                  Change<span class="govuk-visually-hidden"> licence length</span>
+                </a>
+              {% endif %}
+
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Date of birth
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <!-- {% if data['dob-month'] === "1" %}
+                data['licence-length'] = "January"
+              {% elseif data['dob-month'] === "2" %}
+                data['licence-length'] = "February"
+              {% endif %}
+
+              {{ data['dob-day'] + "-" + data['dob-month'] + "-" + data['dob-year'] }} -->
+              22 January 1963
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="change-dob">
+                Change<span class="govuk-visually-hidden"> date of birth</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Valid from
+            </dt>
+            <dd class="govuk-summary-list__value">
+              30 minutes after payment
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="change-start-kind">
+                Change<span class="govuk-visually-hidden"> valid from</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Disability concession
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <p class="govuk-body">Blue Badge</p>
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="change-disability-concession">
+                Change<span class="govuk-visually-hidden"> disability concession</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Cost
+            </dt>
+            <dd class="govuk-summary-list__value">
+
+
+              <!-- 2 rods -->
+              {% if data['licence-type'] == "Trout and coarse, up to 2 rods" %}
+
+                {% if data['licence-length'] == "12 months" %}
+                  <p class="govuk-body">£30</p>
+                {% elseif data['licence-length'] == "8 days" %}
+                  <p class="govuk-body">£12</p>
+                {% else %}
+                  <p class="govuk-body">£6</p>
+                {% endif %}
+
+              {% elseif data['licence-type'] == "Trout and coarse, up to 3 rods" %}
+                <p class="govuk-body">£30</p>
+              {% else %}
+                <p class="govuk-body">£6</p>
+              {% endif %}
+
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <!-- <a class="govuk-link" href="#">
+                Change<span class="govuk-visually-hidden"> contact details</span>
+              </a> -->
+            </dd>
+          </div>
+        </dl>
+
+        <button class="govuk-button" data-module="govuk-button">
+          Continue
+        </button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

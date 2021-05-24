@@ -1,0 +1,159 @@
+{% extends "layout.html" %}
+
+{% set title = "Would you like to get another licence?" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block header %}
+
+{% from "govuk/components/header/macro.njk" import govukHeader %}
+  {{ govukHeader({
+   homepageUrl: "/index",
+   serviceName: "Get a rod fishing licence",
+   serviceUrl: "#"
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <div class="govuk-card govuk-card--contained">
+      <div class="govuk-card__content">
+
+
+        <!-- <h3 class="govuk-heading-m">
+          Sam fisher
+        </h3>
+
+        <dl class="govuk-summary-list govuk-summary-list--no-border govuk-!-margin-bottom-3">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Type
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Trout and coarse, up to 2 rods
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Length
+            </dt>
+            <dd class="govuk-summary-list__value">
+              12 month
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Starts
+            </dt>
+            <dd class="govuk-summary-list__value">
+              8.12am on 12 May 2021
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Ends
+            </dt>
+            <dd class="govuk-summary-list__value">
+              8.11am on 12 May 2022
+            </dd>
+          </div>
+        </dl> -->
+
+        <h3 class="govuk-heading-m">
+          Licences
+        </h3>
+
+        <table class="govuk-table">
+          <!-- <caption class="govuk-table__caption govuk-table__caption--m">Month you apply</caption> -->
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header app-custom-class">Licence holder</th>
+              <th scope="col" class="govuk-table__header app-custom-class">Type</th>
+              <th scope="col" class="govuk-table__header app-custom-class">Length</th>
+              <th scope="col" class="govuk-table__header app-custom-class">Starts</th>
+              <th scope="col" class="govuk-table__header app-custom-class"></th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Sam Fisher</td>
+              <td class="govuk-table__cell">Trout and coarse, up to 2 rods</td>
+              <td class="govuk-table__cell">12 month</td>
+              <td class="govuk-table__cell">8.12am on 12 May 2021</td>
+              <td class="govuk-table__cell"><a href="#">Change</a></td>
+            </tr>
+
+            {% if data['licence'] == "1" %}
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Jan Fisher</td>
+              <td class="govuk-table__cell">Trout and coarse, up to 2 rods</td>
+              <td class="govuk-table__cell">12 month</td>
+              <td class="govuk-table__cell">8.12am on 12 May 2021</td>
+              <td class="govuk-table__cell"><a href="#">Change</a></td>
+            </tr>
+            {% endif %}
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+  {{ data['licence'] }}
+
+  {% if data['licence'] == "1" %}
+    <form action="/multibuy-add-licences" method="post" class="form">
+  {% elseif data['licence'] == "2" %}
+    <form action="/multibuy-add-licences" method="post" class="form">
+    <!-- <form action="/multibuy-add-licences-2" method="post" class="form"> -->
+  {% else %}
+    <form action="/multibuy-add-licences" method="post" class="form">
+  {% endif %}
+
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+          <h1 class="govuk-fieldset__heading">
+            {{ title }}
+          </h1>
+        </legend>
+
+        <div class="govuk-radios">
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="add-licence-yes" name="add-licence" type="radio" value="yes">
+            <label class="govuk-label govuk-radios__label" for="add-licence-yes">
+              Yes
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="add-licence-no" name="add-licence" type="radio" value="no">
+            <label class="govuk-label govuk-radios__label" for="add-licence-no">
+              No
+            </label>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+
+
+    {{govukButton({
+      text: "Continue"
+    })}}
+
+  </form>
+
+  </div>
+</div>
+
+{% endblock %}

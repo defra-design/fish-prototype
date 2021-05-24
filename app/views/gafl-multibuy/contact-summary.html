@@ -1,0 +1,216 @@
+{% extends "layout.html" %}
+
+{% set title = "Check your contact details" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block header %}
+
+{% from "govuk/components/header/macro.njk" import govukHeader %}
+  {{ govukHeader({
+   homepageUrl: "/index",
+   serviceName: "Get a rod fishing licence",
+   serviceUrl: "#"
+  }) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+<!-- <a href="javascript:history.back()" class="govuk-back-link">Back</a> -->
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">{{ title }}</h1>
+
+    </div>
+  </div>
+
+  <!-- <span class="govuk-hint">
+    Contact preference is {{ data['contact'] }}<br>
+    Phone number is {{ data['phone-number'] }}<br>
+    Email is {{ data['email'] }}
+  </span> -->
+
+  <!-- <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+    <div class="govuk-notification-banner__header">
+      <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+        Licence by email or text
+      </h2>
+    </div>
+    <div class="govuk-notification-banner__content">
+      <p class="govuk-notification-banner__heading">
+        Because you have chosen to have a paperless licence, notifications will also be sent by email or text.
+        <a class="govuk-notification-banner__link" href="#">View application</a>.
+      </p>
+    </div>
+  </div> -->
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <form action="add-another-licence">
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Name
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['first-name'] or "Sam Fisher" + " " + data['last-name'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="change-name">
+                Change<span class="govuk-visually-hidden"> name</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Address
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {% if data['found-address'] %}
+                {{ data['found-address']}}
+              {% else %}
+                11 BAILEY HOUSE, BAILEY ROAD, BS2 1PP
+              {% endif %}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="change-find-address">
+                Change<span class="govuk-visually-hidden"> licence length</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Licence
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {% if data['licence-option'] == "digital" %}
+                {% if data['licence-by'] == "email" %}
+                  Email to {{ data['email'] }}
+                {% else %}
+                  Text message to {{ data['phone-number'] }}
+                {% endif %}
+              {% elseif data['licence-option'] == "paper-licence" %}
+                By post
+              {% else %}
+                By post
+              {% endif %}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              {% if data['path'] == "a" %}
+                <a class="govuk-link" href="change-licence-option-a">
+              {% else %}
+                <a class="govuk-link" href="change-licence-option-b">
+              {% endif %}
+                Change<span class="govuk-visually-hidden"> licence option</span>
+              </a>
+            </dd>
+          </div>
+
+          <!-- is there a licence confirmation for users opting for a paper licence -->
+          {% if data['licence-option'] == "paper-licence" %}
+            <!-- only show this row if the user has asked for a licence confirmation to be sent by email or post -->
+            {% if data['confirmation'] != "note" %}
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Licence confirmation
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  <!-- simple model -->
+                  {% if data['confirmation'] == "email" %}
+                    Email to {{ data['email'] }}
+                  {% elseif data['confirmation'] == "phone" %}
+                    Text messages to {{ data['phone-number'] }}
+                  {% else %}
+                    Note of licence
+                  {% endif %}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="change-licence-confirmation">
+                    Change<span class="govuk-visually-hidden"> licence confirmation option</span>
+                  </a>
+                </dd>
+              </div>
+            {% endif %}
+          {% endif %}
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Contact
+            </dt>
+            <dd class="govuk-summary-list__value">
+
+              <!-- simple model -->
+              {% if data['contact'] == "email" %}
+                Email to {{ data['email'] }}
+              {% elseif data['contact'] == "phone" %}
+                Text messages to {{ data['phone-number'] }}
+              {% else %}
+                By post
+              {% endif %}
+
+              <!-- automatically switch -->
+              <!-- {% if data['licence-option'] == "digital" %}
+
+                {% if data['licence-by'] == "email" %}
+                  Email to {{ data['email'] }}
+                {% else %}
+                  Text messages to {{ data['phone-number'] }}
+                {% endif %}
+
+              {% else %}
+
+                {% if data['contact'] == "email" %}
+                  Email to {{ data['email'] }}
+                {% elseif data['contact'] == "phone" %}
+                  Text messages to {{ data['phone-number'] }}
+                {% else %}
+                  By post
+                {% endif %}
+
+              {% endif %} -->
+
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="change-contact-preference">
+                Change<span class="govuk-visually-hidden"> contact preference</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Newsletter
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['newsletter'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="change-newsletter">
+                Change<span class="govuk-visually-hidden"> newsletter</span>
+              </a>
+            </dd>
+          </div>
+
+        </dl>
+
+        <button class="govuk-button" data-module="govuk-button">
+          Continue
+        </button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
