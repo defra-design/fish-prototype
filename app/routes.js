@@ -47,13 +47,6 @@ router.post('/multibuy-add-licences', function (req, res) {
   // route depending on value
   if (anotherLicence === 'yes') {
     // res.redirect('gafl/add-email')
-    // if (licence === "0") {
-    //   res.redirect('gafl-multibuy/dob?licence=1')
-    // elseif (licence === "1")
-    //   res.redirect('gafl-multibuy/dob?licence=2')
-    // else (licence === "2")
-    //   res.redirect('gafl-multibuy/dob?licence=3')
-    // }
     res.redirect('gafl-multibuy/dob?licence=1')
   } else {
     res.redirect('gafl-multibuy/terms-conditions')

@@ -32,12 +32,28 @@
         <h1 class="govuk-panel__title">
           {{ title }}
         </h1>
-        <div class="govuk-panel__body">
-          Your licence number is <br><strong>16130122-2WC3JDD-AJ2H17</strong>
-          <br>
-          <br>
-          Valid from <br>7:30am, 5 May 2021
-        </div>
+        {% if data['licence'] == "1" %}
+          <div class="govuk-panel__body">
+            <div class="govuk-!-margin-bottom-6">
+              You have <span class="govuk-!-font-weight-bold">2 licences</span>
+            </div>
+            <div class="govuk-!-margin-bottom-6">
+              <strong>16130122-2WC3FSF-AJ2H17</strong>
+              Starts from 8.12am on 12 May 2021
+            </div>
+            <div class="govuk-!-margin-bottom-6">
+              <strong>16130122-2WC3FJF-AJ2H17</strong>
+              Starts from 8.12am on 12 May 2021
+            </div>
+          </div>
+        {% else %}
+          <div class="govuk-panel__body">
+            Your licence number is <br><strong>16130122-2WC3JDD-AJ2H17</strong>
+            <br>
+            <br>
+            Valid from <br>7:30am, 5 May 2021
+          </div>
+        {% endif %}
       </div>
 
 
