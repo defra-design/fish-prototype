@@ -77,6 +77,7 @@
               <th scope="col" class="govuk-table__header app-custom-class">Type</th>
               <th scope="col" class="govuk-table__header app-custom-class">Length</th>
               <th scope="col" class="govuk-table__header app-custom-class">Starts</th>
+              <th scope="col" class="govuk-table__header app-custom-class">Price</th>
               <th scope="col" class="govuk-table__header app-custom-class"></th>
             </tr>
           </thead>
@@ -86,7 +87,8 @@
               <td class="govuk-table__cell">Trout and coarse, up to 2 rods</td>
               <td class="govuk-table__cell">12 month</td>
               <td class="govuk-table__cell">8.12am on 12 May 2021</td>
-              <td class="govuk-table__cell"><a href="#">Change</a></td>
+              <td class="govuk-table__cell">£30</td>
+              <td class="govuk-table__cell"><a href="licence-summary?source=multibuy">Change</a></td>
             </tr>
 
             {% if data['licence'] == "1" %}
@@ -95,7 +97,8 @@
               <td class="govuk-table__cell">Trout and coarse, up to 2 rods</td>
               <td class="govuk-table__cell">12 month</td>
               <td class="govuk-table__cell">8.12am on 12 May 2021</td>
-              <td class="govuk-table__cell"><a href="#">Change</a></td>
+              <td class="govuk-table__cell">£30</td>
+              <td class="govuk-table__cell"><a href="licence-summary?source=multibuy">Change</a></td>
             </tr>
             {% endif %}
           </tbody>
@@ -110,7 +113,7 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-  {{ data['licence'] }}
+  <!-- {{ data['licence'] }} -->
 
   {% if data['licence'] == "1" %}
     <form action="/multibuy-add-licences" method="post" class="form">
