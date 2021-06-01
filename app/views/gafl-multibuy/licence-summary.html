@@ -39,10 +39,20 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
 
+      <!-- checks to see which page to return to -->
+
+      <!-- if we came from the end of the GAFL/multibuy flow -->
       {% if data['source'] == "multibuy" %}
         <form action="add-another-licence">
       {% else %}
-        <form action="name">
+
+        <!-- in multibuy is this licence for the same angler? -->
+        {% if data['angler'] === 'same' %}
+          <form action="add-another-licence">
+        {% else %}
+          <form action="find-address">
+        {% endif %}
+
       {% endif %}
 
         <dl class="govuk-summary-list govuk-!-margin-bottom-9">

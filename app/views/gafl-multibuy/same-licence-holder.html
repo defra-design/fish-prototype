@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+
+{% set title = "Is this added licence for the same licence holder?" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block header %}
+
+{% from "govuk/components/header/macro.njk" import govukHeader %}
+  {{ govukHeader({
+   homepageUrl: "/index",
+   serviceName: "Get a rod fishing licence",
+   serviceUrl: "#"
+  }) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+  <a href="javascript:history.back()" class="govuk-back-link">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+  <!-- {{ data['licence'] }} -->
+  <form action="/multibuy-same-person" method="post" class="form">
+
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+          <h1 class="govuk-fieldset__heading">
+            <!-- this is not the same as the page title -->
+            Is this added licence also for Sam Fisher?
+          </h1>
+        </legend>
+
+        <div class="govuk-radios">
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="same-person-yes" name="same-person" type="radio" value="yes">
+            <label class="govuk-label govuk-radios__label" for="same-person-yes">
+              Yes
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="same-person-no" name="same-person" type="radio" value="no">
+            <label class="govuk-label govuk-radios__label" for="same-person-no">
+              No
+            </label>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+
+
+    {{govukButton({
+      text: "Continue"
+    })}}
+
+  </form>
+
+  </div>
+</div>
+
+{% endblock %}

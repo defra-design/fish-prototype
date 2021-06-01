@@ -3,7 +3,11 @@ const router = express.Router()
 
 // Add your routes here - above the module.exports line
 
-// the bit between '' is the reference for this code, linked to from the form action
+
+
+// GAFL routes
+/////////////////////////////////////////////////////////////
+
 router.post('/check-licence-length', function (req, res) {
   // Make a variable from session data
   let licenceType = req.session.data['licence-type']
@@ -29,6 +33,11 @@ router.post('/check-licence-type', function (req, res) {
   }
 })
 
+
+
+// Multibuy routes
+/////////////////////////////////////////////////////////////
+
 router.post('/multibuy-check-licence-type', function (req, res) {
   // Make a variable from session data
   let licenceOption = req.session.data['licence-option']
@@ -47,11 +56,28 @@ router.post('/multibuy-add-licences', function (req, res) {
   // route depending on value
   if (anotherLicence === 'yes') {
     // res.redirect('gafl/add-email')
-    res.redirect('gafl-multibuy/dob?licence=1')
+    res.redirect('gafl-multibuy/same-licence-holder?licence=1')
   } else {
     res.redirect('gafl-multibuy/terms-conditions')
   }
 })
+
+router.post('/multibuy-same-person', function (req, res) {
+  // Make a variable from session data
+  let anotherLicence = req.session.data['same-person']
+  // route depending on value
+  if (anotherLicence === 'yes') {
+    // res.redirect('gafl/add-email')
+    res.redirect('gafl-multibuy/start-kind?angler=same')
+  } else {
+    res.redirect('gafl-multibuy/name?angler=new')
+  }
+})
+
+
+
+// Renew routes
+/////////////////////////////////////////////////////////////
 
 // additional routing for renew
 router.post('/renew-check-licence-type', function (req, res) {
@@ -65,7 +91,6 @@ router.post('/renew-check-licence-type', function (req, res) {
     res.redirect('renew/licence-confirmation')
   }
 })
-
 
 // routing for changed digital/paper licence
 router.post('/check-change-licence-type', function (req, res) {
