@@ -1,7 +1,10 @@
 {% extends "layout.html" %}
 
 {% set title = "Licence number 16130122-2WC3JDD-AJ2H17" %}
-{% set licenceNumber = "16130122-2WC3JDD-AJ2H17" %}
+
+{% set licenceNumber = "09120522-2WC3FSF-AJ2H17" %}
+{% set licenceNumber2 = "09120522-2WC3FJF-BP1D22" %}
+
 
 {% block pageTitle %}
   {{title}} - GOV.UK
@@ -29,105 +32,279 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <!-- <h1 class="govuk-heading-l">{{ title }}</h1> -->
 
-      <span class="govuk-caption-xl">Licence number</span>
-      <h1 class="govuk-heading-xl">{{ licenceNumber }}</h1>
+      {% if data['licence'] == "1" %}
 
-      <p class="govuk-body-l">
-        This is proof of your fishing licence. You might find it useful to take a screenshot or print out this page.
-      </p>
+        <h1 class="govuk-heading-xl">Here are your 2 licences</h1>
 
-      <p class="govuk-body">
-        If you gave us your email address, you’ll get a message that includes your licence information.
-      </p>
+        <p class="govuk-body-l">
+          This is proof of your fishing licences. You might find it useful to take a screenshot or print out this page.
+        </p>
+
+        <p class="govuk-body">
+          If you gave us your email address, you’ll get a message that includes your licence information.
+        </p>
+
+        <!-- licence 1 -->
+        <h2 class="govuk-heading-l">{{ licenceNumber }}</h2>
+
+        <!-- table for licence information -->
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key govuk-summary-list__key-wide">
+              Name
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {% if data['first-name'] %}
+                {{ data['first-name']+" "+data['last-name'] }}
+              {% else %}
+                Sam Fisher
+              {% endif %}
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Type
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {% if data['licence-type'] %}
+                {{ data['licence-type'] }}
+              {% else %}
+                Trout and coarse, up to 2 rods
+              {% endif %}
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Length
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {% if data['licence-length'] %}
+                {{ data['licence-length'] }}
+              {% else %}
+                12 months
+              {% endif %}
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Starts
+            </dt>
+            <dd class="govuk-summary-list__value">
+              8.12am, 12 May 2021
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Ends
+            </dt>
+            <dd class="govuk-summary-list__value">
+              8.11am, 12 May 2021
+            </dd>
+          </div>
+
+          <!-- <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Disability concession
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <p class="govuk-body">None</p>
+            </dd>
+          </div> -->
+
+          <!-- <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Cost
+            </dt>
+            <dd class="govuk-summary-list__value">
+              £30
+            </dd>
+          </div> -->
+        </dl>
+
+        <!-- licence 1 -->
+        <h2 class="govuk-heading-l">{{ licenceNumber2 }}</h2>
+
+        <!-- table for licence information -->
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key govuk-summary-list__key-wide">
+              Name
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {% if data['first-name'] %}
+                {{ data['first-name']+" "+data['last-name'] }}
+              {% else %}
+                Jan Fisher
+              {% endif %}
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Type
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {% if data['licence-type'] %}
+                {{ data['licence-type'] }}
+              {% else %}
+                Trout and coarse, up to 2 rods
+              {% endif %}
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Length
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {% if data['licence-length'] %}
+                {{ data['licence-length'] }}
+              {% else %}
+                12 months
+              {% endif %}
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Starts
+            </dt>
+            <dd class="govuk-summary-list__value">
+              8.14am, 12 May 2021
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Ends
+            </dt>
+            <dd class="govuk-summary-list__value">
+              8:14am, 12 May 2022
+            </dd>
+          </div>
+
+          <!-- <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Disability concession
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <p class="govuk-body">None</p>
+            </dd>
+          </div> -->
+
+          <!-- <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Cost
+            </dt>
+            <dd class="govuk-summary-list__value">
+              £30
+            </dd>
+          </div> -->
+        </dl>
+
+      {% else %}
+
+        <span class="govuk-caption-xl">Licence number</span>
+        <h1 class="govuk-heading-xl">{{ licenceNumber }}</h1>
+
+        <p class="govuk-body-l">
+          This is proof of your fishing licence. You might find it useful to take a screenshot or print out this page.
+        </p>
+
+        <p class="govuk-body">
+          If you gave us your email address, you’ll get a message that includes your licence information.
+        </p>
 
 
+        <!-- licence details here -->
 
-      <!-- licence details here -->
+        <!-- table for licence information -->
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
 
-      <!-- table for licence information -->
-      <dl class="govuk-summary-list govuk-!-margin-bottom-6">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key govuk-summary-list__key-wide">
+              Name
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {% if data['first-name'] %}
+                {{ data['first-name']+" "+data['last-name'] }}
+              {% else %}
+                Sam Fisher
+              {% endif %}
+            </dd>
+          </div>
 
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key govuk-summary-list__key-wide">
-            Name
-          </dt>
-          <dd class="govuk-summary-list__value">
-            {% if data['first-name'] %}
-              {{ data['first-name']+" "+data['last-name'] }}
-            {% else %}
-              Sam Fisher
-            {% endif %}
-          </dd>
-        </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Type
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {% if data['licence-type'] %}
+                {{ data['licence-type'] }}
+              {% else %}
+                Trout and coarse, up to 2 rods
+              {% endif %}
+            </dd>
+          </div>
 
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Type
-          </dt>
-          <dd class="govuk-summary-list__value">
-            {% if data['licence-type'] %}
-              {{ data['licence-type'] }}
-            {% else %}
-              Trout and coarse, up to 2 rods
-            {% endif %}
-          </dd>
-        </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Length
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {% if data['licence-length'] %}
+                {{ data['licence-length'] }}
+              {% else %}
+                12 months
+              {% endif %}
+            </dd>
+          </div>
 
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Valid for
-          </dt>
-          <dd class="govuk-summary-list__value">
-            {% if data['licence-length'] %}
-              {{ data['licence-length'] }}
-            {% else %}
-              12 months
-            {% endif %}
-          </dd>
-        </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Starts
+            </dt>
+            <dd class="govuk-summary-list__value">
+              7:30am, 5 May 2021
+            </dd>
+          </div>
 
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Valid from
-          </dt>
-          <dd class="govuk-summary-list__value">
-            7:30am, 5 May 2021
-          </dd>
-        </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Ends
+            </dt>
+            <dd class="govuk-summary-list__value">
+              7:30am, 5 May 2022
+            </dd>
+          </div>
 
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Valid to
-          </dt>
-          <dd class="govuk-summary-list__value">
-            7:30am, 5 May 2022
-          </dd>
-        </div>
+          <!-- <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Disability concession
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <p class="govuk-body">None</p>
+            </dd>
+          </div> -->
 
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Disability concession
-          </dt>
-          <dd class="govuk-summary-list__value">
-            <p class="govuk-body">None</p>
-          </dd>
-        </div>
+          <!-- <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Cost
+            </dt>
+            <dd class="govuk-summary-list__value">
+              £30
+            </dd>
+          </div> -->
+        </dl>
 
-        <!-- <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Cost
-          </dt>
-          <dd class="govuk-summary-list__value">
-            £30
-          </dd>
-        </div> -->
-      </dl>
-
-      <!-- <p class="govuk-body">
-        You must follow the <a href="https://www.gov.uk/freshwater-rod-fishing-rules" class="govuk_link" target="_blank">rod fishing rules</a> and <a href="https://www.gov.uk/government/collections/local-fishing-byelaws" class="govuk_link" target="_blank">local fishing byelaws</a>.
-      </p> -->
+      {% endif %}
 
       <div class="govuk-inset-text">
 
