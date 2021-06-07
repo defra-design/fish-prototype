@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "What’s your date of birth?" %}
+{% set title = "What is the person’s date of birth?" %}
 
 {% block pageTitle %}
   {{title}} - GOV.UK
@@ -33,14 +33,17 @@
           <fieldset class="govuk-fieldset">
 
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-              <h1 class="govuk-fieldset__heading">
-                {{ title }}
-              </h1>
-            </legend>
 
-            <p class="govuk-body">
-              If you're applying for someone else enter their date of birth.
-            </p>
+              <!-- alternate headings -->
+              <h1 class="govuk-fieldset__heading">
+                {% if data['licence-for'] == "user" %}
+                  What is your date of birth?
+                {% else %}
+                  What is {{ data['first-name'] }} {{ data['last-name'] }}’s date of birth?
+                {% endif %}
+              </h1>
+
+            </legend>
 
             <div id="dob-hint" class="govuk-hint">
               For example, 11 2 1979

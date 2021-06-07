@@ -1,6 +1,10 @@
 {% extends "layout.html" %}
 
-{% set title = "When would you like your licence to start?" %}
+{% if data['licence-for'] == "user" %}
+  {% set title = "When would you like your licence to start?" %}
+{% else %}
+  {% set title = "When would they like their licence to start?" %}
+{% endif %}
 
 {% block pageTitle %}
   {{title}} - GOV.UK
@@ -27,6 +31,10 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
+
+      <!-- very hacky -->
+      <!-- if the licence is for the same licence holder -->
+      <!-- then do not ask the disability question again -->
 
       {% if data['angler'] === 'same' %}
         <form action="licence-type">

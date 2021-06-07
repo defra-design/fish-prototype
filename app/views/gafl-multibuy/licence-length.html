@@ -1,6 +1,10 @@
 {% extends "layout.html" %}
 
-{% set title = "How long do you want your licence for?" %}
+{% if data['licence-for'] == "user" %}
+  {% set title = "How long do you want your licence for?" %}
+{% else %}
+  {% set title = "How long do they want the licence for?" %}
+{% endif %}
 
 {% block pageTitle %}
   {{title}} - GOV.UK

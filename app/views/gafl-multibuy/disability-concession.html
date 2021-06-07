@@ -1,6 +1,10 @@
 {% extends "layout.html" %}
 
-{% set title = "Do you receive any of the following?" %}
+{% if data['licence-for'] == "user" %}
+  {% set title = "Do you receive any of the following?" %}
+{% else %}
+  {% set title = "Do they receive any of the following?" %}
+{% endif %}
 
 {% block pageTitle %}
   {{title}} - GOV.UK
@@ -37,7 +41,12 @@
               </h1>
             </legend>
             <p class="govuk-body">
-              You may be eligible for a concession on a 12 month licence.
+              {% if data['licence-for'] == "user" %}
+                You
+              {% else %}
+                They
+              {% endif %}
+              may be eligible for a concession on a 12 month licence.
             </p>
             <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
               <div class="govuk-radios__item">

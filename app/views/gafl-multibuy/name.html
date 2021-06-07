@@ -1,6 +1,10 @@
 {% extends "layout.html" %}
 
-{% set title = "What is your name?" %}
+{% if data['licence-for'] == "user" %}
+  {% set title = "What is your name?" %}
+{% else %}
+  {% set title = "What is the person’s name?" %}
+{% endif %}
 
 {% block pageTitle %}
   {{title}} - GOV.UK
@@ -28,29 +32,44 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-l">{{ title }}</h1>
-
-      <p class="govuk-body">
-        If you’re applying for someone else enter their name.
-      </p>
-
-      <form action="dob">
+      <form action="dob" method="post" class="form">
 
         <div class="govuk-form-group">
-          <label class="govuk-label" for="width-20">
-            First name
-            <span class="govuk-hint">
-               Do not use abbreviations or nicknames.
-             </span>
-          </label>
-          <input class="govuk-input govuk-input--width-20" id="first-name" name="first-name" type="text">
-        </div>
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
 
-        <div class="govuk-form-group">
-          <label class="govuk-label" for="width-20">
-            Last name
-          </label>
-          <input class="govuk-input govuk-input--width-20" id="last-name" name="last-name" type="text">
+              <!-- alternate headings -->
+              <h1 class="govuk-fieldset__heading">
+                {{ title }}
+              </h1>
+
+            </legend>
+
+            <!-- when buying for someone else -->
+            {% if data['licence-for'] == "another" %}
+              <p class="govuk-body">
+                Take care to spell their name correctly.
+              </p>
+            {% endif %}
+
+            <div class="govuk-form-group">
+              <label class="govuk-label" for="width-20">
+                First name
+                <span class="govuk-hint">
+                   Do not use abbreviations or nicknames.
+                 </span>
+              </label>
+              <input class="govuk-input govuk-input--width-20" id="first-name" name="first-name" type="text">
+            </div>
+
+            <div class="govuk-form-group">
+              <label class="govuk-label" for="width-20">
+                Last name
+              </label>
+              <input class="govuk-input govuk-input--width-20" id="last-name" name="last-name" type="text">
+            </div>
+
+          </fieldset>
         </div>
 
         <button class="govuk-button" data-module="govuk-button">
