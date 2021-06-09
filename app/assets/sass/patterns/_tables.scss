@@ -66,6 +66,15 @@
   border-bottom: none;
 }
 
+// .govuk-dl--bottom {
+//   border-bottom: 1px solid $govuk-text-colour;
+// }
+
+.govuk-summary-list__row--break dt,
+.govuk-summary-list__row--break dd {
+  border-bottom: 1px solid $govuk-text-colour;
+}
+
 .table__row--total,
 .table__row--bold-text {
   font-weight: 800;
