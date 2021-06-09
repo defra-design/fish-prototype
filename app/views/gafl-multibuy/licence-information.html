@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "Licence number 16130122-2WC3JDD-AJ2H17" %}
+{% set title = "Fishing licence details" %}
 
 {% set licenceNumber = "09120522-2WC3FSF-AJ2H17" %}
 {% set licenceNumber2 = "09120522-2WC3FJF-BP1D22" %}
@@ -37,7 +37,7 @@
 
       {% if data['licence'] == "1" %}
 
-        <h1 class="govuk-heading-xl">Here are your 2 licences</h1>
+        <h1 class="govuk-heading-xl">{{ title }}</h1>
 
         <p class="govuk-body-l">
           This is proof of your fishing licences. You might find it useful to take a screenshot or print out this page.
@@ -214,8 +214,7 @@
 
       {% else %}
 
-        <span class="govuk-caption-xl">Licence number</span>
-        <h1 class="govuk-heading-xl">{{ licenceNumber }}</h1>
+        <h1 class="govuk-heading-xl">{{ title }}</h1>
 
         <p class="govuk-body-l">
           This is proof of your fishing licence. You might find it useful to take a screenshot or print out this page.
@@ -227,6 +226,7 @@
 
 
         <!-- licence details here -->
+        <h2 class="govuk-heading-l">{{ licenceNumber }}</h2>
 
         <!-- table for licence information -->
         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
