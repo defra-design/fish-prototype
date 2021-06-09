@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "Licence number 16130122-2WC3JDD-AJ2H17" %}
+{% set title = "Fishing licence details" %}
 {% set licenceNumber = "16130122-2WC3JDD-AJ2H17" %}
 
 {% block pageTitle %}
@@ -29,10 +29,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <!-- <h1 class="govuk-heading-l">{{ title }}</h1> -->
-
-      <span class="govuk-caption-xl">Licence number</span>
-      <h1 class="govuk-heading-xl">{{ licenceNumber }}</h1>
+      <h1 class="govuk-heading-xl">{{ title }}</h1>
 
       <p class="govuk-body-l">
         This is proof of your fishing licence. You might find it useful to take a screenshot or print out this page.
@@ -42,9 +39,8 @@
         If you gave us your email address, you’ll get a message that includes your licence information.
       </p>
 
-
-
       <!-- licence details here -->
+      <h2 class="govuk-heading-l">{{ licenceNumber }}</h2>
 
       <!-- table for licence information -->
       <dl class="govuk-summary-list govuk-!-margin-bottom-6">
