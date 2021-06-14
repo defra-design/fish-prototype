@@ -3,5 +3,8 @@
   // margin-left: 1rem;
   padding-top: 1rem;
   padding-left: 1rem;
+  padding-bottom: 1rem;
+  margin-bottom: govuk-spacing(6);
   background-color: #F3F2F1;
+  border-top: $govuk-brand-colour 2px solid;
 }
