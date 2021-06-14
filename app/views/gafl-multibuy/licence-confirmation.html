@@ -1,6 +1,10 @@
 {% extends "layout.html" %}
 
-{% set title = "How do you want your fishing licence confirmation?" %}
+{% if data['licence-for'] == "user" %}
+  {% set title = "How do you want your fishing licence confirmation?" %}
+{% else %}
+  {% set title = "How do you want the fishing licence confirmation?" %}
+{% endif %}
 
 {% block pageTitle %}
   {{title}} - GOV.UK
@@ -38,7 +42,7 @@
             </legend>
 
             <p class="govuk-body">
-              This is where we will send confirmation of your fishing licence.
+              This is where we will send confirmation of the fishing licence.
             </p>
 
             <!-- radios -->

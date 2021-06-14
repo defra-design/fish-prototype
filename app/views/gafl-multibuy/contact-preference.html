@@ -1,6 +1,10 @@
 {% extends "layout.html" %}
 
-{% set title = "How should we contact you?" %}
+{% if data['licence-for'] == "user" %}
+  {% set title = "How should we contact you?" %}
+{% else %}
+  {% set title = "How should we contact the licence holder?" %}
+{% endif %}
 
 {% block pageTitle %}
   {{title}} - GOV.UK
@@ -28,7 +32,12 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <form action="newsletter">
+      {% if data['licence-for'] == "user" %}
+        <form action="newsletter">
+      {% else %}
+        <form action="contact-summary">
+      {% endif %}
+
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
@@ -38,7 +47,7 @@
             </legend>
 
             <p class="govuk-body">
-              This is where we will send important updates and renewal reminders when your licence is expiring.
+              This is where we will send important updates and renewal reminders when the licence is expiring.
             </p>
 
             <!-- radios -->

@@ -1,6 +1,10 @@
 {% extends "layout.html" %}
 
-{% set title = "Check your contact details" %}
+{% if data['licence-for'] == "user" %}
+  {% set title = "Check your contact details" %}
+{% else %}
+  {% set title = "Check the contact details" %}
+{% endif %}
 
 {% block pageTitle %}
   {{title}} - GOV.UK
