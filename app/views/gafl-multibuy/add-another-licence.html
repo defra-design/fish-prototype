@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "Would you like to get another licence?" %}
+{% set title = "Would you like to add another licence?" %}
 
 {% block pageTitle %}
   {{title}} - GOV.UK
@@ -22,11 +22,11 @@
   <div class="govuk-grid-column-two-thirds">
 
     {% if data['licence'] == "1" %}
-
-    <p class="govuk-l">
-      You have selected <a href="selected-licences" class="govuk-link">2 licences</a>
-    </p>
-
+      <div class="govuk-inset-text">
+        <p class="govuk-l">
+          You have selected <a href="selected-licences" class="govuk-link">2 licences</a>
+        </p>
+      </div>
     {% endif %}
 
   </div>
@@ -35,16 +35,14 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-  <!-- {{ data['licence'] }} -->
-
-  {% if data['licence'] == "1" %}
-    <form action="/multibuy-add-licences" method="post" class="form">
-  {% elseif data['licence'] == "2" %}
-    <form action="/multibuy-add-licences" method="post" class="form">
-    <!-- <form action="/multibuy-add-licences-2" method="post" class="form"> -->
-  {% else %}
-    <form action="/multibuy-add-licences" method="post" class="form">
-  {% endif %}
+    {% if data['licence'] == "1" %}
+      <form action="/multibuy-add-licences" method="post" class="form">
+    {% elseif data['licence'] == "2" %}
+      <form action="/multibuy-add-licences" method="post" class="form">
+      <!-- <form action="/multibuy-add-licences-2" method="post" class="form"> -->
+    {% else %}
+      <form action="/multibuy-add-licences" method="post" class="form">
+    {% endif %}
 
     <div class="govuk-form-group">
       <fieldset class="govuk-fieldset">
@@ -58,19 +56,18 @@
           <div class="govuk-radios__item">
             <input class="govuk-radios__input" id="add-licence-yes" name="add-licence" type="radio" value="yes">
             <label class="govuk-label govuk-radios__label" for="add-licence-yes">
-              Yes
+              Yes, add another licence
             </label>
           </div>
           <div class="govuk-radios__item">
             <input class="govuk-radios__input" id="add-licence-no" name="add-licence" type="radio" value="no">
             <label class="govuk-label govuk-radios__label" for="add-licence-no">
-              No
+              No, let’s finish up
             </label>
           </div>
         </div>
       </fieldset>
     </div>
-
 
     {{govukButton({
       text: "Continue"
