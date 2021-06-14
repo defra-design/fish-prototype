@@ -33,6 +33,7 @@
       {% else %}
         <h1 class="govuk-heading-l">{{ title }}</h1>
       {% endif %}
+
     </div>
   </div>
 
@@ -43,12 +44,12 @@
 
       <!-- if we came from the end of the GAFL/multibuy flow -->
       {% if data['source'] == "multibuy" %}
-        <form action="add-another-licence">
+        <form action="selected-licences">
       {% else %}
 
         <!-- in multibuy is this licence for the same angler? -->
         {% if data['angler'] === 'same' %}
-          <form action="add-another-licence">
+          <form action="selected-licences">
         {% else %}
           <form action="find-address">
         {% endif %}
@@ -175,6 +176,14 @@
             </dd>
           </div>
         </dl>
+
+        {% if data['source'] == "multibuy" %}
+          <section>
+            <a href="contact-summary" class="govuk-link govuk-link--no-visited-state">
+              Change contact options
+            </a>
+          </section>
+        {% endif %}
 
         <button class="govuk-button" data-module="govuk-button">
           Continue

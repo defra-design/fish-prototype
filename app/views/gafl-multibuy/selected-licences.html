@@ -1,0 +1,200 @@
+{% extends "layout.html" %}
+
+{% set title = "Selected licences" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block header %}
+
+{% from "govuk/components/header/macro.njk" import govukHeader %}
+  {{ govukHeader({
+   homepageUrl: "/index",
+   serviceName: "Get a rod fishing licence",
+   serviceUrl: "#"
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      {{ title }}
+    </h1>
+
+    <section class="govuk-!-margin-bottom-9">
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Licence holder
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Sam Fisher
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Type
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Trout and coarse, up to 2 rods
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Length
+          </dt>
+          <dd class="govuk-summary-list__value">
+            12 month
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Starts
+          </dt>
+          <dd class="govuk-summary-list__value">
+            8.12am on 12 May 2021
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Price
+          </dt>
+          <dd class="govuk-summary-list__value">
+            £30
+          </dd>
+        </div>
+      </dl>
+
+      <form action="licence-summary?source=multibuy">
+        <button class="govuk-button govuk-button--secondary" data-module="govuk-button" aria-label="Change licence options">
+          Change
+        </button>
+      </form>
+
+    </section>
+
+    {% if data['licence'] == "1" %}
+
+    <section class="govuk-!-margin-bottom-9">
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Licence holder
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Jan Fisher
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Type
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Trout and coarse, up to 2 rods
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Length
+          </dt>
+          <dd class="govuk-summary-list__value">
+            12 month
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Starts
+          </dt>
+          <dd class="govuk-summary-list__value">
+            8.15am on 12 May 2021
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Price
+          </dt>
+          <dd class="govuk-summary-list__value">
+            £30
+          </dd>
+        </div>
+      </dl>
+
+      <form action="licence-summary?source=multibuy">
+        <button class="govuk-button govuk-button--secondary" data-module="govuk-button" aria-label="Change licence options">
+          Change
+        </button>
+      </form>
+
+    </section>
+
+    {% endif %}
+
+  </div>
+</div>
+
+    <!-- <div class="govuk-card govuk-card--contained">
+      <div class="govuk-card__content">
+
+
+
+        <h3 class="govuk-heading-m">
+          Licences
+        </h3>
+
+        <table class="govuk-table">
+
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header app-custom-class">Licence holder</th>
+              <th scope="col" class="govuk-table__header app-custom-class">Type</th>
+              <th scope="col" class="govuk-table__header app-custom-class">Length</th>
+              <th scope="col" class="govuk-table__header app-custom-class">Starts</th>
+              <th scope="col" class="govuk-table__header app-custom-class">Price</th>
+              <th scope="col" class="govuk-table__header app-custom-class"></th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Sam Fisher</td>
+              <td class="govuk-table__cell">Trout and coarse, up to 2 rods</td>
+              <td class="govuk-table__cell">12 month</td>
+              <td class="govuk-table__cell">8.12am on 12 May 2021</td>
+              <td class="govuk-table__cell">£30</td>
+              <td class="govuk-table__cell"><a href="licence-summary?source=multibuy">Change</a></td>
+            </tr>
+
+            {% if data['licence'] == "1" %}
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Jan Fisher</td>
+              <td class="govuk-table__cell">Trout and coarse, up to 2 rods</td>
+              <td class="govuk-table__cell">12 month</td>
+              <td class="govuk-table__cell">8.15am on 12 May 2021</td>
+              <td class="govuk-table__cell">£30</td>
+              <td class="govuk-table__cell"><a href="licence-summary?source=multibuy">Change</a></td>
+            </tr>
+            {% endif %}
+          </tbody>
+        </table>
+
+      </div>
+    </div> -->
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+  <form action="add-another-licence" method="post" class="form">
+
+    {{govukButton({
+      text: "Continue"
+    })}}
+
+  </form>
+
+  </div>
+</div>
+
+{% endblock %}

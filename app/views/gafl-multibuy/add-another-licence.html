@@ -17,22 +17,35 @@
 
 {% endblock %}
 
-
-
 {% block content %}
-
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-full">
+  <div class="govuk-grid-column-two-thirds">
 
-    <div class="govuk-card govuk-card--contained">
+    {% if data['licence'] == "1" %}
+
+    <p class="govuk-l">
+      You have selected <a href="selected-licences" class="govuk-link">2 licences</a>
+    </p>
+
+
+
+
+    {% endif %}
+
+  </div>
+</div>
+
+    <!-- <div class="govuk-card govuk-card--contained">
       <div class="govuk-card__content">
+
+
 
         <h3 class="govuk-heading-m">
           Licences
         </h3>
 
         <table class="govuk-table">
-          <!-- <caption class="govuk-table__caption govuk-table__caption--m">Month you apply</caption> -->
+
           <thead class="govuk-table__head">
             <tr class="govuk-table__row">
               <th scope="col" class="govuk-table__header app-custom-class">Licence holder</th>
@@ -67,10 +80,7 @@
         </table>
 
       </div>
-    </div>
-
-  </div>
-</div>
+    </div> -->
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
@@ -89,9 +99,9 @@
     <div class="govuk-form-group">
       <fieldset class="govuk-fieldset">
         <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-          <h1 class="govuk-fieldset__heading">
+          <h2 class="govuk-fieldset__heading">
             {{ title }}
-          </h1>
+          </h2>
         </legend>
 
         <div class="govuk-radios">

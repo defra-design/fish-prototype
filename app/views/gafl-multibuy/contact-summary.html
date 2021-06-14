@@ -28,7 +28,11 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-l">{{ title }}</h1>
+      {% if data['source'] == "multibuy" %}
+        <h1 class="govuk-heading-l">Change contact preferences</h1>
+      {% else %}
+        <h1 class="govuk-heading-l">{{ title }}</h1>
+      {% endif %}
 
     </div>
   </div>
@@ -56,7 +60,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
 
-      <form action="add-another-licence">
+      <form action="selected-licences">
 
         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
           <div class="govuk-summary-list__row">
@@ -203,6 +207,14 @@
           </div>
 
         </dl>
+
+        {% if data['source'] == "multibuy" %}
+          <section>
+            <a href="licence-summary" class="govuk-link govuk-link--no-visited-state">
+              Change licence options
+            </a>
+          </section>
+        {% endif %}
 
         <button class="govuk-button" data-module="govuk-button">
           Continue

@@ -1,7 +1,34 @@
-.tableCell__sectionEnd {
-  border-bottom: 1px solid #0b0c0c;
+
+.table__row--last .table__cell {
+  @media (min-width: 768px) {
+    border-bottom: none;
+  }
 }
 
-.tableCell__noBottom {
+.table-cell__last {
   border-bottom: none;
+}
+
+
+// .govuk-dl--bottom {
+//   border-bottom: 1px solid $govuk-text-colour;
+// }
+
+.govuk-summary-list__row--last,
+.govuk-summary-list__row--last dd,
+.govuk-summary-list__row--last dt, {
+  border-bottom: none;
+}
+
+.govuk-summary-list__row--break dt,
+.govuk-summary-list__row--break dd {
+  @media (min-width: 640px) {
+    border-bottom: 1px solid $govuk-text-colour;
+  }
+}
+
+.govuk-summary-list__row--break {
+  @media (max-width: 640px) {
+    border-bottom: 1px solid $govuk-text-colour;
+  }
 }
