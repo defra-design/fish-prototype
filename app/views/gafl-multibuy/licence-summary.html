@@ -40,7 +40,8 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
 
-      <!-- checks to see which page to return to -->
+      <!-- debug / show data -->
+      {% include "includes/clip/debug.html" %}
 
       <!-- if we came from the end of the GAFL/multibuy flow -->
       {% if data['source'] == "multibuy" %}

@@ -65,16 +65,32 @@ router.post('/multibuy-add-licences', function (req, res) {
 router.post('/multibuy-same-person', function (req, res) {
   // Make a variable from session data
   let anotherLicence = req.session.data['same-person']
-  // route depending on value
-  if (anotherLicence === 'yes') {
-    // res.redirect('gafl/add-email')
-    res.redirect('gafl-multibuy/start-kind?angler=same')
+  let whoFor = req.session.data['licence-for']
+
+
+  if (whoFor === 'user') {
+
+    // route depending on value
+    if (anotherLicence === 'yes') {
+      // res.redirect('gafl/add-email')
+      res.redirect('gafl-multibuy/start-kind?angler=same&licence-for=user')
+    } else {
+      res.redirect('gafl-multibuy/name?angler=new&licence-for=other')
+    }
+
   } else {
-    res.redirect('gafl-multibuy/name?angler=new')
+
+    // route depending on value
+    if (anotherLicence === 'yes') {
+      // res.redirect('gafl/add-email')
+      res.redirect('gafl-multibuy/start-kind?angler=same&licence-for=other')
+    } else {
+      res.redirect('gafl-multibuy/who-is-this-licence-for?angler=new&licence-for=another')
+    }
+
   }
+
 })
-
-
 
 // Renew routes
 /////////////////////////////////////////////////////////////
