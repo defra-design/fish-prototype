@@ -40,11 +40,7 @@
       <!-- if the licence is for the same licence holder -->
       <!-- then do not ask the disability question again -->
 
-      {% if data['angler'] === 'same' %}
-        <form action="licence-type">
-      {% else %}
-        <form action="disability-concession">
-      {% endif %}
+      <form action="licence-type">
 
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset" aria-describedby="licence-start-hint">

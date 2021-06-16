@@ -28,6 +28,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
+
       {% if data['source'] == "multibuy" %}
         <h1 class="govuk-heading-l">Change licence options</h1>
       {% else %}
@@ -58,6 +59,19 @@
       {% endif %}
 
         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Name
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['first-name']+" "+data['last-name'] or "Trout and coarse, up to 2 rods"}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="change-name">
+                Change<span class="govuk-visually-hidden"> licence type</span>
+              </a>
+            </dd>
+          </div>
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Type
