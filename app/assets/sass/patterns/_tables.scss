@@ -83,7 +83,11 @@
   border-bottom: none;
 }
 
-@media (min-width: 768px) {
+.table__row--divider {
+  border-bottom: 1px solid $govuk-text-colour;
+}
+
+@media (min-width: 640px) {
   .table__row--end dt,
   .table__row--end dd,
   .table__row--end div {
@@ -95,6 +99,7 @@
     border-bottom: 1px solid $govuk-text-colour;
   }
 }
+
 
 .table__cell p {
   margin-bottom: 0;
