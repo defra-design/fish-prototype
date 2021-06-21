@@ -98,6 +98,11 @@
   .table__row--divider div, {
     border-bottom: 1px solid $govuk-text-colour;
   }
+  .table__row--last dt,
+  .table__row--last dd,
+  .table__row--last div, {
+    border-bottom: none;
+  }
 }
 
 

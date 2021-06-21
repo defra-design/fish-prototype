@@ -21,7 +21,10 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    {% if data['licence'] == "1" %}
+    <!-- debug / show data -->
+    {% include "includes/clip/debug.html" %}
+
+    {% if data['licences'] == "2" %}
       <div class="govuk-inset-text">
         <p class="govuk-l">
           You have selected <a href="selected-licences" class="govuk-link">2 licences</a>

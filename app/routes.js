@@ -50,47 +50,87 @@ router.post('/multibuy-check-licence-type', function (req, res) {
   }
 })
 
+// check to route someone who wants to buy another licence
 router.post('/multibuy-add-licences', function (req, res) {
   // Make a variable from session data
   let anotherLicence = req.session.data['add-licence']
   // route depending on value
   if (anotherLicence === 'yes') {
-    // res.redirect('gafl/add-email')
-    res.redirect('gafl-multibuy/same-licence-holder?licence=1')
+    // res.redirect('gafl-multibuy/same-licence-holder?licence=1')
+    res.redirect('gafl-multibuy/who-is-this-licence-for?source=multibuy')
   } else {
     res.redirect('gafl-multibuy/terms-conditions')
   }
 })
 
-router.post('/multibuy-same-person', function (req, res) {
+// logic for when another licence is bought,
+// is the licence for the same user?
+// who is that user?
+
+// if you say it is for you
+// and you were the last person
+// then angler is same
+
+// if you say it is for you
+// and you were not the last person
+// then angler is same
+
+// if you say other
+// how can we know it is the same other?
+// check name?
+
+router.post('/licence-for', function (req, res) {
+
   // Make a variable from session data
-  let anotherLicence = req.session.data['same-person']
-  let whoFor = req.session.data['licence-for']
+  let source = req.session.data['source']
+  let licenceFor = req.session.data['licence-for']
 
+  // if I have just started
+  if (source === 'gafl') {
+    // new licence, ask all the questions
+    res.redirect('gafl-multibuy/name')
 
-  if (whoFor === 'user') {
-
-    // route depending on value
-    if (anotherLicence === 'yes') {
-      // res.redirect('gafl/add-email')
-      res.redirect('gafl-multibuy/start-kind?angler=same&licence-for=user')
-    } else {
-      res.redirect('gafl-multibuy/name?angler=new&licence-for=other')
-    }
-
+  // multi-buy
   } else {
 
-    // route depending on value
-    if (anotherLicence === 'yes') {
-      // res.redirect('gafl/add-email')
-      res.redirect('gafl-multibuy/start-kind?angler=same&licence-for=other')
+    // work out if we need to skip the details that already exists
+
+    // if the licence is for the named Angler
+    // skip questions / angler = same
+    // licence for another
+    // reset source to gafl
+    if (licenceFor == 'same-another') {
+
+      // licence is for the same angler, another person
+      res.redirect('gafl-multibuy/start-kind?source=gafl&angler=same&licence-for=another')
+
+    // if the licence is for another (not named)
+    // licence is for another
+    // ask all the questions
+    } else if (licenceFor == 'another') {
+
+      // licence is for the new angler, another person
+      // reset source to gafl
+      res.redirect('gafl-multibuy/name?source=gafl&angler=new&licence-for=another')
+
+    // if the licence is for the user
+    // and the last one was for user
+    // licence for user
+    // skip questions / angler = same
     } else {
-      res.redirect('gafl-multibuy/who-is-this-licence-for?angler=new&licence-for=another')
+
+      // licence is for the same angler, the user
+      // reset source to gafl
+      res.redirect('gafl-multibuy/start-kind?source=gafl&angler=same&licence-for=user')
+
     }
 
   }
 
 })
+
+
+
 
 // Renew routes
 /////////////////////////////////////////////////////////////

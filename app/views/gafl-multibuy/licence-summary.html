@@ -28,6 +28,8 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
+      <!-- debug / show data -->
+      {% include "includes/clip/debug.html" %}
 
       {% if data['source'] == "multibuy" %}
         <h1 class="govuk-heading-l">Change licence options</h1>
@@ -41,17 +43,14 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
 
-      <!-- debug / show data -->
-      {% include "includes/clip/debug.html" %}
-
-      <!-- if we came from the end of the GAFL/multibuy flow -->
+      <!-- if we came from the END of the GAFL/multibuy loop -->
       {% if data['source'] == "multibuy" %}
         <form action="selected-licences">
       {% else %}
 
         <!-- in multibuy is this licence for the same angler? -->
         {% if data['angler'] === 'same' %}
-          <form action="selected-licences">
+          <form action="add-another-licence?licences=1">
         {% else %}
           <form action="find-address">
         {% endif %}
@@ -146,7 +145,7 @@
               </a>
             </dd>
           </div>
-          <div class="govuk-summary-list__row">
+          <div class="govuk-summary-list__row table__row--end">
             <dt class="govuk-summary-list__key">
               Disability concession
             </dt>
@@ -159,7 +158,7 @@
               </a>
             </dd>
           </div>
-          <div class="govuk-summary-list__row">
+          <div class="govuk-summary-list__row table__row--last">
             <dt class="govuk-summary-list__key">
               Cost
             </dt>

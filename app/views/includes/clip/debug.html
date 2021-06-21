@@ -1,4 +1,10 @@
-<!-- <div class="govuk-inset-text">
+<!-- {% if (data['source']) or (data['licence-for']) or (data['angler']) or (data['first-name']) %}
+<div class="govuk-inset-text">
+
+
+    {{ data['licences'] or 0 }} licences<br>
+
+
   {% if data['source'] %}
     Source is {{ data['source'] }}<br>
   {% endif %}
@@ -10,4 +16,10 @@
   {% if data['angler'] %}
     Angler is {{ data['angler'] }}<br>
   {% endif %}
-</div> -->
+
+  {% if data['first-name'] %}
+    Name is {{ data['first-name'] + ' ' + data['last-name'] }}
+  {% endif %}
+
+</div>
+{% endif %} -->

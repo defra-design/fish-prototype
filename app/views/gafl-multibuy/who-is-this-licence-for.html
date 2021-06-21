@@ -31,8 +31,7 @@
       <!-- debug / show data -->
       {% include "includes/clip/debug.html" %}
 
-
-      <form action="name?licence=0angler=new" method="post" class="form">
+      <form action="/licence-for" method="post" class="form">
 
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset">
@@ -47,6 +46,18 @@
             </p>
 
             <div class="govuk-radios" data-module="govuk-radios">
+
+              <!-- show if the licence is for another person -->
+              {% if data['licence-for'] == "another" %}
+
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="licence-for-0" name="licence-for" type="radio" value="same-another">
+                  <label class="govuk-label govuk-radios__label" for="licence-for-0">
+                    {{ data['first-name'] + ' ' + data['last-name'] }}
+                  </label>
+                </div>
+
+              {% endif %}
 
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="licence-for-1" name="licence-for" type="radio" value="user">
