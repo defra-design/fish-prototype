@@ -24,10 +24,10 @@
     <!-- debug / show data -->
     {% include "includes/clip/debug.html" %}
 
-    {% if data['licences'] == "2" %}
+    {% if data['licences'] > 1 %}
       <div class="govuk-inset-text">
         <p class="govuk-l">
-          You have selected <a href="selected-licences" class="govuk-link">2 licences</a>
+          You have selected <a href="selected-licences" class="govuk-link">{{ data['licences'] }} licences</a>
         </p>
       </div>
     {% endif %}
@@ -38,14 +38,7 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    {% if data['licence'] == "1" %}
-      <form action="/multibuy-add-licences" method="post" class="form">
-    {% elseif data['licence'] == "2" %}
-      <form action="/multibuy-add-licences" method="post" class="form">
-      <!-- <form action="/multibuy-add-licences-2" method="post" class="form"> -->
-    {% else %}
-      <form action="/multibuy-add-licences" method="post" class="form">
-    {% endif %}
+    <form action="/multibuy-add-licences" method="post" class="form">
 
     <div class="govuk-form-group">
       <fieldset class="govuk-fieldset">
