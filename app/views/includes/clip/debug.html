@@ -1,3 +1,26 @@
+<!-- {% if (data['confirmation']) or (data['licence-option']) or (data['licence-by']) or (data['rcr']) %}
+<div class="govuk-inset-text">
+
+  {% if data['licence-option'] %}
+    Licence is {{ data['licence-option'] }}<br>
+  {% endif %}
+
+  {% if data['confirmation'] %}
+    Licence confirmation is {{ data['confirmation'] }}<br>
+  {% endif %}
+
+  {% if data['licence-by'] %}
+    Licence sent by {{ data['licence-by'] }}<br>
+  {% endif %}
+
+  {% if data['rcr'] %}
+    Rod catch return is {{ data['rcr'] }}
+  {% endif %}
+
+</div>
+{% endif %} -->
+
+
 <!-- {% if (data['source']) or (data['licence-for']) or (data['angler']) or (data['first-name']) %}
 <div class="govuk-inset-text">
 

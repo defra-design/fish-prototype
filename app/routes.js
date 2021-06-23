@@ -8,6 +8,21 @@ const router = express.Router()
 // GAFL routes
 /////////////////////////////////////////////////////////////
 
+router.post('/check-licence-type', function (req, res) {
+  // Make a variable from session data
+  let licenceType = req.session.data['licence-type']
+  // route depending on value
+  // i am not sure why we have this…
+  if (licenceType === 'Salmon and sea trout') {
+    res.redirect('gafl/licence-length?rcr=true')
+  } else {
+    res.redirect('gafl/licence-length?rcr=false')
+  }
+})
+
+// /check-licence-length
+// "licence-summary"
+
 router.post('/check-licence-length', function (req, res) {
   // Make a variable from session data
   let licenceType = req.session.data['licence-type']
@@ -21,7 +36,7 @@ router.post('/check-licence-length', function (req, res) {
 })
 
 // routing for digital/paper licence
-router.post('/check-licence-type', function (req, res) {
+router.post('/check-licence-option', function (req, res) {
   // Make a variable from session data
   let licenceOption = req.session.data['licence-option']
   // route depending on value
@@ -38,7 +53,7 @@ router.post('/check-licence-type', function (req, res) {
 // Multibuy routes
 /////////////////////////////////////////////////////////////
 
-router.post('/multibuy-check-licence-type', function (req, res) {
+router.post('/multibuy-check-licence-option', function (req, res) {
   // Make a variable from session data
   let licenceOption = req.session.data['licence-option']
   // route depending on value
@@ -136,7 +151,7 @@ router.post('/licence-for', function (req, res) {
 /////////////////////////////////////////////////////////////
 
 // additional routing for renew
-router.post('/renew-check-licence-type', function (req, res) {
+router.post('/renew-check-licence-option', function (req, res) {
   // Make a variable from session data
   let licenceOption = req.session.data['licence-option']
   // route depending on value
