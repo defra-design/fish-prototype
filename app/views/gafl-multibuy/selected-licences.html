@@ -136,6 +136,62 @@
 
     {% endif %}
 
+    {% if data['licences'] > "2" %}
+
+    <section class="govuk-!-margin-bottom-6">
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Licence holder
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Jan Fisher
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Type
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Trout and coarse, up to 2 rods
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Length
+          </dt>
+          <dd class="govuk-summary-list__value">
+            12 month
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Starts
+          </dt>
+          <dd class="govuk-summary-list__value">
+            8.17am on 12 May 2021
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Price
+          </dt>
+          <dd class="govuk-summary-list__value">
+            £30
+          </dd>
+        </div>
+      </dl>
+
+      <form action="licence-summary?source=multibuy" method="post" class="form">
+        <button class="govuk-button govuk-button--secondary" data-module="govuk-button" aria-label="Change licence options">
+          Change
+        </button>
+      </form>
+
+    </section>
+
+    {% endif %}
+
   </div>
 </div>
 

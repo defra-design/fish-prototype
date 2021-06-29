@@ -63,7 +63,11 @@
               Name
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['first-name']+" "+data['last-name'] or "Trout and coarse, up to 2 rods"}}
+              {% if data['first-name'] %}
+                {{ data['first-name']+" "+data['last-name'] }}
+              {% else %}
+                Sam Fisher
+              {% endif %}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="change-name">
@@ -179,7 +183,7 @@
               {% elseif data['licence-type'] == "Trout and coarse, up to 3 rods" %}
                 <p class="govuk-body">£30</p>
               {% else %}
-                <p class="govuk-body">£6</p>
+                <p class="govuk-body">£30</p>
               {% endif %}
 
             </dd>

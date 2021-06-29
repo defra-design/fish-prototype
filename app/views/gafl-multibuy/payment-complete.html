@@ -32,30 +32,53 @@
     <div class="govuk-grid-column-two-thirds">
 
       <div class="govuk-panel govuk-panel--confirmation govuk-!-margin-bottom-6">
-        <span class="govuk-panel__title">£30</span>
-        <h1 class="govuk-panel__title">
-          {{ title }}
-        </h1>
-        {% if data['licence'] == "1" %}
+
+        {% if data['licences'] == "1" %}
+          <span class="govuk-panel__title">£30</span>
+          <h1 class="govuk-panel__title">
+            {{ title }}
+          </h1>
+
+          <div class="govuk-panel__body">
+
+            <div class="govuk-!-margin-bottom-6">
+              <strong>{{ licenceNumber }}</strong>
+              Starts from 8:12am on 12 May 2021
+            </div>
+
+          </div>
+        {% else %}
+
+          <span class="govuk-panel__title">£60</span>
+          <h1 class="govuk-panel__title">
+            {{ title }}
+          </h1>
           <div class="govuk-panel__body">
             <div class="govuk-!-margin-bottom-6">
               You have <span class="govuk-!-font-weight-bold">2 licences</span>
             </div>
             <div class="govuk-!-margin-bottom-6">
+              <div class="govuk-!-margin-bottom-3">
+                {% if data['first-name'] %}
+                  {{ data['first-name']+" "+data['last-name'] }}
+                {% else %}
+                  Sam Fisher
+                {% endif %}
+              </div>
               <strong>{{ licenceNumber }}</strong>
               Starts from 8:12am on 12 May 2021
             </div>
             <div class="govuk-!-margin-bottom-6">
+              <div class="govuk-!-margin-bottom-3">
+                {% if data['first-name'] %}
+                  {{ data['first-name']+" "+data['last-name'] }}
+                {% else %}
+                  Jan Fisher
+                {% endif %}
+              </div>
               <strong>{{ licenceNumber2 }}</strong>
               Starts from 8:12am on 12 May 2021
             </div>
-          </div>
-        {% else %}
-          <div class="govuk-panel__body">
-            Your licence number is <br><strong>16130122-2WC3JDD-AJ2H17</strong>
-            <br>
-            <br>
-            Starts from <br>7:30am on 5 May 2021
           </div>
         {% endif %}
 

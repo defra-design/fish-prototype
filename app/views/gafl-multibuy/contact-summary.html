@@ -41,26 +41,6 @@
     </div>
   </div>
 
-  <!-- <span class="govuk-hint">
-    Contact preference is {{ data['contact'] }}<br>
-    Phone number is {{ data['phone-number'] }}<br>
-    Email is {{ data['email'] }}
-  </span> -->
-
-  <!-- <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
-    <div class="govuk-notification-banner__header">
-      <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
-        Licence by email or text
-      </h2>
-    </div>
-    <div class="govuk-notification-banner__content">
-      <p class="govuk-notification-banner__heading">
-        Because you have chosen to have a paperless licence, notifications will also be sent by email or text.
-        <a class="govuk-notification-banner__link" href="#">View application</a>.
-      </p>
-    </div>
-  </div> -->
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
 
@@ -76,7 +56,11 @@
               Name
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['first-name'] or "Sam Fisher" + " " + data['last-name'] }}
+              {% if data['first-name'] %}
+                {{ data['first-name'] + " " + data['last-name'] }}
+              {% else %}
+                Sam Fisher
+              {% endif %}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="change-name">
@@ -205,7 +189,11 @@
               Newsletter
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['newsletter'] }}
+              {% if data['newsletter'] %}
+                {{ data['newsletter'] }}
+              {% else %}
+                No
+              {% endif %}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="change-newsletter">

@@ -40,6 +40,20 @@ router.post('/check-licence-option', function (req, res) {
 // Multibuy routes
 /////////////////////////////////////////////////////////////
 
+router.post('/multibuy-check-licence-type', function (req, res) {
+  // Make a variable from session data
+  let licenceType = req.session.data['licence-type']
+  // route depending on value
+  // i am not sure why we have this…
+  if (licenceType === 'Trout and coarse, up to 3 rods') {
+    res.redirect('gafl-multibuy/licence-summary')
+  } else if (licenceType === 'Salmon and sea trout') {
+    res.redirect('gafl-multibuy/licence-length?rcr=true')
+  } else {
+    res.redirect('gafl-multibuy/licence-length')
+  }
+})
+
 router.post('/multibuy-check-licence-option', function (req, res) {
   // Make a variable from session data
   let licenceOption = req.session.data['licence-option']

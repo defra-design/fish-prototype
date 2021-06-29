@@ -31,8 +31,10 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <!-- <form action="/check-licence-length" method="post" class="form"> -->
-    <form action="licence-length">
+    <!-- debug / show data -->
+    {% include "includes/clip/debug.html" %}
+
+    <form action="/multibuy-check-licence-type" method="post" class="form">
 
       <div class="govuk-form-group">
         <fieldset class="govuk-fieldset">
@@ -111,7 +113,7 @@
     </form>
 
   </div>
-  
+
   <div class="govuk-grid-column-one-third">
 
     <div id="prices">

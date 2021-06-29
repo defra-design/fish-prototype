@@ -24,8 +24,11 @@
 <!-- {% if (data['source']) or (data['licence-for']) or (data['angler']) or (data['first-name']) %}
 <div class="govuk-inset-text">
 
-
-    {{ data['licences'] or 0 }} licences<br>
+  {% if data['licences'] == 1 %}
+    1 licence<br>
+  {% elseif data['licences'] > 0 %}
+    {{ data['licences'] }} licences<br>
+  {% endif %}
 
 
   {% if data['source'] %}
