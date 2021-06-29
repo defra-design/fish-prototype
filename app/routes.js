@@ -13,10 +13,12 @@ router.post('/check-licence-type', function (req, res) {
   let licenceType = req.session.data['licence-type']
   // route depending on value
   // i am not sure why we have this…
-  if (licenceType === 'Salmon and sea trout') {
+  if (licenceType === 'Trout and coarse, up to 3 rods') {
+    res.redirect('gafl/licence-summary')
+  } else if (licenceType === 'Salmon and sea trout') {
     res.redirect('gafl/licence-length?rcr=true')
   } else {
-    res.redirect('gafl/licence-length?rcr=false')
+    res.redirect('gafl/licence-length')
   }
 })
 
