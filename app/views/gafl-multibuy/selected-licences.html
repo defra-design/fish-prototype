@@ -89,7 +89,11 @@
             Licence holder
           </dt>
           <dd class="govuk-summary-list__value">
-            Jan Fisher
+            {% if data['first-name'] %}
+              {{ data['first-name'] + " " + data['last-name'] }}
+            {% else %}
+              Jan Fisher
+            {% endif %}
           </dd>
         </div>
         <div class="govuk-summary-list__row">

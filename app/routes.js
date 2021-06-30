@@ -72,7 +72,6 @@ router.post('/multibuy-add-licences', function (req, res) {
   let anotherLicence = req.session.data['add-licence']
   // route depending on value
   if (anotherLicence === 'yes') {
-    // res.redirect('gafl-multibuy/same-licence-holder?licences=1')
     res.redirect('gafl-multibuy/who-is-this-licence-for?source=multibuy')
   } else {
     res.redirect('gafl-multibuy/terms-conditions')

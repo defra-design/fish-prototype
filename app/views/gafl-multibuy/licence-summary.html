@@ -41,7 +41,7 @@
   </div>
 
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-full">
+    <div class="govuk-grid-column-two-thirds">
 
       <!-- if we came from the END of the GAFL/multibuy loop -->
       {% if data['source'] == "multibuy" %}
@@ -50,7 +50,8 @@
 
         <!-- in multibuy is this licence for the same angler? -->
         {% if data['angler'] === 'same' %}
-          <form action="add-another-licence?licences=1">
+          <!-- <form action="add-another-licence"> -->
+          <form action="add-licence">
         {% else %}
           <form action="find-address">
         {% endif %}
@@ -59,7 +60,7 @@
 
         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
           <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
+            <dt class="govuk-summary-list__key govuk-!-width-one-third">
               Name
             </dt>
             <dd class="govuk-summary-list__value">
@@ -72,6 +73,26 @@
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="change-name">
                 Change<span class="govuk-visually-hidden"> licence type</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row table__row--divider">
+            <dt class="govuk-summary-list__key">
+              Date of birth
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <!-- {% if data['dob-month'] === "1" %}
+                data['licence-length'] = "January"
+              {% elseif data['dob-month'] === "2" %}
+                data['licence-length'] = "February"
+              {% endif %}
+
+              {{ data['dob-day'] + "-" + data['dob-month'] + "-" + data['dob-year'] }} -->
+              22 January 1963
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="change-dob">
+                Change<span class="govuk-visually-hidden"> date of birth</span>
               </a>
             </dd>
           </div>
@@ -116,27 +137,8 @@
 
             </dd>
           </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Date of birth
-            </dt>
-            <dd class="govuk-summary-list__value">
-              <!-- {% if data['dob-month'] === "1" %}
-                data['licence-length'] = "January"
-              {% elseif data['dob-month'] === "2" %}
-                data['licence-length'] = "February"
-              {% endif %}
 
-              {{ data['dob-day'] + "-" + data['dob-month'] + "-" + data['dob-year'] }} -->
-              22 January 1963
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="change-dob">
-                Change<span class="govuk-visually-hidden"> date of birth</span>
-              </a>
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
+          <div class="govuk-summary-list__row table__row--divider">
             <dt class="govuk-summary-list__key">
               Starts
             </dt>
@@ -149,12 +151,18 @@
               </a>
             </dd>
           </div>
-          <div class="govuk-summary-list__row table__row--end">
+          <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Disability concession
             </dt>
             <dd class="govuk-summary-list__value">
-              <p class="govuk-body">Blue Badge</p>
+              <p class="govuk-body">
+                {% if data['concession'] %}
+                  {{ data['concession'] }}
+                {% else %}
+                  None
+                {% endif %}
+              </p>
             </dd>
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="change-disability-concession">
@@ -162,7 +170,7 @@
               </a>
             </dd>
           </div>
-          <div class="govuk-summary-list__row table__row--last">
+          <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Cost
             </dt>
