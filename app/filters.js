@@ -38,6 +38,18 @@ module.exports = function (env) {
 
   ------------------------------------------------------------------ */
 
+
+  //filter for month implement on the page by using "| toMonth"
+  filters.toMonth = function(x) {
+    months = ["January ", "February ", "March ", "April ", "May ", "June ", "July ", "August ", "September ", "October ", "November ", "December "];
+    if (x > 0) {
+      return months[x - 1]; // returns date as per month
+    } else {
+      return x;
+    }
+  }
+
+
   /* ------------------------------------------------------------------
     keep the following line to return your filters to the app
   ------------------------------------------------------------------ */
