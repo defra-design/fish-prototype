@@ -23,7 +23,7 @@
 
 {% block beforeContent %}
 
-<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+  <a href="javascript:history.back()" class="govuk-back-link">Back</a>
 
 {% endblock %}
 
@@ -31,6 +31,10 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
+
+      <!-- debug / show data -->
+      {% include "includes/clip/debug.html" %}
+
 
       {% if data['licence-for'] == "user" %}
         <form action="newsletter">
@@ -52,9 +56,10 @@
 
             <!-- radios -->
             <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+
               <!-- radio 1 -->
               <div class="govuk-radios__item">
-                {% if data['contact'] == "email" %}
+                {% if data['licence-by'] == "email" %}
                   <input class="govuk-radios__input" id="contact-by-email-radio" name="contact" type="radio" value="email" data-aria-controls="conditional-contact-by-email-option" checked>
                 {% else %}
                   <input class="govuk-radios__input" id="contact-by-email-radio" name="contact" type="radio" value="email" data-aria-controls="conditional-contact-by-email-option">

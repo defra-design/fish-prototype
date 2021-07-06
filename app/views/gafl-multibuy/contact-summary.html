@@ -187,23 +187,27 @@
             </dd>
           </div>
 
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Newsletter
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {% if data['newsletter'] %}
-                {{ data['newsletter'] }}
-              {% else %}
-                No
-              {% endif %}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="change-newsletter">
-                Change<span class="govuk-visually-hidden"> newsletter</span>
-              </a>
-            </dd>
-          </div>
+          {% if data['licence-for'] == "user" %}
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Newsletter
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {% if data['newsletter'] %}
+                  {{ data['newsletter'] }}
+                {% else %}
+                  No
+                {% endif %}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="change-newsletter">
+                  Change<span class="govuk-visually-hidden"> newsletter</span>
+                </a>
+              </dd>
+            </div>  
+
+          {% endif %}
 
         </dl>
 
