@@ -38,7 +38,29 @@ module.exports = {
   // "startDate": "11 April 2020"
 
   // Licence object stubb
-
-  "licenceNumbers": ["09120522-2WC3FSF-AJ2H17", "09120522-2WC3FJF-HJ8721"],
+  "times": [
+    "9:12am",
+    "9:17am",
+    "9:21am",
+    "9:22am"
+  ],
+  "endtimes": [
+    "9:11am",
+    "9:16am",
+    "9:20am",
+    "9:21am"
+  ],
+  "licenceNumbers": [
+    "09120722-2WC3FSF-AJ2H17",
+    "09120722-2WC3FJF-3JJS32",
+    "09120722-2WC3F3P-AJ2H17",
+    "09120722-2WC3FJF-HJ8721"
+  ],
+  "identificationNumbers": [
+    "09120722-2WC3FSF-AJ2H17",
+    "09120722-2WC3FJF-3JJS32",
+    "09120722-2WC3F3P-B52JA1",
+    "09120722-2WC3FJF-HJ8721"
+  ],
   "allLicences": []
 }

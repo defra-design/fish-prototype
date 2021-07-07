@@ -33,64 +33,34 @@
 
       <div class="govuk-panel govuk-panel--confirmation govuk-!-margin-bottom-6">
 
-        {% if data['licences'] == "1" %}
-          <span class="govuk-panel__title">£30</span>
-          <h1 class="govuk-panel__title">
-            {{ title }}
-          </h1>
+        <span class="govuk-panel__title">£60</span>
+        <h1 class="govuk-panel__title">
+          {{ title }}
+        </h1>
 
-          <div class="govuk-panel__body">
-
-            <div class="govuk-!-margin-bottom-6">
-              <strong>{{ licenceNumber }}</strong>
-              Starts from 8:12am on 12 May 2021
-            </div>
-
+        <div class="govuk-panel__body">
+          <div class="govuk-!-margin-bottom-6">
+            You have <span class="govuk-!-font-weight-bold">{{ allLicences.length }} licences</span>
           </div>
-        {% else %}
 
-          <span class="govuk-panel__title">£60</span>
-          <h1 class="govuk-panel__title">
-            {{ title }}
-          </h1>
-          <div class="govuk-panel__body">
+          <!-- licence instance -->
+          {% for i in allLicences %}
+
             <div class="govuk-!-margin-bottom-6">
-              You have <span class="govuk-!-font-weight-bold">{{ allLicences.length }} licences</span>
-            </div>
-
-
-            <!-- licence instance -->
-            {% for i in allLicences %}
-
-              <div class="govuk-!-margin-bottom-6">
-                <div class="govuk-!-margin-bottom-3">
-
-                  {{ i.firstName }} {{ i.lastName }}
-
-                </div>
-
-                {{ loop.index0 }}
-
-
-                <strong>{{ data['licenceNumbers'][loop.index0] }}</strong>
-                Starts from 8:12am on 12 May 2021
-              </div>
-
-            {% endfor %}
-            <!-- <div class="govuk-!-margin-bottom-6">
               <div class="govuk-!-margin-bottom-3">
-                {% if data['first-name'] %}
-                  {{ data['first-name']+" "+data['last-name'] }}
-                {% else %}
-                  Jan Fisher
-                {% endif %}
+                <!-- {{ loop.index0 }} -->
+                {{ i.firstName }} {{ i.lastName }}
               </div>
-              <strong>{{ licenceNumber2 }}</strong>
-              Starts from 8:12am on 12 May 2021
-            </div> -->
-          </div>
-        {% endif %}
 
+              <strong>
+                {{ data['licenceNumbers'][loop.index0] }}
+              </strong>
+              Starts from {{ data['times'][loop.index0] }} on 12 May 2021
+            </div>
+
+          {% endfor %}
+
+        </div>
       </div>
 
       {% if data['licence-option'] == "digital" %}
