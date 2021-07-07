@@ -70,9 +70,24 @@ router.post('/multibuy-check-licence-option', function (req, res) {
 router.post('/multibuy-add-licences', function (req, res) {
   // Make a variable from session data
   let addLicence = req.session.data['add-licence']
+  
   // route depending on value
   if (addLicence === 'yes') {
     // another licence
+
+    // remember the licence data
+    let firstName = req.session.data['first-name']
+    let lastName = req.session.data['last-name']
+
+    // make an object to hold data
+    let lastLicenceData = {
+      firstName,
+      lastName
+    };
+
+    // add the data to an object called licences
+    licences.push(lastLicenceData);
+
     res.redirect('gafl-multibuy/who-is-this-licence-for?source=multibuy?licence-for=')
   } else {
     // finish up
@@ -162,6 +177,15 @@ router.post('/licence-for', function (req, res) {
 
 })
 
+
+// hacktime
+
+// var a = {
+//   fname: "Jon",
+//   lname: "Smith",
+//   age: 50
+// }
+// var b = a
 
 
 
