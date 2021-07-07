@@ -2,8 +2,8 @@
 
 {% set title = "Payment complete" %}
 
-{% set licenceNumber = "09120522-2WC3FSF-AJ2H17" %}
-{% set licenceNumber2 = "09120522-2WC3FJF-AJ2H17" %}
+<!-- grab data from allLicences -->
+{% set allLicences = data['allLicences'] %}
 
 {% block pageTitle %}
   {{title}} - GOV.UK
@@ -55,20 +55,29 @@
           </h1>
           <div class="govuk-panel__body">
             <div class="govuk-!-margin-bottom-6">
-              You have <span class="govuk-!-font-weight-bold">2 licences</span>
+              You have <span class="govuk-!-font-weight-bold">{{ allLicences.length }} licences</span>
             </div>
-            <div class="govuk-!-margin-bottom-6">
-              <div class="govuk-!-margin-bottom-3">
-                {% if data['first-name'] %}
-                  {{ data['first-name']+" "+data['last-name'] }}
-                {% else %}
-                  Sam Fisher
-                {% endif %}
+
+
+            <!-- licence instance -->
+            {% for i in allLicences %}
+
+              <div class="govuk-!-margin-bottom-6">
+                <div class="govuk-!-margin-bottom-3">
+
+                  {{ i.firstName }} {{ i.lastName }}
+
+                </div>
+
+                {{ loop.index0 }}
+
+
+                <strong>{{ data['licenceNumbers'][loop.index0] }}</strong>
+                Starts from 8:12am on 12 May 2021
               </div>
-              <strong>{{ licenceNumber }}</strong>
-              Starts from 8:12am on 12 May 2021
-            </div>
-            <div class="govuk-!-margin-bottom-6">
+
+            {% endfor %}
+            <!-- <div class="govuk-!-margin-bottom-6">
               <div class="govuk-!-margin-bottom-3">
                 {% if data['first-name'] %}
                   {{ data['first-name']+" "+data['last-name'] }}
@@ -78,7 +87,7 @@
               </div>
               <strong>{{ licenceNumber2 }}</strong>
               Starts from 8:12am on 12 May 2021
-            </div>
+            </div> -->
           </div>
         {% endif %}
 
@@ -99,6 +108,15 @@
 
       <!-- {{ data['licence-option'] }} -->
       <!-- digital / paper-licence -->
+
+      <!-- {{ allLicences | dump }} -->
+
+      <!-- while statement -->
+      <!-- {% for i in allLicences %}
+
+        {{ i.firstName }}
+
+      {% endfor %} -->
 
       <h2 class="govuk-heading-l">Before you go fishing</h2>
 

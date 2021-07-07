@@ -18,23 +18,27 @@ Example usage:
 */
 
 module.exports = {
-  "fullName": "Sam Baiter",
-  "licenceType": "Trout and course",
-  "rods": "2",
-  "licenceLength": "12 month",
-  "address1": "15 Ward Road",
-  "address2": "",
-  "city": "Bath",
-  "postcode": "BA1 5EH",
-  "notificationPreference": "Email",
-  "emailAddress": "sam.baiter59@gmail.com",
-  "endDay": "10",
-  "endMonth": "April",
-  "endYear": "2020",
-  "startDay": "11",
-  "startMonth": "April",
-  "startYear": "2020",
-  "startDate": "11 April 2020",
-  "concession": "true"
-  // Insert values here
+
+  // "fullName": "Sam Baiter",
+  // "licenceType": "Trout and course",
+  // "rods": "2",
+  // "licenceLength": "12 month",
+  // "address1": "15 Ward Road",
+  // "address2": "",
+  // "city": "Bath",
+  // "postcode": "BA1 5EH",
+  // "notificationPreference": "Email",
+  // "emailAddress": "sam.baiter59@gmail.com",
+  // "endDay": "10",
+  // "endMonth": "April",
+  // "endYear": "2020",
+  // "startDay": "11",
+  // "startMonth": "April",
+  // "startYear": "2020",
+  // "startDate": "11 April 2020"
+
+  // Licence object stubb
+
+  "licenceNumbers": ["09120522-2WC3FSF-AJ2H17", "09120522-2WC3FJF-HJ8721"],
+  "allLicences": []
 }

@@ -70,25 +70,31 @@ router.post('/multibuy-check-licence-option', function (req, res) {
 router.post('/multibuy-add-licences', function (req, res) {
   // Make a variable from session data
   let addLicence = req.session.data['add-licence']
-  
+
+  let allLicences = req.session.data['allLicences']
+
+  // remember the licence data
+  let firstName = req.session.data['first-name']
+  let lastName = req.session.data['last-name']
+
+  // make an object to hold data
+  let lastLicenceData = {
+    firstName,
+    lastName
+  };
+
+  // add the data to an object called licences
+  allLicences.push(lastLicenceData);
+
   // route depending on value
   if (addLicence === 'yes') {
     // another licence
 
-    // remember the licence data
-    let firstName = req.session.data['first-name']
-    let lastName = req.session.data['last-name']
+    req.session.data.source = 'multibuy';
+    // req.session.data.licence-for = '';
+    // rename variables and use server side changes
 
-    // make an object to hold data
-    let lastLicenceData = {
-      firstName,
-      lastName
-    };
-
-    // add the data to an object called licences
-    licences.push(lastLicenceData);
-
-    res.redirect('gafl-multibuy/who-is-this-licence-for?source=multibuy?licence-for=')
+    res.redirect('gafl-multibuy/who-is-this-licence-for?licence-for=&email=')
   } else {
     // finish up
     res.redirect('gafl-multibuy/terms-conditions')
@@ -199,9 +205,9 @@ router.post('/renew-check-licence-option', function (req, res) {
   // route depending on value
   if (licenceOption === 'digital') {
     // res.redirect('gafl/add-email')
-    res.redirect('renew/licence-by')
+    res.redirect('renew/licence-by?licence-by=&confirmation=&email=&phone=')
   } else {
-    res.redirect('renew/licence-confirmation')
+    res.redirect('renew/licence-confirmation?licence-by=&confirmation=&email=&phone=')
   }
 })
 
