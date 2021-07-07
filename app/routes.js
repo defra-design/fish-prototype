@@ -69,9 +69,9 @@ router.post('/multibuy-check-licence-option', function (req, res) {
 // check to route someone who wants to buy another licence
 router.post('/multibuy-add-licences', function (req, res) {
   // Make a variable from session data
-  let anotherLicence = req.session.data['add-licence']
+  let addLicence = req.session.data['add-licence']
   // route depending on value
-  if (anotherLicence === 'yes') {
+  if (addLicence === 'yes') {
     res.redirect('gafl-multibuy/who-is-this-licence-for?source=multibuy')
   } else {
     res.redirect('gafl-multibuy/terms-conditions')
@@ -99,6 +99,7 @@ router.post('/licence-for', function (req, res) {
   // Make a variable from session data
   let source = req.session.data['source']
   let licenceFor = req.session.data['licence-for']
+  let lastLicenceFor = req.session.data['licence-was-for']
 
   // if I have just started
   if (source === 'gafl') {
@@ -119,7 +120,7 @@ router.post('/licence-for', function (req, res) {
       // licence is for the same angler, another person
       res.redirect('gafl-multibuy/start-kind?source=gafl&angler=same&licence-for=another')
 
-    // if the licence is for another (not named)
+    // if the licence is for 'another' (not named)
     // licence is for another
     // ask all the questions
     } else if (licenceFor == 'another') {
@@ -134,9 +135,24 @@ router.post('/licence-for', function (req, res) {
     // skip questions / angler = same
     } else {
 
-      // licence is for the same angler, the user
-      // reset source to gafl
-      res.redirect('gafl-multibuy/start-kind?source=gafl&angler=same&licence-for=user')
+      // licence is for 'you'
+      // has the user entered information about you before?
+      if (lastLicenceFor == 'you') {
+
+        // YES
+
+        // licence is for the same angler, the user
+        // reset source to gafl
+        res.redirect('gafl-multibuy/start-kind?source=gafl&angler=new&licence-for=user')
+
+      } else {
+
+        // NO
+
+        // licence is for the user, last round was not the user
+        res.redirect('gafl-multibuy/start-kind?source=gafl&licence-for=user')
+
+      }
 
     }
 

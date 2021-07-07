@@ -34,6 +34,10 @@
     Source is {{ data['source'] }}<br>
   {% endif %}
 
+  {% if data['licence-was-for'] %}
+    Licence was for {{ data['licence-was-for'] }}<br>
+  {% endif %}
+
   {% if data['licence-for'] %}
     Licence is for {{ data['licence-for'] }}<br>
   {% endif %}
@@ -46,9 +50,9 @@
     Name is {{ data['first-name'] + ' ' + data['last-name'] }}<br>
   {% endif %}
 
-  {% if data['concession'] %}
+  <!-- {% if data['concession'] %}
     Concession {{ data['concession'] }}<br>
-  {% endif %}
+  {% endif %} -->
 
   {% if data['email'] or data['licence-by'] %}
     Licence by {{ data['licence-by'] }}<br>

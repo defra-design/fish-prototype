@@ -38,7 +38,11 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <form action="/multibuy-add-licences" method="post" class="form">
+    {% if data['licence-for'] === "another" %}
+      <form action="/multibuy-add-licences?licence-was-for=other" method="post" class="form">
+    {% else %}
+      <form action="/multibuy-add-licences?licence-was-for=you" method="post" class="form">
+    {% endif %}
 
     <div class="govuk-form-group">
       <fieldset class="govuk-fieldset">
