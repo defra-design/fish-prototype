@@ -47,13 +47,17 @@
 
             <div class="govuk-radios" data-module="govuk-radios">
 
-              <!-- show if the licence is for another person -->
+              <!-- show this if the last licence was for another person -->
               {% if data['licence-was-for'] == "other" %}
 
                 <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="licence-for-0" name="licence-for" type="radio" value="same-another">
+                  <input class="govuk-radios__input" id="licence-for-0" name="licence-for" type="radio" value="same-other">
                   <label class="govuk-label govuk-radios__label" for="licence-for-0">
-                    {{ data['first-name'] + ' ' + data['last-name'] }}
+                    {% if data['first-name'] %}
+                      {{ data['first-name'] + ' ' + data['last-name'] }}
+                    {% else %}
+                      Jan Fisher
+                    {% endif %}
                   </label>
                 </div>
 
@@ -67,7 +71,7 @@
               </div>
 
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="licence-for-2" name="licence-for" type="radio" value="another">
+                <input class="govuk-radios__input" id="licence-for-2" name="licence-for" type="radio" value="other">
                 <label class="govuk-label govuk-radios__label" for="licence-for-2">
                   Someone else
                 </label>

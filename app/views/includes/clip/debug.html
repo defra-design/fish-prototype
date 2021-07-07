@@ -21,7 +21,7 @@
 {% endif %} -->
 
 
-{% if (data['source']) or (data['licence-for']) or (data['angler']) or (data['first-name']) or (data['concession']) or (data['email']) %}
+<!-- {% if (data['source']) or (data['licence-for']) or (data['angler']) or (data['first-name']) or (data['concession']) or (data['email']) %}
 <div class="govuk-inset-text">
 
   {% if data['licences'] == 1 %}
@@ -50,9 +50,9 @@
     Name is {{ data['first-name'] + ' ' + data['last-name'] }}<br>
   {% endif %}
 
-  <!-- {% if data['concession'] %}
+  {% if data['concession'] %}
     Concession {{ data['concession'] }}<br>
-  {% endif %} -->
+  {% endif %}
 
   {% if data['email'] or data['licence-by'] %}
     Licence by {{ data['licence-by'] }}<br>
@@ -60,4 +60,4 @@
   {% endif %}
 
 </div>
-{% endif %}
+{% endif %} -->

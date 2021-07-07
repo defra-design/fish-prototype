@@ -66,7 +66,7 @@ router.post('/multibuy-check-licence-option', function (req, res) {
   }
 })
 
-// check to route someone who wants to buy another licence
+// check to route someone who wants to buy other licence
 router.post('/multibuy-add-licences', function (req, res) {
   // Make a variable from session data
   let addLicence = req.session.data['add-licence']
@@ -78,7 +78,7 @@ router.post('/multibuy-add-licences', function (req, res) {
   }
 })
 
-// logic for when another licence is bought,
+// logic for when other licence is bought,
 // is the licence for the same user?
 // who is that user?
 
@@ -113,21 +113,21 @@ router.post('/licence-for', function (req, res) {
 
     // if the licence is for the named Angler
     // skip questions / angler = same
-    // licence for another
+    // licence for other
     // reset source to gafl
-    if (licenceFor == 'same-another') {
+    if (licenceFor == 'same-other') {
 
-      // licence is for the same angler, another person
-      res.redirect('gafl-multibuy/start-kind?source=gafl&angler=same&licence-for=another')
+      // licence is for the same angler, other person
+      res.redirect('gafl-multibuy/start-kind?source=gafl&angler=same&licence-for=other')
 
-    // if the licence is for 'another' (not named)
-    // licence is for another
+    // if the licence is for 'other' (not named)
+    // licence is for other
     // ask all the questions
-    } else if (licenceFor == 'another') {
+    } else if (licenceFor == 'other') {
 
-      // licence is for the new angler, another person
+      // licence is for the new angler, other person
       // reset source to gafl
-      res.redirect('gafl-multibuy/name?source=gafl&angler=new&licence-for=another')
+      res.redirect('gafl-multibuy/name?source=gafl&angler=new&licence-for=other')
 
     // if the licence is for the user
     // and the last one was for user
@@ -135,7 +135,7 @@ router.post('/licence-for', function (req, res) {
     // skip questions / angler = same
     } else {
 
-      // licence is for 'you'
+      // licence is for 'user'
       // has the user entered information about you before?
       if (lastLicenceFor == 'you') {
 
@@ -150,7 +150,7 @@ router.post('/licence-for', function (req, res) {
         // NO
 
         // licence is for the user, last round was not the user
-        res.redirect('gafl-multibuy/start-kind?source=gafl&licence-for=user')
+        res.redirect('gafl-multibuy/date-of-birth?source=gafl&angler=new&licence-for=user')
 
       }
 
