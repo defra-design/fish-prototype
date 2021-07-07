@@ -72,8 +72,10 @@ router.post('/multibuy-add-licences', function (req, res) {
   let addLicence = req.session.data['add-licence']
   // route depending on value
   if (addLicence === 'yes') {
-    res.redirect('gafl-multibuy/who-is-this-licence-for?source=multibuy')
+    // another licence
+    res.redirect('gafl-multibuy/who-is-this-licence-for?source=multibuy?licence-for=')
   } else {
+    // finish up
     res.redirect('gafl-multibuy/terms-conditions')
   }
 })
@@ -150,7 +152,7 @@ router.post('/licence-for', function (req, res) {
         // NO
 
         // licence is for the user, last round was not the user
-        res.redirect('gafl-multibuy/date-of-birth?source=gafl&angler=new&licence-for=user')
+        res.redirect('gafl-multibuy/name?source=gafl&angler=new&licence-for=user')
 
       }
 
