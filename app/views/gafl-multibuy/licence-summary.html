@@ -148,25 +148,23 @@
               </a>
             </dd>
           </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Disability concession
-            </dt>
-            <dd class="govuk-summary-list__value">
-              <p class="govuk-body">
-                {% if data['concession'] %}
+          {% if data['concession'] != "None" %}
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Disability concession
+              </dt>
+              <dd class="govuk-summary-list__value">
+                <p class="govuk-body">
                   {{ data['concession'] }}
-                {% else %}
-                  None
-                {% endif %}
-              </p>
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="change-disability-concession">
-                Change<span class="govuk-visually-hidden"> disability concession</span>
-              </a>
-            </dd>
-          </div>
+                </p>
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="change-disability-concession">
+                  Change<span class="govuk-visually-hidden"> disability concession</span>
+                </a>
+              </dd>
+            </div>
+          {% endif %}
           <div class="govuk-summary-list__row govuk-summary-list__row--last">
             <dt class="govuk-summary-list__key">
               Cost

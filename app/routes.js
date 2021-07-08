@@ -76,11 +76,13 @@ router.post('/multibuy-add-licences', function (req, res) {
   // remember the licence data
   let firstName = req.session.data['first-name']
   let lastName = req.session.data['last-name']
+  let concession = req.session.data['concession']
 
   // make an object to hold data
   let lastLicenceData = {
     firstName,
-    lastName
+    lastName,
+    concession
   };
 
   // add the data to an object called licences
