@@ -92,14 +92,20 @@ router.post('/multibuy-add-licence', function (req, res) {
   // add the data to an object called licences
   allLicences.push(lastLicenceData);
 
+  // increment licence numbers
   if (licences === 1) {
     req.session.data.licences = 2;
-  } else if (licences > 1) {
+  } else if (licences === 2) {
     req.session.data.licences = 3;
+  } else if (licences === 3) {
+    req.session.data.licences = 4;
+  } else if (licences > 3) {
+    req.session.data.licences = 5; // hardcoded max of 5
   } else {
     req.session.data.licences = 1;
   }
 
+  // go to the screen that asks if you want another licence
   res.redirect('gafl-multibuy/add-another-licence')
 
 })
