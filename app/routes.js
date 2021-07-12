@@ -60,7 +60,7 @@ router.post('/multibuy-check-licence-option', function (req, res) {
   // route depending on value
   if (licenceOption === 'digital') {
     // res.redirect('gafl/add-email')
-    res.redirect('gafl-multibuy/licenceBy')
+    res.redirect('gafl-multibuy/licence-by')
   } else {
     res.redirect('gafl-multibuy/licence-confirmation')
   }
