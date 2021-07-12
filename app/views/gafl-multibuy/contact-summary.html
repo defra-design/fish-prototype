@@ -45,12 +45,12 @@
   </div>
 
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-full">
+    <div class="govuk-grid-column-two-thirds">
 
       {% if data['source'] == "multibuy" %}
         <form action="selected-licences">
       {% else %}
-        <form action="add-licence" method="post" class="form">
+        <form action="/multibuy-add-licence" method="post" class="form">
       {% endif %}
 
         <dl class="govuk-summary-list govuk-!-margin-bottom-9">

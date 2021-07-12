@@ -29,7 +29,7 @@
 {% block content %}
 
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-grid-column-full">
 
       <div class="govuk-panel govuk-panel--confirmation govuk-!-margin-bottom-6">
 
@@ -54,7 +54,7 @@
 
               <strong>
                 {{ data['licenceNumbers'][loop.index0] }}
-              </strong>
+              </strong><br>
               Starts from {{ data['times'][loop.index0] }} on 12 May 2021
             </div>
 
@@ -87,6 +87,14 @@
         {{ i.firstName }}
 
       {% endfor %} -->
+
+
+    </div>
+  </div>
+  
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
 
       <h2 class="govuk-heading-l">Before you go fishing</h2>
 

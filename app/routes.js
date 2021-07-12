@@ -66,27 +66,55 @@ router.post('/multibuy-check-licence-option', function (req, res) {
   }
 })
 
-// check to route someone who wants to buy other licence
-router.post('/multibuy-add-licences', function (req, res) {
 
-  // Make a variable from session data
-  let addLicence = req.session.data['add-licence']
+// check to route someone who wants to buy other licence
+router.post('/multibuy-add-licence', function (req, res) {
+
+  // make variables from the session data
+  let licences = req.session.data['licences']
   let allLicences = req.session.data['allLicences']
 
-  // remember the licence data
   let firstName = req.session.data['firstName']
   let lastName = req.session.data['last-name']
+  let type = req.session.data['licence-type']
+  let length = req.session.data['licence-length']
   let concession = req.session.data['concession']
 
-  // make an object to hold data
+  // make an object to hold the data
   let lastLicenceData = {
     firstName,
     lastName,
+    type,
+    length,
     concession
   };
 
   // add the data to an object called licences
   allLicences.push(lastLicenceData);
+
+  if (licences === 1) {
+    req.session.data.licences = 2;
+  } else if (licences > 1) {
+    req.session.data.licences = 3;
+  } else {
+    req.session.data.licences = 1;
+  }
+
+  res.redirect('gafl-multibuy/add-another-licence')
+
+})
+
+
+// check to route someone who wants to buy other licence
+router.post('/multibuy-add-licences', function (req, res) {
+
+  // Make a variable from session data
+  let addLicence = req.session.data['add-licence']
+
+  // move variables used in the flow into memory
+
+  // declare the object holding the data
+  let allLicences = req.session.data['allLicences']
 
   // route depending on value
   if (addLicence === 'yes') {
@@ -98,7 +126,7 @@ router.post('/multibuy-add-licences', function (req, res) {
     // rename variables and use server side changes
 
     // redirect, clears variables
-    res.redirect('gafl-multibuy/who-is-this-licence-for?licenceFor=&email=')
+    res.redirect('gafl-multibuy/who-is-this-licence-for?licenceFor=&email=&phone-number=')
 
   } else {
 

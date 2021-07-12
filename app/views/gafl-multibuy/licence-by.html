@@ -67,12 +67,12 @@
 
                 <!-- check radio if it already set -->
                 {% if data['licenceBy'] == "email" %}
-                  <input class="govuk-radios__input" id="licenceBy-email-radio" name="licenceBy" type="radio" value="email" data-aria-controls="conditional-licenceBy-email-option" checked>
+                  <input class="govuk-radios__input" id="licence-by-email-radio" name="licenceBy" type="radio" value="email" data-aria-controls="conditional-licenceBy-email-option" checked>
                 {% else %}
-                  <input class="govuk-radios__input" id="licenceBy-email-radio" name="licenceBy" type="radio" value="email" data-aria-controls="conditional-licenceBy-email-option">
+                  <input class="govuk-radios__input" id="licence-by-email-radio" name="licenceBy" type="radio" value="email" data-aria-controls="conditional-licenceBy-email-option">
                 {% endif %}
 
-                <label class="govuk-label govuk-radios__label" for="licenceBy-email-radio">
+                <label class="govuk-label govuk-radios__label" for="licence-by-email-radio">
                   Email
                 </label>
               </div>
@@ -101,7 +101,7 @@
               <!-- radio 2 -->
               <div class="govuk-radios__item">
 
-                {% if data['licenceBy'] == "phone-number" %}
+                {% if data['licenceBy'] == "phone" %}
                 <!-- if the licence by has already been set to phone in the session show it -->
                   <input class="govuk-radios__input" id="licenceBy-text-radio" name="licenceBy" type="radio" value="phone-number" data-aria-controls="conditional-licenceBy-text-option" checked>
                 {% else %}
