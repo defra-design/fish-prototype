@@ -148,14 +148,24 @@
               </a>
             </dd>
           </div>
-          {% if data['concession'] != "None" %}
+          {% if i.concession %}
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Disability concession
+              </dt>
+              <dd class="govuk-summary-list__value">
+                <p class="govuk-body">{{ i.concession }}</p>
+              </dd>
+            </div>
+          {% endif %}
+          {% if i.concession != "None"%}
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">
                 Disability concession
               </dt>
               <dd class="govuk-summary-list__value">
                 <p class="govuk-body">
-                  {{ data['concession'] }}
+                  {{ i.concession }}
                 </p>
               </dd>
               <dd class="govuk-summary-list__actions">
