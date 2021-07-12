@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% if data['licence-for'] == "user" %}
+{% if data['licenceFor'] == "user" %}
   {% set title = "How do you want your fishing licence confirmation?" %}
 {% else %}
   {% set title = "How should we send the fishing licence confirmation?" %}
@@ -119,7 +119,7 @@
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="licence-confirmation-manual-option" name="licence-confirmation" type="radio" value="note">
                 <label class="govuk-label govuk-radios__label" for="licence-confirmation-manual-option">
-                  {% if data['licence-for'] == "user" %}
+                  {% if data['licenceFor'] == "user" %}
                     I will make a note of my licence number
                   {% else %}
                     I will make a note of the licence number

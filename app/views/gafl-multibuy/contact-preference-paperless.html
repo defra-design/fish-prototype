@@ -55,10 +55,10 @@
                 </label>
               </div>
               <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact">
-                {% if data['licence-by-email'] %}
+                {% if data['licenceBy-email'] %}
                   <div class="govuk-form-group">
                     <p class="govuk-body" for="contact-by-email">
-                      We will email you at <span class="govuk-!-font-weight-bold">{{ data['licence-by-email'] }}</span>
+                      We will email you at <span class="govuk-!-font-weight-bold">{{ data['licenceBy-email'] }}</span>
                     </p>
                   </div>
                 {% else %}
@@ -81,10 +81,10 @@
               </div>
               <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact-2">
                 <div class="govuk-form-group">
-                  {% if data['licence-by-text'] %}
+                  {% if data['licenceBy-text'] %}
                   <div class="govuk-form-group">
                     <p class="govuk-body" for="contact-by-email">
-                      We will send text messages to <span class="govuk-!-font-weight-bold">{{ data['licence-by-text'] }}</span>
+                      We will send text messages to <span class="govuk-!-font-weight-bold">{{ data['licenceBy-text'] }}</span>
                     </p>
                   </div>
                   {% else %}

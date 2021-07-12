@@ -31,7 +31,7 @@
       <!-- debug / show data -->
       {% include "includes/clip/debug.html" %}
 
-      <form action="/licence-for" method="post" class="form">
+      <form action="/licenceFor" method="post" class="form">
 
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset">
@@ -56,13 +56,13 @@
             <div class="govuk-radios" data-module="govuk-radios">
 
               <!-- show this if the last licence was for another person -->
-              {% if data['licence-was-for'] == "other" %}
+              {% if data['lastLicenceFor'] == "other" %}
 
                 <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="licence-for-0" name="licence-for" type="radio" value="same-other">
-                  <label class="govuk-label govuk-radios__label" for="licence-for-0">
-                    {% if data['first-name'] %}
-                      {{ data['first-name'] + ' ' + data['last-name'] }}
+                  <input class="govuk-radios__input" id="licenceFor-0" name="licenceFor" type="radio" value="same-other">
+                  <label class="govuk-label govuk-radios__label" for="licenceFor-0">
+                    {% if data['firstName'] %}
+                      {{ data['firstName'] + ' ' + data['last-name'] }}
                     {% else %}
                       Jan Fisher
                     {% endif %}
@@ -72,15 +72,15 @@
               {% endif %}
 
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="licence-for-1" name="licence-for" type="radio" value="user">
-                <label class="govuk-label govuk-radios__label" for="licence-for-1">
+                <input class="govuk-radios__input" id="licenceFor-1" name="licenceFor" type="radio" value="user">
+                <label class="govuk-label govuk-radios__label" for="licenceFor-1">
                   You
                 </label>
               </div>
 
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="licence-for-2" name="licence-for" type="radio" value="other">
-                <label class="govuk-label govuk-radios__label" for="licence-for-2">
+                <input class="govuk-radios__input" id="licenceFor-2" name="licenceFor" type="radio" value="other">
+                <label class="govuk-label govuk-radios__label" for="licenceFor-2">
                   Someone else
                 </label>
               </div>

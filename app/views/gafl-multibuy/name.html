@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% if data['licence-for'] == "user" %}
+{% if data['licenceFor'] == "user" %}
   {% set title = "What is your name?" %}
 {% else %}
   {% set title = "What is the person’s name?" %}
@@ -50,7 +50,7 @@
             </legend>
 
             <!-- when buying for someone else -->
-            {% if data['licence-for'] == "other" %}
+            {% if data['licenceFor'] == "other" %}
               <p class="govuk-body">
                 Take care to spell their name correctly.
               </p>
@@ -63,7 +63,7 @@
                    Do not use abbreviations or nicknames.
                  </span>
               </label>
-              <input class="govuk-input govuk-input--width-20" id="first-name" name="first-name" type="text">
+              <input class="govuk-input govuk-input--width-20" id="firstName" name="firstName" type="text">
             </div>
 
             <div class="govuk-form-group">

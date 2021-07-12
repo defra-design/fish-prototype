@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% if data['licence-for'] == "user" %}
+{% if data['licenceFor'] == "user" %}
   {% set title = "Do you receive any of the following?" %}
 {% else %}
   {% set title = "Do they receive any of the following?" %}
@@ -45,7 +45,7 @@
               </h1>
             </legend>
             <p class="govuk-body">
-              {% if data['licence-for'] == "user" %}
+              {% if data['licenceFor'] == "user" %}
                 You
               {% else %}
                 They

@@ -29,8 +29,8 @@
       <!-- debug / show data -->
       {% include "includes/clip/debug.html" %}
 
-
       <form action="disability-concession" method="post" class="form">
+
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset">
 
@@ -38,7 +38,7 @@
 
               <!-- alternate headings -->
               <h1 class="govuk-fieldset__heading">
-                {% if data['licence-for'] == "user" %}
+                {% if data['licenceFor'] == "user" %}
                   What is your date of birth?
                 {% else %}
                   What is their date of birth?

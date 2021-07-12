@@ -64,8 +64,8 @@
               Name
             </dt>
             <dd class="govuk-summary-list__value">
-              {% if data['first-name'] %}
-                {{ data['first-name'] + " " + data['last-name'] }}
+              {% if data['firstName'] %}
+                {{ data['firstName'] + " " + data['last-name'] }}
               {% else %}
                 Sam Fisher
               {% endif %}
@@ -99,7 +99,7 @@
             </dt>
             <dd class="govuk-summary-list__value">
               {% if data['licence-option'] == "digital" %}
-                {% if data['licence-by'] == "email" %}
+                {% if data['licenceBy'] == "email" %}
                   Email to {{ data['email'] }}
                 {% else %}
                   Text message to {{ data['phone-number'] }}
@@ -167,7 +167,7 @@
               <!-- automatically switch -->
               <!-- {% if data['licence-option'] == "digital" %}
 
-                {% if data['licence-by'] == "email" %}
+                {% if data['licenceBy'] == "email" %}
                   Email to {{ data['email'] }}
                 {% else %}
                   Text messages to {{ data['phone-number'] }}

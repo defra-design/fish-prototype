@@ -31,7 +31,7 @@
       <form action="change-contact-preference">
       <!-- <form action="contact-summary"> -->
         <div class="govuk-form-group">
-          <fieldset class="govuk-fieldset" aria-describedby="licence-by-hint">
+          <fieldset class="govuk-fieldset" aria-describedby="licenceBy-hint">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
               <h1 class="govuk-fieldset__heading">
                 {{ title }}
@@ -49,19 +49,19 @@
 
             <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
               <div class="govuk-radios__item">
-                {% if data['licence-by'] == "email" %}
-                <input class="govuk-radios__input" id="licence-by" name="licence-by" type="radio" value="email" data-aria-controls="conditional-licence-by" checked>
+                {% if data['licenceBy'] == "email" %}
+                <input class="govuk-radios__input" id="licenceBy" name="licenceBy" type="radio" value="email" data-aria-controls="conditional-licenceBy" checked>
                 {% else %}
-                <input class="govuk-radios__input" id="licence-by" name="licence-by" type="radio" value="email" data-aria-controls="conditional-licence-by">
+                <input class="govuk-radios__input" id="licenceBy" name="licenceBy" type="radio" value="email" data-aria-controls="conditional-licenceBy">
                 {% endif %}
-                <label class="govuk-label govuk-radios__label" for="licence-by">
+                <label class="govuk-label govuk-radios__label" for="licenceBy">
                   Email
                 </label>
               </div>
-              <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-licence-by">
+              <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-licenceBy">
 
                 {% if data['email'] %}
-                  <p class="govuk-body" for="licence-by-email">
+                  <p class="govuk-body" for="licenceBy-email">
                     We will email your licence information to <span class="govuk-!-font-weight-bold">{{ data['email'] }}</span>
                   </p>
                 {% else %}
@@ -78,12 +78,12 @@
                 {% endif %}
               </div>
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="licence-by-2" name="licence-by" type="radio" value="phone" data-aria-controls="conditional-licence-by-2">
-                <label class="govuk-label govuk-radios__label" for="licence-by-2">
+                <input class="govuk-radios__input" id="licenceBy-2" name="licenceBy" type="radio" value="phone" data-aria-controls="conditional-licenceBy-2">
+                <label class="govuk-label govuk-radios__label" for="licenceBy-2">
                   Text message
                 </label>
               </div>
-              <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-licence-by-2">
+              <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-licenceBy-2">
                 <div class="govuk-form-group">
                   <label class="govuk-label" for="phone-number">
                     UK mobile phone number
@@ -100,41 +100,41 @@
 
             <!-- <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="licence-by-1" name="licence-by-1" type="radio" value="email" data-aria-controls="conditional-licence-by-1">
-                <label class="govuk-label govuk-radios__label" for="licence-by-1">
+                <input class="govuk-radios__input" id="licenceBy-1" name="licenceBy-1" type="radio" value="email" data-aria-controls="conditional-licenceBy-1">
+                <label class="govuk-label govuk-radios__label" for="licenceBy-1">
                   Email
                 </label>
               </div>
-              <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-licence-by-1">
+              <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-licenceBy-1">
                 {% if data['email'] %}
                   <div class="govuk-form-group">
-                    <p class="govuk-body" for="licence-by-email">
+                    <p class="govuk-body" for="licenceBy-email">
                       We will email you at <span class="govuk-!-font-weight-bold">{{ data['email'] }}</span>
                     </p>
                   </div>
                 {% else %}
                   <div class="govuk-form-group">
-                    <label class="govuk-label" for="licence-by-email">
+                    <label class="govuk-label" for="licenceBy-email">
                       Email address
                     </label>
                     <p class="govuk-hint">
                       For example name@example.com.
                     </p>
-                    <input class="govuk-input govuk-!-width-two-thirds" id="licence-by-email" name="email" type="email" spellcheck="false">
+                    <input class="govuk-input govuk-!-width-two-thirds" id="licenceBy-email" name="email" type="email" spellcheck="false">
                   </div>
                 {% endif %}
               </div>
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="licence-by-2" name="licence-by-2" type="radio" value="phone" data-aria-controls="conditional-licence-by-2">
-                <label class="govuk-label govuk-radios__label" for="licence-by-2">
+                <input class="govuk-radios__input" id="licenceBy-2" name="licenceBy-2" type="radio" value="phone" data-aria-controls="conditional-licenceBy-2">
+                <label class="govuk-label govuk-radios__label" for="licenceBy-2">
                   Text message
                 </label>
               </div>
-              <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-licence-by-2">
+              <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-licenceBy-2">
                 <div class="govuk-form-group">
                   {% if data['phone-number'] %}
                   <div class="govuk-form-group">
-                    <p class="govuk-body" for="licence-by-email">
+                    <p class="govuk-body" for="licenceBy-email">
                       We will send text messages to <span class="govuk-!-font-weight-bold">{{ data['phone-number'] }}</span>
                     </p>
                   </div>

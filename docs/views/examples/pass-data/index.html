@@ -41,15 +41,15 @@
 
       <p>For example, if you have this input:</p>
 
-      <pre class="app-code"><code>&lt;input name="first-name"&gt;</code></pre>
+      <pre class="app-code"><code>&lt;input name="firstName"&gt;</code></pre>
 
       <p>You can show what the user entered later on like this:</p>
 
-      <pre class="app-code"><code>&lt;p&gt;{%raw%}{{ data['first-name'] }}{%endraw%}&lt;/p&gt;</code></pre>
+      <pre class="app-code"><code>&lt;p&gt;{%raw%}{{ data['firstName'] }}{%endraw%}&lt;/p&gt;</code></pre>
 
       <p>Or with nested fields:</p>
 
-      <pre class="app-code"><code>&lt;p&gt;{%raw%}{{ data['claimant']['first-name'] }}{%endraw%}&lt;/p&gt;</code></pre>
+      <pre class="app-code"><code>&lt;p&gt;{%raw%}{{ data['claimant']['firstName'] }}{%endraw%}&lt;/p&gt;</code></pre>
 
       <h3 class="govuk-heading-s">
         Clearing data
@@ -69,7 +69,7 @@
 
       <p>For a text input:</p>
 
-      <pre class="app-code"><code>&lt;input name="first-name" value="{%raw%}{{ data['first-name'] }}{%endraw%}"&gt;</code></pre>
+      <pre class="app-code"><code>&lt;input name="firstName" value="{%raw%}{{ data['firstName'] }}{%endraw%}"&gt;</code></pre>
 
       <p>For a radio or checkbox input you need to use the 'checked' function:</p>
 
@@ -175,17 +175,17 @@
 
       <p>You can access the data on the server in a route function</p>
 
-      <p>For example for an input with name="first-name":</p>
+      <p>For example for an input with name="firstName":</p>
 
-      <pre class="app-code"><code>var firstName = req.session.data['first-name']</code></pre>
+      <pre class="app-code"><code>var firstName = req.session.data['firstName']</code></pre>
 
       <h3 class="govuk-heading-s">
         Using the data on the server (nested fields)
       </h3>
 
-      <p>For example for an input with name="claimant[first-name]":</p>
+      <p>For example for an input with name="claimant[firstName]":</p>
 
-      <pre class="app-code"><code>var firstName = req.session.data['claimant']['first-name']</code></pre>
+      <pre class="app-code"><code>var firstName = req.session.data['claimant']['firstName']</code></pre>
 
       <h3 class="govuk-heading-s">
         Ignoring inputs

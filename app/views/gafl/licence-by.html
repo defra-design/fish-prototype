@@ -52,19 +52,19 @@
               <div class="govuk-radios__item">
 
                 <!-- check radio if it already set -->
-                {% if data['licence-by'] == "email" %}
-                  <input class="govuk-radios__input" id="licence-by-email-radio" name="licence-by" type="radio" value="email" data-aria-controls="conditional-licence-by-email-option" checked>
+                {% if data['licenceBy'] == "email" %}
+                  <input class="govuk-radios__input" id="licenceBy-email-radio" name="licenceBy" type="radio" value="email" data-aria-controls="conditional-licenceBy-email-option" checked>
                 {% else %}
-                  <input class="govuk-radios__input" id="licence-by-email-radio" name="licence-by" type="radio" value="email" data-aria-controls="conditional-licence-by-email-option">
+                  <input class="govuk-radios__input" id="licenceBy-email-radio" name="licenceBy" type="radio" value="email" data-aria-controls="conditional-licenceBy-email-option">
                 {% endif %}
 
-                <label class="govuk-label govuk-radios__label" for="licence-by-email-radio">
+                <label class="govuk-label govuk-radios__label" for="licenceBy-email-radio">
                   Email
                 </label>
               </div>
 
               <!-- reveal 1 -->
-              <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-licence-by-email-option">
+              <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-licenceBy-email-option">
                 {% if data['email'] %}
                 <!-- if the email address in the session show it -->
                   <p class="govuk-body">
@@ -73,13 +73,13 @@
                 {% else %}
                 <!-- if the email address is not in the session do not show it -->
                   <div class="govuk-form-group">
-                    <label class="govuk-label" for="licence-by-email">
+                    <label class="govuk-label" for="licenceBy-email">
                       Email address
                     </label>
                     <p class="govuk-hint">
                       For example name@example.com.
                     </p>
-                    <input class="govuk-input govuk-!-width-one-third" id="licence-by-email" name="licence-by-email" type="email" spellcheck="false">
+                    <input class="govuk-input govuk-!-width-one-third" id="licenceBy-email" name="licenceBy-email" type="email" spellcheck="false">
                   </div>
                 {% endif %}
               </div>
@@ -87,20 +87,20 @@
               <!-- radio 2 -->
               <div class="govuk-radios__item">
 
-                {% if data['licence-by'] == "phone-number" %}
+                {% if data['licenceBy'] == "phone-number" %}
                 <!-- if the licence by has already been set to phone in the session show it -->
-                  <input class="govuk-radios__input" id="licence-by-text-radio" name="licence-by" type="radio" value="phone-number" data-aria-controls="conditional-licence-by-text-option" checked>
+                  <input class="govuk-radios__input" id="licenceBy-text-radio" name="licenceBy" type="radio" value="phone-number" data-aria-controls="conditional-licenceBy-text-option" checked>
                 {% else %}
                 <!-- if the phone number is not in the session do not show it -->
-                  <input class="govuk-radios__input" id="licence-by-text-radio" name="licence-by" type="radio" value="phone-number" data-aria-controls="conditional-licence-by-text-option">
+                  <input class="govuk-radios__input" id="licenceBy-text-radio" name="licenceBy" type="radio" value="phone-number" data-aria-controls="conditional-licenceBy-text-option">
                 {% endif %}
-                  <label class="govuk-label govuk-radios__label" for="licence-by-text-radio">
+                  <label class="govuk-label govuk-radios__label" for="licenceBy-text-radio">
                     Text message
                   </label>
               </div>
 
               <!-- reveal 2 -->
-              <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-licence-by-text-option">
+              <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-licenceBy-text-option">
                 <div class="govuk-form-group">
                   {% if data['phone-number'] %}
                   <!-- if the phone number is in the session show it -->
@@ -109,13 +109,13 @@
                     </p>
 
                   {% else %}
-                    <label class="govuk-label" for="licence-by-text">
+                    <label class="govuk-label" for="licenceBy-text">
                       UK mobile phone number
                     </label>
                     <p class="govuk-hint">
                       For example 07700 900 900.
                     </p>
-                    <input class="govuk-input govuk-!-width-one-third" id="licence-by-text" name="phone-number" type="tel">
+                    <input class="govuk-input govuk-!-width-one-third" id="licenceBy-text" name="phone-number" type="tel">
                   {% endif %}
 
                 </div>

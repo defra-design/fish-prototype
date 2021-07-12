@@ -28,6 +28,102 @@
       {{ title }}
     </h1>
 
+    <!-- licence instance -->
+    {% for i in allLicences %}
+
+      <h2 class="govuk-heading-l">
+        {{ data['licenceNumbers'][loop.index0] }}
+      </h2>
+
+      <!-- table for licence information -->
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key govuk-summary-list__key-wide">
+            Name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ i.firstName }} {{ i.lastName }}
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row table__row--divider">
+          <dt class="govuk-summary-list__key govuk-summary-list__key-wide">
+            Identification
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['identificationNumbers'][loop.index0] }}
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Type
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {% if data['licence-type'] %}
+              {{ data['licence-type'] }}
+            {% else %}
+              Trout and coarse, up to 2 rods
+            {% endif %}
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Length
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {% if data['licence-length'] %}
+              {{ data['licence-length'] }}
+            {% else %}
+              12 month
+            {% endif %}
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Starts
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['times'][loop.index0] }} on 12 May 2021
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Ends
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['endtimes'][loop.index0] }} on 12 May 2021
+          </dd>
+        </div>
+
+        {% if i.concession != "None" %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Disability concession
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <p class="govuk-body">{{ i.concession }}</p>
+            </dd>
+          </div>
+        {% endif %}
+
+        <!-- <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Cost
+          </dt>
+          <dd class="govuk-summary-list__value">
+            £30
+          </dd>
+        </div> -->
+      </dl>
+
+    {% endfor %}
+
+
     <section class="govuk-!-margin-bottom-6">
       <dl class="govuk-summary-list">
         <div class="govuk-summary-list__row">
@@ -89,8 +185,8 @@
             Licence holder
           </dt>
           <dd class="govuk-summary-list__value">
-            {% if data['first-name'] %}
-              {{ data['first-name'] + " " + data['last-name'] }}
+            {% if data['firstName'] %}
+              {{ data['firstName'] + " " + data['last-name'] }}
             {% else %}
               Jan Fisher
             {% endif %}

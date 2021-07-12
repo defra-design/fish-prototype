@@ -29,7 +29,7 @@ router.post('/check-licence-option', function (req, res) {
   // route depending on value
   if (licenceOption === 'digital') {
     // res.redirect('gafl/add-email')
-    res.redirect('gafl/licence-by')
+    res.redirect('gafl/licenceBy')
   } else {
     res.redirect('gafl/licence-confirmation')
   }
@@ -60,7 +60,7 @@ router.post('/multibuy-check-licence-option', function (req, res) {
   // route depending on value
   if (licenceOption === 'digital') {
     // res.redirect('gafl/add-email')
-    res.redirect('gafl-multibuy/licence-by')
+    res.redirect('gafl-multibuy/licenceBy')
   } else {
     res.redirect('gafl-multibuy/licence-confirmation')
   }
@@ -68,13 +68,13 @@ router.post('/multibuy-check-licence-option', function (req, res) {
 
 // check to route someone who wants to buy other licence
 router.post('/multibuy-add-licences', function (req, res) {
+
   // Make a variable from session data
   let addLicence = req.session.data['add-licence']
-
   let allLicences = req.session.data['allLicences']
 
   // remember the licence data
-  let firstName = req.session.data['first-name']
+  let firstName = req.session.data['firstName']
   let lastName = req.session.data['last-name']
   let concession = req.session.data['concession']
 
@@ -93,11 +93,15 @@ router.post('/multibuy-add-licences', function (req, res) {
     // another licence
 
     req.session.data.source = 'multibuy';
-    // req.session.data.licence-for = '';
+    // req.session.data.licenceFor = '';
+
     // rename variables and use server side changes
 
-    res.redirect('gafl-multibuy/who-is-this-licence-for?licence-for=&email=')
+    // redirect, clears variables
+    res.redirect('gafl-multibuy/who-is-this-licence-for?licenceFor=&email=')
+
   } else {
+
     // finish up
     res.redirect('gafl-multibuy/terms-conditions')
   }
@@ -119,12 +123,12 @@ router.post('/multibuy-add-licences', function (req, res) {
 // how can we know it is the same other?
 // check name?
 
-router.post('/licence-for', function (req, res) {
+router.post('/licenceFor', function (req, res) {
 
   // Make a variable from session data
   let source = req.session.data['source']
-  let licenceFor = req.session.data['licence-for']
-  let lastLicenceFor = req.session.data['licence-was-for']
+  let licenceFor = req.session.data['licenceFor']
+  let lastLicenceFor = req.session.data['lastLicenceFor']
 
   // if I have just started
   if (source === 'gafl') {
@@ -143,7 +147,7 @@ router.post('/licence-for', function (req, res) {
     if (licenceFor == 'same-other') {
 
       // licence is for the same angler, other person
-      res.redirect('gafl-multibuy/start-kind?source=gafl&angler=same&licence-for=other')
+      res.redirect('gafl-multibuy/start-kind?source=gafl&angler=same&licenceFor=other')
 
     // if the licence is for 'other' (not named)
     // licence is for other
@@ -152,7 +156,7 @@ router.post('/licence-for', function (req, res) {
 
       // licence is for the new angler, other person
       // reset source to gafl
-      res.redirect('gafl-multibuy/name?source=gafl&angler=new&licence-for=other')
+      res.redirect('gafl-multibuy/name?source=gafl&angler=new&licenceFor=other')
 
     // if the licence is for the user
     // and the last one was for user
@@ -168,14 +172,14 @@ router.post('/licence-for', function (req, res) {
 
         // licence is for the same angler, the user
         // reset source to gafl
-        res.redirect('gafl-multibuy/start-kind?source=gafl&angler=new&licence-for=user')
+        res.redirect('gafl-multibuy/start-kind?source=gafl&angler=new&licenceFor=user')
 
       } else {
 
         // NO
 
         // licence is for the user, last round was not the user
-        res.redirect('gafl-multibuy/name?source=gafl&angler=new&licence-for=user')
+        res.redirect('gafl-multibuy/name?source=gafl&angler=new&licenceFor=user')
 
       }
 
@@ -207,9 +211,9 @@ router.post('/renew-check-licence-option', function (req, res) {
   // route depending on value
   if (licenceOption === 'digital') {
     // res.redirect('gafl/add-email')
-    res.redirect('renew/licence-by?licence-by=&confirmation=&email=&phone=')
+    res.redirect('renew/licenceBy?licenceBy=&confirmation=&email=&phone=')
   } else {
-    res.redirect('renew/licence-confirmation?licence-by=&confirmation=&email=&phone=')
+    res.redirect('renew/licence-confirmation?licenceBy=&confirmation=&email=&phone=')
   }
 })
 
@@ -219,7 +223,7 @@ router.post('/check-change-licence-type', function (req, res) {
   let licenceOption = req.session.data['licence-option']
   // route depending on value
   if (licenceOption === 'digital') {
-    res.redirect('gafl/change-licence-by')
+    res.redirect('gafl/change-licenceBy')
   } else {
     res.redirect('gafl/contact-summary')
   }

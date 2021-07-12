@@ -62,5 +62,6 @@ module.exports = {
     "09120722-2WC3F3P-B52JA1",
     "09120722-2WC3FJF-HJ8721"
   ],
+  "concession": ["None"],
   "allLicences": []
 }

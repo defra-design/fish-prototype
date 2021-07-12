@@ -58,7 +58,7 @@
 
       {% if data['licence-option'] == "digital" %}
 
-        {% if data['licence-by'] == "email" %}
+        {% if data['licenceBy'] == "email" %}
           <p class="govuk-body">
             We have sent the licence by email.
           </p>
@@ -74,11 +74,11 @@
           Licence cards will arrive in the post within 15 working days.
         </p>
 
-        {% if data['licence-by'] == "email" %}
+        {% if data['licenceBy'] == "email" %}
           <p class="govuk-body">
             We have sent confirmation of the licence by email.
           </p>
-        {% elif data['licence-by'] == "phone" %}
+        {% elif data['licenceBy'] == "phone" %}
           <p class="govuk-body">
             We have sent confirmation of the licence by text message.
           </p>
