@@ -3,7 +3,7 @@
 {% if data['licence-for'] == "user" %}
   {% set title = "How do you want your fishing licence confirmation?" %}
 {% else %}
-  {% set title = "How do you want the fishing licence confirmation?" %}
+  {% set title = "How should we send the fishing licence confirmation?" %}
 {% endif %}
 
 {% block pageTitle %}
@@ -119,10 +119,11 @@
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="licence-confirmation-manual-option" name="licence-confirmation" type="radio" value="note">
                 <label class="govuk-label govuk-radios__label" for="licence-confirmation-manual-option">
-                  I will make a note of my licence number
-                  <!-- <span class="govuk-hint">
-                    We will tell you your licence number after purchase
-                  </span> -->
+                  {% if data['licence-for'] == "user" %}
+                    I will make a note of my licence number
+                  {% else %}
+                    I will make a note of the licence number
+                  {% endif %}
                 </label>
 
               </div>

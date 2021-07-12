@@ -1,6 +1,10 @@
 {% extends "layout.html" %}
 
-{% set title = "Do you want to go paperless?" %}
+{% if data['licence-for'] == "user" %}
+  {% set title = "Do you want to go paperless?" %}
+{% else %}
+  {% set title = "Go paperless?" %}
+{% endif %}
 
 {% block pageTitle %}
   {{title}} - GOV.UK
@@ -39,9 +43,15 @@
               </h1>
             </legend>
 
-            <p class="govuk-body">
-              If you get your licence by email or text message you'll:
-            </p>
+            {% if data['licence-for'] == "user" %}
+              <p class="govuk-body">
+                If you get your licence by email or text message you'll:
+              </p>
+            {% else %}
+              <p class="govuk-body">
+                Getting a licence by email or text message will:
+              </p>
+            {% endif %}
 
             <ul class="govuk-list govuk-list--bullet">
               <li>help the environment by reducing paper use</li>
@@ -58,8 +68,13 @@
                 </label>
                 <div id="licence-option-digital-hint" class="govuk-hint govuk-radios__hint">
                   <ul class="govuk-list govuk-list--bullet">
-                    <li>we'll send your fishing licence by email or text message</li>
-                    <li>the email or text message is proof of your fishing licence</li>
+                    {% if data['licence-for'] == "user" %}
+                      <li>we'll send your fishing licence by email or text message</li>
+                      <li>the email or text message is proof of your fishing licence</li>
+                    {% else %}
+                      <li>we'll send the fishing licence by email or text message</li>
+                      <li>the email or text message is proof of a fishing licence</li>
+                    {% endif %}
                   </ul>
                 </div>
               </div>
@@ -67,12 +82,22 @@
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="licence-option-paper" name="licence-option" type="radio" value="paper-licence" aria-describedby="licence-option-paper-hint">
                 <label class="govuk-label govuk-radios__label" for="licence-option-paper">
-                  No, I prefer a card
+                  {% if data['licence-for'] == "user" %}
+                    No, I prefer a card
+                  {% else %}
+                    No, get a card
+                  {% endif %}
                 </label>
                 <div id="licence-option-paper-hint" class="govuk-hint govuk-radios__hint">
                   <ul class="govuk-list govuk-list--bullet">
-                    <li>you’ll get your fishing licence card within 15 working days</li>
-                    <li>if you give us your email address or phone number, we’ll send you a copy of your licence details</li>
+                    {% if data['licence-for'] == "user" %}
+                      <li>get your fishing licence card within 15 working days</li>
+                      <li>if you give us your email address or phone number, we’ll send you a copy of your licence details</li>
+                    {% else %}
+                      <li>get the fishing licence card within 15 working days</li>
+                      <li>if you give us an email address or phone number, we’ll send a copy of the licence details</li>
+                    {% endif %}
+
                   </ul>
                 </div>
               </div>
