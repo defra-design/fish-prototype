@@ -31,18 +31,22 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-xl">{{ title }}</h1>
+      <section class="no-print">
+        <h1 class="govuk-heading-xl">{{ title }}</h1>
 
-      <p class="govuk-body-l">
-        This is proof of your fishing licences. You might find it useful to take a screenshot or print out this page.
-      </p>
+        <p class="govuk-body-l">
+          This is proof of your fishing licences. You might find it useful to take a screenshot or print out this page.
+        </p>
 
-      <p class="govuk-body">
-        If you gave us your email address, you’ll get a message that includes your licence information.
-      </p>
+        <p class="govuk-body">
+          If you gave us your email address, you’ll get a message that includes your licence information.
+        </p>
+      </section>
 
       <!-- licence instance -->
       {% for i in allLicences %}
+
+      <section class="pagebreak">
 
         <h2 class="govuk-heading-l">
           {{ data['licenceNumbers'][loop.index0] }}
@@ -133,6 +137,8 @@
             </dd>
           </div> -->
         </dl>
+
+      </section>
 
       {% endfor %}
 

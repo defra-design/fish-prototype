@@ -1,0 +1,66 @@
+// all print styles
+
+@media print {
+
+
+  @page {
+    size: A4;
+    background-color: blue;
+
+    margin: 1cm 2cm;
+
+  }
+
+  .no-print {
+    display: none;
+  }
+
+  body {
+    font-family: "Georgia", serif;
+    background-color: white;
+    background: none;
+    // color: #0b0c0c;
+    color: lightgray;
+    font-size: 32px;
+  }
+
+  h1,
+  section h2,
+  section p
+   {
+     font-family: "Georgia", serif;
+  }
+
+  h1 {
+    display: none;
+  }
+
+  h2 {
+    font-family: "Georgia", serif;
+    color: #0b0c0c;
+  }
+
+  .licence {
+    page-break-after: always;
+  }
+
+  // general good print practice
+
+  h1, h2, h3, h4, h5 {
+    page-break-after: avoid;
+  }
+
+  table, figure {
+    page-break-inside: avoid;
+  }
+
+  .govuk-summary-list__key {
+    margin-bottom: 0.4rem;
+  }
+
+  .govuk-summary-list__value {
+    margin-left: 0;
+    margin-bottom: 1rem;
+  }
+
+}
