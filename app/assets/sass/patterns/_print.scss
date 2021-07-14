@@ -1,47 +1,59 @@
 // all print styles
 
+@media screen {
+  .print-only {
+    display: none;
+  }
+}
+
 @media print {
 
-
   @page {
-    size: A4;
-    background-color: blue;
+    // size: A4;
+    margin: 0mm; /* this affects the margin in the printer settings */
+  }
 
-    margin: 1cm 2cm;
-
+  .govuk-summary-list {
+    width: 16cm;
   }
 
   .no-print {
     display: none;
   }
 
-  body {
-    font-family: "Georgia", serif;
-    background-color: white;
-    background: none;
-    // color: #0b0c0c;
-    color: lightgray;
-    font-size: 32px;
+  .print-only {
+    display: inline;
+  }
+
+  .pagebreak {
+    page-break-after: always;
+    position: relative;
+    top: 3cm;
+  }
+
+  .pagebreak:last-child {
+     page-break-after: auto;
   }
 
   h1,
   section h2,
-  section p
-   {
-     font-family: "Georgia", serif;
+  section p {
+    // font-family: Georgia, serif;
   }
 
-  h1 {
-    display: none;
+  .govuk-heading-l {
+    // font-family: Georgia, serif;
+    font-size: 20pt;
   }
 
-  h2 {
-    font-family: "Georgia", serif;
-    color: #0b0c0c;
+  .govuk-body,
+  .govuk-summary-list {
+    // font-family: Georgia, serif;
+    font-size: 14pt;
   }
 
-  .licence {
-    page-break-after: always;
+  .govuk-grid-column-two-thirds {
+    width: 100%;
   }
 
   // general good print practice
@@ -52,15 +64,6 @@
 
   table, figure {
     page-break-inside: avoid;
-  }
-
-  .govuk-summary-list__key {
-    margin-bottom: 0.4rem;
-  }
-
-  .govuk-summary-list__value {
-    margin-left: 0;
-    margin-bottom: 1rem;
   }
 
 }

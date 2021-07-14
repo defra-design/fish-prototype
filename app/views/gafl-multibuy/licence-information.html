@@ -14,6 +14,7 @@
 {% from "govuk/components/header/macro.njk" import govukHeader %}
   {{ govukHeader({
    homepageUrl: "/index",
+   classes: "no-print",
    serviceName: "Get a rod fishing licence",
    serviceUrl: "#"
   }) }}
@@ -22,7 +23,7 @@
 
 {% block beforeContent %}
 
-  <a href="javascript:history.back()" class="govuk-back-link">Back</a>
+  <a href="javascript:history.back()" class="govuk-back-link no-print">Back</a>
 
 {% endblock %}
 
@@ -48,6 +49,9 @@
 
       <section class="pagebreak">
 
+        <img src="/public/images/EA-logo-black.png" width="192px" style="margin-bottom:2cm;" class="print-only">
+
+        <span class="govuk-caption-xl"><span class="print-only">Licence number</span></span>
         <h2 class="govuk-heading-l">
           {{ data['licenceNumbers'][loop.index0] }}
         </h2>
@@ -138,16 +142,30 @@
           </div> -->
         </dl>
 
-      </section>
+        <span class="print-only">
+          <div class="govuk-inset-text">
+            You must follow the rod fishing byelaws.<br>
+            Search for ‘rod fishing byelaws’ on GOV.UK.
+          </div>
 
+          <div class="govuk-warning-text">
+            <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+            <strong class="govuk-warning-text__text">
+              <span class="govuk-warning-text__assistive">Warning</span>
+              Report an environmental incident on 0800 80 70 60.<br>This is a 24-hour service.
+            </strong>
+          </div>
+        </span>
+
+      </section>
       {% endfor %}
 
-      <div class="govuk-inset-text">
+      <div class="govuk-inset-text no-print">
         You must follow the rod fishing byelaws.<br>
         Search for <a href="https://www.gov.uk/guidance/national-rod-fishing-byelaws-for-england-freshwater-fishing-with-a-rod-and-line" class="govuk_link">rod fishing byelaws</a> on GOV.UK.
       </div>
 
-      <div class="govuk-warning-text">
+      <div class="govuk-warning-text no-print">
         <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
         <strong class="govuk-warning-text__text">
           <span class="govuk-warning-text__assistive">Warning</span>
