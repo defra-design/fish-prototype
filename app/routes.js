@@ -29,7 +29,7 @@ router.post('/check-licence-option', function (req, res) {
   // route depending on value
   if (licenceOption === 'digital') {
     // res.redirect('gafl/add-email')
-    res.redirect('gafl/licenceBy')
+    res.redirect('gafl/licence-by')
   } else {
     res.redirect('gafl/licence-confirmation')
   }
@@ -245,7 +245,7 @@ router.post('/renew-check-licence-option', function (req, res) {
   // route depending on value
   if (licenceOption === 'digital') {
     // res.redirect('gafl/add-email')
-    res.redirect('renew/licenceBy?licenceBy=&confirmation=&email=&phone=')
+    res.redirect('renew/licence-by?licenceBy=&confirmation=&email=&phone=')
   } else {
     res.redirect('renew/licence-confirmation?licenceBy=&confirmation=&email=&phone=')
   }
@@ -257,7 +257,7 @@ router.post('/check-change-licence-type', function (req, res) {
   let licenceOption = req.session.data['licence-option']
   // route depending on value
   if (licenceOption === 'digital') {
-    res.redirect('gafl/change-licenceBy')
+    res.redirect('gafl/change-licence-by')
   } else {
     res.redirect('gafl/contact-summary')
   }
