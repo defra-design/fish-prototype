@@ -52,10 +52,6 @@
         </div>
       </div>
 
-      <p class="govuk-body">
-        You can fish from the time and date your licence starts.
-      </p>
-
       {% if data['licence-option'] == "digital" %}
 
         {% if data['licenceBy'] == "email" %}
@@ -68,11 +64,10 @@
           </p>
         {% endif %}
 
-      {% else %}
-
         <p class="govuk-body">
-          Licence cards will arrive in the post within 15 working days.
+          Take it with you when you go fishing.
         </p>
+      {% else %}
 
         {% if data['licenceBy'] == "email" %}
           <p class="govuk-body">
@@ -84,6 +79,10 @@
           </p>
         {% endif %}
 
+        <p class="govuk-body">
+          Licence cards will arrive in the post within 15 working days.
+        </p>
+
         <!-- <p class="govuk-body">
           You do not need to wait for your card to arrive before you fish.
         </p> -->
@@ -93,26 +92,30 @@
       <!-- {{ data['licence-option'] }} -->
       <!-- digital / paper-licence -->
 
-      <h2 class="govuk-heading-l">Before you go fishing</h2>
+      <!-- <h2 class="govuk-heading-l">Before you go fishing</h2> -->
 
-      <div class="govuk-!-margin-bottom-9">
-
+      <div class="govuk-!-margin-bottom-9"> <!-- spacing before survey link -->
         <div class="govuk-!-margin-bottom-3">
-          <p class="govuk-body">
-            Make a note of your licence number to take with you.
-          </p>
+
+          {% if data['licence-option'] == "digital" %}
+
+          {% else %}
+            <p class="govuk-body">
+              Make a note of your licence number to take with you.
+            </p>
+          {% endif %}
 
           <p class="govuk-body">
             You must give your licence number to an enforcement officer if they ask for it.
           </p>
 
-          <p class="govuk-body">
+          <!-- <p class="govuk-body">
             You can take a screenshot, print your licence information or write your number down.
-          </p>
+          </p> -->
 
-          <form action="licence-information">
+          <form action="licence-details">
             <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
-              View your licence information
+              View your licence details
             </button>
           </form>
 
