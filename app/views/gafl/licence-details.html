@@ -93,7 +93,11 @@
           </dd>
         </div>
 
-        <div class="govuk-summary-list__row govuk-summary-list__row--break">
+        {% if data['concession'] %}
+          <div class="govuk-summary-list__row govuk-summary-list__row--break">
+        {% else %}
+          <div class="govuk-summary-list__row govuk-summary-list__row--last">
+        {% endif %}
           <dt class="govuk-summary-list__key">
             Ends
           </dt>
@@ -103,14 +107,20 @@
         </div>
 
         <!-- shown if true -->
+        {% if data['concession'] %}
         <div class="govuk-summary-list__row govuk-summary-list__row--last">
           <dt class="govuk-summary-list__key">
             Age concession
           </dt>
           <dd class="govuk-summary-list__value">
-            Over 65
+            {% if data['concession'] == "senior" %}
+              Over 65
+            {% else %}
+              Junior (13 to 16)
+            {% endif %}
           </dd>
         </div>
+        {% endif %}
 
         <!-- <div class="govuk-summary-list__row govuk-summary-list__row--last">
           <dt class="govuk-summary-list__key table-cell__last">
