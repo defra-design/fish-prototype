@@ -1,5 +1,13 @@
-<!-- {% if (data['confirmation']) or (data['licence-option']) or (data['licenceBy']) or (data['rcr']) %}
+<!-- {% if (data['confirmation']) or (data['licenceFor']) or (data['angler']) or (data['licence-option']) or (data['licenceBy']) or (data['rcr']) %}
 <div class="govuk-inset-text">
+
+  {% if data['licenceFor'] %}
+    Licence for is {{ data['LicenceFor'] }}<br>
+  {% endif %}
+
+  {% if data['angler'] %}
+    Angler is {{ data['angler'] }}<br>
+  {% endif %}
 
   {% if data['licence-option'] %}
     Licence is {{ data['licence-option'] }}<br>

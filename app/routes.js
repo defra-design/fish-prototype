@@ -174,29 +174,34 @@ router.post('/licenceFor', function (req, res) {
 
     // work out if we need to skip the details that already exists
 
-    // if the licence is for the named Angler
-    // skip questions / angler = same
-    // licence for other
-    // reset source to gafl
+    // if the licence is for the named Angler (another person)
+    // skip questions and set angler to 'same'
+
     if (licenceFor == 'same-other') {
 
-      // licence is for the same angler, other person
+      // reset source to gafl incase it was changed last round
+      // licence is for another person, the same angler as last time
+      // skips the name question
+      // sets angler to same
       res.redirect('gafl-multibuy/start-kind?source=gafl&angler=same&licenceFor=other')
 
-    // if the licence is for 'other' (not named)
-    // licence is for other
-    // ask all the questions
+    // if the licence is for a new 'other' (not named)
+
     } else if (licenceFor == 'other') {
 
-      // licence is for the new angler, other person
       // reset source to gafl
+      // licence is for the new angler, other person
+      // ask all the questions
+      // sets angler to same
       res.redirect('gafl-multibuy/name?source=gafl&angler=new&licenceFor=other')
 
-    // if the licence is for the user
-    // and the last one was for user
-    // licence for user
-    // skip questions / angler = same
     } else {
+
+      // if the licence is for You
+      // and the last one was for You
+      // licence for user
+      // skip questions
+      // angler = same
 
       // licence is for 'user'
       // has the user entered information about you before?
@@ -206,13 +211,13 @@ router.post('/licenceFor', function (req, res) {
 
         // licence is for the same angler, the user
         // reset source to gafl
-        res.redirect('gafl-multibuy/start-kind?source=gafl&angler=new&licenceFor=user')
+        res.redirect('gafl-multibuy/start-kind?source=gafl&angler=same&licenceFor=user')
 
       } else {
 
         // NO
 
-        // licence is for the user, last round was not the user
+        // licence is for You, the last round wasn't
         res.redirect('gafl-multibuy/name?source=gafl&angler=new&licenceFor=user')
 
       }

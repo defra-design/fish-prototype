@@ -122,11 +122,19 @@
         </div> -->
       </dl>
 
-      <form action="licence-summary?source=multibuy" method="post" class="form">
-        <button class="govuk-button govuk-button--secondary" data-module="govuk-button" aria-label="Change licence options">
-          Change
-        </button>
-      </form>
+      <div class="govuk-button-group">
+        {{ govukButton({
+          text: "Change",
+          classes: "govuk-button--secondary",
+          href: "licence-summary?source=multibuy"
+        }) }}
+
+        {{ govukButton({
+          text: "Remove this licence",
+          classes: "govuk-button--secondary",
+          href: "#"
+        }) }}
+      </div>
 
     </section>
     {% endfor %}

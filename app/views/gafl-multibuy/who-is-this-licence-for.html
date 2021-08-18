@@ -55,6 +55,13 @@
 
             <div class="govuk-radios" data-module="govuk-radios">
 
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="licenceFor-1" name="licenceFor" type="radio" value="user">
+                <label class="govuk-label govuk-radios__label" for="licenceFor-1">
+                  You
+                </label>
+              </div>
+
               <!-- show this if the last licence was for another person -->
               {% if data['lastLicenceFor'] == "other" %}
 
@@ -70,13 +77,6 @@
                 </div>
 
               {% endif %}
-
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="licenceFor-1" name="licenceFor" type="radio" value="user">
-                <label class="govuk-label govuk-radios__label" for="licenceFor-1">
-                  You
-                </label>
-              </div>
 
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="licenceFor-2" name="licenceFor" type="radio" value="other">
