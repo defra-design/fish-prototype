@@ -28,7 +28,8 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <form action="contact-preference" method="post" class="form">
+      <!-- <form action="contact-preference" method="post" class="form"> -->
+      <form action="check-contact-info" method="post" class="form">
 
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset">
@@ -67,9 +68,18 @@
               <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-licence-by-email-option">
                 {% if data['email'] %}
                 <!-- if the email address in the session show it -->
-                  <p class="govuk-body">
+                  <!-- <p class="govuk-body">
                     We will email your licence information to <span class="govuk-!-font-weight-bold">{{ data['email'] }}</span>
-                  </p>
+                  </p> -->
+                  <div class="govuk-form-group">
+                    <label class="govuk-label" for="licence-by-email">
+                      Email address
+                    </label>
+                    <p class="govuk-hint">
+                      For example name@example.com.
+                    </p>
+                    <input class="govuk-input govuk-!-width-one-third" id="licence-by-email" name="licence-by-email" type="email" spellcheck="false">
+                  </div>
                 {% else %}
                 <!-- if the email address is not in the session do not show it -->
                   <div class="govuk-form-group">

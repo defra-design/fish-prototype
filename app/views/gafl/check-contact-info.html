@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+
+{% if data['licence-confirmation'] == "email" %}
+  {% set title = "Check your email address" %}
+{% else %}
+  {% set title = "Check your phone number" %}
+{% endif %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block header %}
+
+{% from "govuk/components/header/macro.njk" import govukHeader %}
+  {{ govukHeader({
+   homepageUrl: "/index",
+   serviceName: "Get a rod fishing licence",
+   serviceUrl: "#"
+  }) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ title }}
+      </h1>
+
+      <form action="contact-preference">
+
+        {% if data['licence-confirmation'] == "email" %}
+          <div class="govuk-inset-text">
+            <span class="govuk-hint govuk-!-margin-bottom-0">An email will be sent to</span>
+            <span class="govuk-body-l">{{ data['email'] }}</span><br>
+          </div>
+        {% else %}
+          <div class="govuk-inset-text">
+            <span class="govuk-hint govuk-!-margin-bottom-0">An text message will be sent to</span>
+            <span class="govuk-body-l">{{ data['phone-number'] }}</span><br>
+          </div>
+        {% endif %}
+
+        <p class="govuk-body govuk-!-margin-bottom-6">
+          <a href="javascript:history.back()" class="govuk-link govuk-link--no-visited-state">
+            Change these details
+          </a>
+        </p>
+
+        <button class="govuk-button" data-module="govuk-button">
+          Continue
+        </button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

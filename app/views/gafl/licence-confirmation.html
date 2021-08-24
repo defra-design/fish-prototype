@@ -28,7 +28,8 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <form action="contact-preference">
+      <!-- <form action="contact-preference" method="post" class="form"> -->
+      <form action="check-contact-info" method="post" class="form">
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
@@ -58,7 +59,7 @@
 
               <!-- reveal 1 -->
               <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-licence-confirmation-email-option">
-                {% if data['email'] %}
+                <!-- {% if data['email'] %}
                   <div class="govuk-form-group">
                     <p class="govuk-body" for="confirmation-by-email">
                       We will email you at <span class="govuk-!-font-weight-bold">{{ data['email'] }}</span>
@@ -74,7 +75,16 @@
                     </p>
                     <input class="govuk-input govuk-!-width-two-thirds" id="confirmation-by-email" name="email" type="email" spellcheck="false">
                   </div>
-                {% endif %}
+                {% endif %} -->
+                <div class="govuk-form-group">
+                  <label class="govuk-label" for="confirmation-by-email">
+                    Email address
+                  </label>
+                  <p class="govuk-hint">
+                    For example name@example.com.
+                  </p>
+                  <input class="govuk-input govuk-!-width-two-thirds" id="confirmation-by-email" name="email" type="email" spellcheck="false" value="{{ data['email'] }}">
+                </div>
               </div>
 
               <!-- radio 2 -->
@@ -93,12 +103,19 @@
               <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-licence-confirmation-text-message-option">
                 <div class="govuk-form-group">
 
-                  {% if data['phone-number'] %}
-                  <div class="govuk-form-group">
-                    <p class="govuk-body" for="confirmation-by-phone">
-                      We will send text messages to <span class="govuk-!-font-weight-bold">{{ data['phone-number'] }}</span>
-                    </p>
-                  </div>
+                  <label class="govuk-label" for="confirmation-by-phone">
+                    UK mobile phone number
+                  </label>
+                  <p class="govuk-hint">
+                    For example 07700 900 900.
+                  </p>
+                  <input class="govuk-input govuk-!-width-one-third" id="confirmation-by-phone" name="phone-number" type="tel" value="{{ data['phone-number'] }}">
+                  <!-- {% if data['phone-number'] %}
+                    <div class="govuk-form-group">
+                      <p class="govuk-body" for="confirmation-by-phone">
+                        We will send text messages to <span class="govuk-!-font-weight-bold">{{ data['phone-number'] }}</span>
+                      </p>
+                    </div>
                   {% else %}
                     <label class="govuk-label" for="confirmation-by-phone">
                       UK mobile phone number
@@ -107,7 +124,7 @@
                       For example 07700 900 900.
                     </p>
                     <input class="govuk-input govuk-!-width-one-third" id="confirmation-by-phone" name="phone-number" type="tel">
-                  {% endif %}
+                  {% endif %} -->
                 </div>
               </div>
 
