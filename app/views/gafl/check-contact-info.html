@@ -1,10 +1,24 @@
 {% extends "layout.html" %}
 
-{% if data['licence-confirmation'] == "email" %}
-  {% set title = "Check your email address" %}
+
+{% if data['licence-option'] == "digital" %}
+
+  {% if data['licenceBy'] == "email" %}
+    {% set title = "Is your email address correct?" %}
+  {% else %}
+    {% set title = "Is your phone number correct?" %}
+  {% endif %}
+
 {% else %}
-  {% set title = "Check your phone number" %}
+
+  {% if data['licence-confirmation'] == "email" %}
+    {% set title = "Is your email address correct?" %}
+  {% else %}
+    {% set title = "Is your phone number correct?" %}
+  {% endif %}
+
 {% endif %}
+
 
 {% block pageTitle %}
   {{title}} - GOV.UK
@@ -44,41 +58,63 @@
         {% if data['licence-option'] == "digital" %}
 
           {% if data['licenceBy'] == "email" %}
-            <div class="govuk-inset-text">
-              <span class="govuk-hint govuk-!-margin-bottom-0">An email will be sent to</span>
-              <span class="govuk-body-l">{{ data['licence-by-email'] }}</span><br>
-            </div>
+
+            <p class="govuk-!-font-size-27">
+              {{ data['licence-by-email'] }}
+            </p>
+
+            <p class="govuk-body govuk-!-margin-bottom-6">
+              <a href="javascript:history.back()" class="govuk-link govuk-link--no-visited-state">
+                Change this email address
+              </a>
+            </p>
+
           {% else %}
-            <div class="govuk-inset-text">
-              <span class="govuk-hint govuk-!-margin-bottom-0">An text message will be sent to</span>
-              <span class="govuk-body-l">{{ data['phone-number'] }}</span><br>
-            </div>
+
+            <p class="govuk-!-font-size-27">
+              {{ data['phone-number'] }}
+            </p>
+
+            <p class="govuk-body govuk-!-margin-bottom-6">
+              <a href="javascript:history.back()" class="govuk-link govuk-link--no-visited-state">
+                Change this phone number
+              </a>
+            </p>
+
           {% endif %}
 
         {% else %}
 
           {% if data['licence-confirmation'] == "email" %}
-            <div class="govuk-inset-text">
-              <span class="govuk-hint govuk-!-margin-bottom-0">An email will be sent to</span>
-              <span class="govuk-body-l">{{ data['email'] }}</span><br>
-            </div>
+
+            <p class="govuk-!-font-size-27">
+              {{ data['email'] }}
+            </p>
+
+            <p class="govuk-body govuk-!-margin-bottom-6">
+              <a href="javascript:history.back()" class="govuk-link govuk-link--no-visited-state">
+                Change this email address
+              </a>
+            </p>
+
           {% else %}
-            <div class="govuk-inset-text">
-              <span class="govuk-hint govuk-!-margin-bottom-0">An text message will be sent to</span>
-              <span class="govuk-body-l">{{ data['phone-number'] }}</span><br>
-            </div>
+
+            <p class="govuk-!-font-size-27">
+              {{ data['phone-number'] }}
+            </p>
+
+            <p class="govuk-body govuk-!-margin-bottom-6">
+              <a href="javascript:history.back()" class="govuk-link govuk-link--no-visited-state">
+                Change this phone number
+              </a>
+            </p>
+
           {% endif %}
 
         {% endif %}
 
-        <p class="govuk-body govuk-!-margin-bottom-6">
-          <a href="javascript:history.back()" class="govuk-link govuk-link--no-visited-state">
-            Change these details
-          </a>
-        </p>
-
         <button class="govuk-button" data-module="govuk-button">
-          Continue
+          It’s correct
         </button>
 
       </form>
