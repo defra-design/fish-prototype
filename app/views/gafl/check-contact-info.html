@@ -49,7 +49,7 @@
       <!-- debug / show data -->
       {% include "includes/clip/debug.html" %}
 
-      <h1 class="govuk-heading-l">
+      <h1 class="govuk-heading-l" id="contact-information-question">
         {{ title }}
       </h1>
 
@@ -59,25 +59,25 @@
 
           {% if data['licenceBy'] == "email" %}
 
-            <p class="govuk-!-font-size-27">
+            <p class="govuk-!-font-size-27" aria-labelledby="contact-information-question">
               {{ data['licence-by-email'] }}
             </p>
 
             <p class="govuk-body govuk-!-margin-bottom-6">
               <a href="javascript:history.back()" class="govuk-link govuk-link--no-visited-state">
-                Change this email address
+                Change email address
               </a>
             </p>
 
           {% else %}
 
-            <p class="govuk-!-font-size-27">
+            <p class="govuk-!-font-size-27" id="contact-information">
               {{ data['phone-number'] }}
             </p>
 
             <p class="govuk-body govuk-!-margin-bottom-6">
               <a href="javascript:history.back()" class="govuk-link govuk-link--no-visited-state">
-                Change this phone number
+                Change phone number
               </a>
             </p>
 
@@ -87,25 +87,25 @@
 
           {% if data['licence-confirmation'] == "email" %}
 
-            <p class="govuk-!-font-size-27">
+            <p class="govuk-!-font-size-27" tabindex="0" id="contact-information">
               {{ data['email'] }}
             </p>
 
             <p class="govuk-body govuk-!-margin-bottom-6">
               <a href="javascript:history.back()" class="govuk-link govuk-link--no-visited-state">
-                Change this email address
+                Change email address
               </a>
             </p>
 
           {% else %}
 
-            <p class="govuk-!-font-size-27">
+            <p class="govuk-!-font-size-27" id="contact-information">
               {{ data['phone-number'] }}
             </p>
 
             <p class="govuk-body govuk-!-margin-bottom-6">
               <a href="javascript:history.back()" class="govuk-link govuk-link--no-visited-state">
-                Change this phone number
+                Change phone number
               </a>
             </p>
 
@@ -116,6 +116,18 @@
         <button class="govuk-button" data-module="govuk-button">
           It’s correct
         </button>
+
+        <!-- secondary action
+        Not working in prototype!
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "It’s correct"
+          }) }}
+
+          <a class="govuk-link" href="#">
+            Go back to make a change
+          </a>
+        </div> -->
 
       </form>
 
