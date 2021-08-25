@@ -59,7 +59,7 @@
 
           {% if data['licenceBy'] == "email" %}
 
-            <p class="govuk-!-font-size-27" aria-labelledby="contact-information-question">
+            <p class="govuk-!-font-size-27" id="contact-information" tabindex="0" aria-labelledby="contact-information-question contact-information">
               {{ data['licence-by-email'] }}
             </p>
 
@@ -71,7 +71,7 @@
 
           {% else %}
 
-            <p class="govuk-!-font-size-27" id="contact-information">
+            <p class="govuk-!-font-size-27" id="contact-information" tabindex="0" aria-labelledby="contact-information-question contact-information">
               {{ data['phone-number'] }}
             </p>
 
@@ -87,7 +87,7 @@
 
           {% if data['licence-confirmation'] == "email" %}
 
-            <p class="govuk-!-font-size-27" tabindex="0" id="contact-information">
+            <p class="govuk-!-font-size-27" id="contact-information" tabindex="0" aria-labelledby="contact-information-question contact-information">
               {{ data['email'] }}
             </p>
 
@@ -99,7 +99,7 @@
 
           {% else %}
 
-            <p class="govuk-!-font-size-27" id="contact-information">
+            <p class="govuk-!-font-size-27" id="contact-information" tabindex="0" aria-labelledby="contact-information-question contact-information">
               {{ data['phone-number'] }}
             </p>
 
