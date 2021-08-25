@@ -1,0 +1,159 @@
+{% extends "layout.html" %}
+
+{% set title = "Renew your rod fishing licence" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block header %}
+ {{ govukHeader({
+   homepageUrl: "/",
+   serviceName: "Get a rod fishing licence",
+   serviceUrl: "#",
+   containerClasses: "govuk-width-container"
+ }) }}
+{% endblock %}
+
+{% block beforeContent %}
+<!--
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+  -->
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="govuk-error-summary">
+      <h2 class="govuk-error-summary__title" id="error-summary-title">
+        There is a problem
+      </h2>
+      <div class="govuk-error-summary__body">
+        <ul class="govuk-list govuk-error-summary__list">
+          <li>
+            <a href="#dob-error">
+              We can’t verify you with these details. Enter the details you used to get your fishing licence.
+            </a>
+          </li>
+          <li>
+            <a href="#postcode-error">
+              We can’t verify you with these details. Enter the details you used to get your fishing licence.
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <h1 class="govuk-heading-l">
+      {{ title }}
+    </h1>
+
+    <p class="govuk-body">
+      To find your licence details we first need to identify you. This helps us protect your personal information.
+    </p>
+
+    <!-- <div class="govuk-inset-text">
+      <span class="govuk-body">
+        You will be able to change the start date of the new rod fishing licence.
+      </span>
+    </div> -->
+
+    <!-- <p class="govuk-!-margin-bottom-7">
+      <a href="authenticate-other-licence">
+        I want to renew a different licence
+      </a>
+    </p> -->
+
+    <h2 class="govuk-heading-m">
+      Licence holder details
+    </h2>
+
+    <form action="check-licence-details" method="post" class="form" id="check-licence-holder">
+
+      <div class="govuk-inset-text">
+        <span class="govuk-body">
+          Licence ending <span class="govuk-!-font-weight-bold">EBFE76</span><br>
+          Expires <span class="govuk-!-font-weight-bold">18 April 2021</span>
+        </span>
+      </div>
+
+      <div class="govuk-form-group govuk-form-group--error">
+
+        <fieldset class="govuk-fieldset" role="group" aria-describedby="dob-hint dob-error postcode-error">
+
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+            <h3 class="govuk-fieldset__heading">
+              Date of birth
+            </h3>
+          </legend>
+
+          <section class="govuk-!-margin-bottom-6">
+            <div id="dob-hint" class="govuk-hint">
+              For example, 23 4 1970
+            </div>
+
+            <span id="dob-error" class="govuk-error-message">
+              We can’t verify you with these details. Enter the details you used to get your fishing licence.
+            </span>
+
+            <div class="govuk-date-input" id="dob">
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="dob_day">
+                    Day
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-2 govuk-input--error" id="dob_day" name="dob_day" type="text" pattern="[0-9]*" inputmode="numeric"></div>
+              </div>
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="dob_month">
+                    Month
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-2 govuk-input--error" id="dob_month" name="dob_month" type="text" pattern="[0-9]*" inputmode="numeric"></div>
+              </div>
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="dob_year">
+                    Year
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-4 govuk-input--error" id="dob_year" name="dob_year" type="text" pattern="[0-9]*" inputmode="numeric"></div>
+              </div>
+            </div>
+          </section>
+
+          <div class="govuk-form-group">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+              <h3 class="govuk-fieldset__heading">
+                Postcode
+              </h3>
+            </legend>
+            <div id="event-name-hint" class="govuk-hint">
+              For example WA4 1AB
+            </div>
+
+            <span id="postcode-error" class="govuk-error-message">
+              We can’t verify you with these details. Enter the details you used to get your fishing licence.
+            </span>
+
+            <input class="govuk-input govuk-input--width-5 govuk-input--error" id="postcode" name="postcode" type="text" autocomplete="postal-code">
+          </div>
+
+
+        </fieldset>
+      </div>
+
+      <button type="submit" class="govuk-button govuk-!-margin-bottom-1">
+        Continue
+      </button>
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}
