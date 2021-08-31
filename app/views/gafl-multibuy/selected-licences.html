@@ -33,7 +33,7 @@
     <section class="govuk-!-margin-bottom-6">
 
       <h2 class="govuk-heading-l">
-        {{ data['licenceNumbers'][loop.index0] }}
+        {{ data['licenceList'][loop.index0] }}
       </h2>
 
       <!-- table for licence information -->
@@ -44,12 +44,16 @@
             Name
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ i.firstName }} {{ i.lastName }}
+            {% if i.firstName %}
+              {{ i.firstName }} {{ i.lastName }}
+            {% else %}
+              Sam Fisher
+            {% endif %}
           </dd>
         </div>
 
         <div class="govuk-summary-list__row table__row--divider">
-          <dt class="govuk-summary-list__key govuk-summary-list__key-wide">
+          <dt class="govuk-summary-list__key">
             Identification
           </dt>
           <dd class="govuk-summary-list__value">
@@ -88,18 +92,10 @@
             Starts
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ data['times'][loop.index0] }} on 12 May 2021
+             30 minutes after payment
           </dd>
         </div>
 
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Ends
-          </dt>
-          <dd class="govuk-summary-list__value">
-            {{ data['endtimes'][loop.index0] }} on 12 May 2021
-          </dd>
-        </div>
 
         {% if i.concession != "None" %}
           <div class="govuk-summary-list__row">
@@ -112,14 +108,18 @@
           </div>
         {% endif %}
 
-        <!-- <div class="govuk-summary-list__row">
+        <div class="govuk-summary-list__row govuk-summary-list__row--last">
           <dt class="govuk-summary-list__key">
             Cost
           </dt>
           <dd class="govuk-summary-list__value">
-            £30
+            {% if i.concession != "None" %}
+              £20
+            {% else %}
+              £30
+            {% endif %}
           </dd>
-        </div> -->
+        </div>
       </dl>
 
       <div class="govuk-button-group">

@@ -59,6 +59,13 @@ module.exports = {
     "09120722-2WF3FBD-HJ8721",
     "09120722-2WJ2FSA-YT1S22"
   ],
+  "licenceList": [
+    "Licence 1",
+    "Licence 2",
+    "Licence 3",
+    "Licence 4",
+    "Licence 5"
+  ],
   "identificationNumbers": [
     "09197401276611",
     "09197401276611",
