@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% set title = "That renew link is too old" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block header %}
+ {{ govukHeader({
+   homepageUrl: "/",
+   serviceName: "Get a rod fishing licence",
+   serviceUrl: "#",
+   containerClasses: "govuk-width-container"
+ }) }}
+{% endblock %}
+
+{% block beforeContent %}
+<!--
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+  -->
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">{{ title }}</h1>
+
+    <p class="govuk-body">
+      The link you tried to use is out of date.
+    </p>
+
+    <p class="govuk-body">
+      You can still <a href="../gafl/dob">get a new fishing licence here</a>.
+    </p>
+
+  </div>
+</div>
+
+{% endblock %}
