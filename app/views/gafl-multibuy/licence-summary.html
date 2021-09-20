@@ -141,7 +141,11 @@
               Starts
             </dt>
             <dd class="govuk-summary-list__value">
-              30 minutes after payment
+              {% if data['midnight'] %}
+                {% include "includes/clip/midnight.html" %}
+              {% else %}
+                30 minutes after payment
+              {% endif %}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="change-start-kind">

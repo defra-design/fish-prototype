@@ -55,7 +55,12 @@
               <strong>
                 {{ data['licenceNumbers'][loop.index0] }}
               </strong><br>
-              Starts from {{ data['times'][loop.index0] }} on 12 May 2021
+              {% if data['midnight'] %}
+                Starts from {% include "includes/clip/midnight.html" %}
+              {% else %}
+                Starts from {{ data['times'][loop.index0] }} on 12 May 2021
+              {% endif %}
+
             </div>
 
           {% endfor %}

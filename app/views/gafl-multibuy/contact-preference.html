@@ -1,9 +1,9 @@
 {% extends "layout.html" %}
 
 {% if data['licenceFor'] == "user" %}
-  {% set title = "How should we contact you?" %}
+  {% set title = "How should we contact you about important changes?" %}
 {% else %}
-  {% set title = "How should we contact the licence holder?" %}
+  {% set title = "How should we contact the licence holder about important changes?" %}
 {% endif %}
 
 {% block pageTitle %}
@@ -50,8 +50,12 @@
               </h1>
             </legend>
 
-            <p class="govuk-body">
+            <!-- <p class="govuk-body">
               This is where we will send important updates and renewal reminders when the licence is expiring.
+            </p> -->
+
+            <p class="govuk-body">
+              This is where we will send information about byelaw updates and renewal reminders when your licence is expiring.
             </p>
 
             <!-- radios -->

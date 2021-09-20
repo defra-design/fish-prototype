@@ -60,7 +60,11 @@
           Starts
         </dt>
         <dd class="govuk-summary-list__value">
-           30 minutes after payment
+          {% if data['midnight'] %}
+            {% include "includes/clip/midnight.html" %}
+          {% else %}
+            30 minutes after payment
+          {% endif %}
         </dd>
       </div>
 
