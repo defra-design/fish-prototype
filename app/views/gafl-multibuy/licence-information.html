@@ -108,7 +108,11 @@
               Starts
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['times'][loop.index0] }} on 12 May 2021
+              {% if data['midnight'] %}
+                {% include "includes/clip/midnight.html" %} on 12 May 2021
+              {% else %}
+                {{ data['times'][loop.index0] }} on 12 May 2021
+              {% endif %}
             </dd>
           </div>
 
@@ -117,7 +121,11 @@
               Ends
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['endtimes'][loop.index0] }} on 12 May 2021
+              {% if data['midnight'] %}
+                11.59pm on 12 May 2022
+              {% else %}
+                {{ data['endtimes'][loop.index0] }} on 12 May 2022
+              {% endif %}
             </dd>
           </div>
 
