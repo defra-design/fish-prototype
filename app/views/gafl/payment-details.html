@@ -79,7 +79,7 @@
         <label class="govuk-label" for="width-10">
           Name on card
         </label>
-        <input class="govuk-input govuk-input--width-30" id="card-number" name="card-number" type="text">
+        <input class="govuk-input govuk-input--width-30" id="card-number" name="card-number" type="text" value="Sam Fisher">
       </div>
 
       <div class="govuk-form-group">
@@ -110,10 +110,11 @@
 
       {{ govukInput({
         label: {
-          text: "Country or territory"
+          text: "Country"
         },
         classes: "govuk-input--width-20",
         id: "country",
+        value: "England",
         name: "country",
         inputmode: "text",
         pattern: "[A-Z]*",
@@ -126,8 +127,8 @@
         <label class="govuk-label" for="width-20">
           Building number or name and street
         </label>
-        <input class="govuk-input govuk-input--width-30 govuk-!-margin-bottom-2" id="address-line-1" name="address-line-1" type="text">
-        <input class="govuk-input govuk-input--width-30" id="address-line-2" name="address-line-2" type="text">
+        <input class="govuk-input govuk-input--width-30 govuk-!-margin-bottom-2" id="address-line-1" name="address-line-1" type="text" value="2A BAILEY HOUSE">
+        <input class="govuk-input govuk-input--width-30" id="address-line-2" name="address-line-2" type="text" value="BAILEY ROAD">
       </div>
 
       {{ govukInput({
@@ -136,6 +137,7 @@
         },
         classes: "govuk-input--width-20",
         id: "town",
+        value: "Bristol",
         name: "town",
         inputmode: "text",
         pattern: "[A-Z]*",
@@ -151,32 +153,27 @@
         classes: "govuk-input--width-10",
         id: "address-postcode",
         name: "address-postcode",
+        value: "BS2 1PP",
         autocomplete: "postal-code"
       }) }}
 
       <hr class="hr--light govuk-!-margin-bottom-5">
 
       <h2 class="govuk-heading-l">
-        Contact details
+        Payment contact details
       </h2>
 
       <p class="govuk-body">
         We will send your payment confirmation here
       </p>
 
-      {{ govukInput({
-        label: {
-          text: "Email"
-        },
-        classes: "govuk-input--width-20 govuk-!-margin-bottom-2",
-        id: "email",
-        name: "email",
-        inputmode: "text",
-        pattern: "[A-Z]@*",
-        attributes: {
-          spellcheck: "false"
-        }
-      }) }}
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="width-20">
+          Email
+        </label>
+        <input class="govuk-input govuk-input--width-20" id="width-20" name="width-20" type="text" value="sam.fisher@email.com">
+      </div>
+
 
       <button type="submit" class="govuk-button">
         Continue

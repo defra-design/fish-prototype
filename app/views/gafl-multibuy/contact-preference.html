@@ -54,12 +54,23 @@
               This is where we will send important updates and renewal reminders when the licence is expiring.
             </p> -->
 
-            <p class="govuk-body">
-              This is where we will send renewal reminders when your licence is ending.
-            </p>
+
+            {% if data['licenceFor'] == "user" %}
+
+              <p class="govuk-body">
+                This is where we will send renewal reminders when your licence is ending.
+              </p>
+
+            {% else %}
+
+              <p class="govuk-body">
+                This is where we will send renewal reminders when the licence is ending.
+              </p>
+
+            {% endif %}
 
             <p class="govuk-body">
-               We will also send you important information like byelaw updates.
+               We will also send important information like byelaw updates.
             </p>
 
             <!-- radios -->
