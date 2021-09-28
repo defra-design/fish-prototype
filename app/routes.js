@@ -252,7 +252,7 @@ router.post('/renew-check-licence-option', function (req, res) {
     // res.redirect('gafl/add-email')
     res.redirect('renew/licence-by?licenceBy=&confirmation=&email=&phone=')
   } else {
-    res.redirect('renew/licence-confirmation?licenceBy=&confirmation=&email=&phone=')
+    res.redirect('renew/licence-confirmation?licenceBy=&confirmation=&email=sam.fisher@email.com&phone=')
   }
 })
 

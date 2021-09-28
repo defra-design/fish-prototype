@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "How should we contact you?" %}
+{% set title = "How should we contact you with reminders and important changes?" %}
 
 {% block pageTitle %}
   {{title}} - GOV.UK
@@ -38,20 +38,12 @@
             </legend>
 
             <p class="govuk-body">
-              This is where we will send important updates and renewal reminders when your licence is expiring.
+              This is where we will send renewal reminders when your licence is ending.
             </p>
 
-            <!-- <p class="govuk-body">We will send you:</p>
-            <ul class="govuk-list govuk-list--bullet">
-              <li>a confirmation message with your licence details</li>
-              <li>renewal reminders when your licence is expiring</li>
-            </ul> -->
-
-            <!-- <span class="govuk-hint">
-              Contact preference is {{ data['contact'] }}<br>
-              Phone number is {{ data['phone-number'] }}
-              Email is {{ data['email'] }}
-            </span> -->
+            <p class="govuk-body">
+               We will also send important information like byelaw updates.
+            </p>
 
             <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
               <div class="govuk-radios__item">
