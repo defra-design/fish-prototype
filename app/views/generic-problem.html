@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+ {{ govukHeader({
+   homepageUrl: "/",
+   serviceName: "Get a rod fishing licence",
+   serviceUrl: "#",
+   containerClasses: "govuk-width-container"
+ }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">Sorry, there is a problem with the service</h1>
+    <p class="govuk-body">
+      You can <a class="govuk-link" href="/buy">try to get back to your application</a>.
+    </p>
+    <p class="govuk-body">
+      If that does not work, you will have to <a class="govuk-link" href="/date-of-birth">start again</a>. Sorry.
+    </p>
+
+  </div>
+</div>
+
+{% endblock %}
