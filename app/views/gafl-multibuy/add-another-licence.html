@@ -24,6 +24,21 @@
     <!-- debug / show data -->
     {% include "includes/clip/debug.html" %}
 
+    {% if data['error'] %}
+
+      <!-- error summary -->
+      {{ govukErrorSummary({
+        titleText: "There is a problem",
+        errorList: [
+          {
+            text: "Tell us if you want to get more licences now",
+            href: "#question"
+          }
+        ]
+      }) }}
+
+    {% endif %}
+
     {% if data['licences'] > 1 %}
       <div class="govuk-inset-text">
         <p class="govuk-l">
@@ -44,13 +59,28 @@
       <form action="/multibuy-add-licences?lastLicenceFor=you" method="post" class="form">
     {% endif %}
 
-    <div class="govuk-form-group">
+    {% if data['error'] %}
+
+      <div class="govuk-form-group--error govuk-!-margin-bottom-6">
+
+    {% else %}
+
+      <div class="govuk-form-group govuk-!-margin-bottom-6">
+
+    {% endif %}
+
       <fieldset class="govuk-fieldset">
         <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-          <h2 class="govuk-fieldset__heading">
+          <h1 class="govuk-fieldset__heading">
             {{ title }}
-          </h2>
+          </h1>
         </legend>
+
+        {% if data['error'] %}
+          <span class="govuk-error-message" id="question">
+            <span class="govuk-visually-hidden">Error:</span> Tell us if you want to get more licences now
+          </span>
+        {% endif %}
 
         <div class="govuk-radios">
           <div class="govuk-radios__item">

@@ -31,9 +31,30 @@
       <!-- debug / show data -->
       {% include "includes/clip/debug.html" %}
 
-      <form action="/licenceFor" method="post" class="form">
 
-        <div class="govuk-form-group">
+      {% if data['error'] %}
+
+        <!-- error summary -->
+        {{ govukErrorSummary({
+          titleText: "There is a problem",
+          errorList: [
+            {
+              text: "Tell us who the licence is for",
+              href: "#question"
+            }
+          ]
+        }) }}
+
+      {% endif %}
+
+      <form action="/licenceFor" method="post" class="form" id="question">
+
+        {% if data['error'] %}
+          <div class="govuk-form-group govuk-form-group--error">
+        {% else %}
+          <div class="govuk-form-group">
+        {% endif %}
+
           <fieldset class="govuk-fieldset">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
               <h1 class="govuk-fieldset__heading">
@@ -48,6 +69,12 @@
             {% if allLicences.length > 0 %}
               {{ allLicences | dump }}
             {% endif %} -->
+
+            {% if data['error'] %}
+              <span class="govuk-error-message" id="question">
+                <span class="govuk-visually-hidden">Error:</span> Tell us who the licence is for
+              </span>
+            {% endif %}
 
             <p class="govuk-body">
               One person can use this fishing licence.
