@@ -28,14 +28,15 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      {% if data['path'] == "a" %}
+      <!-- {% if data['path'] == "a" %}
         <form action="licence-option-a">
       {% elseif data['path'] == "b" %}
         <form action="licence-option-b">
       {% else %}
         <form action="licence-option">
-      {% endif %}
+      {% endif %} -->
 
+      <form action="licence-option">
 
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset">
@@ -46,7 +47,7 @@
             </legend>
 
             <p class="govuk-body">
-              4 addresses found for 2a Bailey House and BS2 1PP. <a href="" class="govuk-link">Change</a>
+              4 addresses found for 2a Bailey House and BS2 1PP. <a href="javascript:history.back()" class="govuk-link">Change</a>
             </p>
 
             <div class="govuk-radios">

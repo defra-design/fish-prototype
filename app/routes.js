@@ -117,6 +117,7 @@ router.post('/multibuy-add-licences', function (req, res) {
 
   // Make a variable from session data
   let addLicence = req.session.data['add-licence']
+  let newTerms = req.session.data['terms']
 
   if (addLicence) {
 
@@ -139,8 +140,18 @@ router.post('/multibuy-add-licences', function (req, res) {
 
     } else {
 
-      // finish up
-      res.redirect('gafl-multibuy/terms-conditions')
+      if (newTerms) {
+
+        // finish up, skip terms
+        res.redirect('gafl-multibuy/payment-details')
+
+      } else {
+
+        // finish up, show terms
+        res.redirect('gafl-multibuy/terms-conditions')
+
+      }
+
     }
 
   } else {

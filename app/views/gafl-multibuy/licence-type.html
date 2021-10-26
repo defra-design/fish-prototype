@@ -55,9 +55,30 @@
             </div>
             <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-licence-type">
               <div class="govuk-form-group">
+
                 <p class="govuk-body">
                   The 2 rods coarse licence is the simplest fishing licence. This will cover you for all the forms of fishing with a rod and let you fish non-migratory trout and coarse fish. It will allow you to fish with 1 or 2 rods at the same time. (subject to the <a href="https://www.gov.uk/freshwater-rod-fishing-rules" class="govuk-link" target="_blank">rod fishing rules</a> and <a href="https://www.gov.uk/government/collections/local-fishing-byelaws" class="govuk-link" target="_blank">local fishing byelaws)</a>
                 </p>
+
+                {% if data['terms'] %}
+
+                  <!-- more subtle notice -->
+
+                  <!-- <p class="govuk-body">
+                    Licence holders must understand and accept <a href="" target="_blank">licence terms for Trout and coarse, up to 2 rods licence (opens in a new tab)</a>.
+                  </p> -->
+
+                  <!-- warning notice -->
+                  <div class="govuk-warning-text">
+                    <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+                    <strong class="govuk-warning-text__text">
+                      <span class="govuk-warning-text__assistive">Warning</span>
+                      Licence holders must understand and accept <a href=" fishing-licence-terms#2rod" target="_blank">licence terms for Trout and coarse, up to 2 rods licence (opens in a new tab)</a>.
+                    </strong>
+                  </div>
+
+                {% endif %}
+
               </div>
             </div>
 
@@ -72,6 +93,26 @@
                 <p class="govuk-body">
                   You will only need a 3 fishing licence if you plan to fish with 3 rods at the same time. This may be for specialist carp fishing for example. This will cover you for all the forms of fishing with a rod and let you fish non-migratory trout and coarse fish. (subject to the <a href="https://www.gov.uk/freshwater-rod-fishing-rules" class="govuk-link" target="_blank">rod fishing rules</a> and <a href="https://www.gov.uk/government/collections/local-fishing-byelaws" class="govuk-link" target="_blank">local fishing byelaws)</a>
                 </p>
+
+                {% if data['terms'] %}
+
+                  <!-- more subtle notice -->
+
+                  <!-- <p class="govuk-body">
+                    Licence holders must understand and accept <a href="" target="_blank">licence terms for Trout and coarse, up to 2 rods licence (opens in a new tab)</a>.
+                  </p> -->
+
+                  <!-- warning notice -->
+                  <div class="govuk-warning-text">
+                    <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+                    <strong class="govuk-warning-text__text">
+                      <span class="govuk-warning-text__assistive">Warning</span>
+                      Licence holders must understand and accept <a href=" fishing-licence-terms#3rod" target="_blank">licence terms for Trout and coarse, up to 3 rods licence (opens in a new tab)</a>.
+                    </strong>
+                  </div>
+
+                {% endif %}
+
               </div>
             </div>
 
@@ -91,12 +132,33 @@
                   <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
                   <strong class="govuk-warning-text__text">
                     <span class="govuk-warning-text__assistive">Warning</span>
-                    Salmon and sea troute licence holders will need to submit an annual catch return
+                    Salmon and sea trout licence holders will need to submit an annual catch return
                   </strong>
                 </div>
+
                 <p class="govuk-body">
                   Licence holders must by law <a href="https://www.gov.uk/catch-return" class="govuk-link" target="_blank">report a catch return</a> of your yearly salmon and sea trout fishing activity in England and Wales, even if they do not catch anything or do not fish.
                 </p>
+
+                {% if data['terms'] %}
+
+                  <!-- more subtle notice -->
+
+                  <!-- <p class="govuk-body">
+                    Licence holders must understand and accept <a href="" target="_blank">licence terms for Trout and coarse, up to 2 rods licence (opens in a new tab)</a>.
+                  </p> -->
+
+                  <!-- warning notice -->
+                  <div class="govuk-warning-text">
+                    <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+                    <strong class="govuk-warning-text__text">
+                      <span class="govuk-warning-text__assistive">Warning</span>
+                      Licence holders must understand and accept <a href=" fishing-licence-terms#salmon" target="_blank">licence terms for Salmon and sea trout (opens in a new tab)</a>.
+                    </strong>
+                  </div>
+
+                {% endif %}
+
               </div>
             </div>
 
