@@ -32,12 +32,10 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      {% if data['path'] == "a" %}
-        <form action="licence-option-a">
-      {% elseif data['path'] == "b" %}
-        <form action="licence-option-b">
-      {% else %}
+      {% if data['licence-length'] == "12 month" %}
         <form action="licence-option">
+      {% else %}
+        <form action="licence-by">
       {% endif %}
 
 
