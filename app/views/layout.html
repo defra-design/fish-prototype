@@ -38,14 +38,28 @@
 {% endblock %}
 
 {% block header %}
+
   {% include "includes/cookie-banner.html" %}
   {# Set serviceName in config.js. #}
+
   {{ govukHeader({
     homepageUrl: "/",
     serviceName: serviceName,
-    serviceUrl: "/",
-    containerClasses: "govuk-width-container"
-  }) }}
+    navigation: [
+    {
+      href: "/?lang=en",
+      text: "English",
+      active: true
+    },
+    {
+      href: "/?lang=cy",
+      text: "Cymraeg",
+      active: false
+    }
+    ]
+  })
+  }}
+
 {% endblock %}
 
 {% set mainClasses = mainClasses | default("govuk-main-wrapper--auto-spacing") %}

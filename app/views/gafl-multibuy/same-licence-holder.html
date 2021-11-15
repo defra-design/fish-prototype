@@ -6,20 +6,8 @@
   {% set title = "Is this added licence for the same licence holder?" %}
 {% endif %}
 
-
 {% block pageTitle %}
   {{title}} - GOV.UK
-{% endblock %}
-
-{% block header %}
-
-{% from "govuk/components/header/macro.njk" import govukHeader %}
-  {{ govukHeader({
-   homepageUrl: "/index",
-   serviceName: "Get a rod fishing licence",
-   serviceUrl: "#"
-  }) }}
-
 {% endblock %}
 
 {% block beforeContent %}

@@ -17,7 +17,7 @@ In a route function, refer to `req.session`.
 For example, when submitting the following (simplified) HTML:
 
 ```html
-<input name="firstName" value="Sarah">
+<input name="first-name" value="Sarah">
 <input name="last-name" value="Philips">
 ```
 
@@ -25,7 +25,7 @@ You'll have a `req.session.data` object in your route function:
 
 ```js
 {
-    'firstName': 'Sarah',
+    'first-name': 'Sarah',
     'last-name': 'Philips'
 }
 ```
@@ -33,14 +33,14 @@ You'll have a `req.session.data` object in your route function:
 These two field values can be accessed in JavaScript as:
 
 ```js
-req.session.data['firstName']
+req.session.data['first-name']
 req.session.data['last-name']
 ```
 
 Or in views as:
 
 ```
-{{ data['firstName'] }}
+{{ data['first-name'] }}
 {{ data['last-name'] }}
 ```
 
@@ -49,10 +49,10 @@ Or in views as:
 Session data can also be nested for easy grouping. For example answers from multiple family members:
 
 ```html
-<input name="claimant[firstName]" value="Sarah">
+<input name="claimant[first-name]" value="Sarah">
 <input name="claimant[last-name]" value="Philips">
 
-<input name="partner[firstName]" value="Michael">
+<input name="partner[first-name]" value="Michael">
 <input name="partner[last-name]" value="Philips">
 ```
 
@@ -61,11 +61,11 @@ You'll have a nested `req.session.data` object in your route function:
 ```js
 {
     claimant: {
-        'firstName': 'Sarah',
+        'first-name': 'Sarah',
         'last-name': 'Philips'
     },
     partner: {
-        'firstName': 'Michael',
+        'first-name': 'Michael',
         'last-name': 'Philips'
     }
 }
@@ -74,18 +74,18 @@ You'll have a nested `req.session.data` object in your route function:
 These four field values can be accessed in your route function as:
 
 ```js
-req.session.data['claimant']['firstName']
+req.session.data['claimant']['first-name']
 req.session.data['claimant']['last-name']
-req.session.data['partner']['firstName']
+req.session.data['partner']['first-name']
 req.session.data['partner']['last-name']
 ```
 
 Or in views as:
 
 ```
-{{ data['claimant']['firstName'] }}
+{{ data['claimant']['first-name'] }}
 {{ data['claimant']['last-name'] }}
-{{ data['partner']['firstName'] }}
+{{ data['partner']['first-name'] }}
 {{ data['partner']['last-name'] }}
 ```
 

@@ -1,21 +1,10 @@
-{% extends "layout.html" %}
+{% extends "layout-renew.html" %}
 
 {% set title = "Licence information" %}
 {% set licenceNumber = "16130122-2WC3JDD-AJ2H17" %}
 
 {% block pageTitle %}
   {{title}} - GOV.UK
-{% endblock %}
-
-{% block header %}
-
-{% from "govuk/components/header/macro.njk" import govukHeader %}
-  {{ govukHeader({
-   homepageUrl: "/index",
-   serviceName: "Get a rod fishing licence",
-   serviceUrl: "#"
-  }) }}
-
 {% endblock %}
 
 {% block beforeContent %}

@@ -9,18 +9,6 @@
   {{title}} - GOV.UK
 {% endblock %}
 
-{% block header %}
-
-{% from "govuk/components/header/macro.njk" import govukHeader %}
-  {{ govukHeader({
-   homepageUrl: "/index",
-   classes: "no-print",
-   serviceName: "Get a rod fishing licence",
-   serviceUrl: "#"
-  }) }}
-
-{% endblock %}
-
 {% block beforeContent %}
 
   <a href="javascript:history.back()" class="govuk-back-link no-print">Back</a>

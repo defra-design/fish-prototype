@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+{% extends "layout-renew.html" %}
 
 {% set title = "Do you receive any of the following?" %}
 
@@ -7,13 +7,6 @@
 {% endblock %}
 
 {% block header %}
-
-{% from "govuk/components/header/macro.njk" import govukHeader %}
-  {{ govukHeader({
-   homepageUrl: "/index",
-   serviceName: "Get a rod fishing licence",
-   serviceUrl: "#"
-  }) }}
 
 {% endblock %}
 

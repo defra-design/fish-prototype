@@ -1,28 +1,9 @@
-{% extends "layout.html" %}
+{% extends "layout-renew.html" %}
 
 {% set title = "Select the address" %}
 
 {% block pageTitle %}
   {{title}} - GOV.UK
-{% endblock %}
-
-{% block header %}
- {{ govukHeader({
-   homepageUrl: "/",
-   serviceName: "Manage your water abstraction or impoundment licence",
-   serviceUrl: "#",
-   containerClasses: "govuk-width-container",
-   navigation: [
-     {
-       href: "#1",
-       text: "Change password"
-     },
-     {
-       href: "/",
-       text: "Sign out"
-     }
-   ]
- }) }}
 {% endblock %}
 
 {% block beforeContent %}
@@ -58,7 +39,7 @@
   </div>
 
   <form data-routing="1" method="post" class="form" id="contact-change-type">
-    
+
     <div class="govuk-form-group">
       <fieldset class="govuk-fieldset">
         {{ govukSelect({

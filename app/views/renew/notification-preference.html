@@ -1,18 +1,9 @@
-{% extends "layout.html" %}
+{% extends "layout-renew.html" %}
 
 {% set title = "How would you like to receive licence details and future expiry reminders?" %}
 
 {% block pageTitle %}
   {{title}} - GOV.UK
-{% endblock %}
-
-{% block header %}
- {{ govukHeader({
-   homepageUrl: "/",
-   serviceName: "Get a rod fishing licence",
-   serviceUrl: "#",
-   containerClasses: "govuk-width-container"
- }) }}
 {% endblock %}
 
 {% block beforeContent %}

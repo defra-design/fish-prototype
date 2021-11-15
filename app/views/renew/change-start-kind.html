@@ -1,20 +1,9 @@
-{% extends "layout.html" %}
+{% extends "layout-renew.html" %}
 
 {% set title = "When would you like your licence to start?" %}
 
 {% block pageTitle %}
   {{title}} - GOV.UK
-{% endblock %}
-
-{% block header %}
-
-{% from "govuk/components/header/macro.njk" import govukHeader %}
-  {{ govukHeader({
-   homepageUrl: "/index",
-   serviceName: "Get a rod fishing licence",
-   serviceUrl: "#"
-  }) }}
-
 {% endblock %}
 
 {% block beforeContent %}
@@ -64,7 +53,7 @@
                     <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
 
                       <div id="passport-issued-hint" class="govuk-hint">
-                        Enter a date up to and including 23 04 2022 
+                        Enter a date up to and including 23 04 2022
                       </div>
                       <div class="govuk-date-input" id="passport-issued">
                         <div class="govuk-date-input__item">
