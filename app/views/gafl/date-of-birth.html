@@ -1,6 +1,32 @@
-{% extends "layout.html" %}
+{% if data['lang'] === "en" %}
+  {% extends "layout-en.html" %}
+  {% set title = "What’s your date of birth?" %}
+  {% set line1 = "If you're applying for someone else enter their date of birth." %}
+  {% set hint1 = "For example, 11 2 1979" %}
+  {% set day = "Day" %}
+  {% set month = "Month" %}
+  {% set year = "Year" %}
 
-{% set title = "What’s your date of birth?" %}
+  {% set linktext1 = "Read about" %}
+  {% set link1 = "how we use personal information" %}
+
+  {% set continue = "Continue" %}
+
+{% else %}
+  {% extends "layout-cy.html" %}
+  {% set title = "Beth yw eich dyddiad geni?" %}
+  {% set line1 = "Os ydych yn gwneud cais am rywun arall nodwch ei ddyddiad geni." %}
+  {% set hint1 = "Er enghraifft, 11 2 1979" %}
+  {% set day = "Dydd" %}
+  {% set month = "Mis" %}
+  {% set year = "Blwyddyn" %}
+
+  {% set linktext1 = "Darllenwch am" %}
+  {% set link1 = "sut rydym yn defnyddio gwybodaeth bersonol" %}
+
+  {% set continue = "Parhau" %}
+
+{% endif %}
 
 {% block pageTitle %}
   {{title}} - GOV.UK
@@ -28,32 +54,32 @@
             </legend>
 
             <p class="govuk-body">
-              If you're applying for someone else enter their date of birth.
+              {{ line1 }}
             </p>
 
             <div id="dob-hint" class="govuk-hint">
-              For example, 11 2 1979
+              {{ hint1 }}
             </div>
 
             <div class="govuk-date-input" id="dob">
               <div class="govuk-date-input__item">
                 <div class="govuk-form-group">
                   <label class="govuk-label govuk-date-input__label" for="dob_day">
-                    Day
+                    {{ day }}
                   </label>
                   <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="dob_day" name="dob_day" type="text" pattern="[0-9]*" inputmode="numeric"></div>
               </div>
               <div class="govuk-date-input__item">
                 <div class="govuk-form-group">
                   <label class="govuk-label govuk-date-input__label" for="dob_month">
-                    Month
+                    {{ month }}
                   </label>
                   <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="dob_month" name="dob_month" type="text" pattern="[0-9]*" inputmode="numeric"></div>
               </div>
               <div class="govuk-date-input__item">
                 <div class="govuk-form-group">
                   <label class="govuk-label govuk-date-input__label" for="dob_year">
-                    Year
+                    {{ year }}
                   </label>
                   <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="dob_year" name="dob_year" type="text" pattern="[0-9]*" inputmode="numeric"></div>
               </div>
@@ -63,11 +89,11 @@
         </div>
 
         <p class="govuk-body">
-          Read about <a href="">how we use personal information</a>
+          {{ linktext1 }} <a href="">{{ link1 }}</a>
         </p>
 
         <button class="govuk-button" data-module="govuk-button">
-          Continue
+          {{ continue }}
         </button>
       </form>
 
