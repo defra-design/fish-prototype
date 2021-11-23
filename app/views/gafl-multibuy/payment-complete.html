@@ -59,14 +59,14 @@
 
       {% if data['licence-option'] == "digital" %}
         <p class="govuk-body">
-          You can fish from the time and date your licence starts.
+          Licence holders can fish from the time and date their licence starts.
         </p>
         <p class="govuk-body">
-          We’ve sent your licence by email or text message.
+          Licences have been sent by email or text message.
         </p>
       {% else %}
         <p class="govuk-body">
-          You can fish from the time and date your licence starts. You do not need to wait to get your licence card.
+          Licence holders can fish from the time and date the licence starts. They do not need to wait to get their licence card.
         </p>
       {% endif %}
 
@@ -77,34 +77,39 @@
     <div class="govuk-grid-column-two-thirds">
 
 
-      <h2 class="govuk-heading-l">Before you go fishing</h2>
+      <h2 class="govuk-heading-l">Before fishing</h2>
 
       <div class="govuk-!-margin-bottom-9">
 
         <p class="govuk-body">
-          It’s important you know your licence number. You can take a screenshot or print out your licence information.
+          <!-- It’s important licence holders know their licence number. Screenshots or print outs can be used to show licence information. -->
+          It’s important licence holders know their licence number.
         </p>
 
         <form action="licence-information">
           <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
-            View your licence information
+            View licence information
           </button>
         </form>
 
         {% if data['licence-option'] == "paper-licence" %}
 
           <p class="govuk-body">
-            If you gave us your email address, you’ll get a message that includes your licence information.
+            If you gave us an email address, we have sent a message that includes your licence information.
           </p>
 
-          <div class="govuk-inset-text">
-            Make a record of your licence number.
-          </div>
+            <!-- <div class="govuk-inset-text">
+              Make a record of your licence number.
+            </div> -->
+
+            <div class="govuk-body">
+              Make a record of your licence number.
+            </div>
 
         {% endif %}
 
 
-        <p class="govuk-body">
+        <p class="govuk-body govuk-!-margin-bottom-9">
           If an enforcement officer asks to see your licence, you'll need to give them these details.
         </p>
 
