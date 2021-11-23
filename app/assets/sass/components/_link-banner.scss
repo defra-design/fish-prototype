@@ -1,0 +1,31 @@
+// the link banner is the IWTF badgeless status banner with the language toggle together
+
+.link-banner {
+  // height: 1.8rem;
+  // background-color: lightgreen;
+  padding-top: 0.4rem;
+  margin-bottom: 20px;
+  border-bottom: solid 1px #b1b4b6;
+}
+
+.link-banner--left,
+.link-banner--right {
+  padding-bottom: 0.6rem;
+}
+
+.link-banner--left {
+  float: left;
+  width: 80%;
+}
+
+.link-banner--right {
+  float: right;
+  width: auto;
+}
+
+/* Clear floats after the columns */
+.link-banner:after {
+  content: "";
+  display: table;
+  clear: both;
+}
