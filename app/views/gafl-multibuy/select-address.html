@@ -21,10 +21,14 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      {% if data['licence-length'] == "12 month" %}
-        <form action="licence-option">
-      {% else %}
+      {% if data['junior'] %}
         <form action="licence-by">
+      {% else %}
+        {% if data['licence-length'] == "12 month" %}
+          <form action="licence-option">
+        {% else %}
+          <form action="licence-by">
+        {% endif %}
       {% endif %}
 
       <div class="govuk-form-group">

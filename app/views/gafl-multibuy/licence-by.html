@@ -23,8 +23,18 @@
 
       <!-- debug / show data -->
       {% include "includes/clip/debug.html" %}
-
-      <form action="contact-preference" method="send" class="form">
+      
+      <!-- junior logic -->
+      {% if data['junior'] %}
+        <!-- bobo logic -->
+        {% if data['licenceFor'] == "user" %}
+          <form action="newsletter" method="send" class="form">
+        {% else %}
+          <form action="contact-summary" method="send" class="form">
+        {% endif %}
+      {% else %}
+        <form action="contact-preference" method="send" class="form">
+      {% endif %}
 
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset">
