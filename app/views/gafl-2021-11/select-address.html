@@ -1,0 +1,85 @@
+{% extends "layout.html" %}
+
+{% set title = "Choose your address" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <!-- {% if data['path'] == "a" %}
+        <form action="licence-option-a">
+      {% elseif data['path'] == "b" %}
+        <form action="licence-option-b">
+      {% else %}
+        <form action="licence-option">
+      {% endif %} -->
+
+      <form action="licence-option">
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <h1 class="govuk-fieldset__heading">
+                {{ title }}
+              </h1>
+            </legend>
+
+            <p class="govuk-body">
+              4 addresses found for 2a Bailey House and BS2 1PP. <a href="javascript:history.back()" class="govuk-link">Change</a>
+            </p>
+
+            <div class="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="found-address" name="found-address" type="radio" value="2A BAILEY HOUSE, BAILEY ROAD, BS2 1PP">
+                <label class="govuk-label govuk-radios__label" for="found-address">
+                  2A BAILEY HOUSE, BAILEY ROAD, BS2 1PP
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="found-address-2" name="found-address" type="radio" value="1A BAILEY HOUSE, BAILEY ROAD, BS2 1PP">
+                <label class="govuk-label govuk-radios__label" for="found-address-2">
+                  1A BAILEY HOUSE, BAILEY ROAD, BS2 1PP
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="found-address-3" name="found-address" type="radio" value="3A BAILEY HOUSE, BAILEY ROAD, BS2 1PP">
+                <label class="govuk-label govuk-radios__label" for="found-address-3">
+                  3A BAILEY HOUSE, BAILEY ROAD, BS2 1PP
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="found-address-4" name="found-address" type="radio" value="4A BAILEY HOUSE, BAILEY ROAD, BS2 1PP">
+                <label class="govuk-label govuk-radios__label" for="found-address-4">
+                  4A BAILEY HOUSE, BAILEY ROAD, BS2 1PP
+                </label>
+              </div>
+            </div>
+
+          </fieldset>
+        </div>
+
+        <button class="govuk-button" data-module="govuk-button">
+          Continue
+        </button>
+
+      </form>
+
+      <p class="govuk-body-m">
+        <a href="address" class="govuk-link">Enter your address manually</a>
+      </p>
+
+    </div>
+  </div>
+
+{% endblock %}

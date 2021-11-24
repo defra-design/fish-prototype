@@ -1,0 +1,92 @@
+{% extends "layout.html" %}
+
+{% set title = "How do you want your licence?" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="/check-change-licence-type" method="post" class="form">
+      <!-- <form action="contact-summary"> -->
+      <!-- <form action="contact-preference"> -->
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="licence-option-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <h1 class="govuk-fieldset__heading">
+                {{ title }}
+              </h1>
+            </legend>
+
+            <!-- <span class="govuk-hint">
+              Contact preference is {{ data['contact'] }}<br>
+              Phone number is {{ data['phone-number'] }}<br>
+              Email is {{ data['email'] }}
+            </span> -->
+
+            <div class="govuk-radios">
+              <div class="govuk-radios__item">
+                {% if data['licence-option'] == "digital" %}
+                  <input class="govuk-radios__input" id="licence-option" name="licence-option" type="radio" value="digital" aria-describedby="licence-option-item-hint" checked>
+                {% else %}
+                  <input class="govuk-radios__input" id="licence-option" name="licence-option" type="radio" value="digital" aria-describedby="licence-option-item-hint">
+                {% endif %}
+
+                <label class="govuk-label govuk-radios__label" for="licence-option">
+                  By email or text
+                </label>
+                <div id="licence-option-item-hint" class="govuk-hint govuk-radios__hint">
+                  <ul class="govuk-list govuk-list--bullet">
+                    <li>you will receive your licence details in the next 24 hours</li>
+                    <li>you can use this as proof of a fishing licence - you do not need a card</li>
+                    <li>help the environment by reducing paper</li>
+                    <!-- <li>help us save money to help fish and fisheries</li> -->
+                    <li>help us save money to invest in fish and fishing</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="govuk-radios__item">
+                {% if data['licence-option'] == "paper-licence" %}
+                <input class="govuk-radios__input" id="licence-option-2" name="licence-option" type="radio" value="paper-licence" aria-describedby="licence-option-2-item-hint" checked>
+                {% else %}
+                <input class="govuk-radios__input" id="licence-option-2" name="licence-option" type="radio" value="paper-licence" aria-describedby="licence-option-2-item-hint">
+                {% endif %}
+                <label class="govuk-label govuk-radios__label" for="licence-option-2">
+                  By post
+                </label>
+                <div id="licence-option-2-item-hint" class="govuk-hint govuk-radios__hint">
+                  <ul class="govuk-list govuk-list--bullet">
+                    <li>You will receive the licence card in the post within 10 working days</li>
+                    <li>information about your licence on your card</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+          </fieldset>
+        </div>
+
+        <button class="govuk-button" data-module="govuk-button">
+          Continue
+        </button>
+      </form>
+
+      <p class="govuk-body">
+        <a href="https://www.gov.uk/government/publications/fisheries-annual-report-2019-to-2020/fisheries-annual-report-2019-to-2020" class="govuk-link" target="_blank">See how we spend money on fish and fishing (opens in a new window)</a>.
+      </p>
+
+    </div>
+  </div>
+
+{% endblock %}

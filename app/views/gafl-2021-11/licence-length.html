@@ -1,0 +1,80 @@
+{% extends "layout.html" %}
+
+{% set title = "How long do you want your licence for?" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="licence-summary" method="post" class="form">
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <h1 class="govuk-fieldset__heading">
+                {{ title }}
+              </h1>
+            </legend>
+
+            <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="licence-length" name="licence-length" type="radio" value="12 months" data-aria-controls="conditional-licence-length">
+                <label class="govuk-label govuk-radios__label" for="licence-length">
+                   12 months
+                </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="licence-length-2" name="licence-length" type="radio" value="8 days" data-aria-controls="conditional-licence-length-2">
+                <label class="govuk-label govuk-radios__label" for="licence-length-2">
+                  8 days
+                </label>
+              </div>
+              <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-licence-length-2">
+                <div class="govuk-form-group">
+                  <p class="govuk-body">
+                    8 day licences are valid for 8 consecutive days from the start time that you select.
+                  </p>
+                </div>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="licence-length-3" name="licence-length" type="radio" value="1 day" data-aria-controls="conditional-licence-length-3">
+                <label class="govuk-label govuk-radios__label" for="licence-length-3">
+                   1 day
+                </label>
+
+              </div>
+              <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-licence-length-3">
+                <div class="govuk-form-group">
+                  <p class="govuk-body">
+                    1 day licences are valid for 24 hours from the start time that you select.
+                  </p>
+                </div>
+              </div>
+
+
+            </div>
+
+          </fieldset>
+        </div>
+
+        <button class="govuk-button" data-module="govuk-button">
+          Continue
+        </button>
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

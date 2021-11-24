@@ -1,0 +1,124 @@
+{% extends "layout.html" %}
+
+{% if data['licence-option'] == "digital" %}
+
+  {% if data['licenceBy'] == "email" %}
+    {% set title = "Is your email address correct?" %}
+  {% else %}
+    {% set title = "Is your phone number correct?" %}
+  {% endif %}
+
+{% else %}
+
+  {% if data['licence-confirmation'] == "email" %}
+    {% set title = "Is your email address correct?" %}
+  {% else %}
+    {% set title = "Is your phone number correct?" %}
+  {% endif %}
+
+{% endif %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <!-- debug / show data -->
+      {% include "includes/clip/debug.html" %}
+
+      <h1 class="govuk-heading-l" id="contact-information-question">
+        {{ title }}
+      </h1>
+
+      <form action="contact-preference">
+
+        {% if data['licence-option'] == "digital" %}
+
+          {% if data['licenceBy'] == "email" %}
+
+            <p class="govuk-!-font-size-27" id="contact-information" tabindex="0" aria-labelledby="contact-information-question contact-information">
+              {{ data['licence-by-email'] }}
+            </p>
+
+            <p class="govuk-body govuk-!-margin-bottom-6">
+              <a href="javascript:history.back()" class="govuk-link govuk-link--no-visited-state">
+                Change email address
+              </a>
+            </p>
+
+          {% else %}
+
+            <p class="govuk-!-font-size-27" id="contact-information" tabindex="0" aria-labelledby="contact-information-question contact-information">
+              {{ data['phone-number'] }}
+            </p>
+
+            <p class="govuk-body govuk-!-margin-bottom-6">
+              <a href="javascript:history.back()" class="govuk-link govuk-link--no-visited-state">
+                Change phone number
+              </a>
+            </p>
+
+          {% endif %}
+
+        {% else %}
+
+          {% if data['licence-confirmation'] == "email" %}
+
+            <p class="govuk-!-font-size-27" id="contact-information" tabindex="0" aria-labelledby="contact-information-question contact-information">
+              {{ data['email'] }}
+            </p>
+
+            <p class="govuk-body govuk-!-margin-bottom-6">
+              <a href="javascript:history.back()" class="govuk-link govuk-link--no-visited-state">
+                Change email address
+              </a>
+            </p>
+
+          {% else %}
+
+            <p class="govuk-!-font-size-27" id="contact-information" tabindex="0" aria-labelledby="contact-information-question contact-information">
+              {{ data['phone-number'] }}
+            </p>
+
+            <p class="govuk-body govuk-!-margin-bottom-6">
+              <a href="javascript:history.back()" class="govuk-link govuk-link--no-visited-state">
+                Change phone number
+              </a>
+            </p>
+
+          {% endif %}
+
+        {% endif %}
+
+        <button class="govuk-button" data-module="govuk-button">
+          It’s correct
+        </button>
+
+        <!-- secondary action
+        Not working in prototype!
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "It’s correct"
+          }) }}
+
+          <a class="govuk-link" href="#">
+            Go back to make a change
+          </a>
+        </div> -->
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
