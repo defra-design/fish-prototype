@@ -143,7 +143,7 @@ router.post('/multibuy-add-licences', function (req, res) {
       if (newTerms) {
 
         // finish up, skip terms
-        res.redirect('gafl-multibuy/payment-details')
+        res.redirect('gafl-multibuy/licence-conditions-notice')
 
       } else {
 
