@@ -293,15 +293,15 @@ router.post('/check-change-licence-type', function (req, res) {
   }
 })
 
-// router.post('/check-change-licence-type', function (req, res) {
-//   // Make a variable from session data
-//   let licenceOption = req.session.data['licence-option']
-//   // route depending on value
-//   if (licenceOption === 'digital') {
-//     res.redirect('gafl/check-email')
-//   } else {
-//     res.redirect('gafl/contact-summary')
-//   }
-// })
+router.post('/service-start-routing', function (req, res) {
+  // Make a variable from session data
+  let serviceOption = req.session.data['option']
+  // route depending on value
+  if (serviceOption === 'new') {
+    res.redirect('gafl/date-of-birth')
+  } else {
+    res.redirect('renew/check-licence-holder')
+  }
+})
 
 module.exports = router
