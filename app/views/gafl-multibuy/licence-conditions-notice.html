@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "Licence holders must understand and accept the licence conditions" %}
+{% set title = "Licence holders must understand and comply with the licence conditions" %}
 
 {% block pageTitle %}
   {{title}} - GOV.UK
@@ -23,129 +23,31 @@
       {{ title }}
     </h1>
 
-    <p class="govuk-body-l">
+    <p class="govuk-body-m">
       The <a href="fishing-licence-conditions" target="_blank" class="govuk-link">licence conditions (opens in new tab)</a> will be sent with your licence.
     </p>
 
-    <div class="govuk-warning-text">
-      <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
-      <strong class="govuk-warning-text__text">
-        <span class="govuk-warning-text__assistive">Warning</span>
-        It is an offence to act in breach of your licence conditions.
-      </strong>
-    </div>
-
-    <!-- <h2 class="govuk-heading-m">
-      Licence conditions
-    </h2>
-
-    <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
-      <div class="govuk-accordion__section ">
-        <div class="govuk-accordion__section-header">
-          <h2 class="govuk-accordion__section-heading">
-            <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
-              Trout and coarse, up to 2 rods
-            </span>
-          </h2>
-        </div>
-        <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
-          <p class='govuk-body' id='2rod'>This is the content for Writing well for the web.</p>
-        </div>
+    {% if data['option'] %}
+      <div class="govuk-warning-text">
+        <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+        <strong class="govuk-warning-text__text">
+          <span class="govuk-warning-text__assistive">Warning</span>
+          It is an offence to act in breach of your licence conditions.
+        </strong>
       </div>
-      <div class="govuk-accordion__section ">
-        <div class="govuk-accordion__section-header">
-          <h2 class="govuk-accordion__section-heading">
-            <span class="govuk-accordion__section-button" id="accordion-default-heading-2">
-              Trout and coarse, up to 3 rods
-            </span>
-          </h2>
-        </div>
-        <div id="accordion-default-content-2" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-2">
-          <p class='govuk-body' id='3rod'>This is the content for Writing well for specialists.</p>
-        </div>
+    {% else %}
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="terms-hint">
+          <div class="govuk-checkboxes">
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="terms" name="terms" type="checkbox" value="agreed">
+              <label class="govuk-label govuk-checkboxes__label" for="terms">
+                I agree to the licence conditions
+              </label>
+            </div>
+        </fieldset>
       </div>
-      <div class="govuk-accordion__section ">
-        <div class="govuk-accordion__section-header">
-          <h2 class="govuk-accordion__section-heading">
-            <span class="govuk-accordion__section-button" id="accordion-default-heading-3">
-              Salmon and trout (includes trout and coarse, up to 3 rods)
-            </span>
-          </h2>
-        </div>
-
-        <div id="accordion-default-content-3" class="govuk-accordion__section-content govuk-accordion__section-content--open" aria-labelledby="accordion-default-heading-3">
-
-          <h2 class="govuk-heading-m" id="salmon">
-            The following conditions apply:
-          </h2>
-
-          {% if data['licenceFor'] == "user" %}
-
-            <!-- <p class='govuk-body'>
-              It is an offence to act in breach of your licence conditions. The following conditions apply:
-            </p> -->
-
-            <ol class="govuk-list govuk-list--number">
-              <li>
-                Your licence is only valid for use in England, Wales and the Border Esk in Scotland and is only valid for you.
-              </li>
-              <li>
-                Your licence is only valid from its start date and time until its end date and time.
-              </li>
-              <li>
-                Your licence will cover you to fish with 1 rod for salmon, sea trout and non-migratory trout in rivers, streams and canals, up to 2 rods for salmon, sea trout and non-migratory trout in reservoirs, lakes and ponds or up to 3 rods for freshwater fish, smelt, lamprey and eels where byelaws allow.
-              </li>
-              <li>
-                Your licence does not give you the right to fish anywhere. You must get permission from any local land owners before fishing. This may involve a separate charge from them, and separate rules may also apply.
-              </li>
-              <li>
-                You must comply with local and national fisheries byelaws.
-              </li>
-              <li>
-                When fishing, or intending to fish, you must carry your fishing licence or proof of purchase and show it to our enforcement officers if they ask to see it. If you are still waiting for your licence to arrive in the post, you must carry proof of the licence and proof of your identity.
-              </li>
-              <li>
-                You must report a catch return of your yearly salmon and sea trout fishing activity in England and Wales, even if you do not catch anything or do not fish.
-              </li>
-            </ol>
-
-
-          {% else %}
-
-            <p class='govuk-body'>
-              The licence holder must view and agree to these conditions. It is an offence to act in breach of the licence conditions. The following conditions apply:
-            </p>
-
-            <ol class="govuk-list govuk-list--number">
-              <li>
-                The licence is only valid for use in England, Wales and the Border Esk in Scotland and is only valid for the licence holder.
-              </li>
-              <li>
-                The licence is only valid from its start date and time until its end date and time.
-              </li>
-              <li>
-                The licence will cover the licence holder to fish with 1 rod for salmon, sea trout and non-migratory trout in rivers, streams and canals, up to 2 rods for salmon, sea trout and non-migratory trout in reservoirs, lakes and ponds or up to 3 rods for freshwater fish, smelt, lamprey and eels where byelaws allow.
-              </li>
-              <li>
-                The licence does not give the licence holder the right to fish anywhere. The licence holder must get permission from any local land owners before fishing. This may involve a separate charge from them, and separate rules may also apply.
-              </li>
-              <li>
-                The licence holder must comply with local and national fisheries byelaws.
-              </li>
-              <li>
-                When fishing, or intending to fish, the licence holder must carry their fishing licence or proof of purchase and show it to our enforcement officers if they ask to see it. If the licence holder is still waiting for their licence to arrive in the post, they must carry proof of the licence and proof of their identity.
-              </li>
-              <li>
-                The licence holder will report a catch return of their yearly salmon and sea trout fishing activity in England and Wales, even if they do not catch anything or do not fish.
-              </li>
-            </ol>
-
-          {% endif %}
-
-        </div>
-      </div>
-
-    </div> -->
+    {% endif %}
 
     {% if data['salmon'] %}
 
