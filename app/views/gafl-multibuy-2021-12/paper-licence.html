@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% set title = "Licence by post" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+
+{% endblock %}
+
+{% block content %}
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">{{ title }}</h1>
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <p class="govuk-body">You will receive the licence confirmation and card within 10 working days.</p>
+
+      <div class="govuk-inset-text">
+        If you want to fish before you receive the card you should make a note of the licence number after payment.
+      </div>
+
+      <div class="govuk-!-margin-bottom-6">
+        <a href="javascript:history.back()" class="govuk-link">Get a digital licence instantly</a>
+      </div>
+
+      <form action="contact-preference">
+        <button class="govuk-button" data-module="govuk-button">
+          Continue
+        </button>
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -46,11 +46,11 @@ router.post('/multibuy-check-licence-type', function (req, res) {
   // route depending on value
   // i am not sure why we have this…
   if (licenceType === 'Trout and coarse, up to 3 rods') {
-    res.redirect('gafl-multibuy/licence-summary')
+    res.redirect('/gafl-multibuy-2021-12/licence-summary')
   } else if (licenceType === 'Salmon and sea trout') {
-    res.redirect('gafl-multibuy/licence-length?rcr=true')
+    res.redirect('/gafl-multibuy-2021-12/licence-length?rcr=true')
   } else {
-    res.redirect('gafl-multibuy/licence-length')
+    res.redirect('/gafl-multibuy-2021-12/licence-length')
   }
 })
 
@@ -60,9 +60,9 @@ router.post('/multibuy-check-licence-option', function (req, res) {
   // route depending on value
   if (licenceOption === 'digital') {
     // res.redirect('gafl/add-email')
-    res.redirect('gafl-multibuy/licence-by')
+    res.redirect('/gafl-multibuy-2021-12/licence-by')
   } else {
-    res.redirect('gafl-multibuy/licence-confirmation')
+    res.redirect('/gafl-multibuy-2021-12/licence-confirmation')
   }
 })
 
@@ -107,7 +107,7 @@ router.post('/multibuy-add-licence', function (req, res) {
   }
 
   // go to the screen that asks if you want another licence
-  res.redirect('gafl-multibuy/add-another-licence')
+  res.redirect('/gafl-multibuy-2021-12/add-another-licence')
 
 })
 
@@ -136,19 +136,19 @@ router.post('/multibuy-add-licences', function (req, res) {
       // rename variables and use server side changes
 
       // redirect, clears variables
-      res.redirect('gafl-multibuy/who-is-this-licence-for?licenceFor=&email=&error=&phone-number=')
+      res.redirect('/gafl-multibuy-2021-12/who-is-this-licence-for?licenceFor=&email=&error=&phone-number=')
 
     } else {
 
       if (newTerms) {
 
         // finish up, skip terms
-        res.redirect('gafl-multibuy/licence-conditions-notice')
+        res.redirect('/gafl-multibuy-2021-12/licence-conditions-notice')
 
       } else {
 
         // finish up, show terms
-        res.redirect('gafl-multibuy/licence-terms')
+        res.redirect('/gafl-multibuy-2021-12/licence-terms')
 
       }
 
@@ -156,7 +156,7 @@ router.post('/multibuy-add-licences', function (req, res) {
 
   } else {
     // nothing selected
-    res.redirect('gafl-multibuy/add-another-licence?error=1')
+    res.redirect('/gafl-multibuy-2021-12/add-another-licence?error=1')
   }
 
 })
@@ -190,7 +190,7 @@ router.post('/licenceFor', function (req, res) {
     // if I have just started
     if (source === 'gafl') {
       // new licence, ask all the questions
-      res.redirect('gafl-multibuy/name?error=')
+      res.redirect('/gafl-multibuy-2021-12/name?error=')
 
     // multi-buy
     } else {
@@ -206,7 +206,7 @@ router.post('/licenceFor', function (req, res) {
         // licence is for another person, the same angler as last time
         // skips the name question
         // sets angler to same
-        res.redirect('gafl-multibuy/start-kind?source=gafl&angler=same&error=&licenceFor=other')
+        res.redirect('/gafl-multibuy-2021-12/start-kind?source=gafl&angler=same&error=&licenceFor=other')
 
       // if the licence is for a new 'other' (not named)
 
@@ -216,7 +216,7 @@ router.post('/licenceFor', function (req, res) {
         // licence is for the new angler, other person
         // ask all the questions
         // sets angler to same
-        res.redirect('gafl-multibuy/name?source=gafl&angler=new&error=&licenceFor=other')
+        res.redirect('/gafl-multibuy-2021-12/name?source=gafl&angler=new&error=&licenceFor=other')
 
       } else {
 
@@ -234,14 +234,14 @@ router.post('/licenceFor', function (req, res) {
 
           // licence is for the same angler, the user
           // reset source to gafl
-          res.redirect('gafl-multibuy/start-kind?source=gafl&angler=same&error=&licenceFor=user')
+          res.redirect('/gafl-multibuy-2021-12/start-kind?source=gafl&angler=same&error=&licenceFor=user')
 
         } else {
 
           // NO
 
           // licence is for You, the last round wasn't
-          res.redirect('gafl-multibuy/name?source=gafl&angler=new&error=&licenceFor=user')
+          res.redirect('/gafl-multibuy-2021-12/name?source=gafl&angler=new&error=&licenceFor=user')
 
         }
       }
@@ -249,7 +249,7 @@ router.post('/licenceFor', function (req, res) {
 
   } else { // is licenceFor true?
 
-    res.redirect('gafl-multibuy/who-is-this-licence-for?error=1')
+    res.redirect('/gafl-multibuy-2021-12/who-is-this-licence-for?error=1')
   }
 })
 

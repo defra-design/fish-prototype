@@ -1,0 +1,124 @@
+{% extends "layout.html" %}
+
+{% set title = "Who is this fishing licence for?" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <!-- debug / show data -->
+      {% include "includes/clip/debug.html" %}
+
+
+      {% if data['error'] %}
+
+        <!-- error summary -->
+        {{ govukErrorSummary({
+          titleText: "There is a problem",
+          errorList: [
+            {
+              text: "Tell us who the licence is for",
+              href: "#question"
+            }
+          ]
+        }) }}
+
+      {% endif %}
+
+      <form action="/licenceFor" method="post" class="form" id="question">
+
+        {% if data['error'] %}
+          <div class="govuk-form-group govuk-form-group--error">
+        {% else %}
+          <div class="govuk-form-group">
+        {% endif %}
+
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <h1 class="govuk-fieldset__heading">
+                {{ title }}
+              </h1>
+            </legend>
+
+            <!-- test output for licences object -->
+
+            <!-- {% set allLicences = data['allLicences'] %}
+
+            {% if allLicences.length > 0 %}
+              {{ allLicences | dump }}
+            {% endif %} -->
+
+            {% if data['error'] %}
+              <span class="govuk-error-message" id="question">
+                <span class="govuk-visually-hidden">Error:</span> Tell us who the licence is for
+              </span>
+            {% endif %}
+
+            <p class="govuk-body">
+              One person can use this fishing licence.
+            </p>
+
+            <div class="govuk-radios" data-module="govuk-radios">
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="licenceFor-1" name="licenceFor" type="radio" value="user">
+                <label class="govuk-label govuk-radios__label" for="licenceFor-1">
+                  You
+                </label>
+              </div>
+
+              <!-- show this if the last licence was for another person -->
+              {% if data['lastLicenceFor'] == "other" %}
+
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="licenceFor-0" name="licenceFor" type="radio" value="same-other">
+                  <label class="govuk-label govuk-radios__label" for="licenceFor-0">
+                    {% if data['firstName'] %}
+                      {{ data['firstName'] + ' ' + data['last-name'] }}
+                    {% else %}
+                      Jan Fisher
+                    {% endif %}
+                  </label>
+                </div>
+
+              {% endif %}
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="licenceFor-2" name="licenceFor" type="radio" value="other">
+                <label class="govuk-label govuk-radios__label" for="licenceFor-2">
+                  Someone else
+                </label>
+              </div>
+
+            </div>
+
+          </fieldset>
+        </div>
+
+        <!-- welsh language option (version 2) -->
+        <!-- <div class="govuk-!-margin-bottom-6">
+          <a href="../gafl/date-of-birth?lang=cy" class="govuk-link">
+            Newid i Cymraeg
+          </a>
+        </div> -->
+
+        <button class="govuk-button" data-module="govuk-button">
+          Continue
+        </button>
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

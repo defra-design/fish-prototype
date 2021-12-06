@@ -1,0 +1,82 @@
+{% extends "layout.html" %}
+
+{% if data['licenceFor'] == "user" %}
+  {% set title = "When would you like your licence to start?" %}
+{% else %}
+  {% set title = "When should the licence start?" %}
+{% endif %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+      <!-- debug / show data -->
+      {% include "includes/clip/debug.html" %}
+
+      <!-- very hacky -->
+      <!-- if the licence is for the same licence holder -->
+      <!-- then do not ask the disability question again -->
+
+      <form action="licence-type">
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="licence-start-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <h1 class="govuk-fieldset__heading">
+                {{ title }}
+              </h1>
+            </legend>
+
+            <p class="govuk-body">
+              The licence can start today or any day within the next 30 days.
+            </p>
+
+            <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="licence-start" name="licence-start" type="radio" value="email" data-aria-controls="conditional-licence-start">
+                <label class="govuk-label govuk-radios__label" for="licence-start">
+                   30 minutes after payment
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="licence-start-2" name="licence-start" type="radio" value="phone" data-aria-controls="conditional-licence-start-2">
+                <label class="govuk-label govuk-radios__label" for="licence-start-2">
+                  Later
+                </label>
+              </div>
+              <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-licence-start-2">
+                <div class="govuk-form-group">
+                  <p class="govuk-body">
+                    (calendar input)
+                  </p>
+
+                </div>
+              </div>
+
+            </div>
+
+          </fieldset>
+        </div>
+
+        <button class="govuk-button" data-module="govuk-button">
+          Continue
+        </button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
