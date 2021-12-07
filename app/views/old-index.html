@@ -1,0 +1,473 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+ {{ govukHeader({
+   homepageUrl: "/",
+   serviceName: "Get a rod fishing licence",
+   serviceUrl: "#",
+   containerClasses: "govuk-width-container"
+ }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      ‘I want to fish’ prototype
+    </h1>
+    <!-- <p>
+      This is a new version of the prototype and contains a limited set of views.
+    </p> -->
+
+    <p class="govuk-!-margin-bottom-1">
+      <a href="https://github.com/DEFRA/fish-prototype">
+        GitHub: DEFRA / fish-prototype
+      </a>
+    </p>
+
+    <p class="govuk-!-margin-bottom-6">
+      <a href="fish-folders">
+        Useful fish folders
+      </a>
+    </p>
+
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h2 class="govuk-heading-m">
+      For reference
+    </h2>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <section class="govuk-!-margin-bottom-6">
+        <li>
+          <a href="gafl/date-of-birth">
+            Get a fishing licence (GAFL)
+          </a>
+        </li>
+        <li>
+          <a href="gafl/licence-option?">
+            GAFL paperless question
+          </a>
+        </li>
+
+        <li>
+          <a href="standard-licence-format">
+            Standard licence format
+          </a>
+        </li>
+        <li>
+          <a href="licence/licence-information?age-concession=&disability-status=">
+            Licence information (no concession, no disability status)
+          </a>
+        </li>
+        <li>
+          <a href="licence/licence-information?age-concession=1&disability-status=">
+            Licence information (age concession)
+          </a>
+        </li>
+        <li>
+          <a href="licence/licence-information?age-concession=1&disability-status=1">
+            Licence information (age concession and disability status)
+          </a>
+        </li>
+        <li>
+          <a href="gafl/licence-details?midnight=1">
+            Licence details - Midnight
+          </a>
+        </li>
+
+      </section>
+    </ul>
+
+    <h2 class="govuk-heading-m">
+      Multi-buy licence conditions
+    </h2>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <section class="govuk-!-margin-bottom-6">
+        <li><a href="/gafl-multibuy-2021-12/who-is-this-licence-for?source=gafl&terms=1">BOBO / multi-buy with new terms pattern</a></li>
+        <li><a href="/gafl-multibuy-2021-12/licence-conditions-notice?option=">Licence conditions with checkbox</a></li>
+        <li><a href="/gafl-multibuy-2021-12/licence-conditions-notice?option=1">Licence conditions with warning</a></li>
+        <li><a href="/gafl-multibuy-2021-12/licence-conditions-notice?option=1">Licence conditions with checkbox and warning (possibly too much emphasis)</a></li>
+
+      </section>
+    </ul>
+
+    <h2 class="govuk-heading-m">
+      GAFL to renew link
+    </h2>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <section class="govuk-!-margin-bottom-6">
+        <li><a href="/gafl/date-of-birth?renew=1">Option 1 - Link to renew on the first screen of the service</a></li>
+        <li><a href="/gafl/service-start?renew=">Option 2 - Service start question (we should add back buttons to the GAFL / renew screens if we do this)</a></li>
+      </section>
+    </ul>
+
+    <h2 class="govuk-heading-m">
+      Welsh language options
+    </h2>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <section class="govuk-!-margin-bottom-6">
+        <li><a href="/gafl/language-option">Language question up-front</a></li>
+        <li><a href="/gafl/date-of-birth?lang=en">Language switcher in the header (English)</a></li>
+        <li><a href="/gafl/date-of-birth?lang=cy">Language switcher in the header (Cymraeg)</a></li>
+        <li><a href="/gafl/dob">Feedback banner and language switcher combined</a></li>
+        <li><a href="/gafl-multibuy-2021-12/who-is-this-licence-for">Language link above the green button</a></li>
+      </section>
+    </ul>
+
+    <h2 class="govuk-heading-m">
+      Multi-buy licence terms
+    </h2>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <section class="govuk-!-margin-bottom-6">
+        <li><a href="/gafl-multibuy-2021-12/licence-type?terms=1">On the licence type screen</a></li>
+        <li><a href="/gafl-multibuy-2021-12/fishing-licence-conditions">Licence static terms</a></li>
+      </section>
+    </ul>
+
+    <h2 class="govuk-heading-m">
+      Errors for BOBO / multi-buy
+    </h2>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <section class="govuk-!-margin-bottom-6">
+        <li><a href="/gafl-multibuy-2021-12/who-is-this-licence-for?source=gafl&error=1">Tell us who the licence is for error</a></li>
+        <li><a href="/gafl-multibuy-2021-12/add-another-licence?error=1">Tell us if you want to get more licences error</a></li>
+      </section>
+    </ul>
+
+    <h2 class="govuk-heading-m">
+      Renew with digital licence option
+    </h2>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <section class="govuk-!-margin-bottom-6">
+        <li><a href="/renew/check-licence">Check licence (last six digits)</a></li>
+        <br>
+        <li><a href="/renew/renew-email?licenceBy=email&email=sam.fisher@email.com">Easy renew email</a></li>
+        <li><a href="/renew/check-licence-holder">Check the licence holder</a></li>
+        <br>
+        <li><a href="/renew/old-link">Link out of date</a></li>
+
+        <br>
+        <li><a href="/renew/check-licence">Matching the licence</a></li>
+        <li><a href="/renew/check-licence-error">Matching the licence error</a></li>
+        <li><a href="/renew/check-licence-holder">Check you are the licence holder</a></li>
+        <li><a href="/renew/check-licence-holder-error">Check you are the licence holder error</a></li>
+      </ul>
+
+      <details class="govuk-details" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Easy renew journey
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+
+          <ul class="govuk-list govuk-list--bullet">
+            <li><a href="/renew/check-licence-details">Check the licence details</a></li>
+            <li><a href="/renew/licence-option">Would you like to go paperless?</a></li>
+            <li><a href="/renew/licenceBy?licenceBy=email&email=sam.fisher@email.com">Where should we send your licence?</a></li>
+            <li><a href="/renew/contact-preference">How should we contact you?</a></li>
+            <li><a href="/renew/check-contact-details">Check the contact details</a></li>
+            <li><a href="/renew/licence-conditions">Terms and conditions</a></li>
+            <li><a href="/renew/payment">Payment</a></li>
+            <li><a href="/renew/payment-confirmed">Confirm payment</a></li>
+            <!-- <li><a href="/renew/licence-renewal-confirmed">Payment complete</a></li> -->
+
+            <li><a href="/renew/payment-complete?licence-option=paper-licence">Payment confirmation (paper licence)</a></li>
+            <li><a href="/renew/payment-complete?licence-option=digital">Payment confirmation (digital licence)</a></li>
+          </ul>
+        </div>
+      </details>
+
+
+
+    <h2 class="govuk-heading-m">
+      Payment confirmation / Application complete screen variations
+    </h2>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <section class="govuk-!-margin-bottom-6">
+        <li>
+          <a href="gafl/payment-complete?licence-type=full&licence-option=paper&licenceBy=post&rcr=">
+            Adult paper licence, confirmation by post
+          </a>
+        </li>
+        <li>
+          <a href="gafl/payment-complete?licence-type=full&licence-option=paper&licenceBy=email&rcr=">
+            Adult paper licence, confirmation by email
+          </a>
+        </li>
+        <li>
+          <a href="gafl/payment-complete?licence-type=full&licence-option=paper&licenceBy=phone&rcr=">
+            Adult paper licence, confirmation by text
+          </a>
+        </li>
+        <li>
+          <a href="gafl/payment-complete?licence-type=full&licence-option=digital&licenceBy=email&rcr=">
+            Adult digital licence by email
+          </a>
+        </li>
+        <li>
+          <a href="gafl/payment-complete?licence-type=full&licence-option=digital&licenceBy=phone&rcr=">
+            Adult digital licence by text
+          </a>
+        </li>
+        <li>
+          <a href="gafl/payment-complete?licence-type=junior&licence-option=digital&licenceBy=note&rcr=">
+            Junior licence
+          </a>
+        </li>
+        <li>
+          <a href="gafl/payment-complete?licence-type=full&licence-option=digital&licenceBy=note&rcr=true">
+            Adult Salmon and Sea-Trout licence
+          </a>
+        </li>
+
+      </section>
+    </ul>
+
+    <div class="govuk-grid-row govuk-!-margin-bottom-6">
+      <!-- hacky hack -->
+    </div>
+    <h2 class="govuk-heading-m">
+      Report your salmon or sea trout catch
+    </h2>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <section class="govuk-!-margin-bottom-6">
+        <li>
+          <a href="/report-catch/enter-your-details">
+            Enter your licence details and postcode
+          </a>
+        </li>
+        <li>
+          <a href="/report-catch/cookies">
+            RCR cookies page
+          </a>
+        </li>
+      </section>
+    </ul>
+
+
+    <h2 class="govuk-heading-m">
+      Multi-buy / Buying on behalf of
+    </h2>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <section class="govuk-!-margin-bottom-6">
+        <li>
+          <a href="gafl-multibuy-2021-12/who-is-this-licence-for?source=gafl">
+            Who is the licence for?
+          </a>
+        </li>
+        <li>
+          <a href="gafl-multibuy-2021-12/name?licences=0angler=new">
+            What is your name?
+          </a>
+        </li>
+        <!-- add screens here ? -->
+        <li>
+          <a href="gafl-multibuy-2021-12/add-another-licence">
+            Would you like to get another licence?
+          </a>
+        </li>
+        <br>
+
+        <li>
+          <a href="/gafl-multibuy-2021-12/payment-confirmation">
+            Confirm payment screen (GOVUK Pay)
+          </a>
+        </li>
+        <li>
+          <a href="gafl-multibuy-2021-12/payment-complete">
+            Payment complete (1 licence)
+          </a>
+        </li>
+        <li>
+          <a href="gafl-multibuy-2021-12/payment-complete">
+            Payment complete (2 licences)
+          </a>
+        </li>
+        <li>
+          <a href="gafl-multibuy-2021-12/licence-information">
+            Licence information (1 licence)
+          </a>
+        </li>
+        <li>
+          <a href="gafl-multibuy-2021-12/licence-information">
+            Licence information (2 licences)
+          </a>
+        </li>
+
+      </section>
+    </ul>
+
+    <div class="govuk-grid-row govuk-!-margin-bottom-6">
+      <!-- hacky hack -->
+    </div>
+    <h2 class="govuk-heading-m">
+      Report your salmon or sea trout catch
+    </h2>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <section class="govuk-!-margin-bottom-6">
+        <li>
+          <a href="/report-catch/enter-your-details">
+            Enter your licence details and postcode
+          </a>
+        </li>
+        <li>
+          <a href="/report-catch/cookies">
+            RCR cookies page
+          </a>
+        </li>
+      </section>
+    </ul>
+
+    <h2 class="govuk-heading-m">
+      How do you want your licence? (iteration after round 2)
+    </h2>
+
+    <p class="govuk-body">
+      Proposed changes to digital licence journey based on user feedback.
+    </p>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <section class="govuk-!-margin-bottom-6">
+        <li><a href="/gafl/licence-conditions">Terms and conditions (as it was in round 2 of the research)</a></li>
+        <li><a href="/gafl/licence-conditions-a">Terms and conditions option 1 (updated fishing byelaws clause)</a></li>
+        <li><a href="/gafl/licence-conditions-b">Terms and conditions option 2 (updated fishing byelaws clause)</a></li>
+        <li><a href="/gafl/payment-details">Enter card details screen (as it was in round 2 of the research)</a></li>
+        <li><a href="/gafl/payment-details-configured">Enter card details screen with proposed changes</a></li>
+        <li><a href="/gafl/payment-complete?licence-option=paper-licence">Payment confirmation with more prominent link to licence information (paper licence)</a></li>
+        <li><a href="/gafl/payment-complete?licence-option=digital">Payment confirmation with more prominent link to licence information (digital licence)</a></li>
+      </section>
+    </ul>
+
+    <h2 class="govuk-heading-m">
+      How do you want your licence? (round 2)
+    </h2>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <section class="govuk-!-margin-bottom-6">
+        <li><a href="/gafl/dob">GAFL journey start</a></li>
+        <li><a href="/gafl/licence-option">Do you want to go paperless?</a></li>
+        <li><a href="/gafl/licenceBy">Where should we send your licence?</a></li>
+        <li><a href="/gafl/contact-preference">How should we contact you?</a></li>
+        <li><a href="/gafl/licence-conditions">Terms and conditions</a></li>
+        <li><a href="/gafl/payment-complete?licence-option=paper-licence">Payment confirmation (paper licence)</a></li>
+        <li><a href="/gafl/payment-complete?licence-option=digital">Payment confirmation (digital licence)</a></li>
+      </section>
+    </ul>
+
+    <h2 class="govuk-heading-m">
+      How do you want your licence? (round 1)
+    </h2>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <section class="govuk-!-margin-bottom-6">
+        <li><a href="/gafl/dob?path=a">GAFL journey 1</a></li>
+        <li><a href="/gafl/dob?path=b">GAFL journey 2</a></li>
+        <br>
+        <li><a href="/gafl/licence-conditions">Terms and conditions</a></li>
+        <li><a href="/gafl/order-complete?licence-option=paper-licence">Payment confirmation (paper licence)</a></li>
+        <li><a href="/gafl/order-complete?licence-option=digital">Payment confirmation (digital licence)</a></li>
+      </section>
+    </ul>
+
+    <h2 class="govuk-heading-m">
+      Fish Movements lookup catch return
+    </h2>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <section class="govuk-!-margin-bottom-6">
+        <li><a href="/fish-movements/lookup">Enter licence number</a></li>
+        <li><a href="/fish-movements/results">Catch return results</a></li>
+        <li><a href="/fish-movements/no-results">No catch return results</a></li>
+        <li><a href="/fish-movements/catch-return">Catch return</a></li>
+      </section>
+    </ul>
+
+    <h2 class="govuk-heading-m">
+      Legacy views
+    </h2>
+
+    <details class="govuk-details" data-module="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+          Contributors
+        </span>
+      </summary>
+
+      <div class="govuk-details__text">
+        <p>
+          <br>Research: Cécile Pujol and Jon Settle
+          <br>Interaction design: Cécile Pujol
+          <br>Admin: Alan Cruikshanks
+        </p>
+      </div>
+    </details>
+
+    <h2 class="govuk-heading-m">
+      Start points
+    </h2>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <section class="govuk-!-margin-bottom-6">
+        <li><a href="/renew/renew-email-mobile">Renew email mobile</a></li>
+        <li><a href="/renew/renew-email">Renew email desktop</a></li>
+      </section>
+    </ul>
+
+    <h2 class="govuk-heading-m">
+      Steps
+    </h2>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <section class="govuk-!-margin-bottom-6">
+        <li><a href="/renew/authenticate">Authenticate this licence</a></li>
+        <li><a href="/renew/authenticate-other-licence">Authenticate using licence details</a></li>
+        <li><a href="/renew/contact-prefs">Set expiry reminder preference</a></li>
+        <li><a href="/renew/check-benefits">Check benefits</a></li>
+        <li><a href="/renew/national-insurance-number">Tell us your national insurance number</a></li>
+        <li><a href="/renew/check-blue-badge">Check Blue Badge</a></li>
+        <li><a href="/renew/blue-badge-number">Blue Badge number</a></li>
+        <li><a href="/renew/renew-from">When would you like the next licence to start?</a></li>
+        <li><a href="/renew/licence-details">Check licence details</a></li>
+        <li><a href="/renew/licence-conditions">Agree to licence conditions</a></li>
+        <li><a href="/renew/payment">Make a payment</a></li>
+        <li><a href="/renew/payment-confirmed">Payment confirmed</a></li>
+        <li><a href="/renew/licence-renewal-confirmed">Licence renewal confirmation</a></li>
+      </section>
+    </ul>
+
+    <h2 class="govuk-heading-m">
+      Experiemental
+    </h2>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <section class="govuk-!-margin-bottom-6">
+        <li><a href="/renew/calculator">Licence calculator</a></li>
+      </section>
+    </ul>
+
+  </div>
+</div>
+
+{% endblock %}

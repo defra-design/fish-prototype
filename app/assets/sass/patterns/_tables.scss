@@ -9,6 +9,12 @@
   }
 }
 
+// Hacky McHack to make the table show on smaller screens
+// can probably be impropved
+.govuk-table__header {
+  width: 100px !important;
+}
+
 .table__row, .table__row--selectable {
   display: block;
   // display: flex;
@@ -35,6 +41,11 @@
 
 .table__row--text {
   margin-bottom: 0;
+}
+
+.table__row--last th,
+.table__row--last td {
+  border-bottom: none;
 }
 
 .screen-reader-only {
