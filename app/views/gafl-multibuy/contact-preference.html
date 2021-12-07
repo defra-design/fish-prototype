@@ -43,20 +43,9 @@
               This is where we will send important updates and renewal reminders when the licence is expiring.
             </p> -->
 
-
-            {% if data['licenceFor'] == "user" %}
-
-              <p class="govuk-body">
-                This is where we will send renewal reminders when your licence is ending.
-              </p>
-
-            {% else %}
-
-              <p class="govuk-body">
-                This is where we will send renewal reminders when the licence is ending.
-              </p>
-
-            {% endif %}
+            <p class="govuk-body">
+              This is where we will send renewal reminders when the licence is ending.
+            </p>
 
             <p class="govuk-body">
                We will also send important information like byelaw updates.
@@ -81,7 +70,7 @@
                 {% if data['email'] %}
                 <!-- if there is an email address -->
                   <p class="govuk-body">
-                    We will email you at <span class="govuk-!-font-weight-bold">{{ data['email'] }}</span>
+                    We will email <span class="govuk-!-font-weight-bold">{{ data['email'] }}</span>
                   </p>
                 {% else %}
                   <label class="govuk-label" for="input-email">
