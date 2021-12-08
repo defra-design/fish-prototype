@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% set title = "Have you made a note of your licence number?" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">{{ title }}</h1>
+
+      <p class="govuk-body-l">
+        Getting a new licence will clear the previous licence information from the browser.
+      </p>
+
+      <p class="govuk-body">
+        If you have not already done so, you should make a note of the licence number before continuing.
+      </p>
+
+      <form action="date-of-birth">
+        <div class="govuk-button-group">
+
+          <button class="govuk-button" data-module="govuk-button">
+            Continue
+          </button>
+
+          <a class="govuk-link" href="payment-complete">Go back to the licence information</a>
+        </div>
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
