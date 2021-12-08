@@ -140,17 +140,26 @@
           You must follow the <a href="https://www.gov.uk/guidance/national-rod-fishing-byelaws-for-england-freshwater-fishing-with-a-rod-and-line" class="govuk_link" target="_blank">rod fishing byelaws (opens in new tab)</a>.
         </p>
 
+        <p class="govuk-body">
+          <a href="https://www.smartsurvey.co.uk/s/0L205/" class="govuk-link govuk-link--no-visited-state">Tell us what you think of the service</a> (takes 30 seconds)
+        </p>
+
       </div>
 
+      <h2 class="govuk-heading-m">
+        Need another licence?
+      </h2>
+
       <p class="govuk-body">
-        <a href="check-restart">
+        {% if data['licence-confirmation'] == "note" %}
+          <a href="check-restart">
+        {% else %}
+          <a href="date-of-birth">
+        {% endif %}
           Get another rod fishing licence
         </a>
       </p>
 
-      <p class="govuk-body">
-        <a href="https://www.smartsurvey.co.uk/s/0L205/" class="govuk-link govuk-link--no-visited-state">Tell us what you think of the service</a> (takes 30 seconds)
-      </p>
 
     </div>
   </div>
