@@ -1,0 +1,131 @@
+{% extends "layout-renew.html" %}
+
+{% set title = "Licence conditions" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      {{ title }}
+    </h1>
+
+    <form action="payment-details" method="post" class="form" id="recipient">
+
+      <p class="govuk-body">
+        When you buy this licence you agree that: 
+      </p>
+
+      <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
+  <div class="govuk-accordion__section ">
+    <div class="govuk-accordion__section-header">
+      <h2 class="govuk-accordion__section-heading">
+        <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+          Trout and Coarse, up to 2 rods
+        </span>
+      </h2>
+    </div>
+    <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
+      <p class='govuk-body'>This is the content for Writing well for the web.</p>
+    </div>
+  </div>
+  <div class="govuk-accordion__section ">
+    <div class="govuk-accordion__section-header">
+      <h2 class="govuk-accordion__section-heading">
+        <span class="govuk-accordion__section-button" id="accordion-default-heading-2">
+          Writing well for specialists
+        </span>
+      </h2>
+    </div>
+    <div id="accordion-default-content-2" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-2">
+      <p class='govuk-body'>This is the content for Writing well for specialists.</p>
+    </div>
+  </div>
+  <div class="govuk-accordion__section ">
+    <div class="govuk-accordion__section-header">
+      <h2 class="govuk-accordion__section-heading">
+        <span class="govuk-accordion__section-button" id="accordion-default-heading-3">
+          Know your audience
+        </span>
+      </h2>
+    </div>
+    <div id="accordion-default-content-3" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-3">
+      <p class='govuk-body'>This is the content for Know your audience.</p>
+    </div>
+  </div>
+  <div class="govuk-accordion__section ">
+    <div class="govuk-accordion__section-header">
+      <h2 class="govuk-accordion__section-heading">
+        <span class="govuk-accordion__section-button" id="accordion-default-heading-4">
+          How people read
+        </span>
+      </h2>
+    </div>
+    <div id="accordion-default-content-4" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-4">
+      <p class='govuk-body'>This is the content for How people read.</p>
+    </div>
+  </div>
+</div>
+
+      
+
+      <div class="govuk-checkboxes govuk-!-margin-bottom-6">
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="agree-terms" name="agree-terms" type="checkbox" value="agree">
+          <label class="govuk-label govuk-checkboxes__label" for="returns-agent">
+            I agree to the licence conditions
+          </label>
+        </div>
+      </div>
+
+      <button type="submit" class="govuk-button govuk-!-margin-bottom-1">
+        Pay for the licence
+      </button>
+
+      <p class="govuk-body govuk-hint">
+        on the GOV.UK secure payment site
+      </p>
+
+      <p class="govuk-body">
+        <a href="https://www.gov.uk/fishing-licences/buy-a-fishing-licence">
+          I no longer want to buy a licence
+        </a>
+      </p>
+
+    </form>
+
+  </div>
+</div>
+
+<script src="/public/javascripts/jquery-1.11.3.js"></script>
+
+<script>
+  $(function() {
+    $('form[data-routing]').on('submit', function(ev) {
+      // FInd selected radio button
+      const url = $(this).find('input:checked').val();
+
+      if(url) {
+        ev.preventDefault();
+        window.location.href = url;
+        return false;
+      }
+    });
+  })
+</script>
+
+{% endblock %}
