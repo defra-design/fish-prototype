@@ -1,12 +1,18 @@
 const express = require('express')
+const { URL } = require('url')
 const router = express.Router()
 
 // Add your routes here - above the module.exports line
 
-
-
 // GAFL routes
-/////////////////////////////////////////////////////////////
+/// //////////////////////////////////////////////////////////
+
+const getPrototypeToUse = request => {
+  const referrer = new URL(request.headers.referer)
+  const [prototypeToUse] = /\/.*\//.exec(referrer.pathname)
+  const strippedSlashes = prototypeToUse.replace(/\//g, '')
+  return strippedSlashes
+}
 
 router.post('/check-licence-type', function (req, res) {
   // Make a variable from session data
@@ -35,10 +41,8 @@ router.post('/check-licence-option', function (req, res) {
   }
 })
 
-
-
 // Multibuy routes
-/////////////////////////////////////////////////////////////
+/// //////////////////////////////////////////////////////////
 
 // bobo-multibuy
 // buying on behalf of variation in the H1s
@@ -64,47 +68,40 @@ router.post('/check-licence-option', function (req, res) {
 
 // Routing for ‘Who is the licence for?’ radio options
 router.post('/licenceHolder', function (req, res) {
-
   // Make a variable from session data
   let source = req.session.data['source']
   let licenceFor = req.session.data['licenceFor']
   let lastLicenceFor = req.session.data['lastLicenceFor']
+  const prototypeToUse = getPrototypeToUse(req)
 
   if (licenceFor) {
-
     // if I have just started
     if (source === 'gafl') {
       // new licence, ask all the questions
-      res.redirect('/gafl-multibuy/name?error=')
+      res.redirect(`/${prototypeToUse}/name?error=`)
 
     // multi-buy
     } else {
-
       // work out if we need to skip the details that already exists
 
       // if the licence is for the named Angler (another person)
       // skip questions and set angler to 'same'
 
       if (licenceFor == 'same-other') {
-
         // reset source to gafl incase it was changed last round
         // licence is for another person, the same angler as last time
         // skips the name question
         // sets angler to same
-        res.redirect('/gafl-multibuy/start-kind?source=gafl&angler=same&error=&licenceFor=other')
+        res.redirect(`/${prototypeToUse}/start-kind?source=gafl&angler=same&error=&licenceFor=other`)
 
-      // if the licence is for a new 'other' (not named)
-
+        // if the licence is for a new 'other' (not named)
       } else if (licenceFor == 'other') {
-
         // reset source to gafl
         // licence is for the new angler, other person
         // ask all the questions
         // sets angler to same
-        res.redirect('/gafl-multibuy/name?source=gafl&angler=new&error=&licenceFor=other')
-
+        res.redirect(`/${prototypeToUse}/name?source=gafl&angler=new&error=&licenceFor=other`)
       } else {
-
         // if the licence is for You
         // and the last one was for You
         // licence for user
@@ -114,61 +111,56 @@ router.post('/licenceHolder', function (req, res) {
         // licence is for 'user'
         // has the user entered information about you before?
         if (lastLicenceFor == 'you') {
-
           // YES
 
           // licence is for the same angler, the user
           // reset source to gafl
-          res.redirect('/gafl-multibuy/start-kind?source=gafl&angler=same&error=&licenceFor=user')
-
+          res.redirect(`/${prototypeToUse}/start-kind?source=gafl&angler=same&error=&licenceFor=user`)
         } else {
-
           // NO
 
           // licence is for You, the last round wasn't
-          res.redirect('/gafl-multibuy/name?source=gafl&angler=new&error=&licenceFor=user')
-
+          res.redirect(`/${prototypeToUse}/name?source=gafl&angler=new&error=&licenceFor=user`)
         }
       }
     } // if source is gafl / else multibuy
-
   } else { // is licenceFor true?
-
-    res.redirect('/gafl-multibuy/who-is-this-licence-for?error=1')
+    res.redirect(`/${prototypeToUse}/who-is-this-licence-for?error=1`)
   }
 })
 
 router.post('/multibuy-check-licence-type', function (req, res) {
+  const prototypeToUse = getPrototypeToUse(req)
+
   // Make a variable from session data
   let licenceType = req.session.data['licence-type']
   // route depending on value
   // i am not sure why we have this…
   if (licenceType === 'Trout and coarse, up to 3 rods') {
-    res.redirect('/gafl-multibuy/licence-summary')
+    res.redirect(`/${prototypeToUse}/licence-summary`)
   } else if (licenceType === 'Salmon and sea trout') {
-    res.redirect('/gafl-multibuy/licence-length?rcr=true')
+    res.redirect(`/${prototypeToUse}/licence-length?rcr=true`)
   } else {
-    res.redirect('/gafl-multibuy/licence-length')
+    res.redirect(`/${prototypeToUse}/licence-length`)
   }
 })
 
 // routing for the paperless question screen
 router.post('/multibuy-check-licence-option', function (req, res) {
+  const prototypeToUse = getPrototypeToUse(req)
   // Make a variable from session data
   let licenceOption = req.session.data['licence-option']
   // route depending on value
   if (licenceOption === 'digital') {
     // res.redirect('gafl/add-email')
-    res.redirect('/gafl-multibuy/licence-by')
+    res.redirect(`/${prototypeToUse}/licence-by`)
   } else {
-    res.redirect('/gafl-multibuy/licence-confirmation')
+    res.redirect(`/${prototypeToUse}/licence-confirmation`)
   }
 })
 
-
 // check to route someone who wants to buy other licence
 router.post('/multibuy-add-licence', function (req, res) {
-
   // make variables from the session data
   let licences = req.session.data['licences']
   let allLicences = req.session.data['allLicences']
@@ -179,7 +171,6 @@ router.post('/multibuy-add-licence', function (req, res) {
   let length = req.session.data['licence-length']
   let concession = req.session.data['concession']
 
-
   // make an object to hold the data
   let lastLicenceData = {
     firstName,
@@ -187,39 +178,36 @@ router.post('/multibuy-add-licence', function (req, res) {
     type,
     length,
     concession
-  };
+  }
 
   // add the data to an object called licences
-  allLicences.push(lastLicenceData);
+  allLicences.push(lastLicenceData)
 
   // increment licence numbers
   if (licences === 1) {
-    req.session.data.licences = 2;
+    req.session.data.licences = 2
   } else if (licences === 2) {
-    req.session.data.licences = 3;
+    req.session.data.licences = 3
   } else if (licences === 3) {
-    req.session.data.licences = 4;
+    req.session.data.licences = 4
   } else if (licences > 3) {
-    req.session.data.licences = 5; // hardcoded max of 5
+    req.session.data.licences = 5 // hardcoded max of 5
   } else {
-    req.session.data.licences = 1;
+    req.session.data.licences = 1
   }
 
   // go to the screen that asks if you want another licence
-  res.redirect('/gafl-multibuy/add-another-licence')
-
+  res.redirect(`/${getPrototypeToUse(req)}/add-another-licence`)
 })
-
 
 // check to route someone who wants to buy other licence
 router.post('/multibuy-add-licences', function (req, res) {
-
+  const prototypeToUse = getPrototypeToUse(req)
   // Make a variable from session data
   let addLicence = req.session.data['add-licence']
   let newTerms = req.session.data['terms']
 
   if (addLicence) {
-
     // move variables used in the flow into memory
 
     // declare the object holding the data
@@ -229,90 +217,68 @@ router.post('/multibuy-add-licences', function (req, res) {
     if (addLicence === 'yes') {
       // another licence
 
-      req.session.data.source = 'multibuy';
+      req.session.data.source = 'multibuy'
       // req.session.data.licenceFor = '';
 
       // rename variables and use server side changes
 
       // redirect, clears variables
-      res.redirect('/gafl-multibuy/who-is-this-licence-for?licenceFor=&email=&error=&phone-number=')
-
+      res.redirect(`/${prototypeToUse}/who-is-this-licence-for?licenceFor=&email=&error=&phone-number=`)
     } else {
-
       if (newTerms) {
-
         // finish up, skip terms
-        res.redirect('/gafl-multibuy/licence-conditions-notice')
-
+        res.redirect(`/${prototypeToUse}/licence-conditions-notice`)
       } else {
-
         // finish up, show terms
-        res.redirect('/gafl-multibuy/licence-terms')
-
+        res.redirect(`/${prototypeToUse}/licence-terms`)
       }
-
     }
-
   } else {
     // nothing selected
-    res.redirect('/gafl-multibuy/add-another-licence?error=1')
+    res.redirect(`/${prototypeToUse}/add-another-licence?error=1`)
   }
-
 })
 
-
-
-
-
-
-
 // bobo-multibuy-2021-12
-/////////////////////////////////////////////////////////////
+/// //////////////////////////////////////////////////////////
 
 // more variation for buying on behalf of content
 
 router.post('/licenceFor', function (req, res) {
-
+  const prototypeToUse = getPrototypeToUse(req)
   // Make a variable from session data
   let source = req.session.data['source']
   let licenceFor = req.session.data['licenceFor']
   let lastLicenceFor = req.session.data['lastLicenceFor']
 
   if (licenceFor) {
-
     // if I have just started
     if (source === 'gafl') {
       // new licence, ask all the questions
-      res.redirect('/gafl-multibuy-2021-12/name?error=')
+      res.redirect(`/${prototypeToUse}/name?error=`)
 
     // multi-buy
     } else {
-
       // work out if we need to skip the details that already exists
 
       // if the licence is for the named Angler (another person)
       // skip questions and set angler to 'same'
 
       if (licenceFor == 'same-other') {
-
         // reset source to gafl incase it was changed last round
         // licence is for another person, the same angler as last time
         // skips the name question
         // sets angler to same
-        res.redirect('/gafl-multibuy-2021-12/start-kind?source=gafl&angler=same&error=&licenceFor=other')
+        res.redirect(`/${prototypeToUse}/start-kind?source=gafl&angler=same&error=&licenceFor=other`)
 
-      // if the licence is for a new 'other' (not named)
-
+        // if the licence is for a new 'other' (not named)
       } else if (licenceFor == 'other') {
-
         // reset source to gafl
         // licence is for the new angler, other person
         // ask all the questions
         // sets angler to same
-        res.redirect('/gafl-multibuy-2021-12/name?source=gafl&angler=new&error=&licenceFor=other')
-
+        res.redirect(`/${prototypeToUse}/name?source=gafl&angler=new&error=&licenceFor=other`)
       } else {
-
         // if the licence is for You
         // and the last one was for You
         // licence for user
@@ -322,63 +288,56 @@ router.post('/licenceFor', function (req, res) {
         // licence is for 'user'
         // has the user entered information about you before?
         if (lastLicenceFor == 'you') {
-
           // YES
 
           // licence is for the same angler, the user
           // reset source to gafl
-          res.redirect('/gafl-multibuy-2021-12/start-kind?source=gafl&angler=same&error=&licenceFor=user')
-
+          res.redirect(`/${prototypeToUse}/start-kind?source=gafl&angler=same&error=&licenceFor=user`)
         } else {
-
           // NO
 
           // licence is for You, the last round wasn't
-          res.redirect('/gafl-multibuy-2021-12/name?source=gafl&angler=new&error=&licenceFor=user')
-
+          res.redirect(`/${prototypeToUse}/name?source=gafl&angler=new&error=&licenceFor=user`)
         }
       }
     } // if source is gafl / else multibuy
-
   } else { // is licenceFor true?
-
-    res.redirect('/gafl-multibuy-2021-12/who-is-this-licence-for?error=1')
+    res.redirect(`/${prototypeToUse}/who-is-this-licence-for?error=1`)
   }
 })
-
 
 // route for the licence type radio options
 //
 router.post('/multibuy-check-licence-type-21-12', function (req, res) {
+  const prototypeToUse = getPrototypeToUse(req)
   // Make a variable from session data
   let licenceType = req.session.data['licence-type']
   // route depending on value
   // i am not sure why we have this…
   if (licenceType === 'Trout and coarse, up to 3 rods') {
-    res.redirect('/gafl-multibuy-2021-12/licence-summary')
+    res.redirect(`/${prototypeToUse}/licence-summary`)
   } else if (licenceType === 'Salmon and sea trout') {
-    res.redirect('/gafl-multibuy-2021-12/licence-length?rcr=true')
+    res.redirect(`/${prototypeToUse}/licence-length?rcr=true`)
   } else {
-    res.redirect('/gafl-multibuy-2021-12/licence-length')
+    res.redirect(`/${prototypeToUse}/licence-length`)
   }
 })
 
 router.post('/multibuy-check-licence-option-21-12', function (req, res) {
+  const prototypeToUse = getPrototypeToUse(req)
   // Make a variable from session data
   let licenceOption = req.session.data['licence-option']
   // route depending on value
   if (licenceOption === 'digital') {
     // res.redirect('gafl/add-email')
-    res.redirect('/gafl-multibuy-2021-12/licence-by')
+    res.redirect(`/${prototypeToUse}/licence-by`)
   } else {
-    res.redirect('/gafl-multibuy-2021-12/licence-confirmation')
+    res.redirect(`/${prototypeToUse}/licence-confirmation`)
   }
 })
 
-
 // check to route someone who wants to buy other licence
 router.post('/multibuy-add-licence', function (req, res) {
-
   // make variables from the session data
   let licences = req.session.data['licences']
   let allLicences = req.session.data['allLicences']
@@ -389,7 +348,6 @@ router.post('/multibuy-add-licence', function (req, res) {
   let length = req.session.data['licence-length']
   let concession = req.session.data['concession']
 
-
   // make an object to hold the data
   let lastLicenceData = {
     firstName,
@@ -397,39 +355,36 @@ router.post('/multibuy-add-licence', function (req, res) {
     type,
     length,
     concession
-  };
+  }
 
   // add the data to an object called licences
-  allLicences.push(lastLicenceData);
+  allLicences.push(lastLicenceData)
 
   // increment licence numbers
   if (licences === 1) {
-    req.session.data.licences = 2;
+    req.session.data.licences = 2
   } else if (licences === 2) {
-    req.session.data.licences = 3;
+    req.session.data.licences = 3
   } else if (licences === 3) {
-    req.session.data.licences = 4;
+    req.session.data.licences = 4
   } else if (licences > 3) {
-    req.session.data.licences = 5; // hardcoded max of 5
+    req.session.data.licences = 5 // hardcoded max of 5
   } else {
-    req.session.data.licences = 1;
+    req.session.data.licences = 1
   }
 
   // go to the screen that asks if you want another licence
-  res.redirect('/gafl-multibuy-2021-12/add-another-licence')
-
+  res.redirect(`/${getPrototypeToUse(req)}/add-another-licence`)
 })
-
 
 // check to route someone who wants to buy other licence
 router.post('/multibuy-add-licences', function (req, res) {
-
+  const prototypeToUse = getPrototypeToUse(req)
   // Make a variable from session data
   let addLicence = req.session.data['add-licence']
   let newTerms = req.session.data['terms']
 
   if (addLicence) {
-
     // move variables used in the flow into memory
 
     // declare the object holding the data
@@ -439,46 +394,30 @@ router.post('/multibuy-add-licences', function (req, res) {
     if (addLicence === 'yes') {
       // another licence
 
-      req.session.data.source = 'multibuy';
+      req.session.data.source = 'multibuy'
       // req.session.data.licenceFor = '';
 
       // rename variables and use server side changes
 
       // redirect, clears variables
-      res.redirect('/gafl-multibuy-2021-12/who-is-this-licence-for?licenceFor=&email=&error=&phone-number=')
-
+      res.redirect(`/${prototypeToUse}/who-is-this-licence-for?licenceFor=&email=&error=&phone-number=`)
     } else {
-
       if (newTerms) {
-
         // finish up, skip terms
-        res.redirect('/gafl-multibuy-2021-12/licence-conditions-notice')
-
+        res.redirect(`/${prototypeToUse}/licence-conditions-notice`)
       } else {
-
         // finish up, show terms
-        res.redirect('/gafl-multibuy-2021-12/licence-terms')
-
+        res.redirect(`/${prototypeToUse}/licence-terms`)
       }
-
     }
-
   } else {
     // nothing selected
-    res.redirect('/gafl-multibuy-2021-12/add-another-licence?error=1')
+    res.redirect(`/${prototypeToUse}/add-another-licence?error=1`)
   }
-
 })
 
-
-
-
-
-
-
-
 // Renew routes
-/////////////////////////////////////////////////////////////
+/// //////////////////////////////////////////////////////////
 
 // additional routing for renew
 router.post('/renew-check-licence-option', function (req, res) {
@@ -495,22 +434,24 @@ router.post('/renew-check-licence-option', function (req, res) {
 
 // routing for changed digital/paper licence
 router.post('/check-change-licence-type', function (req, res) {
+  const prototypeToUse = getPrototypeToUse(req)
   // Make a variable from session data
   let licenceOption = req.session.data['licence-option']
   // route depending on value
   if (licenceOption === 'digital') {
-    res.redirect('gafl/change-licence-by')
+    res.redirect(`${prototypeToUse}/change-licence-by`)
   } else {
-    res.redirect('gafl/contact-summary')
+    res.redirect(`${prototypeToUse}/contact-summary`)
   }
 })
 
 router.post('/service-start-routing', function (req, res) {
+  const prototypeToUse = getPrototypeToUse(req)
   // Make a variable from session data
   let serviceOption = req.session.data['option']
   // route depending on value
   if (serviceOption === 'new') {
-    res.redirect('gafl/date-of-birth')
+    res.redirect(`${prototypeToUse}/date-of-birth`)
   } else {
     res.redirect('renew/check-licence-holder')
   }
