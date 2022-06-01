@@ -136,16 +136,16 @@
       </h2>
 
       <p class="govuk-body" id="price1">
-        12 months £20<br>
+        12 months £<span id="12monthPrice">20</span><br>
         <!-- Concession applied -->
       </p>
 
       <p class="govuk-body" id="price2">
-        8 days £12<br>
+        8 days £<span id="8dayPrice">12</span><br>
       </p>
 
       <p class="govuk-body" id="price3">
-        1 day £6<br>
+        1 day £<span id="1dayPrice">6</span><br>
       </p>
 
     </div>
@@ -156,13 +156,35 @@
 
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script>
+  const prices = {
+    "licence-type": {
+      "12monthPrice": 30,
+      "8dayPrice": 12,
+      "1dayPrice": 6
+    },
+    "licence-type-2": {
+      "12monthPrice": 45,
+      "8dayPrice": "n/a",
+      "1dayPrice": "n/a"
+    },
+    "licence-type-3": {
+      "12monthPrice": 82,
+      "8dayPrice": 27,
+      "1dayPrice": 12
+    }
+  }
   $(document).ready(function(){
-    $('input[type="radio"]').click(function(){
+    $('input[type="radio"]').click(function(e){
       var inputValue = $(this).attr("value");
       var targetBox = $("." + inputValue);
       $(".box").not(targetBox).hide();
       $(targetBox).show();
+      const priceList = prices[e.currentTarget.id]
+      for (const price in priceList) {
+        $(`#${price}`).text(priceList[price])
+      }
     });
+
   });
 </script>
 
