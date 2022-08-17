@@ -56,6 +56,11 @@
 
         </div>
       </div>
+      <form action="licence-information">
+        <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+          View licence details
+        </button>
+      </form>
 
       {% if data['licence-option'] == "digital" %}
         <p class="govuk-body">
@@ -86,11 +91,7 @@
 
 
 
-        <form action="licence-information">
-          <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
-            View licence details
-          </button>
-        </form>
+      
 
         {% if data['licence-option'] == "paper-licence" %}
 
