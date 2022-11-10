@@ -1,0 +1,67 @@
+{% extends "layout.html" %}
+
+{% set title = "Find your address" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {% if data['licenceFor'] == "user" %}
+          {{ title }}
+        {% else %}
+          Find their address?
+        {% endif %}
+      </h1>
+
+      <p class="govuk-body">
+        This is where we will send the licence card. A bankside enforcement officer may ask for this information if the licence is checked.
+      </p>
+
+      <form action="select-address">
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="width-20">
+            Postcode
+            <span class="govuk-hint">
+              For example, WA4 1AB
+             </span>
+          </label>
+          <input class="govuk-input govuk-input--width-20" id="postcode" name="postcode" type="text">
+        </div>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="width-20">
+            Building number or name
+            <span class="govuk-hint">
+              For example, Flat 20A
+             </span>
+          </label>
+          <input class="govuk-input govuk-input--width-20" id="building-number" name="building-number" type="text">
+        </div>
+
+        <button class="govuk-button" data-module="govuk-button">
+          Continue
+        </button>
+
+      </form>
+
+      <p class="govuk-body-m">
+        <a href="address" class="govuk-link">Enter the address manually</a>
+      </p>
+
+    </div>
+  </div>
+
+{% endblock %}
