@@ -29,3 +29,14 @@ $govuk-assets-path: '/govuk/assets/';
 @import "components/calendar";
 // @import "components/language-switch";
 @import "debugger";
+
+
+
+.govuk-details__text.full-width {
+  padding-left: 0;
+  border-left: 0;
+}
+
+.govuk-details__text.full-width table {
+  text-align: left;
+}

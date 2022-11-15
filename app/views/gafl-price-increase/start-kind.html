@@ -1,0 +1,158 @@
+{% extends "layout.html" %}
+
+{% if data['licenceFor'] == "user" %}
+{% set title = "When would you like your licence to start?" %}
+{% else %}
+{% set title = "When should the licence start?" %}
+{% endif %}
+
+{% block pageTitle %}
+{{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <!-- debug / show data -->
+    {% include "includes/clip/debug.html" %}
+
+
+
+
+
+
+    <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+      <div class="govuk-notification-banner__header">
+        <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+          Important
+        </h2>
+      </div>
+      <div class="govuk-notification-banner__content">
+        <p class="govuk-notification-banner__heading">
+          Licence prices are going up
+        </p>
+        <p class="govuk-body">
+          From 1st April 2023 there will be a small increase to licence prices
+        </p>
+        <details class="govuk-details" data-module="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              See licence price increases
+            </span>
+          </summary>
+          <div class="govuk-details__text full-width">
+            <table>
+              <thead>
+                <tr>
+                  <th scope="col">Licence type</th>
+                  <th scope="col">Trout and coarse up to 2-rod</th>
+                  <th scope="col">Trout and coarse 3-rod</th>
+                  <th scope="col">Salmon and sea trout</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1-day</th>
+                  <td>£6</td>
+                  <td>Not available</td>
+                  <td>£12</td>
+                </tr>
+                <tr>
+                  <th scope="row">8-day</th>
+                  <td>£12</td>
+                  <td>Not available</td>
+                  <td>£27</td>
+                </tr>
+                <tr>
+                  <th scope="row">12-month</th>
+                  <td>£30</td>
+                  <td>£45</td>
+                  <td>£82</td>
+                </tr>
+                <tr>
+                  <th scope="row">12-month - over 65 or disabled</th>
+                  <td>£20</td>
+                  <td>£30</td>
+                  <td>£54</td>
+                </tr>
+                <tr>
+                  <th scope="row">12-month - junior (13 to 16)</th>
+                  <td>Free</td>
+                  <td>Free</td>
+                  <td>Free</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <form action="licence-type">
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="licence-start-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              {{ title }}
+            </h1>
+          </legend>
+
+          <p class="govuk-body">
+            The licence can start today or any day within the next 30 days.
+          </p>
+
+          <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="licence-start" name="licence-start" type="radio" value="email" data-aria-controls="conditional-licence-start">
+              <label class="govuk-label govuk-radios__label" for="licence-start">
+                30 minutes after payment
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="licence-start-2" name="licence-start" type="radio" value="phone" data-aria-controls="conditional-licence-start-2">
+              <label class="govuk-label govuk-radios__label" for="licence-start-2">
+                Later
+              </label>
+            </div>
+            <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-licence-start-2">
+              <div class="govuk-form-group">
+                <p class="govuk-body">
+                  (calendar input)
+                </p>
+
+              </div>
+            </div>
+
+          </div>
+
+        </fieldset>
+      </div>
+
+      <button class="govuk-button" data-module="govuk-button">
+        Continue
+      </button>
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}
