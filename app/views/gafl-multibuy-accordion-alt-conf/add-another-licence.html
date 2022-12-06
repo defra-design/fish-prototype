@@ -1,0 +1,116 @@
+{% extends "layout.html" %}
+
+{% set title = "Would you like to add another licence?" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <!-- debug / show data -->
+    {% include "includes/clip/debug.html" %}
+
+    {% if data['error'] %}
+
+      <!-- error summary -->
+      {{ govukErrorSummary({
+        titleText: "There is a problem",
+        errorList: [
+          {
+            text: "Tell us if you want to get more licences now",
+            href: "#question"
+          }
+        ]
+      }) }}
+
+    {% endif %}
+
+    {% if data['licences'] > 1 %}
+      <div class="govuk-inset-text">
+        <p class="govuk-l">
+          There are <a href="selected-licences" class="govuk-link">{{ data['licences'] }} licences</a> in the basket
+        </p>
+      </div>
+    {% endif %}
+
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {% if data['licenceFor'] === "other" %}
+      <form action="/multibuy-add-licences?lastLicenceFor=other" method="post" class="form">
+    {% else %}
+      <form action="/multibuy-add-licences?lastLicenceFor=you" method="post" class="form">
+    {% endif %}
+
+    {% if data['error'] %}
+
+      <div class="govuk-form-group--error govuk-!-margin-bottom-6">
+
+    {% else %}
+
+      <div class="govuk-form-group govuk-!-margin-bottom-6">
+
+    {% endif %}
+
+      <fieldset class="govuk-fieldset">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+          <h1 class="govuk-fieldset__heading">
+            {{ title }}
+          </h1>
+        </legend>
+
+        {% if data['error'] %}
+          <span class="govuk-error-message" id="question">
+            <span class="govuk-visually-hidden">Error:</span> Tell us if you want to get more licences now
+          </span>
+        {% endif %}
+
+        <div class="govuk-radios">
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="add-licence-yes" name="add-licence" type="radio" value="yes">
+            <label class="govuk-label govuk-radios__label" for="add-licence-yes">
+              Yes, add another licence
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="add-licence-no" name="add-licence" type="radio" value="no">
+            <label class="govuk-label govuk-radios__label" for="add-licence-no">
+              No, let’s finish
+            </label>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+
+    {{govukButton({
+      text: "Continue"
+    })}}
+
+  </form>
+
+  </div>
+</div>
+
+<!-- shortcut through flow -->
+<!-- <div class="prototype-only">
+  <ul class="govuk-list govuk-list--bullet">
+    <li>
+      <a href="payment-complete">
+        Payment complete
+      </a>
+    </li>
+    <li>
+      <a href="licence-information">
+        Licence information
+      </a>
+    </li>
+  </ul>
+</div> -->
+
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+{% set title = "What is your name?" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">{{ title }}</h1>
+
+      <p class="govuk-body">
+        If you’re applying for someone else enter their name.
+      </p>
+
+
+      <form action="contact-summary">
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="width-20">
+            First name
+            <span class="govuk-hint">
+               Don't use abbreviations or nicknames.
+             </span>
+          </label>
+          <input class="govuk-input govuk-input--width-20" id="firstName" name="firstName" type="text">
+        </div>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="width-20">
+            Last name
+          </label>
+          <input class="govuk-input govuk-input--width-20" id="last-name" name="last-name" type="text">
+        </div>
+
+        <button class="govuk-button" data-module="govuk-button">
+          Continue
+        </button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

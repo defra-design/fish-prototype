@@ -1,0 +1,108 @@
+{% extends "layout.html" %}
+
+{% set title = "What is the person’s date of birth?" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a href="javascript:history.back()" class="govuk-back-link">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row govuk-!-margin-bottom-9">
+    <div class="govuk-grid-column-two-thirds">
+
+      <!-- debug / show data -->
+      {% include "includes/clip/debug.html" %}
+
+      <form action="disability-concession" method="post" class="form">
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+
+              <!-- alternate headings -->
+              <h1 class="govuk-fieldset__heading">
+                {% if data['licenceFor'] == "user" %}
+                  What is your date of birth?
+                {% else %}
+                  What is their date of birth?
+                {% endif %}
+              </h1>
+
+            </legend>
+
+            <div id="dob-hint" class="govuk-hint">
+             For example, 11 2 1979
+            </div>
+
+            <details class="govuk-details" data-module="govuk-details">
+              <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">
+                  Why we need an accurate date of birth
+                </span>
+              </summary>
+              <div class="govuk-details__text">
+                We use date of birth for enforcement purposes, to check eligibility for concessions and for licence renewal. If you are purchasing on behalf of some one else, please enter their date of birth.
+              </div>
+            </details>
+            <div class="govuk-date-input" id="dob">
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="dob_day">
+                    Day
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="dob_day" name="dob_day" type="text" pattern="[0-9]*" inputmode="numeric"></div>
+              </div>
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="dob_month">
+                    Month
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="dob_month" name="dob_month" type="text" pattern="[0-9]*" inputmode="numeric"></div>
+              </div>
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="dob_year">
+                    Year
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="dob_year" name="dob_year" type="text" pattern="[0-9]*" inputmode="numeric"></div>
+              </div>
+            </div>
+
+          </fieldset>
+        </div>
+
+        <p class="govuk-body">
+          Read about <a href="">how we use personal information</a>
+        </p>
+
+        <button class="govuk-button" data-module="govuk-button">
+          Continue
+        </button>
+      </form>
+
+    </div>
+  </div>
+
+  <!-- shortcut through flow -->
+  <!-- <div class="prototype-only">
+    <ul class="govuk-list govuk-list--bullet">
+      <li>
+        <a href="licence-summary">
+          Skip to the licence summary
+        </a>
+      </li>
+      <li>
+        <a href="contact-summary">
+          Skip to the contact summary
+        </a>
+      </li>
+    </ul>
+  </div> -->
+
+{% endblock %}
