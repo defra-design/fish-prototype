@@ -1,0 +1,124 @@
+{% extends "layout.html" %}
+
+
+{% block pageTitle %}
+Licence price increase - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <!-- debug / show data -->
+    {% include "includes/clip/debug.html" %}
+
+
+
+    <h1 class="govuk-heading-l">Licence price increase information</h1>
+
+    <p class="govuk-body">placeholder paragraph</p>
+
+
+    <table class="govuk-table">
+      <caption class="govuk-table__caption govuk-table__caption--m">Current licence prices</caption>
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Licence type</th>
+          <th scope="col" class="govuk-table__header">Trout and coarse up to 2-rod</th>
+          <th scope="col" class="govuk-table__header">Trout and coarse 3-rod</th>
+          <th scope="col" class="govuk-table__header">Salmon and sea trout</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">1-day</th>
+          <td class="govuk-table__cell">£6</td>
+          <td class="govuk-table__cell">Not available</td>
+          <td class="govuk-table__cell">£12</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">8-day</th>
+          <td class="govuk-table__cell">£12</td>
+          <td class="govuk-table__cell">Not available</td>
+          <td class="govuk-table__cell">£27</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">12-month</th>
+          <td class="govuk-table__cell">£30</td>
+          <td class="govuk-table__cell">£45</td>
+          <td class="govuk-table__cell">£82</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">12-month - over 65 or disabled</th>
+          <td class="govuk-table__cell">£20</td>
+          <td class="govuk-table__cell">£30</td>
+          <td class="govuk-table__cell">£54</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">12-month - junior (13 to 16)</th>
+          <td class="govuk-table__cell">Free</td>
+          <td class="govuk-table__cell">Free</td>
+          <td class="govuk-table__cell">Free</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="govuk-body">placeholder paragraph</p>
+
+
+    <table class="govuk-table">
+      <caption class="govuk-table__caption govuk-table__caption--m">Licence prices from 1 April 2023</caption>
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Licence type</th>
+          <th scope="col" class="govuk-table__header">Trout and coarse up to 2-rod</th>
+          <th scope="col" class="govuk-table__header">Trout and coarse 3-rod</th>
+          <th scope="col" class="govuk-table__header">Salmon and sea trout</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">1-day</th>
+          <td class="govuk-table__cell">£6</td>
+          <td class="govuk-table__cell">Not available</td>
+          <td class="govuk-table__cell">£12</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">8-day</th>
+          <td class="govuk-table__cell">£12</td>
+          <td class="govuk-table__cell">Not available</td>
+          <td class="govuk-table__cell">£27</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">12-month</th>
+          <td class="govuk-table__cell">£30</td>
+          <td class="govuk-table__cell">£45</td>
+          <td class="govuk-table__cell">£82</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">12-month - over 65 or disabled</th>
+          <td class="govuk-table__cell">£20</td>
+          <td class="govuk-table__cell">£30</td>
+          <td class="govuk-table__cell">£54</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">12-month - junior (13 to 16)</th>
+          <td class="govuk-table__cell">Free</td>
+          <td class="govuk-table__cell">Free</td>
+          <td class="govuk-table__cell">Free</td>
+        </tr>
+      </tbody>
+    </table>
+
+
+  </div>
+</div>
+
+{% endblock %}
