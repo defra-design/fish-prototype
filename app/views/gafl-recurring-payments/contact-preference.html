@@ -1,0 +1,143 @@
+{% extends "layout.html" %}
+
+{% if data['licenceFor'] == "user" %}
+  {% set title = "How should we contact you with reminders and important changes?" %}
+{% else %}
+  {% set title = "How should we contact the licence holder about reminders and important changes?" %}
+{% endif %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+  <a href="javascript:history.back()" class="govuk-back-link">Back</a>
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <!-- debug / show data -->
+      {% include "includes/clip/debug.html" %}
+
+
+      {% if data['licenceFor'] == "user" %}
+        <form action="newsletter">
+      {% else %}
+        <form action="contact-summary">
+      {% endif %}
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <h1 class="govuk-fieldset__heading">
+                {{ title }}
+              </h1>
+            </legend>
+
+            <!-- <p class="govuk-body">
+              This is where we will send important updates and renewal reminders when the licence is expiring.
+            </p> -->
+
+            <p class="govuk-body">
+              This is where we will send renewal reminders when the licence is ending.
+            </p>
+
+            <p class="govuk-body">
+               We will also send important information like byelaw updates.
+            </p>
+
+            <!-- radios -->
+            <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+
+              <!-- radio 1 -->
+              <div class="govuk-radios__item">
+                {% if data['licenceBy'] == "email" %}
+                  <input class="govuk-radios__input" id="contact-by-email-radio" name="contact" type="radio" value="email" data-aria-controls="conditional-contact-by-email-option" checked>
+                {% else %}
+                  <input class="govuk-radios__input" id="contact-by-email-radio" name="contact" type="radio" value="email" data-aria-controls="conditional-contact-by-email-option">
+                {% endif %}
+                <label class="govuk-label govuk-radios__label" for="contact-by-email-radio">
+                  Email
+                </label>
+              </div>
+              <!-- reveal 1 -->
+              <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact-by-email-option">
+                {% if data['email'] %}
+                <!-- if there is an email address -->
+                  <p class="govuk-body">
+                    We will email <span class="govuk-!-font-weight-bold">{{ data['email'] }}</span>
+                  </p>
+                {% else %}
+                  <label class="govuk-label" for="input-email">
+                    Email address
+                  </label>
+                  <p class="govuk-hint">
+                    For example name@example.com.
+                  </p>
+                  <input class="govuk-input govuk-!-width-two-thirds" id="input-email" name="email" type="email" spellcheck="false">
+                {% endif %}
+              </div>
+
+              <!-- radio 2 -->
+              <div class="govuk-radios__item">
+                {% if data['contact'] == "phone" %}
+                <!-- if contact is set to text-message / "phone" -->
+                  <input class="govuk-radios__input" id="contact-by-text-radio" name="contact" type="radio" value="phone" data-aria-controls="conditional-contact-by-text-option" checked>
+                {% else %}
+                  <input class="govuk-radios__input" id="contact-by-text-radio" name="contact" type="radio" value="phone" data-aria-controls="conditional-contact-by-text-option">
+                {% endif %}
+                <label class="govuk-label govuk-radios__label" for="contact-by-text-radio">
+                  Text message
+                </label>
+              </div>
+
+              <!-- reveal 2 -->
+              <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact-by-text-option">
+                <div class="govuk-form-group">
+                  {% if data['phone-number'] %}
+                  <!-- if there is a phone number -->
+                    <p class="govuk-body">
+                      We will send text messages to <span class="govuk-!-font-weight-bold">{{ data['phone-number'] }}</span>
+                    </p>
+                  {% else %}
+                    <label class="govuk-label" for="input-phone-number">
+                      UK mobile phone number
+                    </label>
+                    <p class="govuk-hint">
+                      For example 07700 900 900.
+                    </p>
+                    <input class="govuk-input govuk-!-width-one-third" id="input-phone-number" name="phone-number" type="tel">
+                  {% endif %}
+                </div>
+              </div>
+
+              <!-- radio 3 -->
+              {% if data['licence-option'] == "paper-licence" %}
+              <!-- show if the licence option is paper -->
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="contact-by-post-radio" name="contact" type="radio" value="post">
+                  <label class="govuk-label govuk-radios__label" for="contact-by-post-radio">
+                    Post
+                  </label>
+                </div>
+              {% endif %}
+            </div>
+
+          </fieldset>
+        </div>
+
+        <button class="govuk-button" data-module="govuk-button">
+          Continue
+        </button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

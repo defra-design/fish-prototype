@@ -1,0 +1,200 @@
+{% extends "layout.html" %}
+
+{% set title = "Payment complete" %}
+
+<!-- grab data from allLicences -->
+{% set allLicences = data['allLicences'] %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+<!-- <a href="javascript:history.back()" class="govuk-back-link">Back</a> -->
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <div class="govuk-panel govuk-panel--confirmation govuk-!-margin-bottom-6">
+
+        <span class="govuk-panel__title">£60</span>
+        <h1 class="govuk-panel__title">
+          {{ title }}
+        </h1>
+
+        <div class="govuk-panel__body">
+          <div class="govuk-!-margin-bottom-6">
+            You have <span class="govuk-!-font-weight-bold">{{ allLicences.length }} licences</span>
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+
+
+
+
+
+
+
+      <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
+        <div class="govuk-accordion__section ">
+          <div class="govuk-accordion__section-header">
+            <h2 class="govuk-accordion__section-heading">
+              <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                Writing well for the web
+              </span>
+            </h2>
+          </div>
+          <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
+            <p class='govuk-body'>This is the content for Writing well for the web.</p>
+          </div>
+        </div>
+        <div class="govuk-accordion__section ">
+          <div class="govuk-accordion__section-header">
+            <h2 class="govuk-accordion__section-heading">
+              <span class="govuk-accordion__section-button" id="accordion-default-heading-2">
+                Writing well for specialists
+              </span>
+            </h2>
+          </div>
+          <div id="accordion-default-content-2" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-2">
+            <p class='govuk-body'>This is the content for Writing well for specialists.</p>
+          </div>
+        </div>
+        <div class="govuk-accordion__section ">
+          <div class="govuk-accordion__section-header">
+            <h2 class="govuk-accordion__section-heading">
+              <span class="govuk-accordion__section-button" id="accordion-default-heading-3">
+                Know your audience
+              </span>
+            </h2>
+          </div>
+          <div id="accordion-default-content-3" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-3">
+            <p class='govuk-body'>This is the content for Know your audience.</p>
+          </div>
+        </div>
+        <div class="govuk-accordion__section ">
+          <div class="govuk-accordion__section-header">
+            <h2 class="govuk-accordion__section-heading">
+              <span class="govuk-accordion__section-button" id="accordion-default-heading-4">
+                How people read
+              </span>
+            </h2>
+          </div>
+          <div id="accordion-default-content-4" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-4">
+            <p class='govuk-body'>This is the content for How people read.</p>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      {% if data['licence-option'] == "digital" %}
+        <p class="govuk-body">
+          Licence holders can fish from the time and date their licence starts.
+        </p>
+        <p class="govuk-body">
+          Licences have been sent by email or text message.
+        </p>
+      {% else %}
+        <p class="govuk-body">
+          If the paperless licence option has been selected, the licence will be sent by text or email. If the licence card option has been selected, the licence card will arrive in the post within 15 working days.</p>
+          <p class="govuk-body">
+            Licences holders can fish from the start date and time on the licence and do not have to wait for the licence card to arrive.</p>
+            <p class="govuk-body">
+              The licence number must be provided to an enforcement officer when requested.</p>
+      {% endif %}
+
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+
+
+      <div class="govuk-!-margin-bottom-9">
+
+
+
+
+
+        {% if data['licence-option'] == "paper-licence" %}
+
+          <p class="govuk-body">
+            If you gave us an email address, we have sent a message that includes your licence information.
+          </p>
+
+            <!-- <div class="govuk-inset-text">
+              Make a record of your licence number.
+            </div> -->
+
+            <div class="govuk-body">
+              Make a record of your licence number.
+            </div>
+
+        {% endif %}
+
+
+
+
+        <p class="govuk-body">
+          You must follow the <a href="https://www.gov.uk/guidance/national-rod-fishing-byelaws-for-england-freshwater-fishing-with-a-rod-and-line" class="govuk_link" target="_blank">rod fishing byelaws (opens in new tab)</a>.
+        </p>
+
+        <p class="govuk-body">
+          <a href="https://www.gov.uk/government/publications/fisheries-annual-report-2019-to-2020/fisheries-annual-report-2019-to-2020" class="govuk_link">Read the Fisheries annual report 2019 to 2020</a> to find out how we spend licence money.
+        </p>
+
+
+
+      <p class="govuk-body">
+        <a href="https://www.smartsurvey.co.uk/s/0L205/" class="govuk-link">Tell us what you think of the service</a> (takes 30 seconds)
+      </p>
+      </div>
+
+    </div>
+  </div>
+
+{% endblock %}
