@@ -1,0 +1,158 @@
+{% extends "layout.html" %}
+
+{% set title = "Check the licence details" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+  <!-- <a href="javascript:history.back()" class="govuk-back-link">Back</a> -->
+
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+      <div class="govuk-notification-banner__header">
+        <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+          Important
+        </h2>
+      </div>
+      <div class="govuk-notification-banner__content">
+        <p class="govuk-notification-banner__heading">
+          Licence prices are going up
+        </p>
+        <p class="govuk-body">
+          Rod fishing licences starting on or after 1 April 2023 are increasing in price. <a href="../gafl-price-increase/licence-price-increase" class="govuk-link" rel="noreferrer noopener" target="_blank">See licence price increases (opens in new tab)</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">{{ title }}</h1>
+
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="licence-option">
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+
+
+
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Name
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Bob Mortimer
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">
+                Change<span class="govuk-visually-hidden"> licence name</span>
+              </a>
+            </dd>
+          </div>
+
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Type
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Trout and coarse, up to 2 rods
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="change-licence-type">
+                Change<span class="govuk-visually-hidden"> licence type</span>
+              </a>
+            </dd>
+          </div>
+
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Length
+            </dt>
+            <dd class="govuk-summary-list__value">
+              12 months
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">
+                Change<span class="govuk-visually-hidden"> licence length</span>
+              </a>
+            </dd>
+          </div>
+
+
+
+
+
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Start date
+            </dt>
+            <dd class="govuk-summary-list__value">
+              30 minutes after payment
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="change-start-kind">
+                Change<span class="govuk-visually-hidden"> start date</span>
+              </a>
+            </dd>
+          </div>
+
+
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Disability concession
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <p class="govuk-body">None</p>
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="change-disability-concession">
+                Change<span class="govuk-visually-hidden"> disability concession</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Cost
+            </dt>
+            <dd class="govuk-summary-list__value">
+              £30
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <!-- <a class="govuk-link" href="#">
+                Change<span class="govuk-visually-hidden"> contact details</span>
+              </a> -->
+            </dd>
+          </div>
+        </dl>
+
+        <button class="govuk-button" data-module="govuk-button">
+          Continue
+        </button>
+
+      </form>
+
+      <a class="govuk-link" href="#">Buy a different licence</a>
+
+    </div>
+  </div>
+
+{% endblock %}
