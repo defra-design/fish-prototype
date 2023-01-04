@@ -457,4 +457,21 @@ router.post('/service-start-routing', function (req, res) {
   }
 })
 
+
+
+
+router.post('/gafl-recurring-payments/payment-options-form', function (req, res) {
+  // const prototypeToUse = getPrototypeToUse(req)
+  // Make a variable from session data
+  let paymentOption = req.session.data['payment-options-radio']
+  // route depending on value
+  if (paymentOption === 'single-payment') {
+    res.redirect('payment-details')
+  } else {
+    res.redirect('gafl-recurring-payments/will-a-chick-do')
+  }
+})
+
+
+
 module.exports = router
