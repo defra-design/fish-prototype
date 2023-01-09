@@ -1,8 +1,13 @@
-const express = require('express')
-const { URL } = require('url')
-const router = express.Router()
+//
+// For guidance on how to create routes see:
+// https://prototype-kit.service.gov.uk/docs/create-routes
+//
 
-// Add your routes here - above the module.exports line
+const govukPrototypeKit = require('govuk-prototype-kit')
+const router = govukPrototypeKit.requests.setupRouter()
+
+// Add your routes here
+
 
 // GAFL routes
 /// //////////////////////////////////////////////////////////
@@ -474,4 +479,3 @@ router.post('/gafl-recurring-payments/payment-options-form', function (req, res)
 
 
 
-module.exports = router
