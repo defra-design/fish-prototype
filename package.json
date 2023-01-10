@@ -10,6 +10,6 @@
     "govuk-frontend": "^4.4.1",
     "govuk-prototype-kit": "^13.1.0",
     "jquery": "^3.6.3",
-    "notifications-node-client": "^5.2.3"
+    "notifications-node-client": "^6.0.0"
   }
 }
