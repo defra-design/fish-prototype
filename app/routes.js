@@ -473,9 +473,6 @@ router.post('/gafl-recurring-payments/payment-options-form', function (req, res)
   if (paymentOption === 'single-payment') {
     res.redirect('payment-details')
   } else {
-    res.redirect('gafl-recurring-payments/will-a-chick-do')
+    res.redirect('rp-terms')
   }
 })
-
-
-
