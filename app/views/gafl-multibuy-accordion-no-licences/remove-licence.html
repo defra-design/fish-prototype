@@ -1,0 +1,75 @@
+{% extends "layout.html" %}
+
+{% set title = "Are you sure you want to remove this licence?" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">
+      {{ title }}
+    </h1>
+
+    <!-- table for licence information -->
+    <dl class="govuk-summary-list govuk-!-margin-bottom-6">
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key govuk-!-width-one-third">
+          Name
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Sam Fisher
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Type
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Trout and coarse, up to 2 rods
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Length
+        </dt>
+        <dd class="govuk-summary-list__value">
+          12 month
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row govuk-summary-list__row--last">
+        <dt class="govuk-summary-list__key">
+          Starts
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {% if data['midnight'] %}
+            {% include "includes/clip/midnight.html" %} on 12 May 2022
+          {% else %}
+            30 minutes after payment
+          {% endif %}
+        </dd>
+      </div>
+
+    </dl>
+
+    <div class="govuk-button-group">
+      <a class="govuk-button" data-module="govuk-button" href="no-licences">
+        Yes, remove it
+      </a>
+      <!-- hacked because the prototype kit does not use the latest front end -->
+      <a class="govuk-link" href="selected-licences">
+        Cancel
+      </a>
+    </div>
+
+  </div>
+</div>
+
+{% endblock %}
