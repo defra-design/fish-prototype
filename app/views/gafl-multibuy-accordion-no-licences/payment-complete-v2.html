@@ -29,38 +29,35 @@
 
         <div class="govuk-panel__body">
           <div class="govuk-!-margin-bottom-6">
-            You have 1 licence</span>
+            You have <span class="govuk-!-font-weight-bold">4 licences</span>
           </div>
 
-          <!-- licence instance -->
-          {% for i in allLicences %}
 
-            <div class="govuk-!-margin-bottom-6">
-              <div class="govuk-!-margin-bottom-3">
-                <!-- {{ loop.index0 }} -->
-                {{ i.firstName }} {{ i.lastName }}
-              </div>
 
-              <strong>
-                {{ data['licenceNumbers'][loop.index0] }}
-              </strong><br>
-              {% if data['midnight'] %}
-                Starts from {% include "includes/clip/midnight.html" %} on 12 May 2022
-              {% else %}
-                Starts from {{ data['times'][loop.index0] }} on 12 May 2022
-              {% endif %}
-
-            </div>
-
-          {% endfor %}
 
         </div>
       </div>
-      <form action="licence-information">
+      <!-- <form action="licence-information">
         <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
           View licence details
         </button>
       </form>
+ -->
+
+
+
+
+
+ <p class="govuk-body">
+   <a href="/gafl-multibuy-accordion/licence-information-static" class="govuk-link">View licence details</a>
+ </p>
+
+
+
+
+
+<h2 class="govuk-heading-m">What happens next</h2>
+
 
       {% if data['licence-option'] == "digital" %}
         <p class="govuk-body">

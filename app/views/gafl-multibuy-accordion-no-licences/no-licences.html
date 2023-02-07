@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% set title = "Your licence basket" %}
+
+<!-- grab data from allLicences -->
+{% set allLicences = data['allLicences'] %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <h1 class="govuk-heading-xl">
+      {{ title }}
+    </h1>
+
+    <!-- licence instance -->
+    <section class="govuk-!-margin-bottom-12">
+
+
+          <p class="govuk-body">You currently have no licences in your basket.</p>
+
+        </section>
+
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="who-is-this-licence-for?licenceFor=&email=&error=&phone-number=" method="post" class="form">
+
+      {{govukButton({
+        text: "Add a licence"
+      })}}
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

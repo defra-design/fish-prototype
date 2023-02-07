@@ -1,0 +1,145 @@
+{% extends "layout.html" %}
+
+{% set title = "Your licence basket" %}
+
+<!-- grab data from allLicences -->
+{% set allLicences = data['allLicences'] %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <h1 class="govuk-heading-xl">
+      {{ title }}
+    </h1>
+
+    <!-- licence instance -->
+    <section class="govuk-!-margin-bottom-6">
+
+          <h2 class="govuk-heading-l">
+            Licence 1
+          </h2>
+
+          <!-- table for licence information -->
+          <dl class="govuk-summary-list govuk-!-margin-bottom-6">
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key govuk-!-width-one-third">
+                Name
+              </dt>
+              <dd class="govuk-summary-list__value">
+
+                  Sam Fisher
+
+              </dd>
+            </div>
+
+            <!-- <div class="govuk-summary-list__row table__row--divider">
+              <dt class="govuk-summary-list__key">
+                Identification
+              </dt>
+              <dd class="govuk-summary-list__value">
+                09197401276611
+              </dd>
+            </div> -->
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Type
+              </dt>
+              <dd class="govuk-summary-list__value">
+
+                  Trout and coarse, up to 2 rods
+
+              </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Length
+              </dt>
+              <dd class="govuk-summary-list__value">
+
+                  12 month
+
+              </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Starts
+              </dt>
+              <dd class="govuk-summary-list__value">
+
+                  30 minutes after payment
+
+              </dd>
+            </div>
+
+
+
+
+            <div class="govuk-summary-list__row govuk-summary-list__row--last">
+              <dt class="govuk-summary-list__key">
+                Cost
+              </dt>
+              <dd class="govuk-summary-list__value">
+
+                  £30
+
+              </dd>
+            </div>
+          </dl>
+
+          <div class="govuk-button-group">
+
+
+
+
+
+
+
+
+    <a href="licence-summary?source=multibuy" role="button" draggable="false" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+      Change
+    </a>
+
+
+
+
+
+
+
+
+
+
+    <a href="remove-licence" role="button" draggable="false" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+      Remove this licence
+    </a>
+
+          </div>
+
+        </section>
+
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="add-another-licence" method="post" class="form">
+
+      {{govukButton({
+        text: "Continue"
+      })}}
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}
