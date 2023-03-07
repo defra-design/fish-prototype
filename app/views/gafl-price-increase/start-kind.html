@@ -96,12 +96,57 @@
               </label>
             </div>
             <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-licence-start-2">
-              <div class="govuk-form-group">
-                <p class="govuk-body">
-                  (calendar input)
-                </p>
 
-              </div>
+<p class="govuk-body-m">Enter today’s date if you want the 1 or 8 day licence to start later today.</p>
+
+
+<div class="govuk-form-group">
+
+  <div id="licence-start-date-hint" class="govuk-hint">
+    Enter a date up to and including 06 04 2023
+  </div>
+
+
+  <div class="govuk-date-input" id="licence-start-date">
+
+    <div class="govuk-date-input__item">
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-date-input__label" for="licence-start-date-day">
+          day
+        </label>
+
+      <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="licence-start-date-day" name="licence-start-date-day" type="text" pattern="[0-9]*" inputmode="numeric" maxlength="2">
+
+      </div>
+    </div>
+
+    <div class="govuk-date-input__item">
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-date-input__label" for="licence-start-date-month">
+          month
+        </label>
+
+      <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="licence-start-date-month" name="licence-start-date-month" type="text" pattern="[0-9]*" inputmode="numeric" maxlength="2">
+
+      </div>
+    </div>
+
+    <div class="govuk-date-input__item">
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-date-input__label" for="licence-start-date-year">
+          year
+        </label>
+
+      <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="licence-start-date-year" name="licence-start-date-year" type="text" pattern="[0-9]*" inputmode="numeric" maxlength="4">
+
+      </div>
+    </div>
+
+  <div id="cal-image-div" aria-hidden="true" class="flatpickr-input" readonly="readonly"><img src="/public/images/icon-calendar-2x.png" alt="Click to open date picker"></div></div>
+
+</div>
+
+
             </div>
 
           </div>
