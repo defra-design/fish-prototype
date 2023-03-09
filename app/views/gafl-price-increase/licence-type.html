@@ -116,11 +116,6 @@
 
         {% if data['terms'] %}
 
-          <!-- more subtle notice -->
-
-          <!-- <p class="govuk-body">
-            Licence holders must understand and accept <a href="" target="_blank">licence terms for Trout and coarse, up to 2 rods licence (opens in a new tab)</a>.
-          </p> -->
 
           <!-- warning notice -->
           <div class="govuk-warning-text">
@@ -143,29 +138,62 @@
 
   </div>
 
-  <div class="govuk-grid-column-one-third">
 
-    <div id="prices">
 
-      <h2 class="govuk-heading-l">
-        How much will it cost?
-      </h2>
 
-      <p class="govuk-body" id="price1">
-        12 months £20<br>
-        <!-- Concession applied -->
-      </p>
 
-      <p class="govuk-body" id="price2">
-        8 days £12<br>
-      </p>
+  <div class="govuk-grid-column-one-third payment-summary-wrap">
 
-      <p class="govuk-body" id="price3">
-        1 day £6<br>
-      </p>
-
+    <div id="pricing-trout-and-coarse-2-rod" role="status" class="payment-summary initially-hidden trout-2" style="display: none;">
+      <h2 class="govuk-heading-m">How much will this cost?</h2>
+      <p class="govuk-body-s"></p>
+      <div class="govuk-body" id="pricing-summary-element-cost">
+        <span>12 months</span>
+        <strong>£30</strong>
+      </div>
+      <div class="govuk-body" id="pricing-summary-element-cost">
+        <span>8 days</span>
+        <strong>£12</strong>
+      </div>
+      <div class="govuk-body" id="pricing-summary-element-cost">
+        <span>1 day</span>
+        <strong>£6</strong>
+      </div>
     </div>
+
+    <div id="pricing-trout-and-coarse-3-rod" role="status" class="payment-summary initially-hidden trout-3" style="display: none;">
+      <h2 class="govuk-heading-m">How much will this cost?</h2>
+      <p class="govuk-body-s"></p>
+      <div class="govuk-body" id="pricing-summary-element-cost">
+        <span>12 months</span>
+        <strong>£45</strong>
+      </div>
+      <div class="govuk-body-s" id="pricing-summary-element-cost">
+        Shorter lengths are not available for this licence type
+      </div>
+    </div>
+
+    <div id="pricing-salmon-and-sea-trout" role="status" class="payment-summary initially-hidden trout-sea" style="display: none;">
+      <h2 class="govuk-heading-m">How much will this cost?</h2>
+      <p class="govuk-body-s"></p>
+      <div class="govuk-body" id="pricing-summary-element-cost">
+        <span>12 months</span>
+        <strong>£82</strong>
+      </div>
+      <div class="govuk-body" id="pricing-summary-element-cost">
+        <span>8 days</span>
+        <strong>£27</strong>
+      </div>
+
+      <div class="govuk-body" id="pricing-summary-element-cost">
+        <span>1 day</span>
+        <strong>£12</strong>
+      </div>
+    </div>
+
+
   </div>
+
 
 
 </div>
@@ -174,10 +202,20 @@
 <script>
   $(document).ready(function(){
     $('input[type="radio"]').click(function(){
+      $('.payment-summary').hide();
+
       var inputValue = $(this).attr("value");
-      var targetBox = $("." + inputValue);
-      $(".box").not(targetBox).hide();
-      $(targetBox).show();
+
+      if (inputValue == 'Trout and coarse, up to 2 rods') {
+        $('.trout-2').show();
+      }
+      else if (inputValue == 'Trout and coarse, up to 3 rods') {
+        $('.trout-3').show();
+      }
+      else if (inputValue == 'Salmon and sea trout') {
+        $('.trout-sea').show();
+      }
+
     });
   });
 </script>

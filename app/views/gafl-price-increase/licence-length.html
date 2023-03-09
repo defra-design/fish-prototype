@@ -94,6 +94,62 @@
       </form>
 
     </div>
+
+
+    <div class="govuk-grid-column-one-third payment-summary-wrap">
+
+        <div id="pricing-12M" role="status" class="payment-summary initially-hidden" style="display: none;">
+            <h2 class="govuk-heading-m">How much will this cost?</h2>
+            <p class="govuk-body-s">Trout and coarse, up to 2 rods</p>
+                    <div class="govuk-body" id="pricing-summary-element-cost">
+                        <span>Total</span>
+                            <strong>£30</strong>
+                    </div>
+        </div>
+
+        <div id="pricing-8D" role="status" class="payment-summary initially-hidden" style="display: none;">
+            <h2 class="govuk-heading-m">How much will this cost?</h2>
+            <p class="govuk-body-s">Trout and coarse, up to 2 rods</p>
+                    <div class="govuk-body" id="pricing-summary-element-cost">
+                        <span>Total</span>
+                            <strong>£12</strong>
+                    </div>
+        </div>
+
+        <div id="pricing-1D" role="status" class="payment-summary initially-hidden" style="display: none;">
+            <h2 class="govuk-heading-m">How much will this cost?</h2>
+            <p class="govuk-body-s">Trout and coarse, up to 2 rods</p>
+                    <div class="govuk-body" id="pricing-summary-element-cost">
+                        <span>Total</span>
+                            <strong>£6</strong>
+                    </div>
+        </div>
+
+    </div>
+
+
   </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      $('input[type="radio"]').click(function(){
+        $('.payment-summary').hide();
+
+        var inputValue = $(this).attr("value");
+
+        if (inputValue == '12 month') {
+          $('#pricing-12M').show();
+        }
+        else if (inputValue == '8 day') {
+          $('#pricing-8D').show();
+        }
+        else if (inputValue == '1 day') {
+          $('#pricing-1D').show();
+        }
+
+      });
+    });
+  </script>
 
 {% endblock %}

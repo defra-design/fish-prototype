@@ -1,7 +1,7 @@
 //
 // For guidance on how to add CSS and SCSS see:
 // https://prototype-kit.service.gov.uk/docs/adding-css-javascript-and-images
-// 
+//
 
 // Add extra styles here
 
@@ -28,4 +28,11 @@
 
 .govuk-details__text.full-width table {
   text-align: left;
+}
+
+.payment-summary {
+    // margin-top: 30px;
+    border-top: 2px solid #1d70b8;
+    padding: 15px;
+    background-color: #f3f2f1;
 }
