@@ -39,7 +39,62 @@
       {% include "includes/clip/debug.html" %}
 
 
-      <form action="date-of-birth" method="post" class="form">
+      {% if data['errorcode'] == 10 %}
+
+        <!-- error summary -->
+        {{ govukErrorSummary({
+          titleText: "There is a problem",
+          errorList: [
+            {
+              text: "Enter the licence holder's first name",
+              href: "#firstName"
+            }
+          ]
+        }) }}
+
+      {% endif %}
+
+
+
+      {% if data['errorcode'] == 20 %}
+
+        <!-- error summary -->
+        {{ govukErrorSummary({
+          titleText: "There is a problem",
+          errorList: [
+            {
+              text: "Enter the licence holder's last name",
+              href: "#last-name"
+            }
+          ]
+        }) }}
+
+      {% endif %}
+
+
+
+
+      {% if data['errorcode'] == 30 %}
+
+        <!-- error summary -->
+        {{ govukErrorSummary({
+          titleText: "There is a problem",
+          errorList: [
+          {
+            text: "Enter the licence holder's first name",
+            href: "#firstName"
+          },
+          {
+            text: "Enter the licence holder's last name",
+            href: "#last-name"
+          }
+          ]
+        }) }}
+
+      {% endif %}
+
+
+      <form action="/nameCheck" method="post" class="form">
 
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset">
@@ -59,21 +114,39 @@
               </p>
             {% endif %}
 
-            <div class="govuk-form-group">
+            {% if data['errorcode'] == 10 or data['errorcode'] == 30 %}
+              <div class="govuk-form-group govuk-form-group--error">
+            {% else %}
+              <div class="govuk-form-group">
+            {% endif %}
               <label class="govuk-label" for="width-20">
                 First name
               </label>
               <div class="govuk-hint govuk-body govuk-!-margin-bottom-2"">
                  Do not use abbreviations or nicknames.<br>
                </div>
-              <input class="govuk-input govuk-input--width-20" id="firstName" name="firstName" type="text">
+               {% if data['errorcode'] == 10 or data['errorcode'] == 30 %}
+                 <span class="govuk-error-message" id="question">
+                   <span class="govuk-visually-hidden">Error:</span> Enter the first name
+                 </span>
+               {% endif %}
+              <input class="govuk-input govuk-input--width-20" id="firstName" name="firstName" type="text" value="{{ data['firstName'] }}">
             </div>
 
-            <div class="govuk-form-group">
+            {% if data['errorcode'] == 20 or data['errorcode'] == 30 %}
+              <div class="govuk-form-group govuk-form-group--error">
+            {% else %}
+              <div class="govuk-form-group">
+            {% endif %}
               <label class="govuk-label" for="width-20">
                 Last name
               </label>
-              <input class="govuk-input govuk-input--width-20" id="last-name" name="last-name" type="text">
+              {% if data['errorcode'] == 20 or data['errorcode'] == 30 %}
+                <span class="govuk-error-message" id="question">
+                  <span class="govuk-visually-hidden">Error:</span> Enter the last name
+                </span>
+              {% endif %}
+              <input class="govuk-input govuk-input--width-20" id="last-name" name="last-name" type="text" value="{{ data['last-name'] }}">
             </div>
 
           </fieldset>

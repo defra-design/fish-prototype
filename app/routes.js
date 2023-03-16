@@ -71,6 +71,17 @@ router.post('/check-licence-option', function (req, res) {
 // how can we know it is the same other?
 // check name
 
+
+
+
+
+
+
+
+
+
+
+
 // Routing for ‘Who is the licence for?’ radio options
 router.post('/licenceHolder', function (req, res) {
   // Make a variable from session data
@@ -133,6 +144,49 @@ router.post('/licenceHolder', function (req, res) {
     res.redirect(`/${prototypeToUse}/who-is-this-licence-for?error=1`)
   }
 })
+
+
+
+
+
+
+
+
+
+router.post('/nameCheck', function (req, res) {
+  // Make a variable from session data
+  let firstName = req.session.data['firstName']
+  let lastName = req.session.data['last-name']
+  let errorCode = 0
+  const prototypeToUse = getPrototypeToUse(req)
+
+  if (!firstName && lastName) {
+    res.redirect(`/${prototypeToUse}/name?errorcode=10`)
+  }
+  else if (firstName && !lastName) {
+    res.redirect(`/${prototypeToUse}/name?errorcode=20`)
+  }
+  else if (!firstName && !lastName) {
+    res.redirect(`/${prototypeToUse}/name?errorcode=30`)
+  } else {
+    res.redirect(`/${prototypeToUse}/date-of-birth`)
+  }
+
+  console.log(errorCode)
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 router.post('/multibuy-check-licence-type', function (req, res) {
   const prototypeToUse = getPrototypeToUse(req)
