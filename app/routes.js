@@ -172,8 +172,27 @@ router.post('/nameCheck', function (req, res) {
     res.redirect(`/${prototypeToUse}/date-of-birth`)
   }
 
-  console.log(errorCode)
 })
+
+
+router.post('/dateOfBirth', function (req, res) {
+  // Make a variable from session data
+  let dobDay = req.session.data['dob_day']
+  let dobMonth = req.session.data['dob_month']
+  let dobYear = req.session.data['dob_year']
+  let errorCode = 0
+  const prototypeToUse = getPrototypeToUse(req)
+
+  if (!dobDay || !dobMonth || !dobYear) {
+    res.redirect(`/${prototypeToUse}/date-of-birth?errorcode=10`)
+  }
+  else {
+    res.redirect(`/${prototypeToUse}/disability-concession`)
+  }
+
+})
+
+
 
 
 

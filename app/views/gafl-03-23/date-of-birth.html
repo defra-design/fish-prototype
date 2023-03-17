@@ -33,7 +33,26 @@
       <!-- debug / show data -->
       {% include "includes/clip/debug.html" %}
 
-      <form action="disability-concession" method="post" class="form">
+
+
+      {% if data['errorcode'] == 10 %}
+
+        <!-- error summary -->
+        {{ govukErrorSummary({
+          titleText: "There is a problem",
+          errorList: [
+            {
+              text: "Enter the licence holder's date of birth and include a day, month and year",
+              href: "#dob_day"
+            }
+          ]
+        }) }}
+
+      {% endif %}
+
+
+
+      <form action="/dateOfBirth" method="post" class="form">
 
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset">
@@ -66,29 +85,56 @@
                 For licences starting on or after 1 April 2023, the age a licence holder can get a discounted 12-month licence is changing from 65 to 66.
             </div>
 
+
+
+
+
+
+
+
+{% if data['errorcode'] == 10 %}
+<div class="govuk-form-group govuk-form-group--error">
+  <p id="date-of-birth-error" class="govuk-error-message">
+    <span class="govuk-visually-hidden">Error:</span> Enter the date of birth
+  </p>
+{% else %}
+<div class="govuk-form-group">
+{% endif %}
+
             <div class="govuk-date-input" id="dob">
+
               <div class="govuk-date-input__item">
                 <div class="govuk-form-group">
                   <label class="govuk-label govuk-date-input__label" for="dob_day">
                     Day
                   </label>
-                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="dob_day" name="dob_day" type="text" pattern="[0-9]*" inputmode="numeric"></div>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="dob_day" name="dob_day" type="text" pattern="[0-9]*" inputmode="numeric" value="{{ data['dob_day'] }}"></div>
               </div>
+
               <div class="govuk-date-input__item">
                 <div class="govuk-form-group">
                   <label class="govuk-label govuk-date-input__label" for="dob_month">
                     Month
                   </label>
-                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="dob_month" name="dob_month" type="text" pattern="[0-9]*" inputmode="numeric"></div>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="dob_month" name="dob_month" type="text" pattern="[0-9]*" inputmode="numeric" value="{{ data['dob_month'] }}"></div>
               </div>
+
               <div class="govuk-date-input__item">
                 <div class="govuk-form-group">
                   <label class="govuk-label govuk-date-input__label" for="dob_year">
                     Year
                   </label>
-                  <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="dob_year" name="dob_year" type="text" pattern="[0-9]*" inputmode="numeric"></div>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="dob_year" name="dob_year" type="text" pattern="[0-9]*" inputmode="numeric" value="{{ data['dob_year'] }}"></div>
               </div>
+
             </div>
+</div>
+
+
+
+
+
+
 
           </fieldset>
         </div>
