@@ -37,7 +37,20 @@
     <!-- debug / show data -->
     {% include "includes/clip/debug.html" %}
 
+    {% if data['errorcode'] == 11 %}
 
+      <!-- error summary -->
+      {{ govukErrorSummary({
+        titleText: "There is a problem",
+        errorList: [
+          {
+            text: "Choose one of the fishing licence types",
+            href: "#licence-type"
+          }
+        ]
+      }) }}
+
+    {% endif %}
 
     <form action="/multibuy-check-licence-type" method="post" class="form">
 

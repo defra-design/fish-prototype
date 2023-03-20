@@ -40,6 +40,37 @@
 
 
 
+    {% if data['errorcode'] == 10 %}
+
+      <!-- error summary -->
+      {{ govukErrorSummary({
+        titleText: "There is a problem",
+        errorList: [
+          {
+            text: "Choose when the licence should start",
+            href: "#licence-start"
+          }
+        ]
+      }) }}
+
+    {% endif %}
+
+    {% if data['errorcode'] == 20 %}
+
+      <!-- error summary -->
+      {{ govukErrorSummary({
+        titleText: "There is a problem",
+        errorList: [
+          {
+            text: "Enter the date when the licence should start",
+            href: "#licence-start-date-day"
+          }
+        ]
+      }) }}
+
+    {% endif %}
+
+
 
 
 
@@ -64,11 +95,7 @@
 
 
 
-
-
-
-
-    <form action="licence-type">
+    <form action="/licenceStart" method="post" class="form">
 
       <div class="govuk-form-group">
         <fieldset class="govuk-fieldset" aria-describedby="licence-start-hint">
@@ -82,6 +109,19 @@
             The licence can start today or any day within the next 30 days.
           </p>
 
+
+
+
+
+
+          {% if data['errorcode'] == 10 %}
+            <div class="govuk-form-group govuk-form-group--error">
+              <span class="govuk-error-message" id="question">
+                <span class="govuk-visually-hidden">Error:</span> Choose when the licence should start
+              </span>
+          {% else %}
+            <div class="govuk-form-group">
+              {% endif %}
           <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="licence-start" name="licence-start" type="radio" value="email" data-aria-controls="conditional-licence-start">
@@ -95,61 +135,78 @@
                 Later
               </label>
             </div>
-            <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-licence-start-2">
+            {% if data['errorcode'] == 20 %}
+            <div class="govuk-radios__conditional" id="conditional-licence-start-2">
+              {% else %}
+              <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-licence-start-2">
+                {% endif %}
 
-<p class="govuk-body-m">Enter today’s date if you want the 1 or 8 day licence to start later today.</p>
-
-
-<div class="govuk-form-group">
-
-  <div id="licence-start-date-hint" class="govuk-hint">
-    Enter a date up to and including 06 04 2023
-  </div>
+              <p class="govuk-body-m">Enter today’s date if you want the 1 or 8 day licence to start later today.</p>
 
 
-  <div class="govuk-date-input" id="licence-start-date">
+              <div class="govuk-form-group">
 
-    <div class="govuk-date-input__item">
-      <div class="govuk-form-group">
-        <label class="govuk-label govuk-date-input__label" for="licence-start-date-day">
-          day
-        </label>
+                <div id="licence-start-date-hint" class="govuk-hint">
+                  Enter a date up to and including 06 04 2023
+                </div>
 
-      <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="licence-start-date-day" name="licence-start-date-day" type="text" pattern="[0-9]*" inputmode="numeric" maxlength="2">
 
-      </div>
-    </div>
+                <div class="govuk-date-input" id="licence-start-date">
 
-    <div class="govuk-date-input__item">
-      <div class="govuk-form-group">
-        <label class="govuk-label govuk-date-input__label" for="licence-start-date-month">
-          month
-        </label>
+                  <div class="govuk-date-input__item">
+                    <div class="govuk-form-group">
+                      <label class="govuk-label govuk-date-input__label" for="licence-start-date-day">
+                        day
+                      </label>
 
-      <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="licence-start-date-month" name="licence-start-date-month" type="text" pattern="[0-9]*" inputmode="numeric" maxlength="2">
+                      <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="licence-start-date-day" name="licence-start-date-day" type="text" pattern="[0-9]*" inputmode="numeric" maxlength="2">
 
-      </div>
-    </div>
+                    </div>
+                  </div>
 
-    <div class="govuk-date-input__item">
-      <div class="govuk-form-group">
-        <label class="govuk-label govuk-date-input__label" for="licence-start-date-year">
-          year
-        </label>
+                  <div class="govuk-date-input__item">
+                    <div class="govuk-form-group">
+                      <label class="govuk-label govuk-date-input__label" for="licence-start-date-month">
+                        month
+                      </label>
 
-      <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="licence-start-date-year" name="licence-start-date-year" type="text" pattern="[0-9]*" inputmode="numeric" maxlength="4">
+                      <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="licence-start-date-month" name="licence-start-date-month" type="text" pattern="[0-9]*" inputmode="numeric" maxlength="2">
 
-      </div>
-    </div>
+                    </div>
+                  </div>
 
-  <div id="cal-image-div" aria-hidden="true" class="flatpickr-input" readonly="readonly"><img src="/public/images/icon-calendar-2x.png" alt="Click to open date picker"></div></div>
+                  <div class="govuk-date-input__item">
+                    <div class="govuk-form-group">
+                      <label class="govuk-label govuk-date-input__label" for="licence-start-date-year">
+                        year
+                      </label>
 
-</div>
+                      <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="licence-start-date-year" name="licence-start-date-year" type="text" pattern="[0-9]*" inputmode="numeric" maxlength="4">
+
+                    </div>
+                  </div>
+
+                  <div id="cal-image-div" aria-hidden="true" class="flatpickr-input" readonly="readonly"><img src="/public/images/icon-calendar-2x.png" alt="Click to open date picker"></div>
+                </div>
+
+              </div>
 
 
             </div>
 
           </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
 
         </fieldset>
       </div>

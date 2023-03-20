@@ -56,6 +56,23 @@
 
 
 
+      {% if data['errorcode'] == 15 %}
+
+        <!-- error summary -->
+        {{ govukErrorSummary({
+          titleText: "There is a problem",
+          errorList: [
+            {
+              text: "The first name must contain at least 2 letters",
+              href: "#firstName"
+            }
+          ]
+        }) }}
+
+      {% endif %}
+
+
+
       {% if data['errorcode'] == 20 %}
 
         <!-- error summary -->
@@ -71,6 +88,22 @@
 
       {% endif %}
 
+
+
+      {% if data['errorcode'] == 25 %}
+
+        <!-- error summary -->
+        {{ govukErrorSummary({
+          titleText: "There is a problem",
+          errorList: [
+            {
+              text: "The last name must contain at least 2 letters",
+              href: "#last-name"
+            }
+          ]
+        }) }}
+
+      {% endif %}
 
 
 
@@ -94,6 +127,29 @@
       {% endif %}
 
 
+
+      {% if data['errorcode'] == 35 %}
+
+        <!-- error summary -->
+        {{ govukErrorSummary({
+          titleText: "There is a problem",
+          errorList: [
+            {
+              text: "The first name must contain at least 2 letters",
+              href: "#firstName"
+            },
+            {
+              text: "The last name must contain at least 2 letters",
+              href: "#last-name"
+            }
+          ]
+        }) }}
+
+      {% endif %}
+
+
+
+
       <form action="/nameCheck" method="post" class="form">
 
         <div class="govuk-form-group">
@@ -114,7 +170,7 @@
               </p>
             {% endif %}
 
-            {% if data['errorcode'] == 10 or data['errorcode'] == 30 %}
+            {% if data['errorcode'] == 10 or data['errorcode'] == 15 or data['errorcode'] == 30 or data['errorcode'] == 35 %}
               <div class="govuk-form-group govuk-form-group--error">
             {% else %}
               <div class="govuk-form-group">
@@ -125,7 +181,7 @@
               <div class="govuk-hint govuk-body govuk-!-margin-bottom-2"">
                  Do not use abbreviations or nicknames.<br>
                </div>
-               {% if data['errorcode'] == 10 or data['errorcode'] == 30 %}
+               {% if data['errorcode'] == 10 or data['errorcode'] == 15 or data['errorcode'] == 30 or data['errorcode'] == 35 %}
                  <span class="govuk-error-message" id="question">
                    <span class="govuk-visually-hidden">Error:</span> Enter the first name
                  </span>
@@ -133,7 +189,7 @@
               <input class="govuk-input govuk-input--width-20" id="firstName" name="firstName" type="text" value="{{ data['firstName'] }}">
             </div>
 
-            {% if data['errorcode'] == 20 or data['errorcode'] == 30 %}
+            {% if data['errorcode'] == 20 or data['errorcode'] == 30 or data['errorcode'] == 35 %}
               <div class="govuk-form-group govuk-form-group--error">
             {% else %}
               <div class="govuk-form-group">
@@ -141,7 +197,7 @@
               <label class="govuk-label" for="width-20">
                 Last name
               </label>
-              {% if data['errorcode'] == 20 or data['errorcode'] == 30 %}
+              {% if data['errorcode'] == 20 or data['errorcode'] == 30 or data['errorcode'] == 35 %}
                 <span class="govuk-error-message" id="question">
                   <span class="govuk-visually-hidden">Error:</span> Enter the last name
                 </span>

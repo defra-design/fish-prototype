@@ -150,9 +150,6 @@ router.post('/licenceHolder', function (req, res) {
 
 
 
-
-
-
 router.post('/nameCheck', function (req, res) {
   // Make a variable from session data
   let firstName = req.session.data['firstName']
@@ -168,11 +165,25 @@ router.post('/nameCheck', function (req, res) {
   }
   else if (!firstName && !lastName) {
     res.redirect(`/${prototypeToUse}/name?errorcode=30`)
-  } else {
+  }
+  else if (firstName.length < 2) {
+    res.redirect(`/${prototypeToUse}/name?errorcode=15`)
+  }
+  else if (lastName.length < 2) {
+    res.redirect(`/${prototypeToUse}/name?errorcode=25`)
+  }
+  else if (firstName.length < 2 && lastName.length < 2) {
+    res.redirect(`/${prototypeToUse}/name?errorcode=25`)
+  }
+   else {
     res.redirect(`/${prototypeToUse}/date-of-birth`)
   }
 
 })
+
+
+
+
 
 
 router.post('/dateOfBirth', function (req, res) {
@@ -197,10 +208,39 @@ router.post('/dateOfBirth', function (req, res) {
 
 
 
+router.post('/dConcession', function (req, res) {
+  // Make a variable from session data
+  let concType = req.session.data['concession']
+  let errorCode = 0
+  const prototypeToUse = getPrototypeToUse(req)
+
+  if (!concType) {
+    res.redirect(`/${prototypeToUse}/disability-concession?errorcode=10`)
+  }
+  else {
+    res.redirect(`/${prototypeToUse}/start-kind?concession=${concType}`)
+  }
+
+})
 
 
 
 
+router.post('/licenceStart', function (req, res) {
+  // Make a variable from session data
+  let licenceStart = req.session.data['licence-start']
+  let licenceStartDay = req.session.data['licence-start-date-day'];
+  let errorCode = 0
+  const prototypeToUse = getPrototypeToUse(req)
+
+  if (!licenceStart) {
+    res.redirect(`/${prototypeToUse}/start-kind?errorcode=10`)
+  }
+  else {
+    res.redirect(`/${prototypeToUse}/licence-type`)
+  }
+
+})
 
 
 
@@ -210,18 +250,29 @@ router.post('/dateOfBirth', function (req, res) {
 router.post('/multibuy-check-licence-type', function (req, res) {
   const prototypeToUse = getPrototypeToUse(req)
 
-  // Make a variable from session data
   let licenceType = req.session.data['licence-type']
-  // route depending on value
-  // i am not sure why we have this…
-  if (licenceType === 'Trout and coarse, up to 3 rods') {
+
+  if (!licenceType) {
+    res.redirect(`/${prototypeToUse}/licence-type?errorcode=11`)
+  } else if (licenceType === 'Trout and coarse, up to 3 rods') {
     res.redirect(`/${prototypeToUse}/licence-summary`)
   } else if (licenceType === 'Salmon and sea trout') {
     res.redirect(`/${prototypeToUse}/licence-length?rcr=true`)
   } else {
     res.redirect(`/${prototypeToUse}/licence-length`)
   }
+
+
 })
+
+
+
+
+
+
+
+
+
 
 // routing for the paperless question screen
 router.post('/multibuy-check-licence-option', function (req, res) {
