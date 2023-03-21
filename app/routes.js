@@ -285,7 +285,45 @@ router.post('/licenceLength', function (req, res) {
 })
 
 
+router.post('/licenceLength', function (req, res) {
+  // Make a variable from session data
+  let licenceLength = req.session.data['licence-length']
+  let errorCode = 0
+  const prototypeToUse = getPrototypeToUse(req)
 
+  if (!licenceLength) {
+    res.redirect(`/${prototypeToUse}/licence-length?errorcode=14`)
+  }
+  else {
+    res.redirect(`/${prototypeToUse}/licence-summary`)
+  }
+
+})
+
+
+
+
+router.post('/findAddress', function (req, res) {
+  // Make a variable from session data
+  let buildingNumber = req.session.data['building-number']
+  let postCode = req.session.data['postcode']
+  let findaddresserror = 0
+  const prototypeToUse = getPrototypeToUse(req)
+
+  if (!buildingNumber && postCode) {
+    res.redirect(`/${prototypeToUse}/find-address?findaddresserror=10`)
+  }
+  else if (buildingNumber && !postCode) {
+    res.redirect(`/${prototypeToUse}/find-address?findaddresserror=20`)
+  }
+  else if (!buildingNumber && !postCode) {
+    res.redirect(`/${prototypeToUse}/find-address?findaddresserror=30`)
+  }
+  else {
+    res.redirect(`/${prototypeToUse}/select-address`)
+  }
+
+})
 
 
 
