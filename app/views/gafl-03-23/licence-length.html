@@ -36,7 +36,26 @@
     <div class="govuk-grid-column-two-thirds">
 
 
-      <form action="licence-summary" method="post" class="form">
+      {% if data['errorcode'] == 14 %}
+
+        <!-- error summary -->
+        {{ govukErrorSummary({
+          titleText: "There is a problem",
+          errorList: [
+            {
+              text: "Choose the length of this licence",
+              href: "#licence-length"
+            }
+          ]
+        }) }}
+
+      {% endif %}
+
+
+
+
+
+      <form action="/licenceLength" method="post" class="form">
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
@@ -45,6 +64,18 @@
               </h1>
             </legend>
 
+
+
+
+
+            {% if data['errorcode'] == 14 %}
+              <div class="govuk-form-group govuk-form-group--error">
+                <span class="govuk-error-message" id="question">
+                  <span class="govuk-visually-hidden">Error:</span> Choose the length of this licence
+                </span>
+            {% else %}
+              <div class="govuk-form-group">
+                {% endif %}
             <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="licence-length" name="licence-length" type="radio" value="12 month" data-aria-controls="conditional-licence-length">
@@ -83,6 +114,7 @@
               </div>
 
 
+            </div>
             </div>
 
           </fieldset>

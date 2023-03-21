@@ -214,8 +214,8 @@ router.post('/dConcession', function (req, res) {
   let errorCode = 0
   const prototypeToUse = getPrototypeToUse(req)
 
-  if (!concType) {
-    res.redirect(`/${prototypeToUse}/disability-concession?errorcode=10`)
+  if (concType == 'None') {
+    res.redirect(`/${prototypeToUse}/disability-concession?errorcode=5`)
   }
   else {
     res.redirect(`/${prototypeToUse}/start-kind?concession=${concType}`)
@@ -234,7 +234,7 @@ router.post('/licenceStart', function (req, res) {
   const prototypeToUse = getPrototypeToUse(req)
 
   if (!licenceStart) {
-    res.redirect(`/${prototypeToUse}/start-kind?errorcode=10`)
+    res.redirect(`/${prototypeToUse}/start-kind?errorcode=11`)
   }
   else {
     res.redirect(`/${prototypeToUse}/licence-type`)
@@ -253,7 +253,7 @@ router.post('/multibuy-check-licence-type', function (req, res) {
   let licenceType = req.session.data['licence-type']
 
   if (!licenceType) {
-    res.redirect(`/${prototypeToUse}/licence-type?errorcode=11`)
+    res.redirect(`/${prototypeToUse}/licence-type?errorcode=12`)
   } else if (licenceType === 'Trout and coarse, up to 3 rods') {
     res.redirect(`/${prototypeToUse}/licence-summary`)
   } else if (licenceType === 'Salmon and sea trout') {
@@ -267,6 +267,22 @@ router.post('/multibuy-check-licence-type', function (req, res) {
 
 
 
+
+
+router.post('/licenceLength', function (req, res) {
+  // Make a variable from session data
+  let licenceLength = req.session.data['licence-length']
+  let errorCode = 0
+  const prototypeToUse = getPrototypeToUse(req)
+
+  if (!licenceLength) {
+    res.redirect(`/${prototypeToUse}/licence-length?errorcode=14`)
+  }
+  else {
+    res.redirect(`/${prototypeToUse}/licence-summary`)
+  }
+
+})
 
 
 

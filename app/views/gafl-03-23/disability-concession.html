@@ -38,6 +38,25 @@
       <!-- debug / show data -->
       {% include "includes/clip/debug.html" %}
 
+
+
+      {% if data['errorcode'] == 5 %}
+
+        <!-- error summary -->
+        {{ govukErrorSummary({
+          titleText: "There is a problem",
+          errorList: [
+            {
+              text: "Choose one of the options",
+              href: "#concession"
+            }
+          ]
+        }) }}
+
+      {% endif %}
+
+
+
       <form action="/dConcession" method="post" class="form">
 
         <div class="govuk-form-group">
@@ -50,6 +69,20 @@
             <p class="govuk-body">
               12 month licence holders may be eligible for disability concessions.
             </p>
+
+
+
+
+
+
+            {% if data['errorcode'] == 5 %}
+              <div class="govuk-form-group govuk-form-group--error">
+                <span class="govuk-error-message" id="question">
+                  <span class="govuk-visually-hidden">Error:</span> Choose one of the options
+                </span>
+            {% else %}
+              <div class="govuk-form-group">
+                {% endif %}
             <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="concession" name="concession" type="radio" value="PIP/DLA" data-aria-controls="conditional-concession">
@@ -84,13 +117,22 @@
                 </div>
               </div>
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="concession-3" name="concession" type="radio" value="None" data-aria-controls="conditional-concession-3">
+                <input class="govuk-radios__input" id="concession-3" name="concession" type="radio" value="No" data-aria-controls="conditional-concession-3">
                 <label class="govuk-label govuk-radios__label" for="concession-3">
                   No
                 </label>
               </div>
-
             </div>
+            </div>
+
+
+
+
+
+
+
+
+
 
           </fieldset>
         </div>

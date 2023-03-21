@@ -40,7 +40,7 @@
 
 
 
-    {% if data['errorcode'] == 10 %}
+    {% if data['errorcode'] == 11 %}
 
       <!-- error summary -->
       {{ govukErrorSummary({
@@ -114,7 +114,7 @@
 
 
 
-          {% if data['errorcode'] == 10 %}
+          {% if data['errorcode'] == 11 %}
             <div class="govuk-form-group govuk-form-group--error">
               <span class="govuk-error-message" id="question">
                 <span class="govuk-visually-hidden">Error:</span> Choose when the licence should start
