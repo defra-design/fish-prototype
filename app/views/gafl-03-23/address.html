@@ -26,10 +26,40 @@
 
 {% endblock %}
 
+{% set arr = [1,2] %}
+  {% set arr = (arr.push(3), arr) %}
+
 {% block content %}
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
+
+
+
+      {% if data['enteraddresserror'] == 10 %}
+
+        <!-- error summary -->
+        {{ govukErrorSummary({
+          titleText: "There is a problem",
+          errorList: [
+          {
+            text: "Enter a building number or name",
+            href: "#building-number"
+          },
+          {
+            text: "Enter a town or city",
+            href: "#town"
+          },
+          {
+            text: "Enter a postcode",
+            href: "#postcode"
+          }
+          ]
+        }) }}
+
+      {% endif %}
+
+
 
       <h1 class="govuk-heading-l">
         {% if data['licenceFor'] == "user" %}
@@ -39,15 +69,24 @@
         {% endif %}
       </h1>
 
-      <form action="select-address">
+      <form action="/enterAddress" method="post" class="form">
 
-        <div class="govuk-form-group">
+        {% if data['enteraddresserror'] == 10 %}
+          <div class="govuk-form-group govuk-form-group--error">
+        {% else %}
+          <div class="govuk-form-group">
+        {% endif %}
           <label class="govuk-label" for="width-20">
             Building number or name
             <br><span class="govuk-hint">
               For example, 47, Flat 2a or Rose Cottage
              </span>
           </label>
+          {% if data['enteraddresserror'] == 10 %}
+            <span class="govuk-error-message" id="question">
+              <span class="govuk-visually-hidden">Error:</span> Enter a building number or name
+            </span>
+          {% endif %}
           <input class="govuk-input govuk-input--width-20" id="building-number" name="building-number" type="text">
         </div>
 
@@ -65,20 +104,38 @@
           <input class="govuk-input govuk-input--width-20" id="address-2" name="address-2" type="text">
         </div>
 
-        <div class="govuk-form-group">
+        {% if data['enteraddresserror'] == 10 %}
+          <div class="govuk-form-group govuk-form-group--error">
+        {% else %}
+          <div class="govuk-form-group">
+        {% endif %}
           <label class="govuk-label" for="width-20">
             Town or city
           </label>
+          {% if data['enteraddresserror'] == 10 %}
+            <span class="govuk-error-message" id="question">
+              <span class="govuk-visually-hidden">Error:</span> Enter a town or city
+            </span>
+          {% endif %}
           <input class="govuk-input govuk-input--width-20" id="town" name="town" type="text">
         </div>
 
-        <div class="govuk-form-group">
+        {% if data['enteraddresserror'] == 10 %}
+          <div class="govuk-form-group govuk-form-group--error">
+        {% else %}
+          <div class="govuk-form-group">
+        {% endif %}
           <label class="govuk-label" for="width-20">
             Post code
             <br><span class="govuk-hint">
               For example, WA4 1AB
              </span>
           </label>
+          {% if data['enteraddresserror'] == 10 %}
+            <span class="govuk-error-message" id="question">
+              <span class="govuk-visually-hidden">Error:</span> Enter a postcode
+            </span>
+          {% endif %}
           <input class="govuk-input govuk-input--width-20" id="postcode" name="postcode" type="text">
         </div>
 

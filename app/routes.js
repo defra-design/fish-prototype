@@ -328,6 +328,26 @@ router.post('/findAddress', function (req, res) {
 
 
 
+router.post('/enterAddress', function (req, res) {
+  // Make a variable from session data
+  let buildingNumber = req.session.data['building-number']
+  let town = req.session.data['town']
+  let postCode = req.session.data['postcode']
+  let enteraddresserror = 0
+  const prototypeToUse = getPrototypeToUse(req)
+
+  if (!buildingNumber || !town || !postCode) {
+    res.redirect(`/${prototypeToUse}/address?enteraddresserror=10`)
+  }
+  else {
+    res.redirect(`/${prototypeToUse}/licence-option`)
+  }
+
+})
+
+
+
+
 // routing for the paperless question screen
 router.post('/multibuy-check-licence-option', function (req, res) {
   const prototypeToUse = getPrototypeToUse(req)
