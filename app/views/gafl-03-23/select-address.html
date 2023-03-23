@@ -35,15 +35,24 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      {% if data['junior'] %}
-        <form action="licence-by">
-      {% else %}
-        {% if data['licence-length'] == "12 month" %}
-          <form action="licence-option">
-        {% else %}
-          <form action="licence-by">
-        {% endif %}
+
+      {% if data['foundaddresserror'] == 1 %}
+
+        <!-- error summary -->
+        {{ govukErrorSummary({
+          titleText: "There is a problem",
+          errorList: [
+            {
+              text: "Choose an address",
+              href: "#found-address"
+            }
+          ]
+        }) }}
+
       {% endif %}
+
+
+        <form action="/selectAddress" method="post" class="form">
 
       <div class="govuk-form-group">
         <fieldset class="govuk-fieldset">
@@ -57,6 +66,14 @@
             4 addresses found for 2a Bailey House and BS2 1PP. <a href="" class="govuk-link">Change</a>
           </p>
 
+          {% if data['foundaddresserror'] == 1 %}
+            <div class="govuk-form-group govuk-form-group--error">
+              <span class="govuk-error-message" id="question">
+                <span class="govuk-visually-hidden">Error:</span> Choose an address
+              </span>
+          {% else %}
+            <div class="govuk-form-group">
+              {% endif %}
           <div class="govuk-radios">
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="found-address" name="found-address" type="radio" value="2A BAILEY HOUSE, BAILEY ROAD, BS2 1PP">
@@ -82,6 +99,7 @@
                 4A BAILEY HOUSE, BAILEY ROAD, BS2 1PP
               </label>
             </div>
+          </div>
           </div>
 
         </fieldset>

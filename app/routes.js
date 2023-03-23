@@ -348,20 +348,105 @@ router.post('/enterAddress', function (req, res) {
 
 
 
+router.post('/selectAddress', function (req, res) {
+  // Make a variable from session data
+  let foundAddress = req.session.data['found-address']
+  let junior = req.session.data['junior']
+  let licenceLength = req.session.data['licence-length']
+  let foundaddresserror = 0
+  const prototypeToUse = getPrototypeToUse(req)
+
+  if (!foundAddress) {
+    res.redirect(`/${prototypeToUse}/select-address?foundaddresserror=1`)
+  }
+  else {
+    if (junior) {
+      res.redirect(`/${prototypeToUse}/licence-by`)
+    }
+    else {
+      if (licenceLength == '12 month') {
+        res.redirect(`/${prototypeToUse}/licence-option`)
+      } else {
+        res.redirect(`/${prototypeToUse}/licence-by`)
+      }
+    }
+    // {% if data['junior'] %}
+    //   <form action="licence-by">
+    // {% else %}
+    //   {% if data['licence-length'] == "12 month" %}
+    //     <form action="licence-option">
+    //   {% else %}
+    //     <form action="licence-by">
+    //   {% endif %}
+    // {% endif %}
+  } // end of big else
+})
+
+
+
+
+router.post('/licenceBy', function (req, res) {
+  // Make a variable from session data
+  let licenceBy = req.session.data['licenceBy']
+  let licenceFor = req.session.data['licenceFor']
+  let junior = req.session.data['junior']
+  let licencebyerrorcode = 0
+  const prototypeToUse = getPrototypeToUse(req)
+
+  if (!licenceBy) {
+    res.redirect(`/${prototypeToUse}/licence-by?licencebyerrorcode=2`)
+  }
+  else {
+
+    if(junior) {
+      if(licenceFor == 'user') {
+        res.redirect(`/${prototypeToUse}/newsletter`)
+      } else {
+        res.redirect(`/${prototypeToUse}/contact-summary`)
+      }
+    } else {
+      res.redirect(`/${prototypeToUse}/contact-preference`)
+    }
+
+  }
+
+  // <!-- junior logic -->
+  // {% if data['junior'] %}
+  //   {% if data['licenceFor'] == "user" %}
+  //     <form action="newsletter" method="send" class="form">
+  //   {% else %}
+  //     <form action="contact-summary" method="send" class="form">
+  //   {% endif %}
+  // {% else %}
+  //   <form action="contact-preference" method="send" class="form">
+  // {% endif %}
+
+})
+
+
+
+
+
 // routing for the paperless question screen
-router.post('/multibuy-check-licence-option', function (req, res) {
+router.post('/multibuy-check-licence-option', function(req, res) {
   const prototypeToUse = getPrototypeToUse(req)
   // Make a variable from session data
   let licenceOption = req.session.data['licence-option']
-  // route depending on value
-  if (licenceOption === 'digital') {
-    // res.redirect('gafl/add-email')
-    res.redirect(`/${prototypeToUse}/licence-by`)
-  } else {
-    res.redirect(`/${prototypeToUse}/licence-confirmation`)
-  }
-})
+  let optionerrorcode = 0
 
+  if (!licenceOption) {
+    res.redirect(`/${prototypeToUse}/licence-option?optionerrorcode=1`)
+  } else {
+    // route depending on value
+    if (licenceOption === 'digital') {
+      // res.redirect('gafl/add-email')
+      res.redirect(`/${prototypeToUse}/licence-by`)
+    } else {
+      res.redirect(`/${prototypeToUse}/licence-confirmation`)
+    }
+  }
+
+})
 // check to route someone who wants to buy other licence
 router.post('/multibuy-add-licence', function (req, res) {
   // make variables from the session data

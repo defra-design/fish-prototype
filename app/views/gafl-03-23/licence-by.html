@@ -38,17 +38,27 @@
       <!-- debug / show data -->
       {% include "includes/clip/debug.html" %}
 
-      <!-- junior logic -->
-      {% if data['junior'] %}
-        <!-- bobo logic -->
-        {% if data['licenceFor'] == "user" %}
-          <form action="newsletter" method="send" class="form">
-        {% else %}
-          <form action="contact-summary" method="send" class="form">
-        {% endif %}
-      {% else %}
-        <form action="contact-preference" method="send" class="form">
+
+
+      {% if data['licencebyerrorcode'] == 2 %}
+
+        <!-- error summary -->
+        {{ govukErrorSummary({
+          titleText: "There is a problem",
+          errorList: [
+            {
+              text: "Choose how we should send the licence",
+              href: "#licence-by-email-radio"
+            }
+          ]
+        }) }}
+
       {% endif %}
+
+
+
+
+        <form action="/licenceBy" method="post" class="form">
 
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset">
@@ -69,12 +79,29 @@
                 This is where we will send the licence after payment.
               </p>
 
+
+
+
+
+
+
+
+
+
+
+              {% if data['licencebyerrorcode'] == 2 %}
+                <div class="govuk-form-group govuk-form-group--error">
+                  <!-- <span class="govuk-error-message" id="question">
+                    <span class="govuk-visually-hidden">Error:</span> Choose one of the fishing licence types
+                  </span> -->
+              {% else %}
+                <div class="govuk-form-group">
+                  {% endif %}
+
               <div class="govuk-inset-text">
                 {% if data['licenceFor'] == "user" %}
-                  <!-- You will receive your licence information by email or text message only. You will not receive a licence card. Your licence information can be used to verify your fishing licence to enforcement officers. -->
                   You will receive your licence information by email or text message only. You will not receive a licence card.
                 {% else %}
-                  <!-- Licence information will be sent by email or text message only. We will not send a licence card. The licence information can be used to verify the fishing licence to enforcement officers. -->
                   Licence information will be sent by email or text message only. We will not send a licence card.
                 {% endif %}
               </div>
@@ -83,7 +110,11 @@
 
             <!-- the radios -->
             <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
-
+              {% if data['licencebyerrorcode'] == 2 %}
+              <span class="govuk-error-message" id="question">
+                <span class="govuk-visually-hidden">Error:</span> Choose one of the fishing licence types
+              </span>
+              {% endif %}
               <!-- radio 1 -->
               <div class="govuk-radios__item">
 
@@ -159,6 +190,21 @@
 
 
             </div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
 
           </fieldset>
         </div>
