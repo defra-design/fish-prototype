@@ -34,11 +34,28 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
+
+    {% if data['agreetermserror'] == 1 %}
+
+      <!-- error summary -->
+      {{ govukErrorSummary({
+        titleText: "There is a problem",
+        errorList: [
+          {
+            text: "You have not agreed to the licence conditions",
+            href: "#agree-terms"
+          }
+        ]
+      }) }}
+
+    {% endif %}
+
+
     <h1 class="govuk-heading-l">
       {{ title }}
     </h1>
 
-    <form action="payment-details" method="post" class="form" id="recipient">
+    <form action="/licenceTerms" method="post" class="form" id="recipient">
 
       <p class="govuk-body">
         When you buy this licence you agree that: 
@@ -52,6 +69,21 @@
         <li>the licence is only valid for the specified date and time period, number of rods and the species of fish</li>
       </ul>
 
+
+
+
+
+
+
+
+      {% if data['contactpreferror'] == 1 %}
+        <div class="govuk-form-group govuk-form-group--error">
+          <span class="govuk-error-message" id="question">
+            <span class="govuk-visually-hidden">Error:</span> Choose how we should contact the licence holder
+          </span>
+      {% else %}
+        <div class="govuk-form-group">
+      {% endif %}
       <div class="govuk-checkboxes govuk-!-margin-bottom-6">
         <div class="govuk-checkboxes__item">
           <input class="govuk-checkboxes__input" id="agree-terms" name="agree-terms" type="checkbox" value="agree">
@@ -60,6 +92,14 @@
           </label>
         </div>
       </div>
+      </div>
+
+
+
+
+
+
+
 
       <div class="govuk-warning-text">
         <span class="govuk-warning-text__icon" aria-hidden="true">!</span>

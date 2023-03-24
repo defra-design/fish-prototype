@@ -35,7 +35,24 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <form action="contact-preference">
+
+      {% if data['licenceconferror'] == 1 %}
+
+        <!-- error summary -->
+        {{ govukErrorSummary({
+          titleText: "There is a problem",
+          errorList: [
+            {
+              text: "Choose how we should send the licence",
+              href: "#licence-confirmation-email-option"
+            }
+          ]
+        }) }}
+
+      {% endif %}
+
+
+      <form action="/licenceConfirmation" method="post" class="form">
       <!-- <form action="check-contact-info"> -->
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset">
@@ -49,8 +66,22 @@
               This is where we will send confirmation of the fishing licence.
             </p>
 
+
+
+
+            {% if data['licenceconferror'] == 1 %}
+              <div class="govuk-form-group govuk-form-group--error">
+            {% else %}
+              <div class="govuk-form-group">
+            {% endif %}
             <!-- radios -->
             <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+
+              {% if data['licenceconferror'] == 1 %}
+              <span class="govuk-error-message" id="question">
+                <span class="govuk-visually-hidden">Error:</span> Choose how we should send the licence
+              </span>
+              {% endif %}
 
               <!-- radio 1 -->
               <div class="govuk-radios__item">
@@ -129,7 +160,7 @@
               </div>
 
             </div>
-
+          </div>
           </fieldset>
         </div>
 

@@ -427,6 +427,73 @@ router.post('/licenceBy', function (req, res) {
 
 
 
+router.post('/licenceConfirmation', function (req, res) {
+  // Make a variable from session data
+  let licenceConf = req.session.data['licence-confirmation']
+  let licenceconferror = 0
+  const prototypeToUse = getPrototypeToUse(req)
+
+  if (!licenceConf) {
+    res.redirect(`/${prototypeToUse}/licence-confirmation?licenceconferror=1`)
+  }
+  else {
+    res.redirect(`/${prototypeToUse}/contact-preference`)
+  }
+
+})
+
+
+
+
+router.post('/contactPrefs', function (req, res) {
+  // Make a variable from session data
+  let contactPref = req.session.data['contact']
+  let licenceFor = req.session.data['licenceFor']
+  let contactpreferror = 0
+  const prototypeToUse = getPrototypeToUse(req)
+
+  if (!contactPref) {
+    res.redirect(`/${prototypeToUse}/contact-preference?contactpreferror=1`)
+  }
+  else {
+    if (licenceFor == 'user') {
+      res.redirect(`/${prototypeToUse}/newsletter`)
+    } else {
+      res.redirect(`/${prototypeToUse}/contact-summary`)
+    }
+
+  }
+
+  // {% if data['licenceFor'] == "user" %}
+  //   <form action="newsletter">
+  // {% else %}
+  //   <form action="contact-summary">
+  // {% endif %}
+
+})
+
+
+
+
+router.post('/licenceTerms', function (req, res) {
+  // Make a variable from session data
+  let agreeTerms = req.session.data['agree-terms']
+  let agreetermserror = 0
+  const prototypeToUse = getPrototypeToUse(req)
+
+  if (!agreeTerms) {
+    res.redirect(`/${prototypeToUse}/licence-terms?agreetermserror=1`)
+  }
+  else {
+    res.redirect(`/${prototypeToUse}/payment-details`)
+  }
+
+})
+
+
+
+
+
 // routing for the paperless question screen
 router.post('/multibuy-check-licence-option', function(req, res) {
   const prototypeToUse = getPrototypeToUse(req)

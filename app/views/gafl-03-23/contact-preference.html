@@ -39,11 +39,25 @@
       {% include "includes/clip/debug.html" %}
 
 
-      {% if data['licenceFor'] == "user" %}
-        <form action="newsletter">
-      {% else %}
-        <form action="contact-summary">
+      {% if data['contactpreferror'] == 1 %}
+
+        <!-- error summary -->
+        {{ govukErrorSummary({
+          titleText: "There is a problem",
+          errorList: [
+            {
+              text: "Choose how we should contact the licence holder",
+              href: "#contact-by-email-radio"
+            }
+          ]
+        }) }}
+
       {% endif %}
+
+
+
+        <form action="/contactPrefs" method="post" class="form">
+
 
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset">
@@ -65,8 +79,22 @@
                We will also send important information like byelaw updates.
             </p>
 
+
+
+
+            {% if data['contactpreferror'] == 1 %}
+              <div class="govuk-form-group govuk-form-group--error">
+            {% else %}
+              <div class="govuk-form-group">
+            {% endif %}
             <!-- radios -->
             <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+
+              {% if data['contactpreferror'] == 1 %}
+              <span class="govuk-error-message" id="question">
+                <span class="govuk-visually-hidden">Error:</span> Choose how we should contact the licence holder
+              </span>
+              {% endif %}
 
               <!-- radio 1 -->
               <div class="govuk-radios__item">
@@ -141,6 +169,11 @@
                 </div>
               {% endif %}
             </div>
+          </div>
+
+
+
+
 
           </fieldset>
         </div>

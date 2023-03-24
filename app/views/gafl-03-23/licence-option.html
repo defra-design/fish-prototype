@@ -72,8 +72,30 @@
             </p>
 
 
+
+
+
+
+
+
+
+
+
+
+            {% if data['optionerrorcode'] == 1 %}
+              <div class="govuk-form-group govuk-form-group--error">
+            {% else %}
+              <div class="govuk-form-group">
+            {% endif %}
             <!-- radios -->
             <div class="govuk-radios">
+
+              {% if data['optionerrorcode'] == 1 %}
+              <span class="govuk-error-message" id="question">
+                <span class="govuk-visually-hidden">Error:</span> Choose if you want this licence to be paperless
+              </span>
+              {% endif %}
+
               <!-- radio 1 -->
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="licence-option-digital" name="licence-option" type="radio" value="digital" aria-describedby="licence-option-digital-hint">
@@ -101,6 +123,14 @@
                 </div>
               </div>
             </div>
+          </div>
+
+
+
+
+
+
+
 
             <button class="govuk-button" data-module="govuk-button">
               Continue
