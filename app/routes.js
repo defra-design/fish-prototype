@@ -492,6 +492,23 @@ router.post('/licenceTerms', function (req, res) {
 
 
 
+router.post('/licenceTermsRP', function (req, res) {
+  // Make a variable from session data
+  let agreeTerms = req.session.data['agree-terms']
+  let agreetermserror = 0
+  const prototypeToUse = getPrototypeToUse(req)
+
+  if (!agreeTerms) {
+    res.redirect(`/${prototypeToUse}/licence-terms?agreetermserror=1`)
+  }
+  else {
+    res.redirect(`/${prototypeToUse}/payment-options`)
+  }
+
+})
+
+
+
 
 
 // routing for the paperless question screen
@@ -815,14 +832,13 @@ router.post('/service-start-routing', function (req, res) {
 
 
 
-router.post('/gafl-recurring-payments/payment-options-form', function (req, res) {
-  // const prototypeToUse = getPrototypeToUse(req)
-  // Make a variable from session data
+router.post('/payment-options-form', function (req, res) {
   let paymentOption = req.session.data['payment-options-radio']
-  // route depending on value
+  const prototypeToUse = getPrototypeToUse(req)
+
   if (paymentOption === 'single-payment') {
-    res.redirect('payment-details')
+    res.redirect(`${prototypeToUse}/payment-details`)
   } else {
-    res.redirect('rp-terms')
+    res.redirect(`${prototypeToUse}/rp-terms`)
   }
 })

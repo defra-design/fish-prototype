@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% set title = "Recurring payments - terms and conditions" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">{{ title }}</h1>
+
+      <p class="gov-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean tristique est sed ipsum porttitor vehicula. Nullam molestie ultricies dui, non rutrum velit faucibus sed.</p>
+      <p class="gov-body">Integer vitae elit mi. Duis pretium suscipit pulvinar. Suspendisse potenti. Proin vel nulla a ligula lacinia mattis. Vestibulum dictum enim at posuere viverra. Sed vestibulum massa vitae ipsum consectetur.</p>
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="terms-hint">
+          <div class="govuk-checkboxes">
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="terms" name="terms" type="checkbox" value="agreed">
+              <label class="govuk-label govuk-checkboxes__label" for="terms">
+                I agree to the terms and conditions
+              </label>
+            </div>
+        </fieldset>
+      </div>
+
+      <form action="payment-details">
+        <button class="govuk-button" data-module="govuk-button">
+          Continue
+        </button>
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

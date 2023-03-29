@@ -1,0 +1,133 @@
+{% extends "layout-renew.html" %}
+
+{% set title = "Licence conditions" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <span class="govuk-phase-banner__text no-print">
+      Your <a class="govuk-link" href="https://www.smartsurvey.co.uk/s/0L205/" rel="noreferrer noopener" target="_blank">feedback (opens in new tab)</a> will help us improve the service
+    </span>
+  </p>
+</div>
+
+<div class="govuk-width-container govuk-!-display-none-print govuk-!-margin-top-2">
+  <p class="govuk-body-s govuk-!-text-align-right govuk-!-margin-0">
+    <span class="govuk-body-s govuk-!-margin-2">English</span> | <a class="govuk-link govuk-!-margin-2" href="?lang=cy">Cymraeg</a>
+  </p>
+</div>
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+    {% if data['agreetermserror'] == 1 %}
+
+      <!-- error summary -->
+      {{ govukErrorSummary({
+        titleText: "There is a problem",
+        errorList: [
+          {
+            text: "You have not agreed to the licence conditions",
+            href: "#agree-terms"
+          }
+        ]
+      }) }}
+
+    {% endif %}
+
+
+    <h1 class="govuk-heading-l">
+      {{ title }}
+    </h1>
+
+    <form action="/licenceTermsRP" method="post" class="form" id="recipient">
+
+      <p class="govuk-body">
+        When you buy this licence you agree that: 
+      </p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>the licence is only valid for the person named on it (the licence holder)</li>
+        <li>the licence holder must carry the necessary proof of licence when they go fishing and show it to our enforcement officers if asked. It is an offence not to do so</li>
+        <li>the licence does not give the right to fish, but gives the licence holder the right to use a fishing rod and line only. The permission from any owner of fishing rights is also required before commencing to fish</li>
+        <li>the licence holder must read and comply with the <a href="https://www.gov.uk/freshwater-rod-fishing-rules?_ga=2.98012378.456009625.1584530590-263187189.1579004211" target="_blank">freshwater rod fishing byelaws (opens in a new window or tab)</a>. It is an offence not to do so</li>
+        <li>the licence is only valid for the specified date and time period, number of rods and the species of fish</li>
+      </ul>
+
+
+
+      {% if data['contactpreferror'] == 1 %}
+        <div class="govuk-form-group govuk-form-group--error">
+          <span class="govuk-error-message" id="question">
+            <span class="govuk-visually-hidden">Error:</span> Choose how we should contact the licence holder
+          </span>
+      {% else %}
+        <div class="govuk-form-group">
+      {% endif %}
+      <div class="govuk-checkboxes govuk-!-margin-bottom-6">
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="agree-terms" name="agree-terms" type="checkbox" value="agree">
+          <label class="govuk-label govuk-checkboxes__label" for="returns-agent">
+            I agree to the licence conditions
+          </label>
+        </div>
+      </div>
+      </div>
+
+      <!-- <div class="govuk-warning-text">
+        <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+        <strong class="govuk-warning-text__text">
+          <span class="govuk-warning-text__assistive">Warning</span>
+          Do not close the browser or use the back button during payment
+        </strong>
+      </div> -->
+
+      <br>
+      <button type="submit" class="govuk-button govuk-!-margin-bottom-1">
+        Continue
+      </button>
+
+      <!-- <p class="govuk-body govuk-hint">
+        <br>
+        on the GOV.UK secure payment site
+      </p> -->
+
+
+    </form>
+
+  </div>
+</div>
+
+<script src="/public/javascripts/jquery-1.11.3.js"></script>
+
+<script>
+  $(function() {
+    $('form[data-routing]').on('submit', function(ev) {
+      // FInd selected radio button
+      const url = $(this).find('input:checked').val();
+
+      if(url) {
+        ev.preventDefault();
+        window.location.href = url;
+        return false;
+      }
+    });
+  })
+</script>
+
+{% endblock %}
