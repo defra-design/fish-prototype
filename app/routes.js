@@ -842,3 +842,15 @@ router.post('/payment-options-form', function (req, res) {
     res.redirect(`${prototypeToUse}/rp-terms`)
   }
 })
+
+
+router.post('/paymentDetails', function (req, res) {
+  let paymentOption = req.session.data['payment-options-radio']
+  const prototypeToUse = getPrototypeToUse(req)
+
+  if (paymentOption === 'single-payment') {
+    res.redirect(`${prototypeToUse}/payment-confirmation`)
+  } else {
+    res.redirect(`${prototypeToUse}/check-rp-details`)
+  }
+})
