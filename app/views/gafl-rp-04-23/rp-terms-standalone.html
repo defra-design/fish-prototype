@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% set title = "Renewal payments: terms and conditions" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">{{ title }}</h1>
+
+      <p class="gov-body">Licence holders have the option to automatically pay for and renew a rod fishing licence when it expires.</p>
+
+      <p class="govuk-body">If you consent, we can arrange for future payments to be taken from your card provider. The terms of this arrangement are that:</p>
+
+       <ul class="govuk-list govuk-list--bullet">
+        <li>a payment will be taken immediately for your 12-month licence</li>
+        <li>when your licence expires, a future payment will be taken by your card provider every year to cover the cost of renewing your 12-month licence</li>
+        <li>another term - how we will remind them a payment is about to be taken</li> 
+        <li>another term - in what circumstances can the price changes</li>  
+        <li>another term - how to cancel or get a refund</li>
+        <li>another term - what happens if the card expires</li>
+        <li>another term - something else the user needs to know</li>
+        <li>another term - something else the user needs to know</li>
+      </ul>
+
+    </div>
+  </div>
+
+{% endblock %}
