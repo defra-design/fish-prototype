@@ -24,6 +24,26 @@
       {{ title }}
     </h1>
 
+
+    <div class="payment-summary">
+            <h2 class="govuk-heading-m">Payment summary</h2>
+            <p id="payment-description" class="govuk-body">
+            Trout and coarse, up to 2 rods, 12 months
+            </p>
+            <p class="govuk-body hidden" id="payment-summary-breakdown">
+            Amount
+            <span class="govuk-!-font-weight-bold" id="payment-summary-breakdown-amount"></span><br>
+            Corporate card fee:
+            <span class="govuk-!-font-weight-bold" id="payment-summary-corporate-card-fee"></span>
+            </p>
+            <p class="govuk-body govuk-!-margin-bottom-0">
+            Total amount:<br>
+            <span id="amount" class="amount govuk-!-font-size-36 govuk-!-font-weight-bold" data-amount="33.00">£33.00</span>
+            </p>
+    </div>
+
+    <br>
+
     <form action="/paymentDetails" method="post" class="form" id="payment">
 
       <div class="govuk-form-group">
