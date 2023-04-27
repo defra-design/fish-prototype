@@ -851,6 +851,6 @@ router.post('/paymentDetails', function (req, res) {
   if (paymentOption === 'single-payment') {
     res.redirect(`${prototypeToUse}/payment-confirmation`)
   } else {
-    res.redirect(`${prototypeToUse}/check-rp-details`)
+    res.redirect(`${prototypeToUse}/payment-in-progress`)
   }
 })
