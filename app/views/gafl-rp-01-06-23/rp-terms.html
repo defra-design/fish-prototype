@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+
+{% set title = "Consent to set up future payments" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">{{ title }}</h1>
+
+      <p class="gov-body">To renew your licence automatically when it expires, you consent that:</p>
+
+       <ul class="govuk-list govuk-list--bullet">
+        <li>a payment of £33 will be taken now for a 12-month trout and coarse (2 rod) fishing licence</li>
+        <li>when your licence expires, payments will be taken by your card provider every year to cover the cost of renewing your 12-month trout and coarse (2 rod) fishing licence
+        <li>card payments will be taken and managed following these <a href="rp-terms-standalone" target="_blank">terms and conditions (opens in new tab)</a>
+      
+      </ul>
+     
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="terms-hint">
+          <div class="govuk-checkboxes">
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="terms" name="terms" type="checkbox" value="agreed">
+              <label class="govuk-label govuk-checkboxes__label" for="terms">
+                I give consent for the Environment Agency to tell my card payment provider to take future card payments
+              </label>
+            </div>
+        </fieldset>
+      </div>
+
+      <form action="payment-details">
+        <button class="govuk-button" data-module="govuk-button">
+          Consent to set up future payments
+        </button>
+      </form>
+
+       <p class="govuk-body">
+        <a href=>Or go back and pay for a single licence instead</a>
+      </p>
+
+    </div>
+  </div>
+
+{% endblock %}
