@@ -1,0 +1,138 @@
+{% extends "layout.html" %}
+
+
+{% set title = "Renew your rod fishing licence?" %}
+
+
+{% block pageTitle %}
+{{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <span class="govuk-phase-banner__text no-print">
+      Your <a class="govuk-link" href="https://www.smartsurvey.co.uk/s/0L205/" rel="noreferrer noopener" target="_blank">feedback (opens in new tab)</a> will help us improve the service
+    </span>
+  </p>
+</div>
+
+<div class="govuk-width-container govuk-!-display-none-print govuk-!-margin-top-2">
+  <p class="govuk-body-s govuk-!-text-align-right govuk-!-margin-0">
+    <span class="govuk-body-s govuk-!-margin-2">English</span> | <a class="govuk-link govuk-!-margin-2" href="?lang=cy">Cymraeg</a>
+  </p>
+</div>
+
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <!-- debug / show data -->
+    {% include "includes/clip/debug.html" %}
+
+
+
+    <form action="er-check-licence-details" method="post" class="form">
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+
+            <!-- alternate headings -->
+            <h1 class="govuk-fieldset__heading">
+              {{ title }}
+            </h1>
+
+          </legend>
+
+          <p class="govuk-body">To find your licence details we first need to identify you. This helps us protect your personal information.</p>
+
+          <h2 class="govuk-heading-m">Confirm your details</h2>
+
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="width-20">
+              <strong>The last six characters of your licence number</strong>
+            </label>
+            <div class="govuk-hint govuk-body govuk-!-margin-bottom-2"">
+                 For example F4A315<br>
+               </div>
+              <input class=" govuk-input govuk-input--width-10" id="firstName" name="firstName" type="text" value="{{ data['firstName'] }}">
+            </div>
+
+            <div class="govuk-form-group">
+              <fieldset class="govuk-fieldset" role="group" aria-describedby="dob-hint">
+                <label class="govuk-label" for="dob">
+                  <strong>Date of birth</strong>
+                </label>
+                <div id="dob-hint" class="govuk-hint">
+                  For example, 31 3 1980
+                </div>
+                <div class="govuk-date-input" id="dob">
+                  <div class="govuk-date-input__item">
+                    <div class="govuk-form-group">
+                      <label class="govuk-label govuk-date-input__label" for="dob-day">
+                        Day
+                      </label>
+                      <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="dob-day" name="dob-day" type="text" autocomplete="bday-day" inputmode="numeric">
+                    </div>
+                  </div>
+                  <div class="govuk-date-input__item">
+                    <div class="govuk-form-group">
+                      <label class="govuk-label govuk-date-input__label" for="dob-month">
+                        Month
+                      </label>
+                      <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="dob-month" name="dob-month" type="text" autocomplete="bday-month" inputmode="numeric">
+                    </div>
+                  </div>
+                  <div class="govuk-date-input__item">
+                    <div class="govuk-form-group">
+                      <label class="govuk-label govuk-date-input__label" for="dob-year">
+                        Year
+                      </label>
+                      <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="dob-year" name="dob-year" type="text" autocomplete="bday-year" inputmode="numeric">
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+
+            <div class="govuk-form-group">
+              <label class="govuk-label" for="width-20">
+                <strong>Postcode</strong>
+              </label>
+              <div class="govuk-hint govuk-body govuk-!-margin-bottom-2"">
+     For example, WA4 1AB<br>
+   </div>
+  <input class=" govuk-input govuk-input--width-10" id="firstName" name="firstName" type="text" value="{{ data['firstName'] }}">
+              </div>
+
+        </fieldset>
+      </div>
+
+
+      <button class="govuk-button" data-module="govuk-button">
+        Continue
+      </button>
+
+    </form>
+
+
+
+    <br><br>
+    <h3 class="govuk-heading-s">Problem with the licence details?</h3>
+    <p class="govuk-body">If you can't match your licence details you can <a href="#">get a new fishing licence here</a></p>
+
+
+
+
+  </div>
+</div>
+
+{% endblock %}
