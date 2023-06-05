@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Payment options - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="/payment-options-form" method="post" class="form">
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <h1 class="govuk-fieldset__heading">
+                Would you like your licence to renew automatically when it expires?</h1>
+            </legend>
+
+
+
+            <div class="govuk-radios" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="payment-options-1" name="payment-options-radio" type="radio" value="single-payment">
+                <label class="govuk-label govuk-radios__label" for="payment-options-1">
+                    No
+                </label>
+                <div id="payment-options-item-hint" class="govuk-hint govuk-radios__hint">
+                  Make a single payment for this year's licence only.
+                </div>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="payment-options-2" name="payment-options-radio" type="radio" value="recurring-payment">
+                <label class="govuk-label govuk-radios__label" for="payment-options-2">
+                   Yes
+                </label>
+                <div id="payment-options-2-item-hint" class="govuk-hint govuk-radios__hint">
+                  Pay for this year's licence and set up card payments for future licences.
+                </div>
+              </div>
+            </div>
+
+
+
+          </fieldset>
+        </div>
+
+        <button class="govuk-button" data-module="govuk-button">
+          Continue
+        </button>
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

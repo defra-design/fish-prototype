@@ -1,0 +1,120 @@
+{% extends "layout.html" %}
+
+{% set title = "Payment complete" %}
+
+<!-- grab data from allLicences -->
+{% set allLicences = data['allLicences'] %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <span class="govuk-phase-banner__text no-print">
+      Your <a class="govuk-link" href="https://www.smartsurvey.co.uk/s/0L205/" rel="noreferrer noopener" target="_blank">feedback (opens in new tab)</a> will help us improve the service
+    </span>
+  </p>
+</div>
+
+<div class="govuk-width-container govuk-!-display-none-print govuk-!-margin-top-2">
+  <p class="govuk-body-s govuk-!-text-align-right govuk-!-margin-0">
+    <span class="govuk-body-s govuk-!-margin-2">English</span> | <a class="govuk-link govuk-!-margin-2" href="?lang=cy">Cymraeg</a>
+  </p>
+</div>
+
+<!-- <a href="javascript:history.back()" class="govuk-back-link">Back</a> -->
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <div class="govuk-panel govuk-panel--confirmation govuk-!-margin-bottom-6">
+
+        <span class="govuk-panel__title">£33</span>
+        <h1 class="govuk-panel__title">
+          {{ title }}
+        </h1>
+
+        <div class="govuk-panel__body">
+          <div class="govuk-!-margin-bottom-6">
+            The licence number is
+            <div class="govuk-!-font-weight-bold govuk-!-margin-top-3">09120722-2WS2FJF-3JJS32</div>
+            <span>and starts from 3:30pm on 12 May 2023</span>
+          </div>
+
+        </div>
+      </div>
+
+
+
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+      {% if data['licence-option'] == "digital" %}
+        <p class="govuk-body">
+          Licence holders can fish from the time and date their licence starts.
+        </p>
+        <p class="govuk-body">
+          Licences have been sent by email or text message.
+        </p>
+      {% else %}
+        <p class="govuk-body">
+          Licence holders can fish from the time and date the licence starts. They do not need to wait to get their licence card.
+        </p>
+      {% endif %}
+
+
+
+      <h2 class="govuk-heading-l">Future payments</h2>
+
+      <p class="govuk-body">We will let you know when your licence is due to expire and we will take a payment for your next licence automatically. You can <a href="#">cancel this future payment</a> at any time.</p>
+
+
+
+
+
+
+      <h2 class="govuk-heading-l">When fishing</h2>
+
+      <div class="govuk-!-margin-bottom-9">
+
+        <p class="govuk-body govuk-!-margin-bottom-9">
+          If an enforcement officer asks you for your licence information, you'll need to show or tell them your licence number.
+        </p>
+
+        <form action="licence-information">
+          <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+            View licence information
+          </button>
+        </form>
+
+        <p class="govuk-body">
+          You must follow the <a href="https://www.gov.uk/guidance/national-rod-fishing-byelaws-for-england-freshwater-fishing-with-a-rod-and-line" class="govuk_link" target="_blank">rod fishing byelaws (opens in new tab)</a>.
+        </p>
+
+        <!-- <p class="govuk-body">
+          <a href="https://www.gov.uk/government/publications/fisheries-annual-report-2019-to-2020/fisheries-annual-report-2019-to-2020" class="govuk_link">Read the Fisheries annual report 2019 to 2020</a> to find out how we spend licence money.
+        </p> -->
+
+      </div>
+
+      <h2 class="govuk-heading-l">Help us improve this service</h2>
+
+      <p class="govuk-body">
+        <a href="https://www.smartsurvey.co.uk/s/0L205/" class="govuk-link">Tell us what you think of the service</a> (takes 30 seconds)
+      </p>
+
+    </div>
+  </div>
+
+{% endblock %}

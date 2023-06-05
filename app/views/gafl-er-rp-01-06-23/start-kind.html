@@ -1,0 +1,223 @@
+{% extends "layout.html" %}
+
+{% if data['licenceFor'] == "user" %}
+{% set title = "When would you like your licence to start?" %}
+{% else %}
+{% set title = "When should the licence start?" %}
+{% endif %}
+
+{% block pageTitle %}
+{{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <span class="govuk-phase-banner__text no-print">
+      Your <a class="govuk-link" href="https://www.smartsurvey.co.uk/s/0L205/" rel="noreferrer noopener" target="_blank">feedback (opens in new tab)</a> will help us improve the service
+    </span>
+  </p>
+</div>
+
+<div class="govuk-width-container govuk-!-display-none-print govuk-!-margin-top-2">
+  <p class="govuk-body-s govuk-!-text-align-right govuk-!-margin-0">
+    <span class="govuk-body-s govuk-!-margin-2">English</span> | <a class="govuk-link govuk-!-margin-2" href="?lang=cy">Cymraeg</a>
+  </p>
+</div>
+
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <!-- debug / show data -->
+    {% include "includes/clip/debug.html" %}
+
+
+
+    {% if data['errorcode'] == 11 %}
+
+      <!-- error summary -->
+      {{ govukErrorSummary({
+        titleText: "There is a problem",
+        errorList: [
+          {
+            text: "Choose when the licence should start",
+            href: "#licence-start"
+          }
+        ]
+      }) }}
+
+    {% endif %}
+
+    {% if data['errorcode'] == 20 %}
+
+      <!-- error summary -->
+      {{ govukErrorSummary({
+        titleText: "There is a problem",
+        errorList: [
+          {
+            text: "Enter the date when the licence should start",
+            href: "#licence-start-date-day"
+          }
+        ]
+      }) }}
+
+    {% endif %}
+
+
+
+
+
+    <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+      <div class="govuk-notification-banner__header">
+        <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+          Important
+        </h2>
+      </div>
+      <div class="govuk-notification-banner__content">
+        <p class="govuk-notification-banner__heading">
+          Licence prices are changing
+        </p>
+        <p class="govuk-body">
+          Rod fishing licences starting on or after 1 April 2023 are increasing in price. <a href="licence-price-increase" class="govuk-link" rel="noreferrer noopener" target="_blank">See licence price increases (opens in new tab)</a>
+        </p>
+      </div>
+    </div>
+
+
+
+
+
+
+    <form action="/licenceStart" method="post" class="form">
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="licence-start-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              {{ title }}
+            </h1>
+          </legend>
+
+          <p class="govuk-body">
+            The licence can start today or any day within the next 30 days.
+          </p>
+
+
+
+
+
+
+          {% if data['errorcode'] == 11 %}
+            <div class="govuk-form-group govuk-form-group--error">
+              <span class="govuk-error-message" id="question">
+                <span class="govuk-visually-hidden">Error:</span> Choose when the licence should start
+              </span>
+          {% else %}
+            <div class="govuk-form-group">
+              {% endif %}
+          <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="licence-start" name="licence-start" type="radio" value="email" data-aria-controls="conditional-licence-start">
+              <label class="govuk-label govuk-radios__label" for="licence-start">
+                30 minutes after payment
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="licence-start-2" name="licence-start" type="radio" value="phone" data-aria-controls="conditional-licence-start-2">
+              <label class="govuk-label govuk-radios__label" for="licence-start-2">
+                Later
+              </label>
+            </div>
+            {% if data['errorcode'] == 20 %}
+            <div class="govuk-radios__conditional" id="conditional-licence-start-2">
+              {% else %}
+              <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-licence-start-2">
+                {% endif %}
+
+              <p class="govuk-body-m">Enter today’s date if you want the 1 or 8 day licence to start later today.</p>
+
+
+              <div class="govuk-form-group">
+
+                <div id="licence-start-date-hint" class="govuk-hint">
+                  Enter a date up to and including 06 04 2023
+                </div>
+
+
+                <div class="govuk-date-input" id="licence-start-date">
+
+                  <div class="govuk-date-input__item">
+                    <div class="govuk-form-group">
+                      <label class="govuk-label govuk-date-input__label" for="licence-start-date-day">
+                        day
+                      </label>
+
+                      <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="licence-start-date-day" name="licence-start-date-day" type="text" pattern="[0-9]*" inputmode="numeric" maxlength="2">
+
+                    </div>
+                  </div>
+
+                  <div class="govuk-date-input__item">
+                    <div class="govuk-form-group">
+                      <label class="govuk-label govuk-date-input__label" for="licence-start-date-month">
+                        month
+                      </label>
+
+                      <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="licence-start-date-month" name="licence-start-date-month" type="text" pattern="[0-9]*" inputmode="numeric" maxlength="2">
+
+                    </div>
+                  </div>
+
+                  <div class="govuk-date-input__item">
+                    <div class="govuk-form-group">
+                      <label class="govuk-label govuk-date-input__label" for="licence-start-date-year">
+                        year
+                      </label>
+
+                      <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="licence-start-date-year" name="licence-start-date-year" type="text" pattern="[0-9]*" inputmode="numeric" maxlength="4">
+
+                    </div>
+                  </div>
+
+                  <div id="cal-image-div" aria-hidden="true" class="flatpickr-input" readonly="readonly"><img src="/public/images/icon-calendar-2x.png" alt="Click to open date picker"></div>
+                </div>
+
+              </div>
+
+
+            </div>
+
+          </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        </fieldset>
+      </div>
+
+      <button class="govuk-button" data-module="govuk-button">
+        Continue
+      </button>
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

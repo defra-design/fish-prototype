@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+
+{% set title = "Consent to set up future payments" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">{{ title }}</h1>
+
+       <p class="gov-body">To renew your licence automatically when it expires, you need to give consent to the following terms:</p>
+
+       <ul class="govuk-list govuk-list--bullet">
+        <li>a payment of £33 will be taken now for a 12-month trout and coarse (2 rod) fishing licence</li>
+        <li>when your licence expires, payments will be taken by your card provider every year to cover the cost of renewing your 12-month trout and coarse (2 rod) fishing licence
+        <li>the payment amount taken may change - for example, if you become eligible for a discounted licence or if licence prices go up
+        <li>we will send you an email reminder showing the payment amount before any future payments are taken</li>
+        <li>future payments will be taken until [you tell us you want to cancel them?]
+        <li>you can cancel an automatic payment at any time [how? by phoning? after receiving confirmation or reminder email? by finding this information on GOV.UK?</li>
+      </ul>
+     
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="terms-hint">
+          <div class="govuk-checkboxes">
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="terms" name="terms" type="checkbox" value="agreed">
+              <label class="govuk-label govuk-checkboxes__label" for="terms">
+                I give consent for the Environment Agency to tell my card payment provider to take future card payments
+              </label>
+            </div>
+        </fieldset>
+      </div>
+
+      <form action="payment-details">
+        <button class="govuk-button" data-module="govuk-button">
+          Consent to set up future payments
+        </button>
+      </form>
+
+       <p class="govuk-body">
+        <a href=>Or go back and pay for a single licence instead</a>
+      </p>
+
+    </div>
+  </div>
+
+{% endblock %}
