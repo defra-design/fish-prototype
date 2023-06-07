@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "Consent to set up future payments" %}
+{% set title = "Agree to set up automatic payments" %}
 
 {% block pageTitle %}
   {{title}} - GOV.UK
@@ -19,12 +19,14 @@
 
       <h1 class="govuk-heading-l">{{ title }}</h1>
 
-      <p class="gov-body">To renew your licence automatically when it expires, you consent that:</p>
+      <p class="gov-body">Setting up automatic payments means you agree that:</p>
 
        <ul class="govuk-list govuk-list--bullet">
-        <li>a payment of £33 will be taken now for a 12-month trout and coarse (2 rod) fishing licence</li>
-        <li>when your licence expires, payments will be taken by your card provider every year to cover the cost of renewing your 12-month trout and coarse (2 rod) fishing licence
-        <li>card payments will be taken and managed following these <a href="rp-terms-standalone" target="_blank">terms and conditions (opens in new tab)</a>
+        <li>a payment of £33 will be taken now for your 12-month trout and coarse (2 rod) fishing licence</li>
+        <li>payment will be taken automatically by your card provider to cover the cost of renewing your 12 month licence</li>
+        <li>future 12 month licence prices may be higher than £33</li>
+        <li>we will send you an email or text reminder before the next payment is taken</li>
+        <li>automatic payments will be taken following these <a href="rp-terms-standalone" target="_blank">terms and conditions (opens in new tab)</a>
       
       </ul>
      
@@ -35,7 +37,7 @@
             <div class="govuk-checkboxes__item">
               <input class="govuk-checkboxes__input" id="terms" name="terms" type="checkbox" value="agreed">
               <label class="govuk-label govuk-checkboxes__label" for="terms">
-                I give consent for the Environment Agency to tell my card payment provider to take future card payments
+                I agree to set up automatic payments
               </label>
             </div>
         </fieldset>
@@ -43,12 +45,12 @@
 
       <form action="payment-details">
         <button class="govuk-button" data-module="govuk-button">
-          Consent to set up future payments
+          Agree and continue
         </button>
       </form>
 
        <p class="govuk-body">
-        <a href=>Or go back and pay for a single licence instead</a>
+        <a href=>Or go back and choose to pay for a single licence</a>
       </p>
 
     </div>
