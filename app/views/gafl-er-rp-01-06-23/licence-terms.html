@@ -35,11 +35,27 @@
   <div class="govuk-grid-column-two-thirds">
 
 
+    {% if data['agreetermserror'] == 1 %}
+
+      <!-- error summary -->
+      {{ govukErrorSummary({
+        titleText: "There is a problem",
+        errorList: [
+          {
+            text: "You have not agreed to the licence conditions",
+            href: "#agree-terms"
+          }
+        ]
+      }) }}
+
+    {% endif %}
+
+
     <h1 class="govuk-heading-l">
       {{ title }}
     </h1>
 
-    <form action="payment-options" method="post" class="form" id="recipient">
+    <form action="/licenceTermsRP" method="post" class="form" id="recipient">
 
       <p class="govuk-body">
         When you buy this licence you agree that:
@@ -54,8 +70,16 @@
         <li>salmon and sea trout fishing licence holders must <a href="https://www.gov.uk/catch-return">submit a catch return (opens in new tab)</a> of yearly salmon and sea trout fishing activity in England and Wales, even if no fish are caught or no fishing activity took place</li>
       </ul>
 
-        <div class="govuk-form-group">
 
+
+      {% if data['agreetermserror'] == 1 %}
+        <div class="govuk-form-group govuk-form-group--error">
+          <span class="govuk-error-message" id="question">
+            <span class="govuk-visually-hidden">Error:</span> You must agree to the licence conditions to continue
+          </span>
+      {% else %}
+        <div class="govuk-form-group">
+      {% endif %}
       <div class="govuk-checkboxes govuk-!-margin-bottom-6">
         <div class="govuk-checkboxes__item">
           <input class="govuk-checkboxes__input" id="agree-terms" name="agree-terms" type="checkbox" value="agree">
