@@ -1,0 +1,87 @@
+{% extends "layout-unbranded.html" %}
+
+{% set bodyClasses = "govuk-email" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{{ govukHeader({
+   homepageUrl: "/",
+   serviceUrl: "#",
+   containerClasses: "govuk-width-container"
+ }) }}
+{% endblock %}
+
+{% set title = "‘I want to fish’ prototype" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <!-- <h1 class="govuk-heading-xl">
+      {{title}}
+    </h1> -->
+
+
+
+
+    <table class="govuk-table">
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">From: notifications@ea.gov.uk</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">To: sam.fisher@email.com</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">
+            <p>Dear Jen,</p>
+            <p>Your 12 month fishing licence is due to expire on 1 July 2023.</p>
+            <p>Payment for your next 12 month licence will be taken in 10 days time.</p>
+            <p>Your next fishing licence will start on 2 July 2023. You will get your new licence confirmation by text, email or post (depending on your notification preference).</p>
+            <h2 class="govuk-heading-m">Your new licence</h2>
+            <p>[Licence type here]</p>
+            <h2 class="govuk-heading-m">Need to make a change?</h2>
+            <p>If your contact details have changed, or you want to buy a different type of licence, you need to let us know before the automatic payment is taken.</p>
+            <div class="govuk-inset-text">
+              Update your details at <a href="#">https:://www.gov.uk/example-change-details-link</a>
+            </div>
+            <h2 class="govuk-heading-m">Do you want to cancel the automatic payment?</h2>
+            <div class="govuk-inset-text">
+              You can cancel your payment at <a href="#">https:://www.gov.uk/example-cancel payment-link</a>
+            </div>
+            <p>Regards,<br>The Environment Agency</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+</div>
+
+<!-- notes about the service & prototype -->
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+
+
+
+
+  </div>
+</div>
+
+{% endblock %}
