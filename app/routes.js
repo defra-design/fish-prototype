@@ -854,3 +854,23 @@ router.post('/paymentDetails', function (req, res) {
     res.redirect(`${prototypeToUse}/payment-in-progress`)
   }
 })
+
+
+
+router.post('/erDetails', function (req, res) {
+  // Make a variable from session data
+  let sixChars = req.session.data['six-chars']
+  let erDobDay = req.session.data['er-dob-day']
+  let erPostCode = req.session.data['er-postcode']
+  let erdetailserror = 0
+  const prototypeToUse = getPrototypeToUse(req)
+
+//  if (!sixChars || !town || !postCode) {
+  if (!sixChars || !erPostCode || !erDobDay) {
+    res.redirect(`/${prototypeToUse}/er-confirm-your-details?erdetailserror=10`)
+  }
+  else {
+    res.redirect(`/${prototypeToUse}/er-check-licence-details`)
+  }
+
+})
