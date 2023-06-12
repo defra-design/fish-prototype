@@ -874,3 +874,16 @@ router.post('/erDetails', function (req, res) {
   }
 
 })
+
+
+router.post('/rpTerms', function (req, res) {
+  let termsAgreed = req.session.data['rp-terms']
+  const prototypeToUse = getPrototypeToUse(req)
+  let rptermserror = 0
+
+  if (!termsAgreed) {
+    res.redirect(`${prototypeToUse}/rp-terms?rptermserror=10`)
+  } else {
+    res.redirect(`${prototypeToUse}/payment-details`)
+  }
+})
