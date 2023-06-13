@@ -1,10 +1,6 @@
 {% extends "layout.html" %}
 
-{% if data['licenceFor'] == "user" %}
   {% set title = "How should we contact you with reminders and important changes?" %}
-{% else %}
-  {% set title = "How should we contact the licence holder about reminders and important changes?" %}
-{% endif %}
 
 {% block pageTitle %}
   {{title}} - GOV.UK
