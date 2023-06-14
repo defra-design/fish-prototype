@@ -383,9 +383,7 @@ router.post('/selectAddress', function (req, res) {
 })
 
 
-
-
-router.post('/licenceBy', function (req, res) {
+router.post('/licenceBy', function(req, res) {
   // Make a variable from session data
   let licenceBy = req.session.data['licenceBy']
   let licenceFor = req.session.data['licenceFor']
@@ -395,35 +393,23 @@ router.post('/licenceBy', function (req, res) {
 
   if (!licenceBy) {
     res.redirect(`/${prototypeToUse}/licence-by?licencebyerrorcode=2`)
-  }
-  else {
+  } else {
 
-    if(junior) {
-      if(licenceFor == 'user') {
+    if (junior) {
+      if (licenceFor == 'user') {
         res.redirect(`/${prototypeToUse}/newsletter`)
       } else {
         res.redirect(`/${prototypeToUse}/contact-summary`)
       }
     } else {
-      res.redirect(`/${prototypeToUse}/contact-preference`)
+      if (licenceBy == 'email') {
+        res.redirect(`/${prototypeToUse}/email-address-correct`)
+      } else {
+        res.redirect(`/${prototypeToUse}/phone-number-correct`)
+      }
     }
-
   }
-
-  // <!-- junior logic -->
-  // {% if data['junior'] %}
-  //   {% if data['licenceFor'] == "user" %}
-  //     <form action="newsletter" method="send" class="form">
-  //   {% else %}
-  //     <form action="contact-summary" method="send" class="form">
-  //   {% endif %}
-  // {% else %}
-  //   <form action="contact-preference" method="send" class="form">
-  // {% endif %}
-
 })
-
-
 
 
 
@@ -437,7 +423,17 @@ router.post('/licenceConfirmation', function (req, res) {
     res.redirect(`/${prototypeToUse}/licence-confirmation?licenceconferror=1`)
   }
   else {
-    res.redirect(`/${prototypeToUse}/contact-preference`)
+    if (licenceConf == 'email') {
+      res.redirect(`/${prototypeToUse}/email-address-correct`)
+    }
+    else if (licenceConf == 'phone') {
+      res.redirect(`/${prototypeToUse}/phone-number-correct`)
+    }
+    else {
+      res.redirect(`/${prototypeToUse}/contact-preference`)
+    }
+
+
   }
 
 })
