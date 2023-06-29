@@ -1,0 +1,92 @@
+{% extends "layout.html" %}
+
+{% set title = "Payment complete" %}
+
+<!-- grab data from allLicences -->
+{% set allLicences = data['allLicences'] %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+<!-- <a href="javascript:history.back()" class="govuk-back-link">Back</a> -->
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <div class="govuk-panel govuk-panel--confirmation govuk-!-margin-bottom-6">
+
+        <h1 class="govuk-panel__title">
+          {{ title }}
+        </h1>
+
+        <div class="govuk-panel__body">
+          <div class="govuk-!-margin-bottom-6">
+            The licence number is
+            <div class="govuk-!-font-weight-bold govuk-!-margin-top-3">09120722-2WS2FJF-3JJS32</div>
+            <span>and starts from 11pm on 30 June 2023</span>
+          </div>
+        </div>
+      </div>
+
+
+
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      
+      <!-- <form action="licence-information">
+        <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+          View licence details
+        </button>
+      </form>
+ -->
+
+
+<h2 class="govuk-heading-m">View the licence details</h2>
+
+
+ <p class="govuk-body">
+   <a href="/gafl-multibuy-accordion/licence-information-static" class="govuk-link">View the licence details</a>
+ </p>
+
+  <p class="govuk-body">
+          The licence card will arrive within 15 working days. The licence holder can fish from the date and time selected and does not need to wait for a licence to arrive.
+        </p>
+
+<h2 class="govuk-heading-m">When fishing</h2>
+
+
+
+        <p class="govuk-body">
+          An enforcement officer may ask the licence holder if they are covered by a valid fishing licence. If their licence has not arrived in the post, they can tell them their fishing licence number or show a printout or screenshot of <a href="/gafl-multibuy-accordion/licence-information-static" class="govuk-link">their licence details</a>.
+        </p>
+
+        <p class="govuk-body">
+          Licence holders must follow the <a href="https://www.gov.uk/guidance/national-rod-fishing-byelaws-for-england-freshwater-fishing-with-a-rod-and-line" class="govuk_link" target="_blank">national and local fishing byelaws (opens in new tab)</a>.
+        </p>
+
+<h2 class="govuk-heading-m">Help us improve this service</h2>
+      
+      <p class="govuk-body">
+        <a href="https://www.smartsurvey.co.uk/s/0L205/" class="govuk-link">Tell us what you think of the service</a> (takes 30 seconds)
+      </p>
+
+      <h2 class="govuk-heading-m">How we spend fishing licence income</h2>
+      
+      <p class="govuk-body">
+        Read the latest <a href="https://www.gov.uk/government/publications/fisheries-annual-report-2021-to-2022/fisheries-annual-report-2021-to-2022" class="govuk-link" target="_blank">fisheries annual report (opens in new tab)</a> to find out how we spend the money from fishing licence sales.</p>
+
+    </div>
+  </div>
+
+
+{% endblock %}
