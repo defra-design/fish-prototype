@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "Payment complete" %}
+{% set title = "Payment complete: £33" %}
 
 <!-- grab data from allLicences -->
 {% set allLicences = data['allLicences'] %}
@@ -17,7 +17,7 @@
 
 {% block content %}
 
-    <div class="govuk-grid-row">
+<div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <div class="govuk-panel govuk-panel--confirmation govuk-!-margin-bottom-6">
 
@@ -27,9 +27,11 @@
 
         <div class="govuk-panel__body">
           <div class="govuk-!-margin-bottom-6">
-            Your licence number is
+            Licence number:
             <div class="govuk-!-font-weight-bold govuk-!-margin-top-3">09120722-2WS2FJF-3JJS32</div>
-            <span>and starts from 11pm on 30 June 2023</span>
+            <br>
+            <span>Valid from:</span>
+            <div class="govuk-!-font-weight-bold govuk-!-margin-top-3">11pm on 30 June 2023</div> 
           </div>
         </div>
       </div>
