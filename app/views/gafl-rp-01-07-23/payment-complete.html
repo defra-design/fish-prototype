@@ -1,0 +1,90 @@
+{% extends "layout.html" %}
+
+{% set title = "Payment of £33 complete" %}
+
+<!-- grab data from allLicences -->
+{% set allLicences = data['allLicences'] %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <span class="govuk-phase-banner__text no-print">
+      Your <a class="govuk-link" href="https://www.smartsurvey.co.uk/s/0L205/" rel="noreferrer noopener" target="_blank">feedback (opens in new tab)</a> will help us improve the service
+    </span>
+  </p>
+</div>
+
+<div class="govuk-width-container govuk-!-display-none-print govuk-!-margin-top-2">
+  <p class="govuk-body-s govuk-!-text-align-right govuk-!-margin-0">
+    <span class="govuk-body-s govuk-!-margin-2">English</span> | <a class="govuk-link govuk-!-margin-2" href="?lang=cy">Cymraeg</a>
+  </p>
+</div>
+
+<!-- <a href="javascript:history.back()" class="govuk-back-link">Back</a> -->
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <div class="govuk-panel govuk-panel--confirmation govuk-!-margin-bottom-6">
+
+        <h1 class="govuk-panel__title">
+          {{ title }}
+        </h1>
+
+        <div class="govuk-panel__body">
+          <div class="govuk-!-margin-bottom-6">
+            Your licence number is
+            <div class="govuk-!-font-weight-bold govuk-!-margin-top-3">09120722-2WS2FJF-3JJS32</div>
+            <span>and starts from 11pm on 30 June 2023</span>
+          </div>
+        </div>
+      </div>
+
+
+
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+ <p class="govuk-body">
+          Licence details will be sent by text or email</a>.
+        </p>
+
+      <h2 class="govuk-heading-m">Automatic payments</h2>
+
+      <p class="govuk-body">Before your licence expires, we will send you an email or text reminding you when payment will be taken for your next licence. You can <a href="#">cancel this future payment</a> at any time.</p>
+
+
+      <h2 class="govuk-heading-m">When fishing</h2>
+
+      <div class="govuk-!-margin-bottom-9">
+
+        <p class="govuk-body">
+          An enforcement officer may ask if you are covered by a valid fishing licence. You can show them your licence email or text on your phone.
+        </p>
+
+        <p class="govuk-body">
+           Licence holders must follow the <a href="https://www.gov.uk/guidance/national-rod-fishing-byelaws-for-england-freshwater-fishing-with-a-rod-and-line" class="govuk_link" target="_blank">rod fishing byelaws (opens in new tab)</a>.
+        </p>
+      </div>
+
+      <h2 class="govuk-heading-m">Help us improve this service</h2>
+
+      <p class="govuk-body">
+        <a href="https://www.smartsurvey.co.uk/s/0L205/" class="govuk-link">Tell us what you think of the service</a> (takes 30 seconds)
+      </p>
+
+    </div>
+  </div>
+
+{% endblock %}
