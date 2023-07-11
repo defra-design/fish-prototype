@@ -1,0 +1,108 @@
+{% extends "layout-unbranded.html" %}
+
+{% set bodyClasses = "govuk-email" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{{ govukHeader({
+   homepageUrl: "/",
+   serviceUrl: "#",
+   containerClasses: "govuk-width-container"
+ }) }}
+{% endblock %}
+
+{% set title = "‘I want to fish’ prototype" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <!-- <h1 class="govuk-heading-xl">
+      {{title}}
+    </h1> -->
+
+
+
+
+<table class="govuk-table">
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">From: notifications@ea.gov.uk</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">To: sam.fisher@email.com</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Payment reminder: your next 12 month fishing licence</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">
+            <br>
+            <br>
+            <p>Dear Sam Fisher,</p>
+            <p>Payment for your next 12 month fishing licence will be taken from your card ending in 4321 in 10 days time. You do not need to do anything unless your circumstances have changed.</p>
+            <h2 class="govuk-heading-m">Your next licence</h2>
+<div class="govuk-inset-text">
+            <p>Start date: 11pm, 30 June 2024</p>
+            <p>End date: 10:59pm, 30 June 2025</p>
+            <p>Price: £35.80</p>
+            <p>Licence type: trout and coarse (2 rods)</p>
+            <p>Length: 12 months</p>
+          </div>
+          <p>You will get your new licence by email after payment has been taken.</p>
+
+          <h2 class="govuk-heading-m">Do you want to cancel the automatic payment?</h2>
+             <p>You can cancel your payment at <a href="">https://www.gov.uk/example-cancel-payment-link</a></p>
+            <h2 class="govuk-heading-m">Need to make a change?</h2>
+
+            <h3 class="govuk-heading-s">Change your licence type</h3>
+            <p>You need to cancel the automatic payment and buy a new licence if you want to:</p>
+            <ul class="govuk-list govuk-list--bullet">
+              <li>change the number of rods or type of fish covered by the licence</li>
+              <li>buy a discounted licence because of a disability</li>
+            </ul>
+            <p>You can cancel the automatic payment at <a href="">https://www.gov.uk/example-cancel-payment-link</a></p>
+
+            <h3 class="govuk-heading-s">Buy an additional licence</h3>
+            <p>You need to buy an additional licence if you want to fish with 4 rods, for example. You can buy an additional licence at <a href="https://www.gov.uk/fishing-licences/buy-a-fishing-licence">https://www.gov.uk/fishing-licences/buy-a-fishing-licence</a>
+
+            <h3 class="govuk-heading-s">Update your contact details</h3>
+            <p>If your contact details have changed, email us at rodlicencing@environment-agency.gov.uk or call us on 03708 506 506 (between 8am and 6pm, Monday to Friday). Calls are charged at the local rate.</p>
+    
+            
+            <p>Thank you,<br>The Environment Agency Fisheries Team</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+</div>
+
+<!-- notes about the service & prototype -->
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+
+
+
+
+  </div>
+</div>
+
+{% endblock %}
