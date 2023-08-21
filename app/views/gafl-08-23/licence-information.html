@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "Licence information" %}
+{% set title = "Licence details" %}
 
 <!-- grab data from allLicences -->
 {% set allLicences = data['allLicences'] %}
@@ -37,25 +37,23 @@
       <section class="no-print">
         <h1 class="govuk-heading-xl">{{ title }}</h1>
 
-        <p class="govuk-body-l">
+        <h2 class="govuk-heading-l">23200824-2WC3FSF-AC2GC8</h2>
+
+        <!-- <p class="govuk-body-l">
           This is proof of your fishing licences. You might find it useful to take a screenshot or print out this page.
         </p>
 
         <p class="govuk-body">
           If you gave us your email address, you’ll get a message that includes your licence information.
-        </p>
+        </p> -->
       </section>
 
       <img src="/public/images/EA-logo-black.png" width="192px" style="margin-bottom:0.5cm;" class="print-only">
 
-      <!-- licence instance -->
-      {% for i in allLicences %}
 
-        {% if loop.index0 % 2 == 1 %}
-          <section class="pagebreak">
-        {% else %}
+
           <section>
-        {% endif %}
+
 
           <span class="govuk-caption-xl"><span class="print-only">Licence number</span></span>
           <h2 class="govuk-heading-l">
@@ -70,7 +68,7 @@
                 Name
               </dt>
               <dd class="govuk-summary-list__value">
-                {{ i.firstName }} {{ i.lastName }}
+                Sam Fisher
               </dd>
             </div>
 
@@ -79,7 +77,7 @@
                 Identification
               </dt>
               <dd class="govuk-summary-list__value">
-                {{ data['identificationNumbers'][loop.index0] }}
+                95198710125832
               </dd>
             </div>
 
@@ -114,11 +112,7 @@
                 Starts
               </dt>
               <dd class="govuk-summary-list__value">
-                {% if data['midnight'] %}
-                  {% include "includes/clip/midnight.html" %} on 12 May 2022
-                {% else %}
-                  {{ data['times'][loop.index0] }} on 12 May 2022
-                {% endif %}
+                  11:00am on 21 August 2023
               </dd>
             </div>
 
@@ -127,24 +121,10 @@
                 Ends
               </dt>
               <dd class="govuk-summary-list__value">
-                {% if data['midnight'] %}
-                  11.59pm on 12 May 2023
-                {% else %}
-                  {{ data['endtimes'][loop.index0] }} on 12 May 2023
-                {% endif %}
+                  11:59pm on 20 August 2024
               </dd>
             </div>
 
-            {% if i.concession != "None" %}
-              <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-                  Disability concession
-                </dt>
-                <dd class="govuk-summary-list__value">
-                  <p class="govuk-body">{{ i.concession }}</p>
-                </dd>
-              </div>
-            {% endif %}
 
             <!-- <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">
@@ -197,7 +177,6 @@
 
         {% endif %}
 
-      {% endfor %}
 
       <!-- have i shown 2? -->
 
@@ -224,8 +203,7 @@
       </span>
 
       <div class="govuk-inset-text no-print">
-        <a href="#">Read the licence conditions (opens in new tab)</a>.
-        <br>You must follow the <a href="https://www.gov.uk/freshwater-rod-fishing-rules" class="govuk_link" target="_blank">rod fishing byelaws (opens in new tab)</a>.
+        The rod licence holder must follow the <a href="https://www.gov.uk/freshwater-rod-fishing-rules" class="govuk_link" target="_blank">rod fishing byelaws (opens in new tab)</a>. Search for 'rod fishing byelaws' on GOV.UK if you have printed out this page.
       </div>
 
       <div class="govuk-warning-text no-print">
