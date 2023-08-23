@@ -1,0 +1,90 @@
+{% extends "layout.html" %}
+
+{% set title = "Play back payment info?" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <span class="govuk-phase-banner__text no-print">
+      Your <a class="govuk-link" href="https://www.smartsurvey.co.uk/s/0L205/" rel="noreferrer noopener" target="_blank">feedback (opens in new tab)</a> will help us improve the service
+    </span>
+  </p>
+</div>
+
+<div class="govuk-width-container govuk-!-display-none-print govuk-!-margin-top-2">
+  <p class="govuk-body-s govuk-!-text-align-right govuk-!-margin-0">
+    <span class="govuk-body-s govuk-!-margin-2">English</span> | <a class="govuk-link govuk-!-margin-2" href="?lang=cy">Cymraeg</a>
+  </p>
+</div>
+
+<!-- <a href="javascript:history.back()" class="govuk-back-link">Back</a> -->
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+
+
+      <!-- debug / show data -->
+      {% include "includes/clip/debug.html" %}
+
+      {% if data['source'] == "multibuy" %}
+        <h1 class="govuk-heading-l">Change licence options</h1>
+      {% else %}
+        <h1 class="govuk-heading-l">{{ title }}</h1>
+      {% endif %}
+
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <form action="rcp-cancel-3">
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key govuk-!-width-one-third">
+              Card number
+            </dt>
+            <dd class="govuk-summary-list__value">
+                **** **** **** 4592
+            </dd>
+
+          </div>
+
+          <div class="govuk-summary-list__row govuk-summary-list__row--last">
+            <dt class="govuk-summary-list__key">
+              Expiry date
+            </dt>
+            <dd class="govuk-summary-list__value">
+              06/24
+            </dd>
+
+          </div>
+
+
+
+        </dl>
+
+
+        <button class="govuk-button" data-module="govuk-button">
+          Confirm and continue
+        </button>
+
+      </form>
+
+
+    </div>
+  </div>
+
+{% endblock %}
