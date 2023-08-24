@@ -17,6 +17,22 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
+
+    {% if data['rptermserror'] == 10 %}
+
+    <!-- error summary -->
+    {{ govukErrorSummary({
+          titleText: "There is a problem",
+          errorList: [
+          {
+            text: "Select if you agree to set up automatic card payments",
+            href: "#rp-terms"
+          }
+          ]
+        }) }}
+
+    {% endif %}
+
       <h1 class="govuk-heading-l">{{ title }}</h1>
 
       <p class="gov-body">Setting up recurring (automatic) card payments means you agree that:</p>
@@ -32,19 +48,27 @@
       </ul>
      
 
-      <div class="govuk-form-group">
-        <fieldset class="govuk-fieldset" aria-describedby="terms-hint">
-          <div class="govuk-checkboxes">
-            <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id="terms" name="terms" type="checkbox" value="agreed">
-              <label class="govuk-label govuk-checkboxes__label" for="terms">
-                I agree to set up recurring card payments
-              </label>
+      <form action="/rpTerms" method="post" class="form">
+          {% if data['rptermserror'] == 10 %}
+          <div class="govuk-form-group govuk-form-group--error">
+            <span class="govuk-error-message" id="question">
+              <span class="govuk-visually-hidden">Error:</span> Select if you agree to set up automatic card payments
+            </span>
+            {% else %}
+            <div class="govuk-form-group">
+              {% endif %}
+              <fieldset class="govuk-fieldset" aria-describedby="terms-hint">
+                <div class="govuk-checkboxes">
+                  <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="rp-terms" name="rp-terms" type="checkbox" value="agreed">
+                    <label class="govuk-label govuk-checkboxes__label" for="rp-terms">
+                      I agree to set up automatic card payments
+                    </label>
+                  </div>
+              </fieldset>
             </div>
-        </fieldset>
-      </div>
 
-      <form action="payment-details">
+      <form action="">
         <button class="govuk-button" data-module="govuk-button">
           Agree and continue
         </button>
