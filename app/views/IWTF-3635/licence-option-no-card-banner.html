@@ -1,10 +1,6 @@
 {% extends "layout.html" %}
 
-{% if data['licenceFor'] == "user" %}
   {% set title = "How do you want to get your fishing licence?" %}
-{% else %}
-  {% set title = "How do they want to get their fishing licence?" %}
-{% endif %}
 
 {% block pageTitle %}
   {{title}} - GOV.UK
@@ -53,7 +49,24 @@
       {% endif %}
 
 
-
+<div class="govuk-notification-banner" role="region"
+        aria-labelledby="govuk-notification-banner-title"
+        data-module="govuk-notification-banner">
+        <div class="govuk-notification-banner__header">
+          <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+            Important
+          </h2>
+        </div>
+        <div class="govuk-notification-banner__content">
+          <p class="govuk-notification-banner__heading">
+            Plastic-coated card licences will be replaced by a printed letter after 31 May 2024.
+           <!-- <a class="govuk-notification-banner__link" href="#">View application</a>. -->
+            <p class="govuk-body"> <p class="govuk-body">
+              Choose to get a licence by email or text message to reduce the paper we use and help invest more money in fishing.
+            </p></p>
+          </p>
+        </div>
+      </div>
 
       <form action="/multibuy-check-licence-option" method="post" class="form">
 
@@ -66,11 +79,8 @@
               </h1>
             </legend>
 
-            <p class="govuk-body">
-              Getting a licence by email or text message helps the environment by reducing the paper we use and means we can invest more money in fishing.
-            </p>
 
-
+      
 
 
             {% if data['optionerrorcode'] == 1 %}
@@ -94,7 +104,7 @@
                   By email or text message
                 </label>
                 <div id="licence-option-digital-hint" class="govuk-hint govuk-radios__hint">
-                  The email or text message is proof of your fishing licence.
+                  The email or text message is proof of your fishing licence. 
                 </div>
               </div>
               <!-- radio 2 -->
@@ -104,7 +114,7 @@
                   By post
                 </label>
                 <div id="licence-option-paper-hint" class="govuk-hint govuk-radios__hint">
-                  A fishing licence card will be posted within 15 working days. You can fish from the start date and time you have selected and do not need to wait for the card to arrive.
+                  A licence will be posted within 15 working days. You can fish from the start date and time selected and do not need to wait for the licence to arrive.
                 </div>
               </div>
             </div>
