@@ -872,6 +872,25 @@ router.post('/erDetails', function (req, res) {
 })
 
 
+router.post('/rcpDetails', function (req, res) {
+  // Make a variable from session data
+  let rcpSixChars = req.session.data['rcp-six-chars']
+  let rcpDobDay = req.session.data['rcp-dob-day']
+  let rcpPostCode = req.session.data['rcp-postcode']
+  let rcpdetailserror = 0
+  const prototypeToUse = getPrototypeToUse(req)
+
+//  if (!sixChars || !town || !postCode) {
+  if (!rcpSixChars || !rcpPostCode || !rcpDobDay) {
+    res.redirect(`/${prototypeToUse}/rcp-cancel_enter-details?rcpdetailserror=10`)
+  }
+  else {
+    res.redirect(`/${prototypeToUse}/rcp-cancel_confirm-details`)
+  }
+
+})
+
+
 router.post('/rpTerms', function (req, res) {
   let termsAgreed = req.session.data['rp-terms']
   const prototypeToUse = getPrototypeToUse(req)
