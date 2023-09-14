@@ -72,21 +72,39 @@
 
 
 
+            {% if data['licenceFor'] == "user" %}
 
-            {% if data['licence-type'] == "Salmon and sea trout" %}
-            <!-- for salmon licence -->
-            <p class="govuk-body">
-              We will send a renewal reminder before the licence expires and a reminder to report a catch return. We will also send other important updates, like rod fishing byelaw changes.
-            </p>
+              {% if data['licence-type'] == "Salmon and sea trout" %}
+
+              <!-- for salmon licence -->
+              <p class="govuk-body">
+                We will send a renewal reminder before your licence expires and a reminder to report a catch return. We will also send other important updates, like rod fishing byelaw changes.
+              </p>
+
+              {% else %}
+              <!-- for non-salmon licence -->
+              <p class="govuk-body">
+                 We will send a renewal reminder before your licence expires. We will also send other important updates, like rod fishing byelaw changes.
+              </p>
+              {% endif %}
 
             {% else %}
-            <!-- for non-salmon licence -->
-            <p class="govuk-body">
-               We will send a renewal reminder before the licence expires. We will also send other important updates, like rod fishing byelaw changes.
-            </p>
+
+              {% if data['licence-type'] == "Salmon and sea trout" %}
+
+              <!-- for salmon licence -->
+              <p class="govuk-body">
+                We will send a renewal reminder before the licence expires and a reminder to report a catch return. We will also send other important updates, like rod fishing byelaw changes.
+              </p>
+
+              {% else %}
+              <!-- for non-salmon licence -->
+              <p class="govuk-body">
+                 We will send a renewal reminder before the licence expires. We will also send other important updates, like rod fishing byelaw changes.
+              </p>
+              {% endif %}
+
             {% endif %}
-
-
 
 
 

@@ -85,13 +85,13 @@
                 <div class="govuk-form-group">
               {% endif %}
 
-              <div class="govuk-inset-text">
+              <!-- <div class="govuk-inset-text">
                 {% if data['licenceFor'] == "user" %}
                   You will receive your licence information by email or text message only. You will not receive a licence card.
                 {% else %}
                   Licence information will be sent by email or text message only. We will not send a licence card.
                 {% endif %}
-              </div>
+              </div> -->
 
             {% endif %}
 
@@ -102,6 +102,23 @@
                 <span class="govuk-visually-hidden">Error:</span> Choose one of the fishing licence types
               </span>
               {% endif %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
               <!-- radio 1 -->
               <div class="govuk-radios__item">
 
@@ -122,7 +139,7 @@
                 {% if data['email'] %}
                 <!-- if the email address in the session show it -->
                   <p class="govuk-body">
-                    We will email your licence information to <span class="govuk-!-font-weight-bold">{{ data['email'] }}</span>
+                    Email address <br> <span class="govuk-!-font-weight-bold">{{ data['email'] }} &nbsp; <a href="">Change</a></span>
                   </p>
                 {% else %}
                 <!-- if the email address is not in the session do not show it -->
@@ -137,6 +154,20 @@
                   </div>
                 {% endif %}
               </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
               <!-- radio 2 -->
               <div class="govuk-radios__item">
@@ -164,7 +195,7 @@
 
                   {% else %}
                     <label class="govuk-label" for="licenceBy-text">
-                      UK mobile phone number
+                      UK mobile number
                     </label>
                     <p class="govuk-hint">
                       For example 07700 900 900.
