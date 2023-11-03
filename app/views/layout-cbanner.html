@@ -1,0 +1,72 @@
+{% extends "govuk-prototype-kit/layouts/govuk-branded.html" %}
+
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+
+{% block bodyStart %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full-width">
+
+
+
+{% if data['cookie-click'] == 'accepted' %}
+<div class="govuk-cookie-banner " data-nosnippet role="region" aria-label="Cookies on Get a rod fishing licence">
+  <div class="govuk-cookie-banner__message govuk-width-container">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <div class="govuk-cookie-banner__content">
+          <p class="govuk-body">You have accepted additional cookies. You can <a href="cookies">change your cookie settings</a> at any time.</p>
+        </div>
+      </div>
+    </div>
+    <div class="govuk-button-group">
+      <a class="govuk-button" href="?cookie-click=hide">Hide this message</a>
+    </div>
+  </div>
+</div>
+{% elseif data['cookie-click'] == 'rejected' %}
+<div class="govuk-cookie-banner " data-nosnippet role="region" aria-label="Cookies on Get a rod fishing licence">
+  <div class="govuk-cookie-banner__message govuk-width-container">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <div class="govuk-cookie-banner__content">
+          <p class="govuk-body">You have rejected additional cookies. You can <a href="cookies">change your cookie settings</a> at any time.</p>
+        </div>
+      </div>
+    </div>
+    <div class="govuk-button-group">
+      <a class="govuk-button" href="?cookie-click=hide">Hide this message</a>
+    </div>
+  </div>
+</div>
+{% elseif data['cookie-click'] == 'hide' %}
+
+{% else %}
+<div class="govuk-cookie-banner " data-nosnippet role="region" aria-label="Cookies on Get a rod fishing licence">
+  <div class="govuk-cookie-banner__message govuk-width-container">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-cookie-banner__heading govuk-heading-m">Cookies on 'Get a rod fishing licence'</h2>
+        <div class="govuk-cookie-banner__content">
+          <p class="govuk-body">We use some essential cookies to make this service work.</p>
+          <p class="govuk-body">We’d also like to use analytics cookies so we can understand how you use the service and make improvements.</p>
+        </div>
+      </div>
+    </div>
+    <div class="govuk-button-group">
+      <a class="govuk-button" href="?cookie-click=accepted">Accept analytics cookies</a>
+      <a class="govuk-button" href="?cookie-click=rejected">Reject analytics cookies</a>
+      <a class="govuk-link" href="cookies">View cookies</a>
+    </div>
+  </div>
+</div>
+{% endif %}
+
+
+
+  </div>
+</div>
+{% endblock %}
