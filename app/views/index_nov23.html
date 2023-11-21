@@ -1,0 +1,489 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+ {{ govukHeader({
+   homepageUrl: "/",
+   serviceName: "Get a rod fishing licence",
+   serviceUrl: "#",
+   containerClasses: "govuk-width-container"
+ }) }}
+{% endblock %}
+
+{% set title = "‘I want to fish’ prototype" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">
+      {{title}}
+    </h1>
+
+    <p class="govuk-!-margin-bottom-1">
+      <a href="https://github.com/DEFRA/fish-prototype">
+        GitHub: DEFRA / fish-prototype
+      </a>
+    </p>
+
+    <p class="govuk-!-margin-bottom-6">
+      <a href="fish-folders">
+        Useful fish folders
+      </a>
+    </p>
+
+    <!-- <p>This index is a new format, if you need it here is <a href="old-index">the old index page</a>.</p> -->
+
+  </div>
+</div>
+
+<!-- notes about the service & prototype -->
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <table class="govuk-table">
+
+      <caption class="govuk-table__caption govuk-table__caption--m">
+        Prototype versions
+      </caption>
+
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header govuk-!-width-one-third">Version</th>
+          <th scope="col" class="govuk-table__header">Notes</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+
+<tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">
+            <!-- <h2 class="govuk-heading-m">
+              BOBO and Multi-buy
+            </h2> -->
+            <p class="govuk-body-s govuk-!-font-weight-bold">
+              November 2023
+            </p>
+            <ul class="govuk-list govuk-body-s">
+              <li>IWTF-3582: correcting incorrect content in the 1 and 8 day journey</li>
+            </ul>
+          </th>
+          <td class="govuk-table__cell">
+            <ul class="govuk-list govuk-list--bullet">
+              <section class="govuk-!-margin-bottom-6">
+                <li><a href="/IWTF-3582/contact-preference">New page added to journey</a></li>
+              </section>
+            </ul>
+
+          </td>
+        </tr>
+
+<tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">
+            <!-- <h2 class="govuk-heading-m">
+              BOBO and Multi-buy
+            </h2> -->
+            <p class="govuk-body-s govuk-!-font-weight-bold">
+              October 2023
+            </p>
+            <ul class="govuk-list govuk-body-s">
+              <li>IWTF-3616: Added confirmation page to main GAFL RCP journey</li>
+              <li>IWTF-3808: Added Cookies page with proposed changes for Analytics cookies</li>
+              <li>IWTF-3837: Added Cookies banner with proposed changes for Analytics cookies</li>
+            </ul>
+          </th>
+          <td class="govuk-table__cell">
+            <ul class="govuk-list govuk-list--bullet">
+              <section class="govuk-!-margin-bottom-6">
+                <li><a href="/gafl-10-23/who-is-this-licence-for">Matched to live journey (23/10/23) - Start</a></li>
+                <li><a href="/gafl-10-23/cookies?analyticsCookiesSet=no">IWTF-3808: Cookies page</a></li>
+                <li><a href="/gafl-10-23/who-is-this-licence-for">IWTF-3837: updated Cookies banner</a></li>
+                <li><a href="/gafl-rp-05-10-23/who-is-this-licence-for">IWTF-3616: Start of main GAFL journey with RP, version 4 with confirmation page (5/10/2023)</a></li>
+                <li><a href="/gafl-rp-05-10-23/payment-complete-text-or-email-reminder">Direct link to RCP confirmation page (salmon, email or text reminder)</a></li>
+                <li><a href="/gafl-rp-05-10-23/payment-complete-letter-reminder">Direct link to RCP confirmation page (salmon, letter reminder)</a></li>
+              </section>
+            </ul>
+
+          </td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">
+            <!-- <h2 class="govuk-heading-m">
+              BOBO and Multi-buy
+            </h2> -->
+            <p class="govuk-body-s govuk-!-font-weight-bold">
+              September 2023
+            </p>
+            <ul class="govuk-list govuk-body-s">
+              <li>IWTF-3198: Encourage users to choose digital reminders</li>
+              <li>Recurring Card Payments cancellation flow v2 - updated based on high level technical specs supplied by Phil Benson</li>
+              <li>IWTF-3709: Version 2 of the 'end of cards' banner
+            </ul>
+          </th>
+          <td class="govuk-table__cell">
+            <ul class="govuk-list govuk-list--bullet">
+              <section class="govuk-!-margin-bottom-6">
+                <li><a href="/IWTF-3699/who-is-this-licence-for">IWTF-3198: Encourage users to choose digital reminders</a></li>
+                <li><a href="/gafl_rcp-cancellation-v2/rcp-email">Recurring Card Payments, cancellation journey - from email / sms (personalised) link</a></li>
+                <li><a href="/gafl_rcp-cancellation-v2/rcp-cancel_whitehall-page">Recurring Card Payments, cancellation journey - from whitehall page (non-personalised) link</a></li>
+                <li><a href="IWTF-3709/licence-option-no-card-banner">Version 2 of the 'end of cards' banner</a></li>
+              </section>
+            </ul>
+
+          </td>
+        </tr>
+
+
+
+
+
+        <tr class="govuk-table__row">
+
+          <th scope="row" class="govuk-table__header">
+            <!-- <h2 class="govuk-heading-m">
+              BOBO and Multi-buy
+            </h2> -->
+            <p class="govuk-body-s govuk-!-font-weight-bold">
+              August 2023
+            </p>
+            <ul class="govuk-list govuk-body-s">
+              <li>Updated core journey to match live service as of 14/08/23 - removed price increase banners and made small content changes</li>
+              <li>Updated consent and terms and conditions pages</li>
+              <li>Added version 1 proposed user journey for Recurring Card Payments cancellation flow</li>
+              <li>Added banner about licence cards ending</li>
+            </ul>
+          </th>
+
+          <td class="govuk-table__cell">
+
+
+            <ul class="govuk-list govuk-list--bullet">
+              <section class="govuk-!-margin-bottom-6">
+                <li><a href="/gafl-08-23/who-is-this-licence-for">Matched to live journey - Start</a></li>
+                <li><a href="/gafl-rp-16-08-23/rp-terms-standalone">Terms and conditions page, version 4 (16/08/23)</a></li>
+                <li><a href="/gafl-rp-16-08-23/rp-terms">Consent page, version 4 (16/08/23)</a></li>
+                <li><a href="/gafl_rcp-cancellation-v1/rcp-cancel-1">Recurring Card Payments, cancellation journey v1</a></li>
+                <li><a href="/IWTF-3635/licence-option-no-card-banner">How do you want to get your fishing licence? v1 (31/08/23)</a></li>
+              </section>
+            </ul>
+
+
+          </td>
+        </tr>
+
+
+
+
+        <!-- RP -->
+        <tr class="govuk-table__row">
+
+          <th scope="row" class="govuk-table__header">
+            <!-- <h2 class="govuk-heading-m">
+              BOBO and Multi-buy
+            </h2> -->
+            <p class="govuk-body-s govuk-!-font-weight-bold">
+              July 2023
+            </p>
+            <ul class="govuk-list govuk-body-s">
+              <li>RECURRING PAYMENTS</li>
+              <br>
+              <li>Version 3 (11/7/2023)</li>
+              <li>Showing design iterations made after 2 rounds of user research conducted in May/June 2023</li>
+            </ul>
+          </th>
+
+          <td class="govuk-table__cell">
+
+
+            <ul class="govuk-list govuk-list--bullet">
+              <section class="govuk-!-margin-bottom-6">
+                <li><a href="/gafl-rp-11-07-23/who-is-this-licence-for">Start of main GAFL journey with RP, version 3 (11/7/2023)</a></li>
+                <li><a href="/gafl-er-rp-11-07-23/email-table-easy-renewal">Start of Easy Renewal journey with RP, version 3 (11/7/2023)</a></li>
+                <li><a href="/gafl-er-rp-11-07-23/email-table-payment-reminder">Automatic payment reminder email, version 2 (11/7/23)</a></li>
+                <li><a href="/gafl-er-rp-11-07-23/rp-terms-standalone">Terms and conditions page, version 3 (11/7/23)</a></li>
+                <br>
+              </section>
+            </ul>
+
+
+          </td>
+        </tr>
+
+        <tr class="govuk-table__row">
+
+          <th scope="row" class="govuk-table__header">
+            <!-- <h2 class="govuk-heading-m">
+              BOBO and Multi-buy
+            </h2> -->
+            <p class="govuk-body-s govuk-!-font-weight-bold">
+              June 2023
+            </p>
+            <ul class="govuk-list govuk-body-s">
+              <li>GAFL main journey</li>
+              <li>Revised confirmation pages</li>
+
+            </ul>
+          </th>
+
+          <td class="govuk-table__cell">
+
+
+            <ul class="govuk-list govuk-list--bullet">
+              <section class="govuk-!-margin-bottom-6">
+                <p>Buying for self:</p>
+                <li><a href="/gafl-confirmation/payment-complete-3477-v1-self">Card only, no notifications</a></li>
+                <li><a href="/gafl-confirmation/payment-complete-3477-v2-self">Card, email or text confirmation*</a></li>
+                <li><a href="/gafl-confirmation/payment-complete-3477-v3-self">Digital licence, email or text confirmation</a></li>
+                <br>
+                <p>BOBO:</p>
+                <li><a href="/gafl-confirmation/payment-complete-3477-v1-bobo">Card only, no notifications</a></li>
+                <li><a href="/gafl-confirmation/payment-complete-3477-v2-bobo">Card, email or text confirmation*</a></li>
+                <li><a href="/gafl-confirmation/payment-complete-3477-v3-bobo">Digital licence, email or text confirmation</a></li>
+                <br>
+                <p>*Shows the optional paragraph for salmon licences</p>
+              </section>
+            </ul>
+
+
+          </td>
+        </tr>
+
+         <tr class="govuk-table__row">
+
+          <th scope="row" class="govuk-table__header">
+            <!-- <h2 class="govuk-heading-m">
+              BOBO and Multi-buy
+            </h2> -->
+            <p class="govuk-body-s govuk-!-font-weight-bold">
+              May/June 2023
+            </p>
+            <ul class="govuk-list govuk-body-s">
+              <li>RECURRING PAYMENTS</li>
+              <li>The designs tested during 2 rounds of research</li>
+
+              <!-- <li>&nbsp</li> -->
+
+            </ul>
+          </th>
+
+          <td class="govuk-table__cell">
+
+
+            <ul class="govuk-list govuk-list--bullet">
+              <section class="govuk-!-margin-bottom-6">
+                <p>Screenshots tested in round 1:</p>
+                <li><a href="/gafl-rp-04-23/payment-options">Recurring payments, version 1 (23/04/23)</a></li>
+                <br>
+                <p>Journey usability tested in round 2:</p>
+                <li><a href="/gafl-er-rp-01-06-23/email-table-easy-renewal">Recurring payments, version 2 via Easy Renewal email (01-06-23)</a></li>
+                <br>
+                <p>Shown to users on screen (not usability tested) in round 2:</p>
+                <li><a href="/gafl-er-rp-01-06-23/email-table-payment-reminder">Automatic payment reminder email, version 1 (13/06/23)</a></li>
+                <li><a href="/gafl-er-rp-01-06-23/rp-terms-standalone">Terms and conditions page (13/06/23)</a></li>
+                <br>
+                <p>Not usability tested:</p>
+                <li><a href="/gafl-rp-01-06-23/who-is-this-licence-for">Recurring payments, version 2 (01/06/23)</a></li>
+                <!-- <li><a href="/gafl-multibuy-2023/payment-complete-3116-v1-oi">Confirmation page - v1-oi</a> (change url to v2-oi or v3-oi to see all variants)</li>
+                <li><a href="/gafl-price-increase/licence-terms-multibuy-trout">Multibuy licence conditions - trout</a></li>
+                <li><a href="/gafl-price-increase/licence-terms-multibuy-salmon">Multibuy licence conditions - salmon</a></li> -->
+              </section>
+            </ul>
+
+
+          </td>
+        </tr>
+
+
+
+
+                <!-- BOBO / multi-buy -->
+
+                 <tr class="govuk-table__row">
+
+                  <th scope="row" class="govuk-table__header">
+                    <!-- <h2 class="govuk-heading-m">
+                      BOBO and Multi-buy
+                    </h2> -->
+                    <p class="govuk-body-s govuk-!-font-weight-bold">
+                      May 2023
+                    </p>
+                    <ul class="govuk-list govuk-body-s">
+                      <li>MULTIBUY</li>
+                      <li>Added confirmation page - three variants dependent on if user has selected email/text/post option. Plus, additional line if user has bought a salmon licence (shown on v3)</li>
+                      <li>Added licence conditions - two versions</li>
+                      <!-- <li>&nbsp</li> -->
+
+                    </ul>
+                  </th>
+
+                  <td class="govuk-table__cell">
+
+
+                    <ul class="govuk-list govuk-list--bullet">
+                      <section class="govuk-!-margin-bottom-6">
+                        <li><a href="/gafl-multibuy-2023/payment-complete-3116-v1-oi">Confirmation page - v1-oi</a> (change url to v2-oi or v3-oi to see all variants)</li>
+                        <li><a href="/gafl-price-increase/licence-terms-multibuy-trout">Multibuy licence conditions - trout</a></li>
+                        <li><a href="/gafl-price-increase/licence-terms-multibuy-salmon">Multibuy licence conditions - salmon</a></li>
+                      </section>
+                    </ul>
+
+
+                  </td>
+                </tr>
+
+                <tr class="govuk-table__row">
+
+                  <th scope="row" class="govuk-table__header">
+                    <!-- <h2 class="govuk-heading-m">
+                      BOBO and Multi-buy
+                    </h2> -->
+                    <p class="govuk-body-s govuk-!-font-weight-bold">
+                      March 2023
+                    </p>
+                    <ul class="govuk-list govuk-body-s">
+                      <li>Updated core journey to match live service as of 06/03/23 - includes price increase banners</li>
+                      <!-- <li>&nbsp</li> -->
+                      <li>Added placeholder pages for suggested Recurring Payment journey, as per the <a href="https://www.figma.com/file/NovA3AAR0WLGXLhKrOcBZH/IWTF-3172-Recurring-Payments-user-flows?node-id=0%3A1&t=rQmHujCd9kXtEM0n-1">Figma document</a></li>
+                      <li>Removed 'paperless' from the licence choice page</li>
+                    </ul>
+                  </th>
+
+                  <td class="govuk-table__cell">
+
+
+                    <ul class="govuk-list govuk-list--bullet">
+                      <section class="govuk-!-margin-bottom-6">
+                        <li><a href="/gafl-03-23/who-is-this-licence-for">Matched to live journey - Start</a></li>
+                        <li><a href="/gafl-rp-04-23/licence-terms">RP flow starting from 'Licence conditions' page</a></li>
+                        <li><a href="/gafl-price-increase/licence-option-2">'How do you want to get your fishing licence?' page</a></li>
+                      </section>
+                    </ul>
+
+
+                  </td>
+                </tr>
+
+
+
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">
+                    <!-- <h2 class="govuk-heading-m">
+                      .
+                    </h2> -->
+                    <p class="govuk-body-s govuk-!-font-weight-bold">
+                      February 2023
+                    </p>
+                    <ul class="govuk-list govuk-body-s">
+                      <li>Easy Renewal journey - matches the current live flow</li>
+                    </ul>
+                  </th>
+                  <td class="govuk-table__cell">
+                    <ul class="govuk-list govuk-list--bullet">
+                      <li><a href="/easy-renewal-feb-23/er-confirm-your-details">Easy Renewal</a></li>
+                    </ul>
+                  </td>
+                </tr>
+
+
+
+
+
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">
+            <!-- <h2 class="govuk-heading-m">
+              .
+            </h2> -->
+            <p class="govuk-body-s govuk-!-font-weight-bold">
+              January 2023
+            </p>
+            <ul class="govuk-list govuk-body-s">
+              <li>MULTIBUY - Show the flow for when a user removes the last licence from their basket</li>
+            </ul>
+          </th>
+          <td class="govuk-table__cell">
+            <ul class="govuk-list govuk-list--bullet">
+              <li><a href="/gafl-multibuy-accordion-no-licences/selected-licences">Remove last licence from basket</a></li>
+            </ul>
+          </td>
+        </tr>
+
+
+
+
+      </tbody>
+    </table>
+
+
+
+
+    <h2 class="govuk-heading-m"><a href="index-2022">2022</a></h2>
+
+    <h2 class="govuk-heading-m"><a href="index-2021">2021</a></h2>
+
+
+
+    <!-- Formatting example
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">
+        <h2 class="govuk-heading-m">
+          BOBO and Multi-buy
+        </h2>
+        <p class="govuk-body-s govuk-!-font-weight-bold">
+          November 2021
+        </p>
+        <ul class="govuk-list govuk-body-s">
+          <li>BOBO</li>
+          <li>Multi-buy</li>
+          <li>BOBO/Multi-buy licence conditions</li>
+        </ul>
+      </th>
+
+      <td class="govuk-table__cell">
+
+        <h3 class="govuk-heading-s">
+          Multi-buy licence condition options
+        </h3>
+
+        <ul class="govuk-list govuk-list--bullet">
+          <section class="govuk-!-margin-bottom-6">
+            <li><a href="/gafl-multibuy-2021-12/licence-type?terms=1">On the licence type screen</a></li>
+            <li><a href="/gafl-multibuy-2021-12/fishing-licence-conditions">Licence static terms</a></li>
+          </section>
+        </ul>
+
+        <h3 class="govuk-heading-s">
+          Errors for multi-buy and BOBO
+        </h3>
+
+        <ul class="govuk-list govuk-list--bullet">
+          <section class="govuk-!-margin-bottom-6">
+            <li><a href="/gafl-multibuy-2021-12/who-is-this-licence-for?source=gafl&error=1">Tell us who the licence is for error</a></li>
+            <li><a href="/gafl-multibuy-2021-12/add-another-licence?error=1">Tell us if you want to get more licences error</a></li>
+          </section>
+        </ul>
+
+        <h3 class="govuk-heading-s">
+          Multi-buy licence condition options
+        </h3>
+
+        <ul class="govuk-list govuk-list--bullet">
+          <section class="govuk-!-margin-bottom-6">
+            <li><a href="/gafl-multibuy-2021-12/who-is-this-licence-for?source=gafl&terms=1">BOBO / multi-buy with new terms pattern</a></li>
+            <li><a href="/gafl-multibuy-2021-12/licence-conditions-notice?option=">Licence conditions with checkbox</a></li>
+            <li><a href="/gafl-multibuy-2021-12/licence-conditions-notice?option=1">Licence conditions with warning</a></li>
+            <li><a href="/gafl-multibuy-2021-12/licence-conditions-notice?option=1">Licence conditions with checkbox and warning (possibly too much emphasis)</a></li>
+          </section>
+        </ul>
+
+      </td>
+    </tr> -->
+
+
+
+  </div>
+</div>
+
+{% endblock %}
