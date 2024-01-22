@@ -1,0 +1,214 @@
+{% extends "layout.html" %}
+
+{% if data['licenceFor'] == "user" %}
+  {% set title = "Where should we send your fishing licence?" %}
+{% else %}
+  {% set title = "Where should we send the fishing licence?" %}
+{% endif %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <span class="govuk-phase-banner__text no-print">
+      Your <a class="govuk-link" href="https://www.smartsurvey.co.uk/s/0L205/" rel="noreferrer noopener" target="_blank">feedback (opens in new tab)</a> will help us improve the service
+    </span>
+  </p>
+</div>
+
+<div class="govuk-width-container govuk-!-display-none-print govuk-!-margin-top-2">
+  <p class="govuk-body-s govuk-!-text-align-right govuk-!-margin-0">
+    <span class="govuk-body-s govuk-!-margin-2">English</span> | <a class="govuk-link govuk-!-margin-2" href="?lang=cy">Cymraeg</a>
+  </p>
+</div>
+
+  <a href="javascript:history.back()" class="govuk-back-link">Back</a>
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <!-- debug / show data -->
+      {% include "includes/clip/debug.html" %}
+
+
+
+      {% if data['licencebyerrorcode'] == 2 %}
+
+        <!-- error summary -->
+        {{ govukErrorSummary({
+          titleText: "There is a problem",
+          errorList: [
+            {
+              text: "Choose how we should send the licence",
+              href: "#licence-by-email-radio"
+            }
+          ]
+        }) }}
+
+      {% endif %}
+
+
+        <form action="/licenceBy" method="post" class="form">
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <h1 class="govuk-fieldset__heading">
+                {{ title }}
+              </h1>
+            </legend>
+
+            <!-- junior logic -->
+            {% if data['junior'] %}
+              <p class="govuk-body">
+                We don’t provide physical cards for junior licences.
+              </p>
+            {% else %}
+
+              <p class="govuk-body">
+                This is where we will send the licence after payment.
+              </p>
+
+
+
+              {% if data['licencebyerrorcode'] == 2 %}
+                <div class="govuk-form-group govuk-form-group--error">
+              {% else %}
+                <div class="govuk-form-group">
+              {% endif %}
+
+              <!-- <div class="govuk-inset-text">
+                {% if data['licenceFor'] == "user" %}
+                  You will receive your licence information by email or text message only. You will not receive a licence card.
+                {% else %}
+                  Licence information will be sent by email or text message only. We will not send a licence card.
+                {% endif %}
+              </div> -->
+
+            {% endif %}
+
+            <!-- the radios -->
+            <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+              {% if data['licencebyerrorcode'] == 2 %}
+              <span class="govuk-error-message" id="question">
+                <span class="govuk-visually-hidden">Error:</span> Choose one of the fishing licence types
+              </span>
+              {% endif %}
+
+
+
+              <!-- radio 1 -->
+              <div class="govuk-radios__item">
+
+                <!-- check radio if it already set -->
+                {% if data['licenceBy'] == "email" %}
+                  <input class="govuk-radios__input" id="licence-by-email-radio" name="licenceBy" type="radio" value="email" data-aria-controls="conditional-licenceBy-email-option" checked>
+                {% else %}
+                  <input class="govuk-radios__input" id="licence-by-email-radio" name="licenceBy" type="radio" value="email" data-aria-controls="conditional-licenceBy-email-option">
+                {% endif %}
+
+                <label class="govuk-label govuk-radios__label" for="licence-by-email-radio">
+                  Email
+                </label>
+              </div>
+
+              <!-- reveal 1 -->
+              <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-licenceBy-email-option">
+                {% if data['email'] %}
+                <!-- if the email address in the session show it -->
+                  <p class="govuk-body">
+                    Email address <br> <span class="govuk-!-font-weight-bold">{{ data['email'] }} &nbsp; <a href="">Change</a></span>
+                  </p>
+                {% else %}
+                <!-- if the email address is not in the session do not show it -->
+                  <div class="govuk-form-group">
+                    <label class="govuk-label" for="licenceBy-email">
+                      Email address
+                    </label>
+                    <p class="govuk-hint">
+                      For example name@example.com.
+                    </p>
+                    <input class="govuk-input govuk-!-width-one-third" id="email" name="email" type="email" spellcheck="false">
+                  </div>
+                {% endif %}
+              </div>
+
+
+
+
+              <!-- radio 2 -->
+              <div class="govuk-radios__item">
+
+                {% if data['licenceBy'] == "phone" %}
+                <!-- if the licence by has already been set to phone in the session show it -->
+                  <input class="govuk-radios__input" id="licenceBy-text-radio" name="licenceBy" type="radio" value="phone-number" data-aria-controls="conditional-licenceBy-text-option" checked>
+                {% else %}
+                <!-- if the phone number is not in the session do not show it -->
+                  <input class="govuk-radios__input" id="licenceBy-text-radio" name="licenceBy" type="radio" value="phone-number" data-aria-controls="conditional-licenceBy-text-option">
+                {% endif %}
+                  <label class="govuk-label govuk-radios__label" for="licenceBy-text-radio">
+                    Text message
+                  </label>
+              </div>
+
+              <!-- reveal 2 -->
+              <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-licenceBy-text-option">
+                <div class="govuk-form-group">
+                  {% if data['phone-number'] %}
+                  <!-- if the phone number is in the session show it -->
+                    <p class="govuk-body">
+                      We will email your licence information to <span class="govuk-!-font-weight-bold">{{ data['phone-number'] }}</span>
+                    </p>
+
+                  {% else %}
+                    <label class="govuk-label" for="licenceBy-text">
+                      UK mobile number
+                    </label>
+                    <p class="govuk-hint">
+                      For example 07700 900 900.
+                    </p>
+                    <input class="govuk-input govuk-!-width-one-third" id="licenceBy-text" name="phone-number" type="tel">
+                  {% endif %}
+
+                </div>
+              </div>
+
+
+            </div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+          </fieldset>
+        </div>
+
+        <button class="govuk-button" data-module="govuk-button">
+          Continue
+        </button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
