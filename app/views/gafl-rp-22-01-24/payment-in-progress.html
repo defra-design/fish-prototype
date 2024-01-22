@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% set title = "Confirm your payment" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block header %}
+ {{ govukHeader({
+   homepageUrl: "/",
+   serviceName: "Get a rod fishing licence",
+   serviceUrl: "#",
+   containerClasses: "govuk-width-container"
+ }) }}
+{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-l">Your bank needs to complete a security check</h1>
+
+
+        <a href="payment-confirmation">
+          <img src="/public/images/piggi-bank-3b.png" alt="placeholder secure check panel" width="80%">
+        </a>
+        <br><br><br>
+        <!-- <form action="payment-confirmation" method="post" novalidate>
+          <input type="hidden" name="answers-checked" value="true">
+          <button class="govuk-button" data-module="govuk-button">
+            Continue
+          </button>
+        </form> -->
+      </div>
+    </div>
+
+
+
+
+{% endblock %}

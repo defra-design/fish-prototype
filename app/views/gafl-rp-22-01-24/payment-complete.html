@@ -1,0 +1,99 @@
+{% extends "layout.html" %}
+
+{% set title = "Payment complete" %}
+
+<!-- grab data from allLicences -->
+{% set allLicences = data['allLicences'] %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <span class="govuk-phase-banner__text no-print">
+      Your <a class="govuk-link" href="https://www.smartsurvey.co.uk/s/0L205/" rel="noreferrer noopener" target="_blank">feedback (opens in new tab)</a> will help us improve the service
+    </span>
+  </p>
+</div>
+
+<div class="govuk-width-container govuk-!-display-none-print govuk-!-margin-top-2">
+  <p class="govuk-body-s govuk-!-text-align-right govuk-!-margin-0">
+    <span class="govuk-body-s govuk-!-margin-2">English</span> | <a class="govuk-link govuk-!-margin-2" href="?lang=cy">Cymraeg</a>
+  </p>
+</div>
+
+<!-- <a href="javascript:history.back()" class="govuk-back-link">Back</a> -->
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <div class="govuk-panel govuk-panel--confirmation govuk-!-margin-bottom-6">
+
+        <span class="govuk-panel__title">£33</span>
+        <h1 class="govuk-panel__title">
+          {{ title }}
+        </h1>
+
+        <div class="govuk-panel__body">
+          <div class="govuk-!-margin-bottom-6">
+            The licence number is<br><span class="govuk-!-font-weight-bold">23200824-2WC3FSF-AC2GC8</span>
+          </div>
+          <div class="govuk-!-margin-bottom-3">
+            Starts from<br>11:00am on 21 August 2023
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+      <div class="govuk-!-margin-bottom-9">
+
+        <p class="govuk-body">
+          If the paperless licence option has been selected, the licence will be sent by text or email. If the licence card option has been selected, the licence card will arrive in the post within 15 working days.
+        </p>
+
+        <p class="govuk-body">
+          Licence holders can fish from the start date and time on the licence and do not have to wait for the licence card to arrive.
+        </p>
+
+        <p class="govuk-body">
+          The licence number must be provided to an enforcement officer when requested.
+        </p>
+
+        <form action="licence-information">
+          <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+            View licence details
+          </button>
+        </form>
+
+        <p class="govuk-body">
+          The licence holder must follow the <a href="https://www.gov.uk/guidance/national-rod-fishing-byelaws-for-england-freshwater-fishing-with-a-rod-and-line" class="govuk_link" target="_blank">rod fishing byelaws (opens in new tab)</a>.
+        </p>
+
+        <p class="govuk-body">
+          <!-- <a href="https://www.gov.uk/government/publications/fisheries-annual-report-2019-to-2020/fisheries-annual-report-2019-to-2020" class="govuk_link">Read the Fisheries annual report 2019 to 2020</a> to find out how we spend licence money. -->
+        </p>
+
+      </div>
+
+      <p class="govuk-body">
+        <a href="https://www.smartsurvey.co.uk/s/0L205/" class="govuk-link">Tell us what you think of the service</a> (takes 30 seconds)
+      </p>
+
+    </div>
+  </div>
+
+{% endblock %}

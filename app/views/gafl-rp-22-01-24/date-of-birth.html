@@ -1,0 +1,156 @@
+{% extends "layout.html" %}
+
+{% set title = "What is the person’s date of birth?" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <span class="govuk-phase-banner__text no-print">
+      Your <a class="govuk-link" href="https://www.smartsurvey.co.uk/s/0L205/" rel="noreferrer noopener" target="_blank">feedback (opens in new tab)</a> will help us improve the service
+    </span>
+  </p>
+</div>
+
+<div class="govuk-width-container govuk-!-display-none-print govuk-!-margin-top-2">
+  <p class="govuk-body-s govuk-!-text-align-right govuk-!-margin-0">
+    <span class="govuk-body-s govuk-!-margin-2">English</span> | <a class="govuk-link govuk-!-margin-2" href="?lang=cy">Cymraeg</a>
+  </p>
+</div>
+
+  <a href="javascript:history.back()" class="govuk-back-link">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row govuk-!-margin-bottom-9">
+    <div class="govuk-grid-column-two-thirds">
+
+      <!-- debug / show data -->
+      {% include "includes/clip/debug.html" %}
+
+
+
+      {% if data['errorcode'] == 10 %}
+
+        <!-- error summary -->
+        {{ govukErrorSummary({
+          titleText: "There is a problem",
+          errorList: [
+            {
+              text: "Enter the licence holder's date of birth and include a day, month and year",
+              href: "#dob_day"
+            }
+          ]
+        }) }}
+
+      {% endif %}
+
+
+
+      <form action="/dateOfBirth" method="post" class="form">
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+
+              <!-- alternate headings -->
+              <h1 class="govuk-fieldset__heading">
+                {% if data['licenceFor'] == "user" %}
+                  What is your date of birth?
+                {% else %}
+                  What is the person's date of birth?
+                {% endif %}
+              </h1>
+            </legend>
+
+            <div id="dob-hint" class="govuk-hint">
+              For example, 23 11 1979
+            </div>
+
+            <div class="govuk-warning-text">
+              <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+              <strong class="govuk-warning-text__text">
+                <span class="govuk-warning-text__assistive">Warning</span>
+                If you do not provide a correct date of birth, this may cause delays when a licence is renewed or mean that a licence is not valid. Read about <a href="https://get-fishing-licence.service.gov.uk/guidance/privacy-policy" target="_blank">how we use personal information (opens in new tab)</a>.
+              </strong>
+              </div>
+
+
+{% if data['errorcode'] == 10 %}
+<div class="govuk-form-group govuk-form-group--error">
+  <p id="date-of-birth-error" class="govuk-error-message">
+    <span class="govuk-visually-hidden">Error:</span> Enter the date of birth
+  </p>
+{% else %}
+<div class="govuk-form-group">
+{% endif %}
+
+            <div class="govuk-date-input" id="dob">
+
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="dob_day">
+                    Day
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="dob_day" name="dob_day" type="text" pattern="[0-9]*" inputmode="numeric" value="{{ data['dob_day'] }}"></div>
+              </div>
+
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="dob_month">
+                    Month
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="dob_month" name="dob_month" type="text" pattern="[0-9]*" inputmode="numeric" value="{{ data['dob_month'] }}"></div>
+              </div>
+
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="dob_year">
+                    Year
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="dob_year" name="dob_year" type="text" pattern="[0-9]*" inputmode="numeric" value="{{ data['dob_year'] }}"></div>
+              </div>
+
+            </div>
+</div>
+
+
+
+
+
+
+
+          </fieldset>
+        </div>
+
+        <button class="govuk-button" data-module="govuk-button">
+          Continue
+        </button>
+      </form>
+
+    </div>
+  </div>
+
+  <!-- shortcut through flow -->
+  <!-- <div class="prototype-only">
+    <ul class="govuk-list govuk-list--bullet">
+      <li>
+        <a href="licence-summary">
+          Skip to the licence summary
+        </a>
+      </li>
+      <li>
+        <a href="contact-summary">
+          Skip to the contact summary
+        </a>
+      </li>
+    </ul>
+  </div> -->
+
+{% endblock %}
