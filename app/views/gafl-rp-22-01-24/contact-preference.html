@@ -132,7 +132,7 @@
 
               <!-- radio 2 -->
               <div class="govuk-radios__item">
-                {% if data['contact'] == "phone" %}
+                {% if data['licenceBy'] == "phone-number" %}
                 <!-- if contact is set to text-message / "phone" -->
                   <input class="govuk-radios__input" id="contact-by-text-radio" name="contact" type="radio" value="phone" data-aria-controls="conditional-contact-by-text-option" checked>
                 {% else %}
