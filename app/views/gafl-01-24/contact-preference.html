@@ -115,6 +115,20 @@
                 </label>
               </div>
 
+              <!-- reveal 1 -->
+              {% if data['licenceBy'] == "phone-number" %}
+              <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact-by-email-option">
+                  <label class="govuk-label" for="input-email">
+                    Email address
+                  </label>
+                  <p class="govuk-hint">
+                    For example name@example.com.
+                  </p>
+                  <input class="govuk-input govuk-!-width-two-thirds" id="input-email" name="email" type="email" spellcheck="false">
+
+              </div>
+              {% endif %}
+
 
               <!-- radio 2 -->
               <div class="govuk-radios__item">
@@ -129,8 +143,20 @@
                 </label>
               </div>
 
-
-
+              <!-- reveal 2 -->
+              {% if data['licenceBy'] == "email" %}
+              <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact-by-text-option">
+                <div class="govuk-form-group">
+                    <label class="govuk-label" for="input-phone-number">
+                      Mobile phone number
+                    </label>
+                    <p class="govuk-hint">
+                      For example 07700 900 900.
+                    </p>
+                    <input class="govuk-input govuk-!-width-one-third" id="input-phone-number" name="phone-number" type="tel">
+                </div>
+              </div>
+              {% endif %}
 
 
 
@@ -157,11 +183,9 @@
           </div>
 
 
-
-
-
           </fieldset>
         </div>
+
 
         <button class="govuk-button" data-module="govuk-button">
           Continue
