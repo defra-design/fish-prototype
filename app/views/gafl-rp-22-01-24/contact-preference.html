@@ -111,26 +111,10 @@
                   <input class="govuk-radios__input" id="contact-by-email-radio" name="contact" type="radio" value="email" data-aria-controls="conditional-contact-by-email-option">
                 {% endif %}
                 <label class="govuk-label govuk-radios__label" for="contact-by-email-radio">
-                  Email
+                  Email {{ data['email'] }}
                 </label>
               </div>
-              <!-- reveal 1 -->
-              <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact-by-email-option">
-                {% if data['email'] %}
-                <!-- if there is an email address -->
-                  <p class="govuk-body">
-                    Email address<br><span class="govuk-!-font-weight-bold">{{ data['email'] }} &nbsp; <a href="#">Change</a></span>
-                  </p>
-                {% else %}
-                  <label class="govuk-label" for="input-email">
-                    Email address
-                  </label>
-                  <p class="govuk-hint">
-                    For example name@example.com.
-                  </p>
-                  <input class="govuk-input govuk-!-width-two-thirds" id="input-email" name="email" type="email" spellcheck="false">
-                {% endif %}
-              </div>
+
 
               <!-- radio 2 -->
               <div class="govuk-radios__item">
@@ -141,29 +125,12 @@
                   <input class="govuk-radios__input" id="contact-by-text-radio" name="contact" type="radio" value="phone" data-aria-controls="conditional-contact-by-text-option">
                 {% endif %}
                 <label class="govuk-label govuk-radios__label" for="contact-by-text-radio">
-                  Text message
+                  Text message {% if data['phone-number'] %} to {{ data['phone-number'] }} {% endif %}
                 </label>
               </div>
 
-              <!-- reveal 2 -->
-              <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact-by-text-option">
-                <div class="govuk-form-group">
-                  {% if data['phone-number'] %}
-                  <!-- if there is a phone number -->
-                    <p class="govuk-body">
-                      UK Mobile number <br><span class="govuk-!-font-weight-bold">{{ data['phone-number'] }} &nbsp; <a href="#">Change</a></span>
-                    </p>
-                  {% else %}
-                    <label class="govuk-label" for="input-phone-number">
-                      UK Mobile number
-                    </label>
-                    <p class="govuk-hint">
-                      For example 07700 900 900.
-                    </p>
-                    <input class="govuk-input govuk-!-width-one-third" id="input-phone-number" name="phone-number" type="tel">
-                  {% endif %}
-                </div>
-              </div>
+
+
 
 
 
@@ -188,6 +155,8 @@
               {% endif %}
             </div>
           </div>
+
+
 
 
 
