@@ -116,7 +116,7 @@
               </div>
 
               <!-- reveal 1 -->
-              {% if data['licenceBy'] == "phone-number" %}
+              {% if data['licenceBy'] != "email" %}
               <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact-by-email-option">
                   <label class="govuk-label" for="input-email">
                     Email address
@@ -144,7 +144,7 @@
               </div>
 
               <!-- reveal 2 -->
-              {% if data['licenceBy'] == "email" %}
+              {% if data['licenceBy'] != "phone-number" %}
               <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact-by-text-option">
                 <div class="govuk-form-group">
                     <label class="govuk-label" for="input-phone-number">
