@@ -55,7 +55,13 @@
       {{ title }}
     </h1>
 
-    <form action="/licenceTermsRP" method="post" class="form" id="recipient">
+<!-- if user is buying for themselves, give them the recurring payment option on the next page -->
+    {% if data['licenceFor'] == "user" %}
+      <form action="/licenceTermsRP" method="post" class="form" id="recipient">
+    {% else %}
+      <form action="/licenceTerms" method="post" class="form" id="recipient">
+    {% endif %}
+
 
       <p class="govuk-body">
         When you buy this licence you agree that: 

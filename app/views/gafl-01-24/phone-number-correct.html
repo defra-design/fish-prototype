@@ -48,7 +48,12 @@
 
 
 
-      <form action="contact-preference" method="post" class="form">
+      {% if data['licence-length'] == "8 day" or data['licence-length'] == "1 day" %}
+        <form action="newsletter" method="post" class="form">
+      {% else %}
+        <form action="contact-preference" method="post" class="form">
+      {% endif %}
+
 
         <button class="govuk-button" data-module="govuk-button">
           It's correct

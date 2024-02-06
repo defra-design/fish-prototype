@@ -56,6 +56,7 @@
       {% endif %}
 
 
+
         <form action="/licenceBy" method="post" class="form">
 
         <div class="govuk-form-group">
@@ -73,10 +74,27 @@
               </p>
             {% else %}
 
+
+
+            {% if data['licence-length'] == "8 day" or data['licence-length'] == "1 day" %}
+
+                      {% if data['licence-type'] == "Salmon and sea trout" %}
+                        <p class="govuk-body">
+                          We will use this email or mobile number to send a reminder to report a catch return. We may also send other important information, such as changes affecting the licence or the fishing byelaws.
+                        </p>
+                        {% else %}
+                        <p class="govuk-body">
+                          We may also use this email or mobile number to send important information, such as changes affecting the licence or the fishing byelaws
+                        </p>
+                        {% endif %}
+
+            {% else %}
+
               <p class="govuk-body">
                 This is where we will send the licence after payment.
               </p>
 
+            {% endif %}
 
 
               {% if data['licencebyerrorcode'] == 2 %}
@@ -186,16 +204,6 @@
 
 
 </div>
-
-
-
-
-
-
-
-
-
-
 
 
 
