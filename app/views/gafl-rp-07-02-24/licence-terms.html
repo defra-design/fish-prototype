@@ -103,10 +103,13 @@
 
 
 
+      {% if data['licenceFor'] == "user" %}
+      <br>
+      <button type="submit" class="govuk-button govuk-!-margin-bottom-1">
+        Continue
+      </button>
 
-
-
-
+      {% else %}
       <div class="govuk-warning-text">
         <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
         <strong class="govuk-warning-text__text">
@@ -124,6 +127,9 @@
         <br>
         on the GOV.UK secure payment site
       </p>
+      {% endif %}
+
+
 
 
     </form>
