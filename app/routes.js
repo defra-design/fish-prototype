@@ -827,17 +827,21 @@ router.post('/service-start-routing', function (req, res) {
 
 
 
-
 router.post('/payment-options-form', function (req, res) {
   let paymentOption = req.session.data['payment-options-radio']
   const prototypeToUse = getPrototypeToUse(req)
 
-  if (paymentOption === 'single-payment') {
+  if (!paymentOption) {
+    res.redirect(`/${prototypeToUse}/payment-options?paymentoptionserror=1`)
+  }
+
+  else if (paymentOption === 'single-payment') {
     res.redirect(`${prototypeToUse}/payment-details`)
   } else {
     res.redirect(`${prototypeToUse}/rp-terms`)
   }
 })
+
 
 
 router.post('/paymentDetails', function (req, res) {
