@@ -7,7 +7,7 @@
   "name": "govuk-prototype-kit",
   "dependencies": {
     "@govuk-prototype-kit/step-by-step": "^2.1.0",
-    "govuk-frontend": "^4.4.1",
+    "govuk-frontend": "^4.8.0",
     "govuk-prototype-kit": "^13.3.0",
     "jquery": "^3.6.3",
     "notifications-node-client": "^5.2.3"
