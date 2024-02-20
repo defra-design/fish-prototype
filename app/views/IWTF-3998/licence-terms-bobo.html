@@ -1,6 +1,6 @@
 {% extends "layout-renew.html" %}
 
-{% set title = "Check and agree to the licence conditions" %}
+{% set title = "Does the licence holder agree to the licence conditions?" %}
 
 {% block pageTitle %}
   {{title}} - GOV.UK
@@ -42,7 +42,7 @@
         titleText: "There is a problem",
         errorList: [
           {
-            text: "You have not agreed to the licence conditions",
+            text: "Confirm if the licence holder agrees to the licence conditions",
             href: "#agree-terms"
           }
         ]
@@ -58,7 +58,7 @@
     <form action="/licenceTerms" method="post" class="form" id="recipient">
 
       <p class="govuk-body">
-        When you buy this licence you agree the licence holder will: 
+        The licence holder must: 
       </p>
 
       <ul class="govuk-list govuk-list--bullet">
@@ -78,7 +78,7 @@
       {% if data['agreetermserror'] == 1 %}
         <div class="govuk-form-group govuk-form-group--error">
           <span class="govuk-error-message" id="question">
-            <span class="govuk-visually-hidden">Error:</span> You must agree to the licence conditions to continue
+            <span class="govuk-visually-hidden">Error:</span>Confirm if the licence holder agrees to the licence conditions
           </span>
       {% else %}
         <div class="govuk-form-group">
@@ -87,7 +87,7 @@
         <div class="govuk-checkboxes__item">
           <input class="govuk-checkboxes__input" id="agree-terms" name="agree-terms" type="checkbox" value="agree">
           <label class="govuk-label govuk-checkboxes__label" for="returns-agent">
-            I agree to the licence conditions
+            I confirm the licence holder agrees to the licence conditions
           </label>
         </div>
       </div>
