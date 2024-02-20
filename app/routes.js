@@ -507,6 +507,34 @@ router.post('/licenceTermsRP', function (req, res) {
 
 
 
+// routing for IWTF-3998
+router.post('/licenceTermsGafl', function (req, res) {
+  let agreeTerms = req.session.data['agree-terms']
+  let agreetermserror = 0
+  const prototypeToUse = getPrototypeToUse(req)
+  if (!agreeTerms) {
+    res.redirect(`/${prototypeToUse}/licence-terms-gafl?agreetermserror=1`)
+  }
+  else {
+    res.redirect(`/${prototypeToUse}/payment-options`)
+  }
+})
+router.post('/licenceTermsBobo', function (req, res) {
+  let agreeTerms = req.session.data['agree-terms']
+  let agreetermserror = 0
+  const prototypeToUse = getPrototypeToUse(req)
+  if (!agreeTerms) {
+    res.redirect(`/${prototypeToUse}/licence-terms-bobo?agreetermserror=1`)
+  }
+  else {
+    res.redirect(`/${prototypeToUse}/payment-options`)
+  }
+})
+
+
+
+
+
 // routing for the paperless question screen
 router.post('/multibuy-check-licence-option', function(req, res) {
   const prototypeToUse = getPrototypeToUse(req)
