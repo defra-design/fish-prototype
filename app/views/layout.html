@@ -5,3 +5,14 @@
 {% block pageTitle %}
   GOV.UK Prototype Kit
 {% endblock %}
+
+
+{% block header %}
+  {{ govukHeader({
+    useTudorCrown: true,
+    homepageUrl: "/",
+    serviceName: serviceName,
+    serviceUrl: "/",
+    containerClasses: "govuk-width-container"
+  }) }}
+{% endblock %}
