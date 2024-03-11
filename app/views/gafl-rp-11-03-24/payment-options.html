@@ -1,0 +1,98 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Payment options - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+
+
+
+      {% if data['paymentoptionserror'] == 1 %}
+
+        <!-- error summary -->
+        {{ govukErrorSummary({
+          titleText: "There is a problem",
+          errorList: [
+            {
+              text: "Select yes or no",
+              href: "#payment-options-1"
+            }
+          ]
+        }) }}
+
+      {% endif %}
+
+
+
+
+
+
+
+
+      <form action="/payment-options-form" method="post" class="form">
+        {% if data['paymentoptionserror'] %}
+          <div class="govuk-form-group govuk-form-group--error">
+        {% else %}
+          <div class="govuk-form-group">
+        {% endif %}
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <h1 class="govuk-fieldset__heading">
+                Would you like to set up a recurring card payment to renew this licence each year?</h1>
+            </legend>
+
+            <div id="event-name-hint" class="govuk-hint">A recurring card payment is an automatic payment taken from your debit or credit card.</div>
+
+            {% if data['paymentoptionserror'] %}
+              <span class="govuk-error-message" id="question">
+                <span class="govuk-visually-hidden">Error:</span> Select yes or no
+              </span>
+            {% endif %}
+
+             <div class="govuk-radios" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="payment-options-1" name="payment-options-radio" type="radio" value="recurring-payment">
+                <label class="govuk-label govuk-radios__label" for="payment-options-1">
+                    Yes
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="payment-options-2" name="payment-options-radio" type="radio" value="single-payment">
+                <label class="govuk-label govuk-radios__label" for="payment-options-2">
+                   No, pay for a single licence only
+                </label>
+              </div>
+            </div>
+
+
+
+          </fieldset>
+        </div>
+
+        <button class="govuk-button" data-module="govuk-button">
+          Continue
+        </button>
+      </form>
+
+
+
+
+
+
+
+    </div>
+  </div>
+
+{% endblock %}

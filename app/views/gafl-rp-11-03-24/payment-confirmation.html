@@ -1,0 +1,208 @@
+{% extends "layout.html" %}
+
+{% set title = "Confirm your payment" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block header %}
+ {{ govukHeader({
+  useTudorCrown: true,
+   homepageUrl: "/",
+   serviceName: "Get a rod fishing licence",
+   serviceUrl: "#",
+   containerClasses: "govuk-width-container"
+ }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">{{ title }}</h1>
+
+
+      <div class="payment-summary">
+              <h2 class="govuk-heading-m">Payment summary</h2>
+              <p id="payment-description" class="govuk-body">
+              Trout and coarse, up to 2 rods, 12 months
+              </p>
+              <p class="govuk-body hidden" id="payment-summary-breakdown">
+              Amount
+              <span class="govuk-!-font-weight-bold" id="payment-summary-breakdown-amount"></span><br>
+              Corporate card fee:
+              <span class="govuk-!-font-weight-bold" id="payment-summary-corporate-card-fee"></span>
+              </p>
+              <p class="govuk-body govuk-!-margin-bottom-0">
+              Total amount:<br>
+              <span id="amount" class="amount govuk-!-font-size-36 govuk-!-font-weight-bold" data-amount="33.00">£33.00</span>
+              </p>
+      </div>
+
+
+      {% if data['licence'] == "1" %}
+
+        {{ govukSummaryList({
+          classes: 'govuk-!-margin-bottom-9',
+          rows: [
+
+            {
+              actions: {
+                items: [
+
+                ]
+              }
+            },
+            {
+              key: {
+                text: "Card number"
+              },
+              value: {
+                text: "•••• •••• •••• 4321"
+              },
+              actions: {
+                items: [
+
+                ]
+              }
+            },
+            {
+              key: {
+                text: "Expiry date"
+              },
+              value: {
+                text: "May 2024"
+              },
+              actions: {
+                items: [
+
+                ]
+              }
+            },
+            {
+              key: {
+                text: "Name on card"
+              },
+              value: {
+                text: data['firstName'] + " " + data['last-name']
+              },
+              actions: {
+                items: [
+
+                ]
+              }
+            },
+            {
+              key: {
+                text: "Billing address"
+              },
+              value: {
+                html: "2A BAILEY HOUSE<br>BAILEY ROAD<br>BS2 1PP"
+              },
+              actions: {
+                items: [
+
+                ]
+              }
+            }
+          ]
+        }) }}
+
+      {% else %}
+
+        {{ govukSummaryList({
+          classes: 'govuk-!-margin-bottom-9',
+          rows: [
+            {
+              key: {
+                text: "Card number"
+              },
+              value: {
+                text: "•••• •••• •••• 4321"
+              },
+              actions: {
+                items: [
+
+                ]
+              }
+            },
+            {
+              key: {
+                text: "Expiry date"
+              },
+              value: {
+                text: "May 2024"
+              },
+              actions: {
+                items: [
+
+                ]
+              }
+            },
+            {
+              key: {
+                text: "Name on card"
+              },
+              value: {
+                text: "Sam Fisher"
+              },
+              actions: {
+                items: [
+
+                ]
+              }
+            },
+            {
+              key: {
+                text: "Billing address"
+              },
+              value: {
+                html: "2A BAILEY HOUSE<br>BAILEY ROAD<br>BS2 1PP"
+              },
+              actions: {
+                items: [
+
+                ]
+              }
+            },
+            {
+              key: {
+                text: "Confirmation email"
+              },
+              value: {
+                html: "sam.fisher@email.com"
+              },
+              actions: {
+                items: [
+
+                ]
+              }
+            }
+          ]
+        }) }}
+
+      {% endif %}
+
+      <form action="payment-complete" method="post" novalidate>
+
+        <input type="hidden" name="answers-checked" value="true">
+
+        {{ govukButton({
+          text: "Confirm payment"
+        }) }}
+
+        <br>
+
+        <!-- <a href="add-another-licence">
+          Cancel payment
+        </a> -->
+
+      </form>
+
+    </div>
+  </div>
+
+
+
+{% endblock %}

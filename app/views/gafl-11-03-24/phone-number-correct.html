@@ -1,0 +1,80 @@
+{% extends "layout.html" %}
+
+{% set title = "Is the phone number correct?" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <span class="govuk-phase-banner__text no-print">
+      Your <a class="govuk-link" href="https://www.smartsurvey.co.uk/s/0L205/" rel="noreferrer noopener" target="_blank">feedback (opens in new tab)</a> will help us improve the service
+    </span>
+  </p>
+</div>
+
+<div class="govuk-width-container govuk-!-display-none-print govuk-!-margin-top-2">
+  <p class="govuk-body-s govuk-!-text-align-right govuk-!-margin-0">
+    <span class="govuk-body-s govuk-!-margin-2">English</span> | <a class="govuk-link govuk-!-margin-2" href="?lang=cy">Cymraeg</a>
+  </p>
+</div>
+
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+      <h1 class="govuk-heading-l">
+          {{ title }}
+      </h1>
+
+      <p class="govuk-body-l">
+        07429123456
+      </p>
+
+
+      <p class="govuk-body">
+        <a href="#" class="govuk-link">Change phone number</a>
+        <br><br>
+      </p>
+
+
+
+      {% if data['licence-length'] == "8 day" or data['licence-length'] == "1 day" %}
+        <form action="newsletter" method="post" class="form">
+      {% else %}
+        <form action="contact-preference" method="post" class="form">
+      {% endif %}
+
+
+        <button class="govuk-button" data-module="govuk-button">
+          It's correct
+        </button>
+
+      </form>
+
+
+    </div>
+  </div>
+
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+  $(document).ready(function(){
+
+  });
+</script>
+
+
+{% endblock %}
