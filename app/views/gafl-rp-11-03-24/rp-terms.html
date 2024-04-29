@@ -4,7 +4,7 @@
 {% set title = "Set up a recurring card payment" %}
 
 {% block pageTitle %}
-  {{title}} - GOV.UK
+  {{title}} - {{serviceName}} - GOV.UK
 {% endblock %}
 
 {% block beforeContent %}
@@ -46,9 +46,9 @@
         <li>we will send you an email showing the licence cost before the next payment is taken</li>
         <li>you need to tell us if your address or contact details change</li>
         <li>card payments will be taken following these <a href="rp-terms-standalone" target="_blank">terms and conditions (opens in new tab)</a>
-      
+
       </ul>
-     
+
 
       <form action="/rpTerms" method="post" class="form">
           {% if data['rptermserror'] == 10 %}
@@ -84,4 +84,3 @@
   </div>
 
 {% endblock %}
-
