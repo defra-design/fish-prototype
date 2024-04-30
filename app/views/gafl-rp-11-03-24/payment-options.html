@@ -1,7 +1,13 @@
 {% extends "layout.html" %}
 
+{% set title = "Payment options" %}
+
 {% block pageTitle %}
-  {{title}} - {{serviceName}} - GOV.UK
+  {% if data['paymentoptionserror'] == 1 %}
+    Error - {{title}} - {{serviceName}} - GOV.UK
+  {% else %}
+    {{title}} - {{serviceName}} - GOV.UK
+  {% endif %}
 {% endblock %}
 
 {% block beforeContent %}
@@ -14,9 +20,6 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
-
-
 
 
       {% if data['paymentoptionserror'] == 1 %}
@@ -33,12 +36,6 @@
         }) }}
 
       {% endif %}
-
-
-
-
-
-
 
 
       <form action="/payment-options-form" method="post" class="form">

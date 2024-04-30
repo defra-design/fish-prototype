@@ -4,7 +4,11 @@
 {% set title = "Set up a recurring card payment" %}
 
 {% block pageTitle %}
-  {{title}} - {{serviceName}} - GOV.UK
+  {% if data['rptermserror'] == 10 %}
+    Error - {{title}} - {{serviceName}} - GOV.UK
+  {% else %}
+    {{title}} - {{serviceName}} - GOV.UK
+  {% endif %}
 {% endblock %}
 
 {% block beforeContent %}

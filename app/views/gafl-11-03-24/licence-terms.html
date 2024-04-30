@@ -3,7 +3,11 @@
 {% set title = "Licence conditions" %}
 
 {% block pageTitle %}
-  {{title}} - {{serviceName}} - GOV.UK
+  {% if data['agreetermserror'] == 1 %}
+    Error - {{title}} - {{serviceName}} - GOV.UK
+  {% else %}
+    {{title}} - {{serviceName}} - GOV.UK
+  {% endif %}
 {% endblock %}
 
 {% block beforeContent %}

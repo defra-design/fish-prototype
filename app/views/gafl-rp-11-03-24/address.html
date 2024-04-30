@@ -3,7 +3,11 @@
 {% set title = "Enter your address" %}
 
 {% block pageTitle %}
-  {{title}} - {{serviceName}} - GOV.UK
+  {% if data['enteraddresserror'] == 10 %}
+    Error - {{title}} - {{serviceName}} - GOV.UK
+  {% else %}
+    {{title}} - {{serviceName}} - GOV.UK
+  {% endif %}
 {% endblock %}
 
 {% block beforeContent %}

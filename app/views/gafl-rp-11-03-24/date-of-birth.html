@@ -3,7 +3,11 @@
 {% set title = "What is the person’s date of birth?" %}
 
 {% block pageTitle %}
-  {{title}} - {{serviceName}} - GOV.UK
+  {% if data['errorcode'] == 10 %}
+    Error - {{title}} - {{serviceName}} - GOV.UK
+  {% else %}
+    {{title}} - {{serviceName}} - GOV.UK
+  {% endif %}
 {% endblock %}
 
 {% block beforeContent %}
