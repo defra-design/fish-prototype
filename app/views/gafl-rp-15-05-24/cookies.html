@@ -1,0 +1,271 @@
+{% extends "layout.html" %}
+
+{% set title = "Cookies" %}
+
+{% block pageTitle %}
+  {{title}} - {{serviceName}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <span class="govuk-phase-banner__text no-print">
+      Your <a class="govuk-link" href="https://www.smartsurvey.co.uk/s/0L205/" rel="noreferrer noopener" target="_blank">feedback (opens in new tab)</a> will help us improve the service
+    </span>
+  </p>
+</div>
+
+<div class="govuk-width-container govuk-!-display-none-print govuk-!-margin-top-2">
+  <p class="govuk-body-s govuk-!-text-align-right govuk-!-margin-0">
+    <span class="govuk-body-s govuk-!-margin-2">English</span> | <a class="govuk-link govuk-!-margin-2" href="?lang=cy">Cymraeg</a>
+  </p>
+</div>
+
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+
+{% endblock %}
+
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <!-- debug / show data -->
+    {% include "includes/clip/debug.html" %}
+
+
+    {% if data['analyticsCookiesSet'] == 'yes' %}
+    <div class="govuk-notification-banner govuk-notification-banner--success" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+      <div class="govuk-notification-banner__header">
+        <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+          Success
+        </h2>
+      </div>
+      <div class="govuk-notification-banner__content">
+        <p class="govuk-notification-banner__heading">
+          You’ve saved your optional cookie preferences. <a class="govuk-notification-banner__link" href="../">Go back to the page you were looking at</a>.
+        </p>
+      </div>
+    </div>
+    {% endif %}
+
+
+    <h1 class="govuk-heading-l">Cookies</h1>
+
+    <p class="govuk-body">When you use the 'Get a rod fishing licence' service, we put small files known as cookies onto your computer.</p>
+
+    <p class="govuk-body">These cookies are used to:</p>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <li>remember what notifications you’ve seen so that you’re not shown them more than once</li>
+      <li>to protect the service against malicious activity</li>
+      <li>to ensure that you have a consistent experience when we make changes to the service</li>
+    </ul>
+
+    <p class="govuk-body">Find out <a class="govuk-link" href="https://ico.org.uk/your-data-matters/online/cookies/">how to manage cookies on the Information Commissioners’ website (opens in new tab)</a>.</p>
+
+    <h2 class="govuk-heading-m">Session and security cookies</h2>
+
+    <p class="govuk-body">We store session cookies on your computer to help keep your information secure while you use the service.</p>
+
+    <table class="govuk-table">
+
+      <caption class="govuk-table__caption">Session cookie details</caption>
+
+
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+
+          <th scope="col" class="govuk-table__header">Name</th>
+
+          <th scope="col" class="govuk-table__header">Purpose</th>
+
+          <th scope="col" class="govuk-table__header">Expires</th>
+
+        </tr>
+      </thead>
+
+      <tbody class="govuk-table__body">
+
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">__Host-Sid</th>
+          <td class="govuk-table__cell">Used for session management</td>
+          <td class="govuk-table__cell">24 hours after you stop using the service</td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">__Host-CsrfToken</th>
+          <td class="govuk-table__cell">Used to protect the service against malicious activity</td>
+          <td class="govuk-table__cell">Until you close your browser</td>
+        </tr>
+
+      </tbody>
+    </table>
+
+    <h2 class="govuk-heading-m">Our introductory message</h2>
+
+    <p class="govuk-body">You may see a pop-up welcome message when you first visit the service. We’ll store a cookie so that your computer knows you’ve seen it and knows not to show it again.</p>
+
+    <table class="govuk-table">
+
+      <caption class="govuk-table__caption">Introductory message cookie details</caption>
+
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Name</th>
+          <th scope="col" class="govuk-table__header">Purpose</th>
+          <th scope="col" class="govuk-table__header">Expires</th>
+        </tr>
+      </thead>
+
+      <tbody class="govuk-table__body">
+
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">seen_cookie_message</th>
+          <td class="govuk-table__cell">Stores a message to let us know that you have seen our cookie message</td>
+          <td class="govuk-table__cell">1 month</td>
+        </tr>
+
+      </tbody>
+    </table>
+
+    <h2 class="govuk-heading-m">Infrastructure cookies</h2>
+
+    <p class="govuk-body">These cookies ensure you have a consistent experience when we make changes to the service.</p>
+
+
+
+    <table class="govuk-table">
+
+      <caption class="govuk-table__caption">Infrastructure cookie details</caption>
+
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Name</th>
+          <th scope="col" class="govuk-table__header">Purpose</th>
+          <th scope="col" class="govuk-table__header">Expires</th>
+        </tr>
+      </thead>
+
+      <tbody class="govuk-table__body">
+
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">AWSALBTG</th>
+          <td class="govuk-table__cell">Used to ensure you receive a consistent experience</td>
+          <td class="govuk-table__cell">7 days after you stop using the service</td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">AWSALBTGCORS</th>
+          <td class="govuk-table__cell">Used to ensure you receive a consistent experience</td>
+          <td class="govuk-table__cell">7 days after you stop using the service</td>
+        </tr>
+
+
+      </tbody>
+    </table>
+
+
+
+
+
+
+    <h2 class="govuk-heading-m">Analytics cookies (optional)</h2>
+
+    <p class="govuk-body">With your permission, we use first party cookies - Google Analytics - to collect data about how you use this service. This information helps us to improve our service. These cookies are optional. You can choose to accept or
+      reject them.</p>
+    <p class="govuk-body">We do not use any other optional cookies apart from Google Analytics</p>
+    <p>Google Analytics stores anonymised information about:</p>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <li>how you got to the service</li>
+      <li>pages you visit and how long you spend on each page</li>
+      <li>what you click on while you are using the service</li>
+    </ul>
+
+    <p class="govuk-body">Neither the 'Get a rod fishing licence' service not Google store any personal details, including your IP address with this information. You cannot be identified.</p>
+
+    <p class="govuk-body">Google is not allowed to use or share our analytics data with anyone.</p>
+
+    <table class="govuk-table">
+
+      <caption class="govuk-table__caption">Analytics cookie details</caption>
+
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Name</th>
+          <th scope="col" class="govuk-table__header">Purpose</th>
+          <th scope="col" class="govuk-table__header">Expires</th>
+        </tr>
+      </thead>
+
+      <tbody class="govuk-table__body">
+
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">_ga</th>
+          <td class="govuk-table__cell">Checks if you've visited the service before. This helps us count how many people visit our service.</td>
+          <td class="govuk-table__cell">2 years</td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">_ga_XXXXXXXXX</th>
+          <td class="govuk-table__cell">Used by Google Analytics to find and track an individual session with your device</td>
+          <td class="govuk-table__cell">2 years</td>
+        </tr>
+
+
+      </tbody>
+    </table>
+
+
+
+    <p class="govuk-body govuk-!-margin-bottom-6">You can read Google's overview of <a href="https://support.google.com/analytics/answer/6004245">data practices with Google Analytics (opens in new tab)</a></p>
+
+    <form method="post" id="cookie-policy" action="?analyticsCookiesSet=yes" autocomplete="off" novalidate="">
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+            Do you want to accept Google Analytics cookies?
+          </legend>
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="cookieConsent" name="cookieConsent" type="radio" value="yes">
+              <label class="govuk-label govuk-radios__label" for="cookieConsent">
+                Yes
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="cookieConsent-2" name="cookieConsent" type="radio" value="no">
+              <label class="govuk-label govuk-radios__label" for="cookieConsent-2">
+                No
+              </label>
+            </div>
+          </div>
+
+        </fieldset>
+      </div>
+
+
+      <button class="govuk-button govuk-!-margin-bottom-9" data-module="govuk-button" id="save">
+        Save changes
+      </button>
+    </form>
+
+
+
+
+
+    <h2 class="govuk-heading-m">Our performance survey</h2>
+
+    <p class="govuk-body">We use <a class="govuk-link" href="https://www.smartsurvey.co.uk/">SmartSurvey (opens in new tab)</a> to collect responses to the survey. If you take part, SmartSurvey will save extra cookies to your computer to track your progress through it.
+    </p>
+    <p class="govuk-body">Please see the <a class="govuk-link" href="https://www.smartsurvey.co.uk/privacy-policy">SmartSurvey privacy information (opens in new tab)</a> and the <a href="https://www.smartsurvey.co.uk/how-we-use-cookies">SmartSurvey cookies guide (opens in new tab)</a>
+      for more information.</p>
+
+
+  </div>
+
+  {% endblock %}

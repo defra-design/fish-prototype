@@ -1,0 +1,93 @@
+{% extends "layout.html" %}
+
+{% set title = "Payment complete" %}
+
+{% block pageTitle %}
+  {{title}} - {{serviceName}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <span class="govuk-phase-banner__text no-print">
+      Your <a class="govuk-link" href="https://www.smartsurvey.co.uk/s/0L205/" rel="noreferrer noopener" target="_blank">feedback (opens in new tab)</a> will help us improve the service
+    </span>
+  </p>
+</div>
+
+<div class="govuk-width-container govuk-!-display-none-print govuk-!-margin-top-2">
+  <p class="govuk-body-s govuk-!-text-align-right govuk-!-margin-0">
+    <span class="govuk-body-s govuk-!-margin-2">English</span> | <a class="govuk-link govuk-!-margin-2" href="?lang=cy">Cymraeg</a>
+  </p>
+</div>
+
+<!-- <a href="javascript:history.back()" class="govuk-back-link">Back</a> -->
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <div class="govuk-panel govuk-panel--confirmation govuk-!-margin-bottom-6">
+        <h1 class="govuk-panel__title">
+          {{ title }}
+        </h1>
+        <div class="govuk-panel__body">
+          Your licence number<br><strong>16130122-2WC3JDD-AJ2H17</strong>
+        </div>
+      </div>
+
+
+      {% if data['licence-option'] == "digital" %}
+        <p class="govuk-body">
+          You can go fishing as soon as your licence starts. You must be able to give your licence details if asked by an enforcement officer.
+        </p>
+      {% else %}
+        <p class="govuk-body">
+          You can go fishing before you get your licence. You must be able to give your licence details if asked by an enforcement officer.
+        </p>
+      {% endif %}
+
+      <h2 class="govuk-heading-l">Before you go fishing</h2>
+
+      <div class="govuk-!-margin-bottom-9">
+
+        {% if data['licence-option'] == "digital" %}
+          <p class="govuk-body">
+            You can go fishing as soon as your licence starts. You must be able to give your licence details if asked by an enforcement officer.
+          </p>
+        {% else %}
+          <p class="govuk-body">
+            You can go fishing before you get your licence. You must be able to give your licence details if asked by an enforcement officer.
+          </p>
+        {% endif %}
+
+        <p class="govuk-body">
+          You can use your number and <a href="licence-information">licence information</a> as proof of a rod fishing licence.
+        </p>
+
+        <div class="govuk-inset-text">
+          Make a record of your licence number.
+        </div>
+
+        <p class="govuk-body">
+          If you gave us your email address, you’ll get a confirmation message that includes your licence number.
+        </p>
+
+        <p class="govuk-body">
+          You must follow the <a href="https://www.gov.uk/guidance/national-rod-fishing-byelaws-for-england-freshwater-fishing-with-a-rod-and-line" class="govuk_link" target="_blank">rod fishing byelaws (opens in new tab)</a>.
+        </p>
+
+      </div>
+
+      <p class="govuk-body">
+        <a href="https://www.smartsurvey.co.uk/s/0L205/" class="govuk-link">Tell us what you think of the service</a> (takes 30 seconds)
+      </p>
+
+    </div>
+  </div>
+
+{% endblock %}

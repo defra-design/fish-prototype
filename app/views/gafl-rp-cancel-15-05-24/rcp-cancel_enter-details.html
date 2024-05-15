@@ -1,0 +1,185 @@
+{% extends "layout.html" %}
+
+
+{% set title = "Cancel your recurring card payment" %}
+
+
+{% block pageTitle %}
+{{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <span class="govuk-phase-banner__text no-print">
+      Your <a class="govuk-link" href="https://www.smartsurvey.co.uk/s/0L205/" rel="noreferrer noopener" target="_blank">feedback (opens in new tab)</a> will help us improve the service
+    </span>
+  </p>
+</div>
+
+<div class="govuk-width-container govuk-!-display-none-print govuk-!-margin-top-2">
+  <p class="govuk-body-s govuk-!-text-align-right govuk-!-margin-0">
+    <span class="govuk-body-s govuk-!-margin-2">English</span> | <a class="govuk-link govuk-!-margin-2" href="?lang=cy">Cymraeg</a>
+  </p>
+</div>
+
+<!-- <a href="javascript:history.back()" class="govuk-back-link">Back</a> -->
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <!-- debug / show data -->
+    {% include "includes/clip/debug.html" %}
+
+
+
+    {% if data['rcpdetailserror'] == 10 %}
+
+      <!-- error summary -->
+      {{ govukErrorSummary({
+        titleText: "There is a problem",
+        errorList: [
+        {
+          text: "Enter the last six characters of your licence number",
+          href: "#six-chars"
+        },
+        {
+          text: "Enter date of birth",
+          href: "#rcp-dob-day"
+        },
+        {
+          text: "Enter a postcode",
+          href: "#rcp-postcode"
+        }
+        ]
+      }) }}
+
+    {% endif %}
+
+
+
+    <form action="/rcpDetails" method="post" class="form">
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+
+            <!-- alternate headings -->
+          </legend>
+          <span class="govuk-caption-l">Cancel your recurring card payment agreement</span>
+<h1 class="govuk-heading-l">
+  Enter your details
+</h1>
+       <p class="govuk-body">Cancelling your recurring card payment agreement will not cancel or refund your current licence. You can still fish until your current licence expires but your licence will not renew automatically.</p>
+
+
+          {% if data['rcpdetailserror'] == 10 %}
+            <div class="govuk-form-group govuk-form-group--error">
+          {% else %}
+            <div class="govuk-form-group">
+          {% endif %}
+            <label class="govuk-label govuk-label--m" for="rcp-six-chars">
+              Last six characters of your licence number
+            </label>
+            <div class="govuk-hint">
+                 For example F4A315
+               </div>
+               {% if data['rcpdetailserror'] == 10 %}
+                 <span class="govuk-error-message" id="question">
+                   <span class="govuk-visually-hidden">Error:</span> Enter the last six characters of your licence number
+                 </span>
+               {% endif %}
+              <input class=" govuk-input govuk-input--width-10" id="rcp-six-chars" name="rcp-six-chars" type="text" value="{{ data['rcp-six-chars'] }}">
+            </div>
+
+
+
+            {% if data['rcpdetailserror'] == 10 %}
+              <div class="govuk-form-group govuk-form-group--error">
+            {% else %}
+              <div class="govuk-form-group">
+            {% endif %}
+              <fieldset class="govuk-fieldset" role="group" aria-describedby="dob-hint">
+                <label class="govuk-label govuk-label--m" for="dob">
+                  Date of birth
+                </label>
+                <div id="dob-hint" class="govuk-hint">
+                  For example, 31 3 1980
+                </div>
+                {% if data['rcpdetailserror'] == 10 %}
+                  <span class="govuk-error-message" id="question">
+                    <span class="govuk-visually-hidden">Error:</span> Enter date of birth
+                  </span>
+                {% endif %}
+                <div class="govuk-date-input" id="dob">
+                  <div class="govuk-date-input__item">
+                    <div class="govuk-form-group">
+                      <label class="govuk-label govuk-date-input__label" for="rcp-dob-day">
+                        Day
+                      </label>
+                      <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="rcp-dob-day" name="rcp-dob-day" type="text" autocomplete="bday-day" inputmode="numeric">
+                    </div>
+                  </div>
+                  <div class="govuk-date-input__item">
+                    <div class="govuk-form-group">
+                      <label class="govuk-label govuk-date-input__label" for="rcp-dob-month">
+                        Month
+                      </label>
+                      <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="rcp-dob-month" name="rcp-dob-month" type="text" autocomplete="bday-month" inputmode="numeric">
+                    </div>
+                  </div>
+                  <div class="govuk-date-input__item">
+                    <div class="govuk-form-group">
+                      <label class="govuk-label govuk-date-input__label" for="rcp-dob-year">
+                        Year
+                      </label>
+                      <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="rcp-dob-year" name="rcp-dob-year" type="text" autocomplete="bday-year" inputmode="numeric">
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+
+
+            {% if data['rcpdetailserror'] == 10 %}
+              <div class="govuk-form-group govuk-form-group--error">
+            {% else %}
+              <div class="govuk-form-group">
+            {% endif %}
+              <label class="govuk-label govuk-label--m" for="er-postcode">
+                Postcode
+              </label>
+              <div class="govuk-hint">
+              For example, WA4 1AB
+             </div>
+   {% if data['rcpdetailserror'] == 10 %}
+     <span class="govuk-error-message" id="question">
+       <span class="govuk-visually-hidden">Error:</span> Enter a postcode
+     </span>
+   {% endif %}
+  <input class=" govuk-input govuk-input--width-10" id="rcp-postcode" name="rcp-postcode" type="text" value="{{ data['rcp-postcode'] }}">
+              </div>
+
+        </fieldset>
+      </div>
+
+
+      <button class="govuk-button" data-module="govuk-button">
+        Continue
+      </button>
+
+    </form>
+
+
+
+
+  </div>
+</div>
+
+{% endblock %}

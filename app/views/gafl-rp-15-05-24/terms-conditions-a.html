@@ -1,0 +1,79 @@
+{% extends "layout.html" %}
+
+{% set title = "Licence terms and conditions" %}
+
+{% block pageTitle %}
+  {{title}} - {{serviceName}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <span class="govuk-phase-banner__text no-print">
+      Your <a class="govuk-link" href="https://www.smartsurvey.co.uk/s/0L205/" rel="noreferrer noopener" target="_blank">feedback (opens in new tab)</a> will help us improve the service
+    </span>
+  </p>
+</div>
+
+<div class="govuk-width-container govuk-!-display-none-print govuk-!-margin-top-2">
+  <p class="govuk-body-s govuk-!-text-align-right govuk-!-margin-0">
+    <span class="govuk-body-s govuk-!-margin-2">English</span> | <a class="govuk-link govuk-!-margin-2" href="?lang=cy">Cymraeg</a>
+  </p>
+</div>
+
+<!-- <a href="javascript:history.back()" class="govuk-back-link">Back</a> -->
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">{{ title }}</h1>
+
+      <p class="govuk-body">
+        When you buy this licence you agree that:
+      </p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          the licence is only valid for the person named on it (the licence holder)
+        </li>
+        <li>
+          the licence holder must carry the necessary proof of licence when they go fishing and show it to our enforcement officers if asked. It is an offence not to do so
+        </li>
+        <li>
+          the licence does not give the right to fish, but gives the licence holder the right to use a fishing rod and line only. The permission from any owner of fishing rights is also required before commencing to fish
+        </li>
+        <li>
+          the licence holder must understand and follow the <a href="https://www.gov.uk/guidance/national-rod-fishing-byelaws-for-england-freshwater-fishing-with-a-rod-and-line" class="govuk-link" rel="noreferrer noopener" target="_blank">rod fishing byelaws (opens in new tab)</a>. It is an offence not to do so
+        </li>
+        <li>
+          the licence is only valid for the specified date and time period, number of rods and the species of fish
+        </li>
+      </ul>
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="terms-hint">
+          <div class="govuk-checkboxes">
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="terms" name="terms" type="checkbox" value="agreed">
+              <label class="govuk-label govuk-checkboxes__label" for="terms">
+                I agree to the terms and conditions
+              </label>
+            </div>
+        </fieldset>
+      </div>
+
+      <form action="payment-details">
+        <button class="govuk-button" data-module="govuk-button">
+          Continue
+        </button>
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

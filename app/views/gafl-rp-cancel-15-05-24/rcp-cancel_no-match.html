@@ -1,0 +1,65 @@
+{% extends "layout.html" %}
+
+{% set title = "Your details cannot be found" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <span class="govuk-phase-banner__text no-print">
+      Your <a class="govuk-link" href="https://www.smartsurvey.co.uk/s/0L205/" rel="noreferrer noopener" target="_blank">feedback (opens in new tab)</a> will help us improve the service
+    </span>
+  </p>
+</div>
+
+<div class="govuk-width-container govuk-!-display-none-print govuk-!-margin-top-2">
+  <p class="govuk-body-s govuk-!-text-align-right govuk-!-margin-0">
+    <span class="govuk-body-s govuk-!-margin-2">English</span> | <a class="govuk-link govuk-!-margin-2" href="?lang=cy">Cymraeg</a>
+  </p>
+</div>
+
+<!-- <a href="javascript:history.back()" class="govuk-back-link">Back</a> -->
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+
+
+      <!-- debug / show data -->
+      {% include "includes/clip/debug.html" %}
+
+        <h1 class="govuk-heading-l">{{ title }}</h1>
+
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+          <p class="govuk-body">
+          We cannot find your recurring card payment details using the details you provided.</p> 
+
+          <p class="govuk-body"><a href="rcp-cancel_enter-details">Go back</a> to check the details entered. If your address has changed use the postcode you had when you set up your recurring card payment.</p>
+
+          <p class="govuk-body">If you keep seeing this page call the Environment Agency and tell the advisor you want to cancel the recurring card payment for your fishing licence.</p>
+
+          <ul class="govuk-list">
+  <li>Telephone: 03708 506 506</li>
+  <li>Monday to Friday, 8am to 6pm (except public holidays)</li>
+</ul>
+<p class="govuk-body">
+  <a class="govuk-link" href="/call-charges">Find out about call charges (opens in new tab)</a>
+</p>
+
+    </div>
+  </div>
+
+{% endblock %}

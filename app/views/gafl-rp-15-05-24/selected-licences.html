@@ -1,0 +1,152 @@
+{% extends "layout.html" %}
+
+{% set title = "Selected licences" %}
+
+<!-- grab data from allLicences -->
+{% set allLicences = data['allLicences'] %}
+
+{% block pageTitle %}
+  {{title}} - {{serviceName}} - GOV.UK
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <h1 class="govuk-heading-xl">
+      {{ title }}
+    </h1>
+
+    <!-- licence instance -->
+    {% for i in allLicences %}
+    <section class="govuk-!-margin-bottom-6">
+
+      <h2 class="govuk-heading-l">
+        {{ data['licenceList'][loop.index0] }}
+      </h2>
+
+      <!-- table for licence information -->
+      <dl class="govuk-summary-list govuk-!-margin-bottom-6">
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key govuk-!-width-one-third">
+            Name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {% if i.firstName %}
+              {{ i.firstName }} {{ i.lastName }}
+            {% else %}
+              Sam Fisher
+            {% endif %}
+          </dd>
+        </div>
+
+        <!-- <div class="govuk-summary-list__row table__row--divider">
+          <dt class="govuk-summary-list__key">
+            Identification
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['identificationNumbers'][loop.index0] }}
+          </dd>
+        </div> -->
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Type
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {% if data['licence-type'] %}
+              {{ data['licence-type'] }}
+            {% else %}
+              Trout and coarse, up to 2 rods
+            {% endif %}
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Length
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {% if data['licence-length'] %}
+              {{ data['licence-length'] }}
+            {% else %}
+              12 month
+            {% endif %}
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Starts
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {% if data['midnight'] %}
+              {% include "includes/clip/midnight.html" %} on 12 May 2022
+            {% else %}
+              30 minutes after payment
+            {% endif %}
+          </dd>
+        </div>
+
+
+        {% if i.concession != "None" %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Disability concession
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <p class="govuk-body">{{ i.concession }}</p>
+            </dd>
+          </div>
+        {% endif %}
+
+        <div class="govuk-summary-list__row govuk-summary-list__row--last">
+          <dt class="govuk-summary-list__key">
+            Cost
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {% if i.concession != "None" %}
+              £20
+            {% else %}
+              £30
+            {% endif %}
+          </dd>
+        </div>
+      </dl>
+
+      <div class="govuk-button-group">
+        {{ govukButton({
+          text: "Change",
+          classes: "govuk-button--secondary",
+          href: "licence-summary?source=multibuy"
+        }) }}
+
+        {{ govukButton({
+          text: "Remove this licence",
+          classes: "govuk-button--secondary",
+          href: "remove-licence"
+        }) }}
+      </div>
+
+    </section>
+    {% endfor %}
+
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="add-another-licence" method="post" class="form">
+
+      {{govukButton({
+        text: "Continue"
+      })}}
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,217 @@
+{% extends "layout.html" %}
+
+{% if data['licenceFor'] == "user" %}
+  {% set title = "Check your contact details" %}
+{% else %}
+  {% set title = "Check the contact details" %}
+{% endif %}
+
+{% block pageTitle %}
+  {{title}} - {{serviceName}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <span class="govuk-phase-banner__text no-print">
+      Your <a class="govuk-link" href="https://www.smartsurvey.co.uk/s/0L205/" rel="noreferrer noopener" target="_blank">feedback (opens in new tab)</a> will help us improve the service
+    </span>
+  </p>
+</div>
+
+<div class="govuk-width-container govuk-!-display-none-print govuk-!-margin-top-2">
+  <p class="govuk-body-s govuk-!-text-align-right govuk-!-margin-0">
+    <span class="govuk-body-s govuk-!-margin-2">English</span> | <a class="govuk-link govuk-!-margin-2" href="?lang=cy">Cymraeg</a>
+  </p>
+</div>
+
+
+<!-- <a href="javascript:history.back()" class="govuk-back-link">Back</a> -->
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <!-- debug / show data -->
+      {% include "includes/clip/debug.html" %}
+
+      {% if data['source'] == "multibuy" %}
+        <h1 class="govuk-heading-l">Change contact preferences</h1>
+      {% else %}
+        <h1 class="govuk-heading-l">{{ title }}</h1>
+      {% endif %}
+
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <!-- {% if data['source'] == "multibuy" %}
+        <form action="selected-licences">
+      {% else %}
+        <form action="/multibuy-add-licence" method="post" class="form">
+      {% endif %} -->
+
+      <form action="licence-terms">
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Address
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {% if data['found-address'] %}
+                {{ data['found-address']}}
+              {% else %}
+                11 BAILEY HOUSE, BAILEY ROAD, BS2 1PP
+              {% endif %}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="change-find-address">
+                Change<span class="govuk-visually-hidden"> licence length</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Licence
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {% if data['licence-option'] == "digital" %}
+                {% if data['licenceBy'] == "email" %}
+                  Email to {{ data['email'] }}
+                {% else %}
+                  Text message to {{ data['phone-number'] }}
+                {% endif %}
+              {% elseif data['licence-option'] == "paper-licence" %}
+                By post
+              {% else %}
+                By post
+              {% endif %}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              {% if data['path'] == "a" %}
+                <a class="govuk-link" href="change-licence-option-a">
+              {% else %}
+                <a class="govuk-link" href="change-licence-option-b">
+              {% endif %}
+                Change<span class="govuk-visually-hidden"> licence option</span>
+              </a>
+            </dd>
+          </div>
+
+          <!-- is there a licence confirmation for users opting for a paper licence -->
+          {% if data['licence-option'] == "paper-licence" %}
+            <!-- only show this row if the user has asked for a licence confirmation to be sent by email or post -->
+            {% if data['confirmation'] != "note" %}
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Licence confirmation
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  <!-- simple model -->
+                  {% if data['confirmation'] == "email" %}
+                    Email to {{ data['email'] }}
+                  {% elseif data['confirmation'] == "phone" %}
+                    Text messages to {{ data['phone-number'] }}
+                  {% else %}
+                    Note of licence
+                  {% endif %}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="change-licence-confirmation">
+                    Change<span class="govuk-visually-hidden"> licence confirmation option</span>
+                  </a>
+                </dd>
+              </div>
+            {% endif %}
+          {% endif %}
+
+          {% if data['licenceFor'] == "user" %}
+            <div class="govuk-summary-list__row">
+          {% else %}
+            <div class="govuk-summary-list__row  govuk-summary-list__row--last">
+          {% endif %}
+
+            <dt class="govuk-summary-list__key">
+              Contact
+            </dt>
+            <dd class="govuk-summary-list__value">
+
+              <!-- simple model -->
+              {% if data['contact'] == "email" %}
+                Email to {{ data['email'] }}
+              {% elseif data['contact'] == "phone" %}
+                Text messages to {{ data['phone-number'] }}
+              {% else %}
+                By post
+              {% endif %}
+
+
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="change-contact-preference">
+                Change<span class="govuk-visually-hidden"> contact preference</span>
+              </a>
+            </dd>
+          </div>
+
+          {% if data['licenceFor'] == "user" %}
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Newsletter
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {% if data['newsletter'] %}
+                  {{ data['newsletter'] }}
+                {% else %}
+                  No
+                {% endif %}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="change-newsletter">
+                  Change<span class="govuk-visually-hidden"> newsletter</span>
+                </a>
+              </dd>
+            </div>
+
+          {% endif %}
+
+        </dl>
+
+        {% if data['source'] == "multibuy" %}
+          <section>
+            <a href="licence-summary" class="govuk-link govuk-link--no-visited-state">
+              Change licence options
+            </a>
+          </section>
+        {% endif %}
+
+        <button class="govuk-button" data-module="govuk-button">
+          Continue
+        </button>
+
+      </form>
+
+
+
+<p class="govuk-body">
+      <a href="licence-summary" class="govuk-link govuk-link--no-visited-state">
+        Review or change the licence details
+      </a>
+</p>
+
+
+
+
+    </div>
+  </div>
+
+{% endblock %}
