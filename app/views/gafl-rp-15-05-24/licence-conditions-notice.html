@@ -1,0 +1,90 @@
+{% extends "layout.html" %}
+
+{% set title = "Licence holders must understand and comply with the licence conditions" %}
+
+{% block pageTitle %}
+  {{title}} - {{serviceName}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <span class="govuk-phase-banner__text no-print">
+      Your <a class="govuk-link" href="https://www.smartsurvey.co.uk/s/0L205/" rel="noreferrer noopener" target="_blank">feedback (opens in new tab)</a> will help us improve the service
+    </span>
+  </p>
+</div>
+
+<div class="govuk-width-container govuk-!-display-none-print govuk-!-margin-top-2">
+  <p class="govuk-body-s govuk-!-text-align-right govuk-!-margin-0">
+    <span class="govuk-body-s govuk-!-margin-2">English</span> | <a class="govuk-link govuk-!-margin-2" href="?lang=cy">Cymraeg</a>
+  </p>
+</div>
+
+<!-- <a href="javascript:history.back()" class="govuk-back-link">Back</a> -->
+
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <!-- debug / show data -->
+    {% include "includes/clip/debug.html" %}
+
+    <h1 class="govuk-heading-xl">
+      {{ title }}
+    </h1>
+
+    <p class="govuk-body-m">
+      The <a href="fishing-licence-conditions" target="_blank" class="govuk-link">licence conditions (opens in new tab)</a> will be sent with your licence.
+    </p>
+
+    {% if data['option'] %}
+      <div class="govuk-warning-text">
+        <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+        <strong class="govuk-warning-text__text">
+          <span class="govuk-warning-text__assistive">Warning</span>
+          It is an offence to act in breach of your licence conditions.
+        </strong>
+      </div>
+    {% else %}
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="terms-hint">
+          <div class="govuk-checkboxes">
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="terms" name="terms" type="checkbox" value="agreed">
+              <label class="govuk-label govuk-checkboxes__label" for="terms">
+                I agree to the licence conditions
+              </label>
+            </div>
+        </fieldset>
+      </div>
+    {% endif %}
+
+    {% if data['salmon'] %}
+
+      <div class="govuk-inset-text">
+        Salmon licence holders must by law <a href="https://www.gov.uk/catch-return" class="govuk-link" target="_blank">report a catch return</a> of yearly salmon and sea trout fishing activity in England and Wales, even if they do not catch anything or do not fish.
+      </div>
+
+    {% endif %}
+
+    <form action="payment-details" method="post" class="form">
+
+      <!-- <p class="govuk-body">
+        By continuing you agree that you will read and follow the licence conditions.
+      </p> -->
+
+      <button class="govuk-button" data-module="govuk-button">
+        Continue
+      </button>
+
+    </form>
+
+  </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,152 @@
+{% extends "layout.html" %}
+
+{% if data['licenceFor'] == "user" %}
+  {% set title = "Do you receive any of the following?" %}
+{% else %}
+  {% set title = "Do they receive any of the following?" %}
+{% endif %}
+
+{% block pageTitle %}
+  {% if data['errorcode'] == 5 %}
+    Error - {{title}} - {{serviceName}} - GOV.UK
+  {% else %}
+    {{title}} - {{serviceName}} - GOV.UK
+  {% endif %}
+{% endblock %}
+
+{% block beforeContent %}
+
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <span class="govuk-phase-banner__text no-print">
+      Your <a class="govuk-link" href="https://www.smartsurvey.co.uk/s/0L205/" rel="noreferrer noopener" target="_blank">feedback (opens in new tab)</a> will help us improve the service
+    </span>
+  </p>
+</div>
+
+<div class="govuk-width-container govuk-!-display-none-print govuk-!-margin-top-2">
+  <p class="govuk-body-s govuk-!-text-align-right govuk-!-margin-0">
+    <span class="govuk-body-s govuk-!-margin-2">English</span> | <a class="govuk-link govuk-!-margin-2" href="?lang=cy">Cymraeg</a>
+  </p>
+</div>
+
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <!-- debug / show data -->
+      {% include "includes/clip/debug.html" %}
+
+
+
+      {% if data['errorcode'] == 5 %}
+
+        <!-- error summary -->
+        {{ govukErrorSummary({
+          titleText: "There is a problem",
+          errorList: [
+            {
+              text: "Choose one of the options",
+              href: "#concession"
+            }
+          ]
+        }) }}
+
+      {% endif %}
+
+
+
+      <form action="/dConcession" method="post" class="form">
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <h1 class="govuk-fieldset__heading">
+                {{ title }}
+              </h1>
+            </legend>
+            <p class="govuk-body">
+              12 month licence holders may be eligible for disability concessions.
+            </p>
+
+
+
+
+
+
+            {% if data['errorcode'] == 5 %}
+              <div class="govuk-form-group govuk-form-group--error">
+                <span class="govuk-error-message" id="question">
+                  <span class="govuk-visually-hidden">Error:</span> Choose one of the options
+                </span>
+            {% else %}
+              <div class="govuk-form-group">
+                {% endif %}
+            <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="concession" name="concession" type="radio" value="PIP/DLA" data-aria-controls="conditional-concession">
+                <label class="govuk-label govuk-radios__label" for="concession">
+                  Personal Independence Payment (PIP)<br>
+                  or Disability Living Allowance (DLA)
+                </label>
+              </div>
+              <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-concession">
+                <div class="govuk-form-group">
+                  <label class="govuk-label" for="niNumber">
+                    National Insurance number
+                  </label>
+                  <p class="govuk-hint">
+                    This can be found on a National Insurance card, benefit letter, payslip or P60. For example 'QQ 12 34 56 C'
+                  </p>
+                  <input class="govuk-input govuk-!-width-two-thirds" id="niNumber" value="{{ data['niNumber'] }}" name="niNumber" type="text" spellcheck="false"></div>
+
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="concession-2" name="concession" type="radio" value="Blue badge" data-aria-controls="conditional-concession-2">
+                <label class="govuk-label govuk-radios__label" for="concession-2">
+                  Blue Badge
+                </label>
+              </div>
+              <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-concession-2">
+                <div class="govuk-form-group">
+                  <label class="govuk-label" for="bbNumber">
+                    Enter the licence holder's Blue Badge number
+                  </label>
+                  <input class="govuk-input govuk-!-width-one-third" id="bbNumber" value="{{ data['bbNumber'] }}" name="bbNumber" type="tel">
+                </div>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="concession-3" name="concession" type="radio" value="No" data-aria-controls="conditional-concession-3">
+                <label class="govuk-label govuk-radios__label" for="concession-3">
+                  No
+                </label>
+              </div>
+            </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+          </fieldset>
+        </div>
+
+        <button class="govuk-button" data-module="govuk-button">
+          Continue
+        </button>
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,181 @@
+{% extends "layout.html" %}
+
+{% set title = "Confirm your details" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <span class="govuk-phase-banner__text no-print">
+      Your <a class="govuk-link" href="https://www.smartsurvey.co.uk/s/0L205/" rel="noreferrer noopener" target="_blank">feedback (opens in new tab)</a> will help us improve the service
+    </span>
+  </p>
+</div>
+
+<div class="govuk-width-container govuk-!-display-none-print govuk-!-margin-top-2">
+  <p class="govuk-body-s govuk-!-text-align-right govuk-!-margin-0">
+    <span class="govuk-body-s govuk-!-margin-2">English</span> | <a class="govuk-link govuk-!-margin-2" href="?lang=cy">Cymraeg</a>
+  </p>
+</div>
+
+<!-- <a href="javascript:history.back()" class="govuk-back-link">Back</a> -->
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+
+
+      <!-- debug / show data -->
+      {% include "includes/clip/debug.html" %}
+
+      <span class="govuk-caption-l">Cancel your recurring card payment agreement</span>
+<h1 class="govuk-heading-l">
+  Confirm you want to cancel your recurring card payment agreement
+</h1>
+
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+        <form action="rcp-cancel_confirm-cancel">
+
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key govuk-!-width-one-third">
+              Licence holder
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {% if data['firstName'] %}
+                {{ data['firstName']+" "+data['last-name'] }}
+              {% else %}
+                Sam Fisher
+              {% endif %}
+            </dd>
+          </div>
+
+          <!--<div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Licence number
+            </dt>
+            <dd class="govuk-summary-list__value">
+              09120722-2WS2FJF-3JJS32
+            </dd>
+          </div>-->
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Licence type
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Trout and coarse (up to 3 rods)
+            </dd>
+          </div>
+<!--
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Start date
+            </dt>
+            <dd class="govuk-summary-list__value">
+              12 March 2023
+            </dd>
+          </div>
+
+<div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Expiry date
+            </dt>
+            <dd class="govuk-summary-list__value">
+              13 March 2024
+            </dd>
+          </div> -->
+            
+          <div class="govuk-summary-list__row govuk-!-margin-bottom-9">
+            <dt class="govuk-summary-list__key">
+              Payment card (last 4 digits)
+            </dt>
+            <dd class="govuk-summary-list__value">
+               **** **** **** 4592
+            </dd>    
+          </div>
+
+          <div class="govuk-summary-list__row govuk-!-margin-bottom-9">
+            <dt class="govuk-summary-list__key">
+              Next payment date
+            </dt>
+            <dd class="govuk-summary-list__value">
+               25 February 2024
+            </dd>    
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Current licence number
+            </dt>
+            <dd class="govuk-summary-list__value">
+              09120722-2WS2FJF-3JJS32
+            </dd>
+          </div>
+        </dl>
+
+        <div class="govuk-inset-text">
+  Your current licence will remain valid until it expires on 21 March 2024.
+</div>
+    
+  <h2 class="govuk-heading-m">Do you want to cancel your recurring card payment agreement?</h2>
+
+   <div class="govuk-form-group">
+              <fieldset class="govuk-fieldset" aria-describedby="terms-hint">
+                <div class="govuk-checkboxes">
+                  <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" type="checkbox" value="agreed">
+                    <label class="govuk-label govuk-checkboxes__label">
+                      I agree to set up a recurring card payment
+                    </label>
+                  </div>
+              </fieldset>
+            </div>
+
+    </div>
+  </div>  
+
+        <button class="govuk-button" data-module="govuk-button">
+          Confirm and continue
+        </button>
+
+      </form>
+
+      <details class="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      If you need help checking these details
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+    <ul class="govuk-list">
+      <li>Environment Agency</li>
+      <li>Telephone: 03708 506 506</li>
+      <li>Monday to Friday, 8am to 6pm (except public holidays)</li>
+    </ul>
+    <p class="govuk-body">
+      <a class="govuk-link" target=_blank href="https://www.gov.uk/call-charges">Find out about call charges (opens in new tab)</a>
+    </p>
+  </div>
+</details>
+
+    </div>
+  </div>
+
+{% endblock %}

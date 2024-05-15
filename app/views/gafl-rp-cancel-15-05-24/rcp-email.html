@@ -1,0 +1,84 @@
+{% extends "layout-unbranded.html" %}
+
+{% set bodyClasses = "govuk-email" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{{ govukHeader({
+  useTudorCrown: true,
+   homepageUrl: "/",
+   serviceUrl: "#",
+   containerClasses: "govuk-width-container"
+ }) }}
+{% endblock %}
+
+{% set title = "‘I want to fish’ prototype" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <!-- <h1 class="govuk-heading-xl">
+      {{title}}
+    </h1> -->
+
+
+
+
+ <table class="govuk-table">
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">From: notifications@ea.gov.uk</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">To: sam.fisher@email.com</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Subject: Recurring card payments</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">
+            <br>
+            <br>
+            <p>Dear Sam Fisher,</p>
+            <h2>Recurring card payments for your 12 month fishing licence</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <p>You can <a href="rcp-cancel_confirm-details">cancel your recurring card payment</a> at any time.</p>
+
+
+            <p>Thank you,<br>The Environment Agency Fisheries Team</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+</div>
+
+<!-- notes about the service & prototype -->
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+
+
+
+
+  </div>
+</div>
+
+{% endblock %}

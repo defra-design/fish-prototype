@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+
+{% set title = "Your recurring card payment has been cancelled" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <span class="govuk-phase-banner__text no-print">
+      Your <a class="govuk-link" href="https://www.smartsurvey.co.uk/s/0L205/" rel="noreferrer noopener" target="_blank">feedback (opens in new tab)</a> will help us improve the service
+    </span>
+  </p>
+</div>
+
+<div class="govuk-width-container govuk-!-display-none-print govuk-!-margin-top-2">
+  <p class="govuk-body-s govuk-!-text-align-right govuk-!-margin-0">
+    <span class="govuk-body-s govuk-!-margin-2">English</span> | <a class="govuk-link govuk-!-margin-2" href="?lang=cy">Cymraeg</a>
+  </p>
+</div>
+
+<!-- <a href="javascript:history.back()" class="govuk-back-link">Back</a> -->
+
+{% endblock %}
+
+{% block content %}
+
+
+
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <div class="govuk-panel govuk-panel--confirmation">
+          <h1 class="govuk-panel__title">
+            Your recurring card payment agreement has been cancelled
+          </h1>
+        </div>
+        <p class="govuk-body">&nbsp;</p>
+        <p class="govuk-body">We will send confirmation by email.</p>
+        <p class="govuk-body">
+          To continue fishing after your current licence expires on 21 March 2024 you will need to <a href ="https://www.gov.uk/fishing-licences/buy-a-fishing-licence" target="_blank">buy another licence (opens in new tab)</a>.
+        </p>
+
+        <h2 class="govuk-heading-m">Before you leave this page</h2>
+
+        <p class="govuk-body">
+          You may like to:
+        </p>
+
+        <ul class="govuk-list govuk-list--bullet">
+          <li><a href="https://www.smartsurvey.co.uk/s/0L205/" class="govuk-link" target="_blank">help us improve this service (opens in new tab)</a> - takes 30 seconds</li>
+          <li><a href="https://www.gov.uk/government/collections/fisheries-annual-reports" target="_blank">read the fisheries annual report (opens in new tab)</a> to see how we spend income from fishing licences</li>
+        </ul>
+      </div>
+    </div>
+
+
+
+
+
+{% endblock %}

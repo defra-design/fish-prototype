@@ -1,0 +1,180 @@
+{% extends "layout.html" %}
+
+{% set title = "Fishing licence conditions" %}
+
+{% block pageTitle %}
+  {{title}} - {{serviceName}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <span class="govuk-phase-banner__text no-print">
+      Your <a class="govuk-link" href="https://www.smartsurvey.co.uk/s/0L205/" rel="noreferrer noopener" target="_blank">feedback (opens in new tab)</a> will help us improve the service
+    </span>
+  </p>
+</div>
+
+<div class="govuk-width-container govuk-!-display-none-print govuk-!-margin-top-2">
+  <p class="govuk-body-s govuk-!-text-align-right govuk-!-margin-0">
+    <span class="govuk-body-s govuk-!-margin-2">English</span> | <a class="govuk-link govuk-!-margin-2" href="?lang=cy">Cymraeg</a>
+  </p>
+</div>
+
+<!-- <a href="javascript:history.back()" class="govuk-back-link">Back</a> -->
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <!-- debug / show data -->
+      {% include "includes/clip/debug.html" %}
+
+      <h1 class="govuk-heading-l">
+        {{ title }}
+      </h1>
+
+      {{ govukWarningText({
+        text: "It is an offence to act in breach of your licence conditions.",
+        iconFallbackText: "Warning"
+      }) }}
+
+      <!-- licence conditions -->
+      <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
+        <div class="govuk-accordion__section ">
+          <div class="govuk-accordion__section-header">
+            <h2 class="govuk-accordion__section-heading">
+              <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                Trout and coarse, up to 2 rods
+              </span>
+            </h2>
+          </div>
+          <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
+
+            <h2 class="govuk-heading-m" id="2rod">
+              The following conditions apply:
+            </h2>
+
+            <p class='govuk-body'>
+              The licence holder must view and agree to these conditions. It is an offence to act in breach of the licence conditions. The following conditions apply:
+            </p>
+
+            <ol class="govuk-list govuk-list--number">
+              <li>
+                The licence is only valid for use in England, Wales and the Border Esk in Scotland and is only valid for the licence holder.
+              </li>
+              <li>
+                The licence is only valid from its start date and time until its end date and time.
+              </li>
+              <li>
+                The licence will cover you for 1 rod for non-migratory trout in rivers, streams, drains and canals, up to 2 rods for non-migratory trout in reservoirs, lakes and ponds or up to 2 rods for freshwater fish, smelt lamprey and eels where byelaws allow.
+              </li>
+              <li>
+                The licence does not give the licence holder the right to fish anywhere. The licence holder must get permission from any local land owners before fishing. This may involve a separate charge from them, and separate rules may also apply.
+              </li>
+              <li>
+                The licence holder must comply with local and national fisheries byelaws.
+              </li>
+              <li>
+                When fishing, or intending to fish, the licence holder must carry their fishing licence or proof of purchase and show it to our enforcement officers if they ask to see it. If the licence holder is still waiting for their licence to arrive in the post, they must carry proof of the licence and proof of their identity.
+              </li>
+            </ol>
+          </div>
+        </div>
+        <div class="govuk-accordion__section">
+          <div class="govuk-accordion__section-header">
+            <h2 class="govuk-accordion__section-heading">
+              <span class="govuk-accordion__section-button" id="accordion-default-heading-2">
+                Trout and coarse, up to 3 rods
+              </span>
+            </h2>
+          </div>
+          <div id="accordion-default-content-2" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-2">
+
+            <h2 class="govuk-heading-m" id="3rod">
+              The following conditions apply:
+            </h2>
+
+            <p class='govuk-body'>
+              The licence holder must view and agree to these conditions. It is an offence to act in breach of the licence conditions. The following conditions apply:
+            </p>
+
+            <ol class="govuk-list govuk-list--number">
+              <li>
+                The licence is only valid for use in England, Wales and the Border Esk in Scotland and is only valid for the licence holder.
+              </li>
+              <li>
+                The licence is only valid from its start date and time until its end date and time.
+              </li>
+              <li>
+                The licence will cover the licence holder for 1 rod for non-migratory trout in rivers, streams, drains and canals, up to 2 rods for non-migratory trout in reservoirs, lakes and ponds or up to 3 rods for freshwater fish, smelt lamprey and eels where byelaws allow.
+              </li>
+              <li>
+                The licence does not give the licence holder the right to fish anywhere. The licence holder must get permission from any local land owners before fishing. This may involve a separate charge from them, and separate rules may also apply.
+              </li>
+              <li>
+                The licence holder must comply with local and national fisheries byelaws.
+              </li>
+              <li>
+                When fishing, or intending to fish, the licence holder must carry their fishing licence or proof of purchase and show it to our enforcement officers if they ask to see it. If the licence holder is still waiting for their licence to arrive in the post, they must carry proof of the licence and proof of their identity.
+              </li>
+            </ol>
+
+          </div>
+        </div>
+        <div class="govuk-accordion__section ">
+          <div class="govuk-accordion__section-header">
+            <h2 class="govuk-accordion__section-heading">
+              <span class="govuk-accordion__section-button" id="accordion-default-heading-3">
+                Salmon and trout (includes trout and coarse, up to 3 rods)
+              </span>
+            </h2>
+          </div>
+
+          <div id="accordion-default-content-3" class="govuk-accordion__section-content govuk-accordion__section-content--open" aria-labelledby="accordion-default-heading-3">
+
+            <h2 class="govuk-heading-m" id="salmon">
+              The following conditions apply:
+            </h2>
+
+            <p class='govuk-body'>
+              The licence holder must view and agree to these conditions. It is an offence to act in breach of the licence conditions. The following conditions apply:
+            </p>
+
+            <ol class="govuk-list govuk-list--number">
+              <li>
+                The licence is only valid for use in England, Wales and the Border Esk in Scotland and is only valid for the licence holder.
+              </li>
+              <li>
+                The licence is only valid from its start date and time until its end date and time.
+              </li>
+              <li>
+                The licence will cover the licence holder to fish with 1 rod for salmon, sea trout and non-migratory trout in rivers, streams and canals, up to 2 rods for salmon, sea trout and non-migratory trout in reservoirs, lakes and ponds or up to 3 rods for freshwater fish, smelt, lamprey and eels where byelaws allow.
+              </li>
+              <li>
+                The licence does not give the licence holder the right to fish anywhere. The licence holder must get permission from any local land owners before fishing. This may involve a separate charge from them, and separate rules may also apply.
+              </li>
+              <li>
+                The licence holder must comply with local and national fisheries byelaws.
+              </li>
+              <li>
+                When fishing, or intending to fish, the licence holder must carry their fishing licence or proof of purchase and show it to our enforcement officers if they ask to see it. If the licence holder is still waiting for their licence to arrive in the post, they must carry proof of the licence and proof of their identity.
+              </li>
+              <li>
+                The licence holder will report a catch return of their yearly salmon and sea trout fishing activity in England and Wales, even if they do not catch anything or do not fish.
+              </li>
+            </ol>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+{% endblock %}
