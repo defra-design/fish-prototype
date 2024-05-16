@@ -1,0 +1,90 @@
+{% extends "layout-unbranded.html" %}
+
+{% set bodyClasses = "govuk-email" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{{ govukHeader({
+  useTudorCrown: true,
+   homepageUrl: "/",
+   serviceUrl: "#",
+   containerClasses: "govuk-width-container"
+ }) }}
+{% endblock %}
+
+{% set title = "‘I want to fish’ prototype" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <!-- <h1 class="govuk-heading-xl">
+      {{title}}
+    </h1> -->
+
+
+
+
+ <table class="govuk-table">
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><strong>From:</strong> notifications@ea.gov.uk</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><strong>To:</strong> sam.fisher@email.com</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><strong>Subject:</strong> Payment failed – your 12-month fishing licence will not renew automatically</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">
+            <br>
+            <br>
+            <p class="govuk-body">Dear Sam Fisher,</p>
+
+            <p class="govuk-body">We tried to take payment for your next 12-month fishing licence from card ending 4321 but this payment failed.</p>
+
+            <p class="govuk-body">Your current licence will remain valid until its expiry date on 29 June 2024 but it will not renew automatically.</p>
+
+            <p class="govuk-body">If you want to go fishing after 29 June 2024 you must buy another licence – see <a href="https://www.gov.uk/fishing-licences/buy-a-fishing-licence" target="_blank">https://www.gov.uk/fishing-licences/buy-a-fishing-licence</a>.</p>
+
+            <p class="govuk-body">Your annual recurring card payment agreement has now been cancelled – we will not attempt to take payment again. You can set up a new recurring card payment if you buy a new licence.</p>
+
+            <p class="govuk-body">Regards,</p>
+            <p class="govuk-body">The Environment Agency Fisheries Team</p>
+
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+</div>
+
+<!-- notes about the service & prototype -->
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+
+
+
+
+  </div>
+</div>
+
+{% endblock %}

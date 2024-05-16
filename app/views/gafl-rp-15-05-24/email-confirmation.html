@@ -1,0 +1,97 @@
+{% extends "layout-unbranded.html" %}
+
+{% set bodyClasses = "govuk-email" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{{ govukHeader({
+  useTudorCrown: true,
+   homepageUrl: "/",
+   serviceUrl: "#",
+   containerClasses: "govuk-width-container"
+ }) }}
+{% endblock %}
+
+{% set title = "‘I want to fish’ prototype" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <!-- <h1 class="govuk-heading-xl">
+      {{title}}
+    </h1> -->
+
+
+
+
+ <table class="govuk-table">
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><strong>From:</strong> notifications@ea.gov.uk</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><strong>To:</strong> sam.fisher@email.com</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><strong>Subject:</strong> You’ve set up a recurring card payment to renew your 12-month fishing licence</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">
+            <br>
+            <br>
+            <p class="govuk-body">Dear Sam Fisher,</p>
+            
+            <p class="govuk-body">You’ve set up a recurring card payment to renew your 12-month fishing licence. Payment will be taken annually from your card ending 4321.</p>
+
+            <p>The cost of a future licence may change. We will confirm the next payment by email before your current licence expires.</p>
+
+            <h2 class="govuk-heading-m"> Need to cancel or make a change?<h2>
+
+            <p class="govuk-body">If you cancel your recurring card payment, your current licence will remain valid until its expiry date.</p>
+
+            <p class="govuk-body">If your postal or email address change, let us know so we can update our records and send your licence to the right place.</p>
+
+            <p class="govuk-body">To cancel or make a change, email <a href=""> enquiries@environment-agency.gov.uk</a> up to 15 days before payment is due, or call 03708 506 506 (8am to 6pm, Monday to Friday except public holidays) up to the day before payment is due. Find out about call charges at <a href="https://www.gov.uk/call-charges" target="_blank">https://www.gov.uk/call-charges</a>.</p>
+
+           <h2 class="govuk-heading-m">Terms and conditions</h2>
+
+            <p class="govuk-body">Read the recurring card payment terms and conditions at <a href="rp-terms-standalone" target="_blank">https://www.gov.uk/ea/fishing-licence-recurring-terms</a>. You may like to keep this email for your records.</p>
+
+            <p class="govuk-body">Regards,</p>
+            <p class="govuk-body">The Environment Agency Fisheries Team</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+</div>
+
+<!-- notes about the service & prototype -->
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+
+
+
+
+  </div>
+</div>
+
+{% endblock %}
