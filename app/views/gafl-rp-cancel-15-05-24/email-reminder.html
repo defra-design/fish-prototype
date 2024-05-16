@@ -1,0 +1,135 @@
+{% extends "layout-unbranded.html" %}
+
+{% set bodyClasses = "govuk-email" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{{ govukHeader({
+  useTudorCrown: true,
+   homepageUrl: "/",
+   serviceUrl: "#",
+   containerClasses: "govuk-width-container"
+ }) }}
+{% endblock %}
+
+{% set title = "‘I want to fish’ prototype" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <!-- <h1 class="govuk-heading-xl">
+      {{title}}
+    </h1> -->
+
+
+
+
+ <table class="govuk-table">
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><strong>From:</strong> notifications@ea.gov.uk</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><strong>To:</strong> sam.fisher@email.com</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><strong>Subject:</strong> A payment for your next 12-month fishing licence will be taken soon</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">
+            <br>
+            <br>
+            <p class="govuk-body">Dear Sam Fisher,</p>
+
+            <p class="govuk-body">A payment of £93.10 for your next 12-month fishing licence will be taken from your card ending 4321. Payment will be taken on 1 June 2025.</p>
+
+            <p class="govuk-body">You do not need to do anything unless your address has changed, you need a different type of licence, or you want to cancel your licence renewal.</p>
+
+            <h2 class="govuk-heading-m"> Your next licence</h2>
+
+            <div class="govuk-inset-text">
+              <p>Type: salmon and sea trout</p>
+              <p>Starts: 00:00am on 30 June 2025</p>
+              <p>Ends: 11:59pm on 29 June 2026</p>
+              <p>Sent by: email after payment</p>
+            </div>
+
+            <h2 class="govuk-heading-m">Cancel your licence renewal</h2>
+            <p class="govuk-body">To stop your licence from renewing you’ll need to cancel your recurring card payment. Your current licence will remain valid until its expiry date.</p>
+
+            <p class="govuk-body">To cancel your payment:</p>
+
+              <ul class="govuk-list govuk-list--bullet">
+
+                <li>cancel your payment online up to the day before your payment date at <a href="rcp-cancel_enter-details">https://www.gov.uk/ea/cancel-recurring-card-payment</a></li>
+                <li>email enquiries@environment-agency.gov.uk no later than 15 days before your payment date</li>
+                <li>call 03708 506 506 (8am to 6pm, Monday to Friday except public holidays) up to the day before your payment date – find out about call charges at <a href="https://www.gov.uk/call-charges" target="_blank"> https://www.gov.uk/call-charges</a></li>
+              </ul>
+
+            <h2 class="govuk-heading-m">Has something changed since you bought your last licence?</h2>
+
+            <h3 class="govuk-heading-s"> Update your contact details</h3>
+
+            <p class="govuk-body">If your address or contact details have changed, let us know so we can update our records and send your licence to the right place.</p>
+
+            <p class="govuk-body">To update your contact details:</p>
+
+            <ul class="govuk-list govuk-list--bullet">
+
+              <li>email <a href="">enquiries@environment-agency.gov.uk</a> no later than 15 days before your payment date</li>
+              <li>call 03708 506 506 (8am to 6pm, Monday to Friday except public holidays) up to the day before your payment date – find out about call charges at <a href="https://www.gov.uk/call-charges" target="_blank">https://www.gov.uk/call-charges</a></li>
+            </ul>
+
+            <h3 class="govuk-heading-s">Change your licence type</h3>
+
+            <p class="govuk-body">Cancel the recurring card payment and buy a new licence if you need to:</p>
+
+            <ul class="govuk-list govuk-list--bullet">
+
+              <li>change the number of rods or type of fish covered by the licence</li>
+              <li>change to a concessionary licence because of a disability</li>
+            </ul>
+
+            <h2 class="govuk-heading-m">Terms and conditions</h2>
+
+            <p class="govuk-body">Read the recurring card payment terms and conditions at <a href="/gafl-rp-15-05-24/rp-terms-standalone" target="_blank"> https://www.gov.uk/ea/fishing-licence-recurring-terms</a>.</p>
+
+            <p class="govuk-body">Regards,</p>
+            <p class="govuk-body">The Environment Agency Fisheries Team</p>
+
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+</div>
+
+<!-- notes about the service & prototype -->
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+
+
+
+
+  </div>
+</div>
+
+{% endblock %}
